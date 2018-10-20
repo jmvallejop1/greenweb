@@ -20,6 +20,7 @@ public class UsuarioManager {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 			return null;
 		}
 		
