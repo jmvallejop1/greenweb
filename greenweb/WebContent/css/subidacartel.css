@@ -1,0 +1,78 @@
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	background-position: center;
+	background: url(../images/img1.jpg) no-repeat;
+}
+
+
+
+.loginBox{
+	margin-top:200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 700px;
+	height: 850px;
+	/*overflow-y: auto;*/
+	box-sizing: border-box;
+	background: rgba(0,0,0,.5);
+}
+
+
+.loginBox h1 {
+	text-align:center;
+	color:#fff;
+	font-weight:normal;
+	font-size:40pt;
+	margin-bottom:30px;
+}
+
+form {
+	/*background:#333333;*/
+	/*width: 550px;*/
+	/*border:1px solid #4e4d4d;*/
+	/*border-radius:3px;
+	box-shadow:inset 0 0 10px #000;*/
+	margin:35px auto;
+}
+
+form img {
+	width: 50px; 
+	height: 50px;
+}
+
+form tr td p {
+	font: verdana;
+	font-weight: bold;
+	color: #df7c29;
+	padding: 0px;
+	width: 200px;
+}
+
+form tr td input {
+	width:280px;
+	height:35px;
+	padding:30 px 30px;
+	color:#6d6d6d;
+	margin:10px 50px;
+	text-align:center;
+}
+
+form button{
+	width:135px;
+	margin:20px 10px 10px 20px;
+	height:50px;
+	background:#3c3c3c;
+	border:1px solid #232323;
+	color: #fff;
+	box-shadow:0px 2px 0px #000;
+}
+
+
+
+

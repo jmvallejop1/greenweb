@@ -1,0 +1,12 @@
+body{
+	margin:0;
+}
+
+.pregunta li{
+	list-style: none;
+}
+
+.info{
+	width: 80%;
+	margin: auto;
+}

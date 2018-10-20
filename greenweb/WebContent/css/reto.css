@@ -1,0 +1,67 @@
+body{
+	background:url(../images/img1.jpg) no-repeat;
+}
+.container{
+	width:80%;
+	margin: 100px auto; 
+	overflow:hidden;
+	background:rgba(0,0,0,0.5);
+	color:white;
+}
+
+.container h1{
+	text-align: center;
+}
+
+.container{
+	padding:20px;
+}
+.pregunta{
+	text-align: center;	
+}
+.pregunta h3{
+	color: white;
+}
+
+.pregunta select{
+		display:block;
+		margin-top: 20;	
+		padding-left: 200;	
+}
+.reto{
+	margin-top: 100px;
+}
+	
+.reto .option{
+	display:block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+.reto h3{
+	text-align: center;
+	color:white;
+}
+
+.reto p{
+	color: white;
+}
+.opcion{
+	display: block;
+	padding: 5px 0 5px 0;
+	margin: 5px 0 5px 0;
+
+}
+.pregunta li{
+	list-style: none;
+	color: white;
+}
+section{
+ 	margin-top:10px;
+}
+video{
+	max-width: 80%;
+	height: auto;
+	float:right;
+	margin:20px; 
+}

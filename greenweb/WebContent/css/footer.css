@@ -1,0 +1,40 @@
+body{
+  margin:30px 0 0 0;
+}
+
+footer{
+  color:white;
+	/*background:url(../images/img1.jpg) no-repeat 0 -500px;*/
+  background-color: #051e47;
+}
+.box{
+	float:right;
+	display: inline-block;
+}
+.box ul{
+  padding: 0;
+
+}
+.box li{
+  display: inline-block;
+  margin: 6px;
+  list-style: none;
+}
+.box li a{
+  color: white;
+  text-decoration: none;
+  font-size: 60px;
+  transition: all ease-in-out 250ms;
+  right: 100%;
+
+}
+.box li a:hover{
+  color: #b9b9b9;
+}
+
+footer h3{
+margin-left: 40%;
+margin-top: 40px;
+display: inline-block;
+margin-bottom: 40px
+}

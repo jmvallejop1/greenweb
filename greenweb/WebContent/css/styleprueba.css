@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background: green;
+}
+
+.navegacion{
+	width: 80%;
+	margin: 30px auto;
+	background: white;
+}
+
+.navegacion ul{
+	list-style: none;
+}
+
+.menu > li{
+	position: relative;
+	display: inline-block;;
+}
+
+.menu > li > a{
+	display:block;
+	padding: 15px 20px;
+	color:grey;
+	font-family: Arial;
+	text-decoration: none;
+}
+
+.menu li a:hover{
+	color:black;
+	transition: all 0.3;
+}
+
+

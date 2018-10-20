@@ -1,0 +1,98 @@
+/*Los opjetos que sean se tipo container mediran un 80% y 
+tendran el margen automatico*/
+
+body{
+	margin:0;
+}
+.container{
+	width:80%;
+	margin:auto;
+	overflow:hidden;
+}
+.NoticeContainer{
+	width:40%;
+	margin:auto;
+	overflow:hidden;
+	float: left;
+	margin: 40px 40px 20px 80px;
+}
+
+#RetoActual{	
+	text-align: center;
+}
+
+.reto h3{
+	text-align: center;
+}
+
+
+
+.pregunta{
+	text-align: center;	
+
+}
+
+.pregunta select{
+	display:block;
+	margin-top: 20;	
+	padding-left: 200;	
+}
+	
+.reto .option{
+	display:block;
+	margin-top: 5px;
+	margin-bottom: 5px;
+
+}
+
+#Registro{
+	width:40%;
+	margin:auto;
+	margin-top:40px;
+	overflow:hidden;
+}
+
+.pregunta select{
+	margin:20px auto;
+}
+
+.bot{
+	margin: 20px auto;
+}
+
+
+/* Intentar hacer el video responsive*/ 
+.InfoVideo{
+	max-width: 60%;
+	float:right;
+}
+
+.opcion{
+	display: block;
+	padding: 5px 0 5px 0;
+	margin: 5px 0 5px 0;
+
+}
+
+.pregunta li{
+	list-style: none;
+}
+
+.ResumenNoticia{
+	text-align: center;
+}
+
+section{
+ 	margin-top:10px;
+}
+video{
+	max-width: 80%;
+	height: auto;
+	float:right;
+	margin:20px; 
+}
+
+
+
+
+

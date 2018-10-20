@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	/*background-color: #632432;*/
+	background:url(../images/img1.jpg) no-repeat;
+	font-family:arial;
+}
+
+.container {
+	margin: 50px auto;
+	width: 600px;
+}
+
+table {
+	width: 100%;
+	background-color: white;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead {
+	background-color: #246355;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td {
+	background-color: #369681;
+}

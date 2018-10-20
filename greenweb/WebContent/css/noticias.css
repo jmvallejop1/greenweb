@@ -1,0 +1,30 @@
+body{
+	margin: 0;
+}
+.NoticeContainer{
+	width:40%;
+	margin:auto;
+	overflow:hidden;
+	display: inline-block;
+	margin: 40px 40px 20px 80px;
+}
+
+.NoticeContainer p video{
+	max-width: 80%;
+	min-width: 50%
+	height: auto;
+	float:right;
+	margin-left:20px; 
+	margin-bottom:20px;
+}
+
+
+.NoticeContainer h3{
+	text-align: center;
+}
+
+section{
+ 	margin-top:10px;
+}
+
+
