@@ -31,18 +31,18 @@ List<UsuarioDO> result=man.obtenerTodosUsuarios();
 				</tr>
 			</thead>
 			
-			<%for(int i=0;i<result.size();i++)
+			<%//for(int i=0;i<result.size();i++)
 			
-			{%>
+			//{%>
 
 			<tr>
 				<td>1
 				</th>
-				<td><%out.println(result.get(i).getNombre());%></td>
+				<td><%//out.println(result.get(i).getNombre());%></td>
 				<td>34</td>
 			</tr>
 			
-			<%} %>
+			<%//} %>
 		</table>
 	</div>
 </body>

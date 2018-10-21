@@ -9,7 +9,8 @@ public class UsuarioManager {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		UsuarioManager usu = new UsuarioManager();
+		usu.obtenerTodosUsuarios();
 	}
 	
 	public List<UsuarioDO> obtenerTodosUsuarios()
