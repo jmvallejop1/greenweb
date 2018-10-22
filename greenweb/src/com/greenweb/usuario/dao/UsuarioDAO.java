@@ -21,12 +21,13 @@ public class UsuarioDAO {
 	    public List<UsuarioDO> obtenerTodos() throws Exception {
 	    	 List resultado=new LinkedList();
 	        try {
+	        	
 	        	connect=ConnectionManager.getConnection();
 
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
-	            resultSet = statement.executeQuery("select * from usuario");
+	            resultSet = statement.executeQuery("select * from arbitros_ejemplo");
 	           
 	            while (resultSet.next()) {
 	                // It is possible to get the columns via name

@@ -8,7 +8,11 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.47.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Jose Maria Vallejo/Desktop/apache-tomcat-9.0.12-windows-x64/apache-tomcat-9.0.12/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/classes12dms_g.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/classes12dms.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ojdbc7.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/opencsv-2.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

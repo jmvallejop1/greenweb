@@ -11,6 +11,7 @@ public class UsuarioManager {
 		// TODO Auto-generated method stub
 		UsuarioManager usu = new UsuarioManager();
 		usu.obtenerTodosUsuarios();
+		System.out.println("hola");
 	}
 	
 	public List<UsuarioDO> obtenerTodosUsuarios()
