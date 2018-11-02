@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<description>Hola Mundo</description>
+	<display-name>Prueba</display-name>
+	
+	<filter>
+	<filter-name>autfilter</filter-name>
+	<filter-class>com.greenweb.filter.Filtro_aute</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>autfilter</filter-name>
+	<url-pattern>/privada/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>alufilter</filter-name>
+	<filter-class>com.greenweb.filter.Filtro_alu</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>alufilter</filter-name>
+	<url-pattern>/alu/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>proffilter</filter-name>
+	<filter-class>com.greenweb.filter.Filtro_prof</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>proffilter</filter-name>
+	<url-pattern>/prof/*</url-pattern>
+	</filter-mapping>
+</web-app>

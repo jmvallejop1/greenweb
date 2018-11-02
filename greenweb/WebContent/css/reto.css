@@ -11,16 +11,29 @@ body{
 
 .container h1{
 	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.container p {
+	font-family: 'PT Serif', serif;
 }
 
 .container{
 	padding:20px;
 }
+
 .pregunta{
-	text-align: center;	
+	text-align: center;
+	border: 1px solid;
+	border-color: #FF000;	
 }
+
 .pregunta h3{
 	color: white;
+}
+
+.pregunta input {
+	margin-bottom: 10px;
 }
 
 .pregunta select{
@@ -46,12 +59,21 @@ body{
 .reto p{
 	color: white;
 }
+
 .opcion{
 	display: block;
 	padding: 5px 0 5px 0;
 	margin: 5px 0 5px 0;
 
 }
+
+.pregunta h2 {
+    font-family: 'PT Serif', serif;
+    font-family: 'Cabin', sans-serif;
+	font-size: 18px;
+	color: #85f2b3;
+}
+
 .pregunta li{
 	list-style: none;
 	color: white;

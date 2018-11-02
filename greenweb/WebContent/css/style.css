@@ -1,4 +1,4 @@
-/*Los opjetos que sean se tipo container mediran un 80% y 
+/*Los objetos que sean se tipo container mediran un 80% y 
 tendran el margen automatico*/
 
 body{
@@ -8,6 +8,9 @@ body{
 	width:80%;
 	margin:auto;
 	overflow:hidden;
+}
+.frames2{
+	margin-top: 20px;
 }
 .NoticeContainer{
 	width:40%;
@@ -25,12 +28,50 @@ body{
 	text-align: center;
 }
 
+/* PREGUNTA PRINCIPAL*/
 
+.PreguntaPrincipal{
+	background-color: #051e47;
+	overflow: hidden;
+	color:white;
+	width: 80%;
+	margin: auto;
+}
+
+.PreguntaPrincipal ul{
+	list-style: none;
+	display: block;
+	padding-top: 10px;
+	padding-left: 40px;
+}
+
+.PreguntaPrincipal h3{
+	text-align: center;
+}
+
+.PreguntaPrincipal li{
+	padding-top:10;
+}
+
+.PreguntaPrincipal .respuestas .bot{
+	margin-left: 45%;
+}
+
+.PreguntaPrincipal .respuestas{
+	height: 0;
+	transition: all ease-in-out 500ms;
+}
+
+.PreguntaPrincipal:hover .respuestas{
+	background-color: #4a648e;
+	height: 150px;
+	transition: all ease-in-out 500ms;
+}
 
 .pregunta{
-	text-align: center;	
-
+	text-align: center;
 }
+
 
 .pregunta select{
 	display:block;
@@ -56,9 +97,6 @@ body{
 	margin:20px auto;
 }
 
-.bot{
-	margin: 20px auto;
-}
 
 
 /* Intentar hacer el video responsive*/ 
@@ -92,7 +130,99 @@ video{
 	margin:20px; 
 }
 
+/*EXCLUSIVO ALU    PREGUNTAS ADICIONALES*/
+.SeccionPreguntasAlternativas{
+	background:url(../images/img1.jpg) no-repeat 0 -500px;
+}
+.PreguntasAdicionales{
+	width: 80%;
+	margin: auto;
+	padding-bottom: 40px;
+}
+
+.TituloAdicionales{
+	margin-top: 20px;
+	padding:20px 0;
+	background-color: green;
+}
+
+.TituloAdicionales h3{
+	text-align: center;
+	display: inline-block;
+	color: white;
+	margin-left: 40%;
+}
+.infoCont{
+	display: inline-block;
+	position: relative;
+	height: 30px;
+	width: 30px;
+	float:right;
+	margin-right: 10%;
+}
+.TituloAdicionales .fas{
+	font-size: 30px;
+	display: inline-block;
+	float:right;
+	color:white;
+	margin-right: 10%;
+	margin-top: 15px;
+}
+
+.infoCont .info{
+	visibility: hidden;
+	width: 0;
+}
+
+.infoCont:hover .info{
+	position:absolute;
+	width:200px;
+	left:-100px;
+	bottom:-60px;
+	color:white;
+	visibility: visible;
+}
 
 
 
+
+.PreguntaAdicional{
+	background-color: #051e47;
+	overflow: hidden;
+	color:white;
+	margin: 20px auto 0 auto;
+
+}
+
+.PreguntaAdicional ul{
+	list-style: none;
+	display: block;
+	padding-top: 10px;
+	padding-left: 40px;
+}
+
+.PreguntaAdicional h3{
+	text-align: center;
+}
+
+.PreguntaAdicional li{
+	padding-top:10;
+}
+
+.PreguntaAdicional .respuestas .bot{
+	margin-left: 45%;
+}
+
+.PreguntaAdicional .respuestas{
+	height: 0;
+	visibility: hidden;
+	transition: all ease-in-out 500ms;
+}
+
+.PreguntaAdicional:hover .respuestas{
+	background-color: #4a648e;
+	height: 150px;
+	visibility: visible;
+	transition: all ease-in-out 500ms;
+}
 

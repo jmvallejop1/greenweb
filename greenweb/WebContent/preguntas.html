@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<meta charset="utf-8">
     <title>Preguntas Recicladas</title>
     <link rel="stylesheet" href="css/preguntas.css"> 
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
   </head>  
 
   <body>
@@ -12,38 +14,86 @@
     <p align="center"><strong>¡Bienvenidos a nuestra sección de preguntas recicladas!</strong></p>
   	<p align="left">En esta sección encontrareis una colección de preguntas provinientes de retos de otros años. ¡Así nunca se pierden! Podrás contestar a las preguntas y aparecerá al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarán la respuesta correcta hasta que no termine el reto. ¡No queremos trampas!</p>
   </div>
-	<center>
-	<form class="pregunta" action="#" method="post">
+<div class="container">
+	<div class="PreguntaAdicional">
+    <form>
       <h3>¿Qué efectos provoca la emision de gases en la capa de ozono?</h3>
-      <ul>
+      <i class="fas fa-info-circle"></i>
+      <div class="respuestas">
+        <ul>
           <li><input type="radio" name="resp" value="1" />
-          <label>Malestar popular</label></li>
+          <label>Cambio climatico</label></li>
           <li><input type="radio" name="resp" value="2" />
-          <label>Revueltas sociales</label></li>
+          <label>Polucion</label></li>
           <li><input type="radio" name="resp" value="3" />
-          <label>Cambio climático</label></li>
+          <label>Marea negra</label></li>
           <li><input type="radio" name="resp" value="4" />
-          <label>Nose</label></li>
-      </ul>
-      <input type="button" name="Cancelar" value="Confirmar respuesta" onClick="window.location.href='preguntas_resp_cor.html'" >
-  	</form>
-  	<hr/>
-  	<form class="pregunta" action="#" method="post">
+          <label>No sabe/No contesta</label></li>
+        </ul>
+        <input type="button" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='preguntas_resp_cor.html'">
+        </div>
+    </form>
+  </div>
+  <div class="PreguntaAdicional">
+    <form>
       <h3>¿Qué efectos provoca la emision de gases en la capa de ozono?</h3>
-      <ul>
+      <i class="fas fa-info-circle"></i>
+      <div class="respuestas">
+        <ul>
           <li><input type="radio" name="resp" value="1" />
-          <label>Malestar popular</label></li>
+          <label>Cambio climatico</label></li>
           <li><input type="radio" name="resp" value="2" />
-          <label>Revueltas sociales</label></li>
+          <label>Polucion</label></li>
           <li><input type="radio" name="resp" value="3" />
-          <label>Cambio climático</label></li>
+          <label>Marea negra</label></li>
           <li><input type="radio" name="resp" value="4" />
-          <label>Nose</label></li>
-      </ul>
-      <input type="button" name="Cancelar" value="Confirmar respuesta" onClick="window.location.href='preguntas_resp_incor.html'" >  	</form>
-  	<!-- AQUÍ IRAN EL RESTO DE PREGUNTAS DE OTROS AÑOS -->
-  </center>
-  <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>
+          <label>No sabe/No contesta</label></li>
+        </ul>
+        <input type="button" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='index_respondeRA.html'">
+        </div>
+    </form>
+  </div>
+
+  <div class="PreguntaAdicional">
+    <form>
+      <h3>¿Qué efectos provoca la emision de gases en la capa de ozono?</h3>
+      <i class="fas fa-info-circle"></i>
+      <div class="respuestas">
+        <ul>
+          <li><input type="radio" name="resp" value="1" />
+          <label>Cambio climatico</label></li>
+          <li><input type="radio" name="resp" value="2" />
+          <label>Polucion</label></li>
+          <li><input type="radio" name="resp" value="3" />
+          <label>Marea negra</label></li>
+          <li><input type="radio" name="resp" value="4" />
+          <label>No sabe/No contesta</label></li>
+        </ul>
+        <input type="button" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='index_respondeRA.html'">
+        </div>
+    </form>
+  </div>
+  <div class="PreguntaAdicional">
+    <form>
+      <h3>¿Qué efectos provoca la emision de gases en la capa de ozono?</h3>
+      <i class="fas fa-info-circle"></i>
+      <div class="respuestas">
+        <ul>
+          <li><input type="radio" name="resp" value="1" />
+          <label>Cambio climatico</label></li>
+          <li><input type="radio" name="resp" value="2" />
+          <label>Polucion</label></li>
+          <li><input type="radio" name="resp" value="3" />
+          <label>Marea negra</label></li>
+          <li><input type="radio" name="resp" value="4" />
+          <label>No sabe/No contesta</label></li>
+        </ul>
+        <input type="button" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='index_respondeRA.html'">
+        </div>
+    </form>
+  </div>
+</div>
+  <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>
 
 

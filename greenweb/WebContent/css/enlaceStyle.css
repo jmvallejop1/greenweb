@@ -1,8 +1,49 @@
 body{
 	margin: 0;
 }
-
+.frames2{
+	margin-top: 20px;
+}
 .info{
 	width: 80%;
 	margin: auto;
+}
+
+table {
+	margin-top: 30px;
+	width: 80%;
+	background-color: white;
+	border-collapse: collapse;
+	text-align: center;
+	border:1px solid;
+}
+th, td{
+	padding: 20px;
+}
+
+thead {
+	background-color: #246355;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td {
+	background-color: #369681;
+}
+
+table a{
+	color: black;
+	text-decoration: none;
+}
+
+.SubirEnlace{
+}
+
+.SubirEnlace .SubirLink{
+	
+}
+
+.SubierEnlace .InputEnlace{
 }

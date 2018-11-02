@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <link rel="stylesheet" href="css/estadisticas.css">
+	<link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+    <title>Estadisticas del reto</title>
+	<script>
+	</script>
+  </head>
+  <body>
+	<center>
+		<span class="luz" id="blink"><b>Estadísticas del reto</b></span>
+	</center>
+	<script> (function() {
+			 setInterval(function(){
+				var el = document.getElementById('blink');
+				if(el.className == 'luz'){
+					el.className = 'luz on';
+				}else{
+					el.className = 'luz';
+				}
+			},500);
+	})();
+	</script>
+	<form method="post">
+		<div class="primer_grafico"> 
+			<p>
+				En el gráfico superior se comparan cuantitativamente los usuarios en <br/>
+				total que han entrado a ver el contenido del reto pero que no han <br/>
+				contestado a la pregunta frente a los que han entrado y contestado a <br/>
+				la pregunta
+			</p>
+			<center>
+				<img src="images/graf.jpg"/>
+			</center>
+		</div> 
+		<div class="segundo_gradico">
+			<p>
+				En el gráfico superior se comparan cuantitativamente cuantos usuarios <br/>
+				de cada tipo, invitados y alumnos, han conestado a cada pregunta del <br/>
+				reto. Recuerda que el grupo mayoritario puede haberse equivocado de <br/>
+				respuesta
+			</p>
+			<center>
+				<img src="images/graf2_m.jpg"/>
+			</center>
+		</div>
+		<input type="button" name="Cancelar" value="Salir de estadisticas" onClick="window.location.href='reto_actual_prof.html'" >
+	</form>
+  </body>
+</html>
+

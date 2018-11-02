@@ -1,0 +1,24 @@
+/*Los opjetos que sean se tipo container mediran un 80% y 
+tendran el margen automatico*/
+
+body {
+	margin: 0;
+	
+	background:#77e610;
+
+	background-position: center;
+
+	background: url(../images/bosque.jpg);
+}
+
+h1 {
+	text-align: center;
+	color: #fafafa;
+}
+
+p {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fafafa;
+}

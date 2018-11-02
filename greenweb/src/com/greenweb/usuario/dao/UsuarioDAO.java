@@ -27,16 +27,17 @@ public class UsuarioDAO {
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
-	            resultSet = statement.executeQuery("select * from arbitros_ejemplo");
+	            resultSet = statement.executeQuery("select titulo, texto, video from noticias");
 	           
 	            while (resultSet.next()) {
 	                // It is possible to get the columns via name
 	                // also possible to get the columns via the column number
 	                // which starts at 1
 	                // e.g. resultSet.getSTring(2);
+	            	System.out.println(resultSet.getString("titulo"));
 	            	UsuarioDO user=new UsuarioDO();
-	            	user.setLogin(resultSet.getString("login"));
-	            	user.setNombre(resultSet.getString("nombre"));
+	            	//user.setLogin(resultSet.getString("login"));
+	            	user.setNombre(resultSet.getString("titulo"));
 	            	resultado.add(user);
 	                
 	            }

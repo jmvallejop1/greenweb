@@ -1,5 +1,8 @@
 body{
 	margin: 0;
+	background:#77e610;
+	background-position: center;
+	background: url(../images/bosque.jpg);
 }
 
 #ProfPic{
@@ -21,6 +24,7 @@ body{
 	align-content: center;
 }
 
+
 .box2{
 	width:500px;
 	height: 350px;
@@ -28,8 +32,8 @@ body{
 	margin: 70px auto;
 	position: relative;
 	border: 3px solid black;
-	border-radius: 20px 20px 20px 20px
-	
+	border-radius: 20px 20px 20px 20px;
+	background: grey;
 }
 
 .container {
