@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title> Pagina de comentarios </title>
-		<link rel="stylesheet" href="css/comentarios.css">
+		<link rel="stylesheet" href="../css/comentarios.css">
 		<meta name="viewport" content="width=device-width, initial.scale=1">
 		
 		<link rel="stylesheet" href="css/font-awesome.-mi">

@@ -3,7 +3,7 @@
   <head>
 	<meta charset="utf-8">
     <title>Preguntas Recicladas</title>
-    <link rel="stylesheet" href="css/preguntas.css"> 
+    <link rel="stylesheet" href="../css/preguntas.css"> 
   </head>  
 
   <body>
@@ -92,7 +92,7 @@
     </form>
   </div>
 </div>
-  <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+  <iframe src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>
 
 

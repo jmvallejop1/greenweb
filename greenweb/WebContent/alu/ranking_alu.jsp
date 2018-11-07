@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
 		<title> Ranking </title>
-		<link rel="stylesheet" href="css/ranking.css">
+		<link rel="stylesheet" href="../css/ranking.css">
 		<script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
    </head>
    
@@ -52,6 +52,6 @@
 			</table>
 		</div>
 	  </body>
-	  <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+	  <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 
  </html>

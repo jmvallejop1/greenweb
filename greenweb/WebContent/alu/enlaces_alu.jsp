@@ -2,7 +2,7 @@
 <html lang="en">
    <head>
 		<title> Enlaces</title>
-		<link rel="stylesheet" href="css/enlaceStyle.css">
+		<link rel="stylesheet" href="../css/enlaceStyle.css">
    </head>
      
     <body>
@@ -23,15 +23,15 @@
 					<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota!</th></tr>
 				</thead>
 
-				<tr><td><a href="#">Link1</td> <td> 34 </td><td><img src="images/fiable.png"></td></tr>
-				<tr><td><a href="#">Link2</td> <td> 29 </td><td><img src="images/fiable.png"></td></tr>
-				<tr><td><a href="#">Link3</td> <td> 26 </td><td><img src="images/fiable.png"></td></tr>
-				<tr><td><a href="#">Link4</td> <td> 24 </td><td><img src="images/fiable.png"></td></tr>
-				<tr><td><a href="#">Link5</td> <td> 22 </td><td><img src="images/fiable.png"></td></tr>
-				<tr><td><a href="#">Link6</td> <td> 20 </td><td><img src="images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link1</td> <td> 34 </td><td><img src="../images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link2</td> <td> 29 </td><td><img src="../images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link3</td> <td> 26 </td><td><img src="../images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link4</td> <td> 24 </td><td><img src="../images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link5</td> <td> 22 </td><td><img src="../images/fiable.png"></td></tr>
+				<tr><td><a href="#">Link6</td> <td> 20 </td><td><img src="../images/fiable.png"></td></tr>
 	
 			</table>
 		</div>
-		<iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+		<iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 	</body>
 </html>

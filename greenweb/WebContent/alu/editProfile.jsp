@@ -2,14 +2,14 @@
 <html lang="en">
    <head>
       <title>Mi cuenta</title>
-      <link rel="stylesheet" href="css/styleProfile.css">
+      <link rel="stylesheet" href="../css/styleProfile.css">
       <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
    </head>
    <body>
       <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
          <!--Aquí iría el frame de la cabecera y el menu-->
       <div class="box2">
-         <img src="images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
+         <img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
          <div class="infoUser">
             <center>
                <h2> Información personal de Nombre Apellido</h2>
@@ -56,7 +56,7 @@
          </table>
       </div>
 
- <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+ <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 
    </body>
 </html>

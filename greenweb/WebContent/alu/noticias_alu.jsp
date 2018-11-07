@@ -3,7 +3,7 @@
   <head>
     <title>Noticias</title>
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="css/noticias.css">
+    <link rel="stylesheet" href="../css/noticias.css">
      <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
     
   </head>  
@@ -19,7 +19,7 @@
       </div>
           <div class="InfoNoticia">
             <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
+            <source src="../video/vid1.mp4" type="video/mp4">
             </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -34,7 +34,7 @@
       </div>
           <div class="InfoNoticia">
             <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
+            <source src="../video/vid1.mp4" type="video/mp4">
             </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -49,7 +49,7 @@
       </div>
           <div class="InfoNoticia">
             <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
+            <source src="../video/vid1.mp4" type="video/mp4">
             </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
@@ -59,7 +59,7 @@
     </SECTION>
 
 
-  <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+  <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 
 
 

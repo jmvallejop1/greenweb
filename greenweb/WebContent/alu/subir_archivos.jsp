@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="css/subidacartel.css">
+		<link rel="stylesheet" href="../css/subidacartel.css">
 		<link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet"> 
 		<title> subir_archivos </title>
 	</head>

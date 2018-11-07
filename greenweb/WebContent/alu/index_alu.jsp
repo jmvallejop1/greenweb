@@ -17,7 +17,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 
 
   <!-- BARRA DE NAVEGACION Y HEADER-->
-  <iframe src="../menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+  <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 
   <%/*out.println(request.getParameter("user"));
 	out.println(request.getParameter("pass"));
@@ -74,10 +74,8 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
           <!--input type="submit" class="bot" name="Aceptar" value="Contestar!"-->
           </form>
       </div>
-      <hr>
       <center>
       <h3>Seccion preguntas adicionales</h3>
-      <hr>
       </center>
       <form class="pregunta" action="#" method="post">
       <h3>Â¿QuÃ© efectos provoca la emision de gases en la capa de ozono?</h3>
@@ -93,7 +91,6 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
       </ul>
       <input type="submit"/></button>
     </form>
-    <hr/>
     <form class="pregunta" action="#" method="post">
       <h3>Â¿QuÃ© efectos provoca la emision de gases en la capa de ozono?</h3>
       <ul>
@@ -108,7 +105,6 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
       </ul>
       <input type="submit"/></button>
     </form>
-    <hr/>
     <form class="pregunta" action="#" method="post">
       <h3>Â¿QuÃ© efectos provoca la emision de gases en la capa de ozono?</h3>
       <ul>
@@ -123,7 +119,6 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
       </ul>
       <input type="submit"/></button>
     </form>
-    <hr/>
     <form class="pregunta" action="#" method="post">
       <h3>Â¿QuÃ© efectos provoca la emision de gases en la capa de ozono?</h3>
       <ul>

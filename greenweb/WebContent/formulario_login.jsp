@@ -13,7 +13,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 	
 	<body>
         <div class="loginBox">   
-			<form action="privada/index_alu.jsp" method="post">
+			<form action="alu/index_alu.jsp" method="post">
 			
 			  <h1>Iniciar Sesion</h1>
           
