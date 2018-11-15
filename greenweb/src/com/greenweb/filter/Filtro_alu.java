@@ -35,6 +35,7 @@ public void init(FilterConfig f) throws ServletException {
 					 
 				}else {
 					//TODO comprobar usuario y contraseña. si ok añadir logged a session, sino sendRedirect 
+					// comprobar tambien que tipo se usuario es y añadirle el logged dependiendo
 					session.setAttribute("logged","alu");
 					arg2.doFilter(arg0, arg1);
 				}

@@ -26,7 +26,6 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 		        $.post("../SumaVoto", {
 					id: miVar
 				}, function() {
-					$(this).closest('tr').remove();
 				});
 		    });
 	});
@@ -37,11 +36,11 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	$(document).ready(function() {
 		 $(".elimina").click(function(){
 			 	var miVar =  $(this).prev().prev().prev().text();
+			 	$(this).closest('tr').remove();
 		        alert("Text: " + $(this).prev().prev().prev().text());
 		        $.post("../EliminaEnlace", {
 					id: miVar
-				}, function() {
-					$(this).closest('tr').remove();
+				}, function() {	
 				});
 		    });
 	});	
@@ -55,7 +54,6 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 		        $.post("../SubirEnlace", {
 					id: miVar
 				}, function() {
-					alert("Text: " + $("#InputEnlace").val());
 				});
 		    });
 	});	

@@ -22,7 +22,7 @@ public class SubirEnlace extends HttpServlet{
 		String id= request.getParameter("id");
 		String user= request.getParameter("user");
 		System.out.println(id);
-		m.subirEnlace("www.google.es","jose");
+		m.subirEnlace("www.google.es","pepe");
 		
 		
 	}

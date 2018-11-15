@@ -66,16 +66,18 @@ public class EnlaceDAO{
 	    
 	    public int aumentaVotos(String id) throws Exception{
 	    	try {
-	        	
+	    		//Borra /n
+	        	id = id.substring(0, id.length()-1);
 	        	connect=ConnectionManager.getConnection();
 
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
 	            //Obtener los enlaces
-	           // String query = "SELECT * FROM enlaces WHERE url='"+ id +"'";
-	            String query = "SELECT * FROM enlaces WHERE url='https://www.gengreenlife.com/'";
-	            resultSet = statement.executeQuery(query);
+	            
+	            //String query = "SELECT * FROM enlaces WHERE url='"+ id +"'";
+	            //String query = "SELECT * FROM enlaces WHERE url='http://www.gengreenlife.com/'";
+	            resultSet = statement.executeQuery("SELECT * FROM enlaces WHERE url = '"+ id +"'");
 	           
 	            int numVotos= 0;
 	            EnlaceDO enlace =new EnlaceDO();
@@ -89,9 +91,11 @@ public class EnlaceDAO{
 	            
 	            numVotos = enlace.getVotos(); 
 	           
-	            System.out.println("Los votos de " + id + "son" + numVotos);
+	            System.out.println("Los votos de " + id + " son " + numVotos);
 	            
 	            numVotos++;
+	            
+	            statement.executeUpdate("UPDATE enlaces SET votos = '" + numVotos + "' WHERE url = '"+ id +"'");
 	            
 	            System.out.println("Los nuevos votos de " + id + "son" + numVotos);
 	            
@@ -106,17 +110,17 @@ public class EnlaceDAO{
 	    
 	    public int eliminaEnlace(String id) throws Exception{
 	    	try {
-	        	
+	    		id = id.substring(0, id.length()-1);
 	        	connect=ConnectionManager.getConnection();
 
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
 	            //Obtener los enlaces
-	            String query = "DELETE from enlaces where url="+id+"";
-	            resultSet = statement.executeQuery(query);
+	            String query = "DELETE from enlaces where url = '"+id+"'";
+	            int correcto = statement.executeUpdate(query);
 	            
-	           return 1;
+	           return correcto;
 
 	        } catch (Exception e) {
 	            throw e;
@@ -135,7 +139,8 @@ public class EnlaceDAO{
 	            // Result set get the result of the SQL query
 	            //Obtener los enlaces
 	            int votos = 0;
-	            String query = "INSERT into enlaces values("+votos+ ",'"+id+"','"+user+"')";
+	            String query = "INSERT into enlaces VALUES (" + votos + ",'" + id + "','" + user+ "')";
+	            System.out.println(query);
 	            int how = statement.executeUpdate(query);
 	            
 	           

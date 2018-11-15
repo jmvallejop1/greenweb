@@ -15,7 +15,7 @@ public class EnlacesManager {
 		// TODO Auto-generated method stub
 		EnlacesManager usu = new EnlacesManager();
 		usu.obtenerTodosEnlaces();
-		System.out.println("hola");
+		usu.aumentaVotos("hola");
 	}
 	public List<EnlaceDO> obtenerTodosEnlaces()
 	{
