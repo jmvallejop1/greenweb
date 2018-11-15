@@ -21,7 +21,7 @@ List<UsuarioDO> result=man.obtenerTodosUsuarios();
 
 <%@include file="menu.jsp"%>
 
-		<table>
+		<table class="container">
 			<thead>
 				<tr>
 					<th>Posicion</th>
@@ -32,7 +32,7 @@ List<UsuarioDO> result=man.obtenerTodosUsuarios();
 			
 			<%
 			int hasta = 10;
-			if(hasta<10){
+			if(result.size()<10){
 				hasta  = result.size();
 			}
 			for(int i=0;i<hasta;i++)
@@ -40,10 +40,9 @@ List<UsuarioDO> result=man.obtenerTodosUsuarios();
 			{%>
 
 			<tr>
-				<td><%out.println(i);%></td>
-				<td><%out.println(result.get(i).getNombre());%></td>
-				<td><%	out.println(i);
-						//out.println(result.get(i).getPuntos()); %>
+				<td><%out.println(i+1);%></td>
+				<td><%out.println(result.get(i).getUsername());%></td>
+				<td><%out.println(result.get(i).getPuntos()); %>
 				</td>
 			</tr>
 			

@@ -11,14 +11,14 @@
 				
 				var pos = url_string.search("error")
 				pos = pos + 6
-				var er  = url_string.substr(pos,3)
-				window.alert(er);
-    		
+				var er  = url_string.substr(pos,3)    		
     			if(er != null)
     				if(er == "wpw")
     					window.alert("Las contraseñas no cionciden.");
     				if(er == "nlo")
     					window.alert("No se ha podido crear la cuenta correctamente.");
+    				if(er == "npw")
+    					window.alert("No se ha introducido una contraseña.");
 				}
 		</script>
 		
@@ -33,7 +33,11 @@
 				  <h1> Â¡Registrate gratis! </h1>
           
 					<div class="field-wrap">
-						<input type="text" name="usuario"required autocomplete="off" placeholder="Nombre de usuario"/>
+						<input type="text" name="usuario"required autocomplete="off" placeholder="Nombre"/>
+					</div>
+					
+					<div class="field-wrap">
+						<input type="text" name="username" required autocomplete="off" placeholder="Username"/>
 					</div>
 		
 					<div class="field-wrap">

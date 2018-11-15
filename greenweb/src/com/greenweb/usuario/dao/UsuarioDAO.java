@@ -27,22 +27,19 @@ public class UsuarioDAO {
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
-	            resultSet = statement.executeQuery("select titulo, texto, video from noticias");
+	            resultSet = statement.executeQuery("select * from usuarios order by puntos desc");
 	           
 	            while (resultSet.next()) {
 	                // It is possible to get the columns via name
 	                // also possible to get the columns via the column number
 	                // which starts at 1
 	                // e.g. resultSet.getSTring(2);
-	            	System.out.println(resultSet.getString("titulo"));
+	            	System.out.println(resultSet.getString("username"));
 	            	UsuarioDO user=new UsuarioDO();
-	            	//user.setLogin(resultSet.getString("login"));
-	            	user.setNombre(resultSet.getString("titulo"));
-	            	resultado.add(user);
-	                
+	            	user.setUsername(resultSet.getString("username"));
+	            	user.setPuntos(Integer.parseInt(resultSet.getString("puntos")));
+	            	resultado.add(user);         
 	            }
-	            
-
 	        } catch (Exception e) {
 	            throw e;
 	        } finally {
@@ -52,7 +49,7 @@ public class UsuarioDAO {
 
 	    }
 	    
-	    public boolean anadirUsuario(UsuarioDO u) throws Exception {
+	    public int anadirUsuario(UsuarioDO u) throws Exception {
 	    	 List resultado=new LinkedList();
 	        try {
 	        	
@@ -63,10 +60,12 @@ public class UsuarioDAO {
 	            // Result set get the result of the SQL query
 	            //resultSet = statement.executeQuery("select titulo, texto, video from noticias");
 	            //TODO consulta añadir usuario a base de datos y saber si ha ido bien
-	            
-	            //If consulta bien return true
-	            //else return false
-	            return true;
+	            String query = "INSERT into enlaces VALUES ('"+u.getUsername()+ "','" + u.getContr() + "','" + u.getNombre() + "'"
+	            		+ "'" + u.getMail() + "'," + u.getEstudios() + "," + u.getEdad() + "," +u.getPuntos() +",'"+u.getTipo()+"')";
+	            System.out.println(query);
+	            int how = statement.executeUpdate(query);
+	           
+	            return how;
 	            
 
 	        } catch (Exception e) {
@@ -74,6 +73,22 @@ public class UsuarioDAO {
 	        } finally {
 	            close();
 	        }
+	    }
+	    
+	    public boolean existeUsuario(String username) {
+	    	try {
+	    		connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            resultSet = statement.executeQuery("select * from usuarios where username='"+username+"'");
+	            if(resultSet.next()) return true;
+	            else return false;
+	    	}
+	    	catch(Exception e){
+	    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
+	    	}
+			return false;
 	    }
 	    
 	    // You need to close the resultSet

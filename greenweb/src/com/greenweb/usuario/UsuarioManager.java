@@ -27,7 +27,7 @@ public class UsuarioManager {
 		}	
 	}
 	
-	public boolean anadirUsuario(UsuarioDO u)
+	public int anadirUsuario(UsuarioDO u)
 	{
 		UsuarioDAO dao=new UsuarioDAO();
 		try {
@@ -35,7 +35,19 @@ public class UsuarioManager {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();	
-			return false;
+			return 0;
+		}	
+	}
+	
+	public boolean existeUsuario(String s)
+	{
+		UsuarioDAO dao=new UsuarioDAO();
+		try {
+			return dao.existeUsuario(s);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+			return true;
 		}	
 	}
 

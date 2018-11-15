@@ -3,10 +3,13 @@ package com.greenweb.usuario.data;
 public class UsuarioDO 
 {
 	private String nombre;
+	private String username;
 	private String mail;
 	private String contr;
 	private int edad;
-	private String estudios;
+	private int puntos;
+	private int estudios;
+	private String tipo;
 	
 	public String getMail() {
 		return mail;
@@ -32,11 +35,29 @@ public class UsuarioDO
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	public String getEstudios() {
+	public int getEstudios() {
 		return estudios;
 	}
-	public void setEstudios(String estudios) {
+	public void setEstudios(int estudios) {
 		this.estudios = estudios;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getPuntos() {
+		return puntos;
+	}
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 	
 	
