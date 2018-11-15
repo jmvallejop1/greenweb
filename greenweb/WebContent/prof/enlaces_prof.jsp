@@ -11,7 +11,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	$(document).ready(function() {
 		$('#submitalu').click(function(event) {
 			$.post("../anade5", {
-				num: 2
+				num: 3
 			}, function(responseText) {
 				$('#tabla2').html(responseText);
 			});
@@ -31,6 +31,21 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	});
 	
 	</script>
+	
+	<script>
+	$(document).ready(function() {
+		 $(".elimina").click(function(){
+			 	var miVar =  $(this).prev().prev().prev().text();
+			 	$(this).closest('tr').remove();
+		        alert("Text: " + $(this).prev().prev().prev().text());
+		        $.post("../EliminaEnlace", {
+					id: miVar
+				}, function() {	
+				});
+		    });
+	});	
+	</script>
+	
 	<script>
 	$(document).ready(function() {
 		 $(".subir").click(function(){
@@ -50,7 +65,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
    
   <body>
   <!-- HEADER Y NAVBAR -->
-    <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+    <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
     
     <div class="info">
 	 <p align="center"><strong>Â¡Bienvenidos a nuestra secciÃ³n de enlaces hacia fuentes de informaciÃ³n fiables!</strong></p>
@@ -71,13 +86,13 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 		 <input type="button" name="subirLink" class="subir" value="Subir enlace">
 		 <table id="tabla2">
 			<thead>
-				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>
+				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th><th>EliminarEnlace</th></tr>
 			</thead>
 	
 	<% 			
 			for(int i=0;i<hasta;i++){
 	%>
-			<tr><td><a href="#"><%out.println(todos.get(i).getURL());%></a></td> <td><% out.println(todos.get(i).getVotos()); %></td><td class="vota"><img src="../images/fiable.png"></td></tr>	
+			<tr><td><a href="#"><%out.println(todos.get(i).getURL());%></a></td> <td><% out.println(todos.get(i).getVotos()); %></td><td class="vota"><img src="../images/fiable.png"></td><td class="elimina"><img src="../images/fiable.png"></td></tr>	
 	<%		} %>
 
 	  	</table>

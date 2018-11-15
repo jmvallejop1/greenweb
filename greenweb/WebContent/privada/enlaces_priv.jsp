@@ -31,18 +31,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	});
 	
 	</script>
-	<script>
-	$(document).ready(function() {
-		 $(".subir").click(function(){
-			 	var miVar = $("#InputEnlace").val();
-		        alert("Text: " + $("#InputEnlace").val());
-		        $.post("../SubirEnlace", {
-					id: miVar
-				}, function() {
-				});
-		    });
-	});	
-	</script>
+	
 	
 	
 
@@ -67,8 +56,6 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	</div>
 	  <div class="container">
 	  	<center>
-	  	 <input type="url" id="InputEnlace" placeholder="        Añade tu enlace"></td></tr>
-		 <input type="button" name="subirLink" class="subir" value="Subir enlace">
 		 <table id="tabla2">
 			<thead>
 				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>

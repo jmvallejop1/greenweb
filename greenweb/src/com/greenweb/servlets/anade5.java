@@ -51,36 +51,87 @@ public class anade5 extends HttpServlet {
 			 hasta =  (int)session.getAttribute("hasta");
 		}
 		
+		int tipo = Integer.parseInt(request.getParameter("num"));
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		
-		hasta++;
+		hasta+=5;
 		
 		// Compruebo que los campos del formulario tienen datos para añadir a la tabla
-		
-		// Obtengo los datos de la peticion
-		out.println("<table id=\"tabla\">");
-		out.println("<thead>");
-		out.println("<tr>");
-		out.println("<th>Posicion</th>");
-		out.println("<th>Usuario</th>");
-		out.println("<th>Puntuacion</th>");
-		out.println("</tr>");
-		out.println("</thead>");
-		
-		if(hasta>result.size()) {
-			hasta = result.size();
-		}
-		
-		for(int i=0;i<hasta;i++){
-			String s = result.get(i).getURL();
-			out.println("<tr>");
-			out.println("<td>1</td>");
-			out.println("<td>"+s+"</td>");
-			out.println("<td>34</td>");
-			out.println("</tr>");
+		if(tipo == 1) {
+			// Obtengo los datos de la peticion
+			out.println("<table id=\"tabla\">");
+				out.println("<thead>");
+					out.println("<tr>");
+						out.println("<th>Enlaces mejor valorados</th>");
+						out.println("<th>Votos verdes</th>");
+					out.println("</tr>");
+				out.println("</thead>");
+			
+			if(hasta>result.size()) {
+				hasta = result.size();
+			}
+			
+			for(int i=0;i<hasta;i++){		
+				out.println("<tr>");
+					out.println("<td>"+result.get(i).getURL()+"</td>");
+					out.println("<td>"+result.get(i).getVotos()+"</td>");
+				out.println("</tr>");
 			out.println("</table>");
+			}
 		}
+		
+		if(tipo==2) {
+			out.println("<table id=\"tabla\">");
+			out.println("<thead>");
+				out.println("<tr>");
+					out.println("<th>Enlaces mejor valorados</th>");
+					out.println("<th>Votos verdes</th>");
+					out.println("<th>Vota</th>");
+				out.println("</tr>");
+			out.println("</thead>");
+			
+			if(hasta>result.size()) {
+				hasta = result.size();
+			}
+			
+			for(int i=0;i<hasta;i++){		
+				out.println("<tr>");
+					out.println("<td>"+result.get(i).getURL()+"</td>");
+					out.println("<td>"+result.get(i).getVotos()+"</td>");
+					out.println("<td class=\"vota\"><img src=\"../images/fiable.png\"></td>");
+				out.println("</tr>");
+			out.println("</table>");
+			}
+		}
+		
+		if(tipo==3) {
+			out.println("<table id=\"tabla\">");
+			out.println("<thead>");
+				out.println("<tr>");
+					out.println("<th>Enlaces mejor valorados</th>");
+					out.println("<th>Votos verdes</th>");
+					out.println("<th>Vota</th>");
+					out.println("<th>Eliminar Enlace</th>");
+				out.println("</tr>");
+			out.println("</thead>");
+			
+			if(hasta>result.size()) {
+				hasta = result.size();
+			}
+			
+			for(int i=0;i<hasta;i++){		
+				out.println("<tr>");
+					out.println("<td>"+result.get(i).getURL()+"</td>");
+					out.println("<td>"+result.get(i).getVotos()+"</td>");
+					out.println("<td class=\"vota\"><img src=\"../images/fiable.png\"></td>");
+					out.println("<td class=\"vota\"><img src=\"../images/fiable.png\"></td>");
+				out.println("</tr>");
+			out.println("</table>");
+			}
+		}
+		
+		
 		session.setAttribute("hasta",hasta);
 		
 		

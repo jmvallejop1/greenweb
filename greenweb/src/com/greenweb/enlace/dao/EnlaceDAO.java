@@ -28,7 +28,7 @@ public class EnlaceDAO{
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
 	            //Obtener los enlaces
-	            resultSet = statement.executeQuery("select votos, url, iduploader from enlaces");
+	            resultSet = statement.executeQuery("select * from enlaces order by votos desc");
 	           
 	            while (resultSet.next()) {
 	                // It is possible to get the columns via name
@@ -43,8 +43,6 @@ public class EnlaceDAO{
 	            	enlace.setVotos(resultSet.getInt("votos"));
 	            	resultado.add(enlace);	                
 	            }
-	            
-
 	        } catch (Exception e) {
 	            throw e;
 	        } finally {

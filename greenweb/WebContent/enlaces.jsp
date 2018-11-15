@@ -38,7 +38,6 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	%>	
 	</div>
 	  <div class="container">
-	  	<center>
 		 <table id="tabla">
 			<thead>
 				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th></tr>
@@ -46,16 +45,17 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	
 	<% 			
 			for(int i=0;i<hasta;i++){
+				if(i%2==0){
 	%>
-			<tr><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
-				
-	<%		} %>
+				<tr><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
+				<%}else{%>
+				<tr class="c"><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
+	<%		}} %>
 
 	  	</table>
 	  		<div class="hola">
 	  		</div>
 	  	<input type="button" id="submit" value="Mostrar Enlaces" /> 
-	  </center>
    	</div>
    	 <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 

@@ -9,8 +9,12 @@ body{
 	margin: auto;
 }
 
+#submit{
+	margin-left: 40%;
+}
 table {
 	margin-top: 30px;
+	margin-left: 10%;
 	width: 80%;
 	background-color: white;
 	border-collapse: collapse;
