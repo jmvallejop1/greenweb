@@ -9,8 +9,17 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function() {
+		$('#submito').click(function(event) {
+			 $.ajax({url: "mas5.jsp",type: 'POST', success: function(result){
+		            $("tabla").html(result);
+		       }});
+		});
+	});
+</script>
+	<script>
+	$(document).ready(function() {
 		$('#submit').click(function(event) {
-			$.post('anade5', {
+			$.post('mas5.jsp', {
 				num: 1
 			}, function(responseText) {
 				$('#tabla').html(responseText);
@@ -45,12 +54,10 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	
 	<% 			
 			for(int i=0;i<hasta;i++){
-				if(i%2==0){
 	%>
-				<tr><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
-				<%}else{%>
-				<tr class="c"><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
-	<%		}} %>
+			<tr><td><% out.println(todos.get(i).getURL()); %></td> <td class="prueba"><% out.println(todos.get(i).getVotos()); %></td></tr>
+				
+	<%		} %>
 
 	  	</table>
 	  		<div class="hola">
