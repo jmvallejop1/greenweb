@@ -52,6 +52,30 @@ public class UsuarioDAO {
 
 	    }
 	    
+	    public boolean anadirUsuario(UsuarioDO u) throws Exception {
+	    	 List resultado=new LinkedList();
+	        try {
+	        	
+	        	connect=ConnectionManager.getConnection();
+
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            //resultSet = statement.executeQuery("select titulo, texto, video from noticias");
+	            //TODO consulta añadir usuario a base de datos y saber si ha ido bien
+	            
+	            //If consulta bien return true
+	            //else return false
+	            return true;
+	            
+
+	        } catch (Exception e) {
+	            throw e;
+	        } finally {
+	            close();
+	        }
+	    }
+	    
 	    // You need to close the resultSet
 	    private void close() {
 	        try {

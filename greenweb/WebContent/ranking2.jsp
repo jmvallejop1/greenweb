@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ page
-import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
+pageEncoding="UTF-8"%>
+<%@ page
+import="com.greenweb.servlets.*,java.util.List,com.greenweb.usuario.data.*"
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,20 +9,25 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 <title>Ranking</title>
 <link rel="stylesheet" href="css/ranking.css">
 <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#submit').click(function(event) {
+			$.post('anade5', {
+				num: 1
+			}, function(responseText) {
+				$('#tabla').html(responseText);
+			});
+		});
+	});
+</script>
 </head>
-
 
 
 <body>
 
-<%
-UsuarioManager man=new UsuarioManager();
-List<UsuarioDO> result=man.obtenerTodosUsuarios();
-%>
-
 <%@include file="menu.jsp"%>
-
-		<table>
+		<table id="tabla">
 			<thead>
 				<tr>
 					<th>Posicion</th>
@@ -30,27 +36,12 @@ List<UsuarioDO> result=man.obtenerTodosUsuarios();
 				</tr>
 			</thead>
 			
-			<%
-			int hasta = 10;
-			if(hasta<10){
-				hasta  = result.size();
-			}
-			for(int i=0;i<hasta;i++)
-			
-			{%>
-
 			<tr>
-				<td><%out.println(i);%></td>
-				<td><%out.println(result.get(i).getNombre());%></td>
-				<td><%	out.println(i);
-						//out.println(result.get(i).getPuntos()); %>
-				</td>
-			</tr>
-			
-			<%} %>
+				<td>1</td>
+				<td>34</td>
+			</tr>	
 		</table>
-		
-	</div>
+		<input type="button" id="submit" value="Mostrar Enlaces" /> 
 </body>
 
 <iframe src="footer.html" class="frames" scrolling="no" border="no"

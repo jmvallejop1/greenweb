@@ -37,4 +37,25 @@
 	<filter-name>proffilter</filter-name>
 	<url-pattern>/prof/*</url-pattern>
 	</filter-mapping>
+	
+	<filter>
+	<filter-name>has</filter-name>
+	<filter-class>com.greenweb.filter.Filtro_hasta</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has</filter-name>
+	<url-pattern>/enlaces.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>has2</filter-name>
+	<filter-class>com.greenweb.filter.Filtro_hasta2</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has2</filter-name>
+	<url-pattern>/alu/enlaces_alu.jsp</url-pattern>
+	</filter-mapping>
+		
 </web-app>

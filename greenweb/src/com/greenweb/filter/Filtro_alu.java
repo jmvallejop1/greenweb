@@ -19,7 +19,7 @@ public void init(FilterConfig f) throws ServletException {
 		HttpServletRequest request= (HttpServletRequest)arg0;
 		HttpSession session = request.getSession(false);
 		if(session!=null)
-		{
+		{		
 			if(session.getAttribute("logged")!= null) {
 				if(session.getAttribute("logged")=="alu")
 					arg2.doFilter(arg0, arg1);

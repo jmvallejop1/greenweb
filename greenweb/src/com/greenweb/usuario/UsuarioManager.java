@@ -24,9 +24,20 @@ public class UsuarioManager {
 			e.printStackTrace();
 			
 			return null;
-		}
-		
-		
+		}	
 	}
+	
+	public boolean anadirUsuario(UsuarioDO u)
+	{
+		UsuarioDAO dao=new UsuarioDAO();
+		try {
+			return dao.anadirUsuario( u);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();	
+			return false;
+		}	
+	}
+
 
 }

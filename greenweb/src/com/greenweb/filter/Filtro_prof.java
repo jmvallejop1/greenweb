@@ -20,6 +20,7 @@ public void init(FilterConfig f) throws ServletException {
 		HttpSession session = request.getSession(false);
 		if(session!=null)
 		{
+			
 			if(session.getAttribute("logged")!= null) {
 				if(session.getAttribute("logged")=="prof")
 					arg2.doFilter(arg0, arg1);

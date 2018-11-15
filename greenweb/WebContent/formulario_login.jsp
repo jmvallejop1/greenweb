@@ -18,16 +18,16 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			  <h1>Iniciar Sesion</h1>
           
 				<div class="field-wrap">
-					<input type="email"required autocomplete="off" placeholder="Nombre de ususario" name="user"/>
+					<input id = "user" required autocomplete="off" placeholder="Nombre de ususario" name="user"/>
 				</div>
           
 				<div class="field-wrap">
-					<input type="password"required autocomplete="off" placeholder="ContraeÃ±a" name="pass"/>
+					<input id = "passwd "type="password"required autocomplete="off" placeholder="ContraeÃ±a" name="pass"/>
 				</div>
           
 				<p class="forgot"><a href="#">Â¿Olvidaste tu contraseÃ±a?</a></p>
           
-				<button class="button button-block"/>Iniciar Sesion</button>
+				<button id="inicio"/>Iniciar Sesion</button>
           
           </form>
 
