@@ -40,7 +40,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 		
 	%>
 	
-	<table id="tabla">
+	<table class="tabla">
 			<thead>
 				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>
 			</thead>
