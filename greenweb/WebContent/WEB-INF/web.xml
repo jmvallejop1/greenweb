@@ -25,7 +25,7 @@
 	
 	<filter-mapping>
 	<filter-name>alufilter</filter-name>
-	<url-pattern>/prof/*</url-pattern>
+	<url-pattern>/privada/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>

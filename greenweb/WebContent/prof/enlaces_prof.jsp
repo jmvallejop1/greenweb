@@ -10,7 +10,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	<script>
 	$(document).ready(function() {
 		$('#submitalu').click(function(event) {
-			$.post("../anade5", {
+			$.post('mas5prof.jsp', {
 				num: 3
 			}, function(responseText) {
 				$('#tabla2').html(responseText);

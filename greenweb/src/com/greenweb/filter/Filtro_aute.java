@@ -10,6 +10,9 @@ import javax.servlet.*;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.*;
 
+import com.greenweb.usuario.UsuarioManager;
+import com.greenweb.usuario.data.UsuarioDO;
+
 public class Filtro_aute implements Filter{
 	
 	public void init(FilterConfig f) throws ServletException {
@@ -40,8 +43,24 @@ public class Filtro_aute implements Filter{
 					 
 				}else {
 					//TODO comprobar usuario y contraseña. si ok añadir logged a session, sino sendRedirect 
-					session.setAttribute("logged","normal");
+					UsuarioManager m = new UsuarioManager();
+					UsuarioDO u = m.obtenerUsuario(usr);
+					if(u.getContr().equals(pass)) {
+						if(u.getTipo().equals("u")) {
+							session.setAttribute("logged","normal");
+							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/privada/index_priv.jsp");
+						}else if(u.getTipo().equals("a")) {
+							session.setAttribute("logged","alu");
+							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/alu/index_alu.jsp");
+						}else if(u.getTipo().equals("p")) {
+							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/prof/index_prof.jsp");
+							session.setAttribute("logged","prof");
+						}
+					
 					arg2.doFilter(arg0, arg1);
+					}else {
+						((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=wpw");
+					}
 				}
 			}
 		}
