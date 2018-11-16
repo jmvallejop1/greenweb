@@ -23,7 +23,6 @@ public class NoticiaManager {
 		
 		// Creamos un comentario
 		
-		mostrarNoticias();
 		
 		c1.setId(150);
 		c1.setTitulo("Menuda noticia");
@@ -35,14 +34,10 @@ public class NoticiaManager {
 		// Añdimos noticia c1 creado antes
 		añadirUnaNoticia(c1);
 		
-		// Mostrar noticias
-		mostrarNoticias();
-		
 		// BorrarNoticias
 		eliminarUnaNoticia(c1);
 		
 		
-		mostrarNoticias();
 		
 		
 		/*
@@ -72,7 +67,7 @@ public class NoticiaManager {
 	
 	
 	// publicamos los comentarios de los usuarios OK
-	public static List<NoticiaDO> mostrarNoticias()
+	public List<NoticiaDO> mostrarNoticias()
 	{
 		
 		NoticiaDAO dao=new NoticiaDAO();
