@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@ page
+import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
+%>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -7,22 +12,28 @@
       <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
    </head>
    <body>
+   <%
+   		UsuarioManager un = new UsuarioManager();
+   		//Descomentar esta linea cuando al iniciar se sesion se uarde el id
+   		//UsuarioDO usu= un.obtenerUsuario((String)session.getAttribute("id"));
+   		UsuarioDO usu = un.obtenerPepe();
+   %>
       <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
-   		<!--Aquí iría el frame de la cabecera y el menu-->
+   		<!--AquÃ­ irÃ­a el frame de la cabecera y el menu-->
       <div class="box2">
    		<img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
    		<div class="infoUser">
             <center>
-      			<h2> Información personal de Nombre Apellido</h2>
+      			<h2> InformaciÃ³n personal de <%out.println(usu.getNombre());%></h2>
                <!--Recoger la info del usuario y rellenar los campos con la respuesta-->
                <table>
-                  <tr class="data"><td>Tipo de cuenta: </td><td>Profesor</td></tr></tr>
-                  <tr class="data"><td>Id de usuario: </td><td>user1</td></tr>
-                  <tr class="data"><td>Correo electrónico: </td><td> usuarioPrueba@gmail.com</td></tr>
-                  <tr class="data"><td>Edad: </td><td>20</td></tr>
-                  <tr class="data"><td>Ocupacion actual: </td><td>Estudiante TIC</td></tr>
-                  <tr><td><a href="editProfile.html">Editar datos</a></td></tr>
-                   <tr><td><a href="borrarUser.html">Dar usuario de baja</a></td></tr>
+                  <tr class="data"><td>Tipo de cuenta: </td><td><%out.println(un.tipo(usu.getTipo()));%></td></tr></tr>
+                  <tr class="data"><td>Id de usuario: </td><td><%out.println(usu.getUsername());%></td></tr>
+                  <tr class="data"><td>Correo electrÃ³nico: </td><td> <%out.println(usu.getMail());%></td></tr>
+                  <tr class="data"><td>Edad: </td><td><%out.println(usu.getEdad());%></td></tr>
+                  <tr class="data"><td>Ocupacion actual: </td><td><%out.println(un.ocupacion(usu.getEstudios()));%></td></tr>
+                  <tr><td><a href="editProfile.jsp">Editar datos</a></td></tr>
+                   <tr><td><a href="borrarUser.jsp">Dar usuario de baja</a></td></tr>
                </table>
             </center>
       </div>

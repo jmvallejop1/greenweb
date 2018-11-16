@@ -87,9 +87,88 @@ public class UsuarioDAO {
 	    	}
 	    	catch(Exception e){
 	    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
-	    	}
-			return false;
+	    	}finally {
+	            close();
+	        }
+	    	return false;
+			
 	    }
+	    
+	    public boolean actualizarUsuario(String id, String mail, int age, int estudios) {
+	    	try {
+	    		String Update = "";
+	    		int how = 0;
+	    		if(mail!=null && mail!="") {	
+	    				Update += " SET email = '" + mail + "'";
+	    		}
+	    		
+	    		if(age!=0) {	
+    				Update += " SET edad = '" + age + "'";
+	    		}
+	    		
+	    		if(estudios!=0) {	
+    				Update += " SET ocupacion = '" + estudios + "'";
+	    		}
+	    		
+	    		if(Update != null && Update != "") {
+	    		Update = "UPDATE enlaces"+ Update + " WHERE url = '"+ id +"'";
+	    		connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            // how = statement.executeUpdate(Update);
+	            System.out.println("La consulta a realizar es:"+ Update);
+	            how = 1;
+	            if(how == 1) return true;
+	            else return false;
+	    		}else {
+	    			System.out.println("No se han rellenado campos");
+	    			return false;
+	    		}
+	           
+	    	}
+	    	catch(Exception e){
+	    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
+	    	}finally {
+	            close();
+	        }
+	    	return false;
+			
+	    }
+	    
+	    public UsuarioDO obtenerUsuario(String username) throws Exception {
+	    	try {
+	    		connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            UsuarioDO us=new UsuarioDO();
+	            resultSet = statement.executeQuery("select * from usuarios where username='"+username+"'");
+	            while (resultSet.next()) {
+	                // It is possible to get the columns via name
+	                // also possible to get the columns via the column number
+	                // which starts at 1
+	                // e.g. resultSet.getSTring(2);
+	            	System.out.println(resultSet.getString("username"));            	
+					us.setUsername(resultSet.getString("username"));
+					us.setNombre(resultSet.getString("nombre"));
+					us.setMail(resultSet.getString("email"));
+					us.setContr(resultSet.getString("passwd"));
+					us.setEdad(Integer.parseInt(resultSet.getString("username")));
+					us.setEstudios(Integer.parseInt(resultSet.getString("ocupacion")));
+					us.setPuntos(Integer.parseInt(resultSet.getString("puntos")));
+					us.setTipo(resultSet.getString("tipo"));
+	            }
+	            return us;
+	    	}
+	    	catch(Exception e){
+	    		e.printStackTrace();
+	    		return null;
+	    	}finally {
+	            close();
+	        }
+	    }
+	    
 	    
 	    // You need to close the resultSet
 	    private void close() {

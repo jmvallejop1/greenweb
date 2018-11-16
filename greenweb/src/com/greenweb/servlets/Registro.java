@@ -26,7 +26,7 @@ public class Registro extends HttpServlet{
 		String usr = request.getParameter("usuario");
 		String username = request.getParameter("username");
 		String mail = request.getParameter("correo");
-		int est = Integer.parseInt(request.getParameter("estudios"));
+		int est = Integer.parseInt(request.getParameter("ocupacion"));
 		int edad = Integer.parseInt(request.getParameter("edad"));
 		String pass = request.getParameter("password");
 		String	pass2 = request.getParameter("password2");

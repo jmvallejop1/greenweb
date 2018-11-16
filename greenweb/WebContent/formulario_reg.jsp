@@ -50,33 +50,10 @@
 					
 					<br/>
 					
-					<h2> Estudios realizados <span>*</span> </h2> <br/>
-						
-					<p>
-						<input name=1 onClick="Engine(1, this.value)" type=radio value=Secundaria>
-						A. Educacion secundaria obligatoria
-					</p>
-			
-					<p>
-						<input name=1 onClick="Engine(1, this.value)" type=radio value=Bachiller>
-						B. Bachillerato 
-					</p>
-			
-					<p>
-						<input name=1 onClick="Engine(1, this.value)" type=radio value=Grado>
-						C. Grado universitario
-					</p>
-			
-					<p>
-						<input name=1 onClick="Engine(1, this.value)" type=radio value=CicloFormativo>
-						D. Ciclos formativos
-					</p>
-			
-					<p>
-						<input name=1 onClick="Engine(1, this.value)" type=radio value= PosicionLaboral>
-						A. Posicion laboral
-					</p>
-			
+					<center>
+						<select name="ocupacion"><option value ="1">Ingeniero</option><option value ="2">Medico</option><option value ="3">Empresario</option><option value ="4">Estudiante TIC</option><option value ="5">Estudiante Ciencias Sociales</option><option value ="6">Estudiante Ciencias Salud</option><option value ="7">Estudiante Letras</option></select></td></tr>
+					</center>
+					
 					<br/>
 		  
 					<div class="field-wrap">
