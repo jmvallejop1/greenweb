@@ -12,7 +12,7 @@
    <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	
 	<h1> ¡Tablón con todos tus carteles!</h1>
-	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.jsp'"/>
+	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.html'"/>
 	   <div class="Trabajo">
 	   		<img src="../images/img3.jpg" alt="Paris" onclick="window.open('reto.html')">
 	   		<p>		

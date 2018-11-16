@@ -35,7 +35,7 @@
 	
 	<filter-mapping>
 	<filter-name>proffilter</filter-name>
-	<url-pattern>/prof/*</url-pattern>
+	<url-pattern>/privada/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>

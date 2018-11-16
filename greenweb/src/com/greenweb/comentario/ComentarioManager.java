@@ -21,7 +21,7 @@ public class ComentarioManager {
 		
 		// Creamos un comentario
 		
-		mostrarComentarios();
+		//mostrarComentarios();
 		
 		c1.setIdUser("alfon");
 		c1.setComentario("Que mierda");
@@ -35,32 +35,32 @@ public class ComentarioManager {
 		
 		// borramos comentario
 		
-		añadirUnComentario(c1);
+		//añadirUnComentario(c1);
 		
 		System.out.println(" ------------ AÑADIR COMENTARIO ---------\n\n");
 		
-		mostrarComentarios();
+		//mostrarComentarios();
 		
-		borrarUnComentario(c1);
+		//borrarUnComentario(c1);
 		
 		System.out.println(" ------------ BORRAR COMENTARIO ALFON ---------\n\n");
 		
-		mostrarComentarios();
+		//mostrarComentarios();
 		
 		System.out.println(" ------------ BORRAR COMENTARIO PEPE ---------\n\n");
 		
-		borrarUnComentario(c2);
+		//borrarUnComentario(c2);
 		
-		mostrarComentarios();
+		//mostrarComentarios();
 		
 		
-		int total = contarComentarios();
-		System.out.println("El total de comentarios es --> " + total);
+		//int total = contarComentarios();
+		//System.out.println("El total de comentarios es --> " + total);
 	}
 	
 	
 	// publicamos los comentarios de los usuarios OK
-	public static List<ComentarioDO> mostrarComentarios()
+	public List<ComentarioDO> mostrarComentarios()
 	{
 		
 		ComentarioDAO dao=new ComentarioDAO();
@@ -77,7 +77,7 @@ public class ComentarioManager {
 	}
 	
 	// añadimos un comentario a la lista OK
-	public static void añadirUnComentario(ComentarioDO c) {
+	public void añadirUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
 			dao.añadirComentario(c);
@@ -89,7 +89,7 @@ public class ComentarioManager {
 	
 	
 	// añadimos un comentario a la lista OK
-	public static void borrarUnComentario(ComentarioDO c) {
+	public void borrarUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
 			dao.eliminarComentario(c);
@@ -101,7 +101,7 @@ public class ComentarioManager {
 	
 	
 	// contar comentarios OK
-	public static int contarComentarios(){
+	public int contarComentarios(){
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
 			int cuenta = dao.numComentarios();

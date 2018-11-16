@@ -17,9 +17,9 @@
 					<li><a href="../noticias.jsp" target="body">Noticias</a></li>
 					<li><a href="enlaces_prof.jsp" target="body">Enlaces</a><li>
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
-					<li><a href="preguntas_prof.jsp" target="body">Preguntas Recicladas</a></li>
+					<li><a href="../preguntas.jsp" target="body">Preguntas Recicladas</a></li>
 					<li><a href="trabajos_prof.jsp" target="body">Trabajos</a></li>
-					<li><a href="..comentarios.jsp" target="body">Foro</a></li>
+					<li><a href="comentarios.jsp" target="body">Foro</a></li>
 					<li class="ALaDerecha"><a href="../index.jsp" target="body">Cerrar Sesion</a></li>
 					<li class="ALaDerecha"><a href="profile.jsp" target="body">PepeJuan</a></li>
 				</ul>			

@@ -28,21 +28,21 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	
 	  <div id="<%out.println(result.get(i).getId());%>">  
 		<div class="PreguntaAdicional">
-		    <form>
+		    <form action="Contestar" method="post">
 		      <h3><%out.println(result.get(i).getPreg());%></h3>
 		      <i class="fas fa-info-circle"></i>
 		      <div class="respuestas">
 		        <ul>
-		          <li><input type="radio" name="resp" value="1" />
+		          <li><input type="checkbox" name="resp" value="1" />
 		          <label><%out.println(result.get(i).getR1());%></label></li>
-		          <li><input type="radio" name="resp" value="2" />
+		          <li><input type="checkbox" name="resp" value="2" />
 		          <label><%out.println(result.get(i).getR2());%></label></li>
-		          <li><input type="radio" name="resp" value="3" />
+		          <li><input type="checkbox" name="resp" value="3" />
 		          <label><%out.println(result.get(i).getR3());%></label></li>
-		          <li><input type="radio" name="resp" value="4" />
+		          <li><input type="checkbox" name="resp" value="4" />
 		          <label><%out.println(result.get(i).getR4());%></label></li>
 		        </ul>
-		        <input type="button" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='preguntas_resp_cor.html'">
+		        <input type="submit" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='preguntas_resp_cor.html'">
 		        </div>
 	   	 </form>
 	  	</div>
