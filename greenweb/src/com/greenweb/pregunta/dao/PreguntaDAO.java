@@ -23,8 +23,8 @@ public class PreguntaDAO {
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
-	            resultSet = statement.executeQuery("select id, preguntas, resp1, resp2, resp3, resp4, respcorrecta from preguntas");
-	           
+	            resultSet = statement.executeQuery("select id, preguntas, resp1, resp2, resp3, resp4, respcorrecta from preguntas where id like '%' and id!="+idPreguntaRetoActual());
+
 	            while (resultSet.next()) {
 	            	PreguntaDO p=new PreguntaDO();
 	            	p.setId(Integer.parseInt(resultSet.getString("id")));
@@ -177,43 +177,41 @@ public class PreguntaDAO {
     }
     
   //FUNCIONA
-    public boolean responderPreg(String idU, int res, int idPreg) { //Devolverá un booleano indicando si debe mostrar la respuesta o no
-    	boolean todoOK=false;
+    public int responderPreg(String idU, int res, int idPreg) { //Devolverá un booleano indicando si debe mostrar la respuesta o no
+    	int respuesta=-1;
     	try {
     		if(mostrarRes(idU, idPreg)) {
     			connect=ConnectionManager.getConnection();
                 // Statements allow to issue SQL queries to the database
                 statement = connect.createStatement();
-    			todoOK=true;
-    			String correcta="select respcorrecta from preguntas where id=(select idpreg from carteles where id=(select idcartel from retos where id=(select max(id) from retos)))";
+    			String correcta="select respcorrecta from preguntas where id="+idPreg;
 				System.out.println("Se va a ejecutar: "+correcta);
 				resultSet=statement.executeQuery(correcta);
     			if(resultSet.next()) {
     				//System.out.println("Se va a comprobar si la respuesta es correcta");
-    	        	int respOk=Integer.parseInt(resultSet.getString("respcorrecta"));
-    	        	if(esRespOk(respOk, res)) todoOK=true;
+    	        	respuesta=Integer.parseInt(resultSet.getString("respcorrecta"));
+    	        	if(respuesta==res) respuesta=0;
     			}
     		}
-    		else todoOK=false;
+    		else respuesta=-1;
         }
     	catch (Exception e) {
             e.printStackTrace();
-    		todoOK=false;
     	}
     	finally {
             close();
     	}
-    	return todoOK;
+    	return respuesta;
     }
 
 //----------------------------------------BORRAR Y AÑADIR PREGUNTAS-------------------
     public boolean anadirPregunta(PreguntaDO p) {
     	try {
-        	connect=ConnectionManager.getConnection();
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
-            // Result set get the result of the SQL query
             if(!existePregunta(p.getPreg(),p.getrOk())) {
+            	connect=ConnectionManager.getConnection();
+                // Statements allow to issue SQL queries to the database
+                statement = connect.createStatement();
+                // Result set get the result of the SQL query
             	String insert="insert into preguntas values("+p.getId()+", '"+p.getPreg()+"', '"+p.getR1()+"', '"+p.getR2()+"', '"+p.getR3()+"', '"+p.getR4()+"', "+p.getrOk()+')';
                	//System.out.println(insert);
                 int res=statement.executeUpdate(insert);
