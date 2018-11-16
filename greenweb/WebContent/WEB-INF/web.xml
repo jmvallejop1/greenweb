@@ -25,7 +25,7 @@
 	
 	<filter-mapping>
 	<filter-name>alufilter</filter-name>
-	<url-pattern>/prof/*</url-pattern>
+	<url-pattern>/alu/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
@@ -35,7 +35,7 @@
 	
 	<filter-mapping>
 	<filter-name>proffilter</filter-name>
-	<url-pattern>/prof/*</url-pattern>
+	<url-pattern>/alu/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
