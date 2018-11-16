@@ -10,10 +10,10 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	<script>
 	$(document).ready(function() {
 		$('#submitalu').click(function(event) {
-			$.post("../anade5", {
+			$.post('mas5alu.jsp', {
 				num: 2
-			}, function(responseText) {
-				$('#tabla2').html(responseText);
+			}, function(data,status) {
+				$('.tabla').html(data);
 			});
 		});
 	});
@@ -69,7 +69,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	  	<center>
 	  	 <input type="url" id="InputEnlace" placeholder="        Añade tu enlace"></td></tr>
 		 <input type="button" name="subirLink" class="subir" value="Subir enlace">
-		 <table id="tabla2">
+		 <table class="tabla">
 			<thead>
 				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>
 			</thead>
