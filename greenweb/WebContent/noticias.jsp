@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
-import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
+import="com.greenweb.noticia.*,java.util.List,com.greenweb.noticia.data.*"
 %>
 
 <!DOCTYPE html>
@@ -17,65 +17,29 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 <%@include file="menu.jsp"%>
 
   <SECTION>
-    <div class="NoticeContainer">            
-      <div class="NoticeHeader">           
-          <h3><a href="reto.html">Titulo Noticia</a></h3>
-          <h4 class="IrPreg"> <a href="reto.html">Ir a pregunta</a></h4>
-      </div>
-          <div class="InfoNoticia">
-            <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
-            </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-            </p>
-          </div>        
-    </div> 
+  
+<%
+	NoticiaManager m = new NoticiaManager();
+  	List<NoticiaDO> li= m.mostrarNoticias();
 
-   <div class="NoticeContainer">            
-      <div class="NoticeHeader">           
-          <h3><a href="reto.html">Titulo Noticia</a></h3>
-          <h4 class="IrPreg"> <a href="reto.html">Ir a pregunta</a></h4>
-      </div>
-          <div class="InfoNoticia">
-            <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
-            </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-            </p>
-          </div>        
-    </div> 
+%>
 
-     <div class="NoticeContainer">            
-      <div class="NoticeHeader">           
-          <h3><a href="reto.html">Titulo Noticia</a></h3>
-          <h4 class="IrPreg"> <a href="reto.html">Ir a pregunta</a></h4>
-      </div>
-          <div class="InfoNoticia">
-            <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
-            </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-            </p>
-          </div>        
+<%for(int i = 0;i<5;i++){ %>
+    <div class="NoticeContainer"> 
+        <div id="<%out.println(li.get(i).getTitulo());%>">     
+	      <div class="NoticeHeader">           
+	          <h3><a href="reto.html"><%out.println(li.get(i).getTitulo()); %></a></h3>
+	          <h4 class="IrPreg"> <a href="reto.html">Ir a reto</a></h4>
+	      </div>
+	      <div class="InfoNoticia">
+	          <p><video  controls="controls">
+	          <source src="video/vid1.mp4" type="video/mp4">
+	          </video>  <%out.println(li.get(i).getTexto()); %> 
+	          </p>
+	       </div>
+	    </div>       
     </div> 
-
-      <div class="NoticeContainer">            
-      <div class="NoticeHeader">           
-          <h3><a href="reto.html">Titulo Noticia</a></h3>
-          <h4 class="IrPreg"> <a href="reto.html">Ir a pregunta</a></h4>
-      </div>
-          <div class="InfoNoticia">
-            <p><video  controls="controls">
-            <source src="video/vid1.mp4" type="video/mp4">
-            </video>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
-            </p>
-          </div>        
-    </div> 
+  	<%} %> 
     </SECTION>
 
 
