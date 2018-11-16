@@ -13,7 +13,7 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 			$.post('mas5alu.jsp', {
 				num: 2
 			}, function(data,status) {
-				$('.tabla').html(data);
+				$('#sus').html(data);
 			});
 		});
 	});
@@ -69,18 +69,20 @@ import="com.greenweb.enlace.*,java.util.List,com.greenweb.enlace.data.*"
 	  	<center>
 	  	 <input type="url" id="InputEnlace" placeholder="        Añade tu enlace"></td></tr>
 		 <input type="button" name="subirLink" class="subir" value="Subir enlace">
-		 <table class="tabla">
-			<thead>
-				<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>
-			</thead>
+		 <div id="sus">
+			 <table class="tabla">
+				<thead>
+					<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th></tr>
+				</thead>
+		
+		<% 			
+				for(int i=0;i<hasta;i++){
+		%>
+				<tr><td><a href="#"><%out.println(todos.get(i).getURL());%></a></td> <td><% out.println(todos.get(i).getVotos()); %></td><td class="vota"><img src="../images/fiable.png"></td></tr>	
+		<%		} %>
 	
-	<% 			
-			for(int i=0;i<hasta;i++){
-	%>
-			<tr><td><a href="#"><%out.println(todos.get(i).getURL());%></a></td> <td><% out.println(todos.get(i).getVotos()); %></td><td class="vota"><img src="../images/fiable.png"></td></tr>	
-	<%		} %>
-
-	  	</table>
+		  	</table>
+		 </div>
 	  	<input type="button" id="submitalu" value="Mostrar Enlaces" /> 
 	  </center>
    	</div>

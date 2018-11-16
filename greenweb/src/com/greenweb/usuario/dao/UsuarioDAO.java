@@ -17,7 +17,11 @@ public class UsuarioDAO {
 	    private Connection connect = null;
 	    private Statement statement = null;
 	    private ResultSet resultSet = null;
-
+	    
+	    public static void main(String[] args) throws Exception{
+	    	UsuarioDAO d = new UsuarioDAO();
+	    	d.obtenerUsuario("pepe");
+	    }
 	    public List<UsuarioDO> obtenerTodos() throws Exception {
 	    	 List resultado=new LinkedList();
 	        try {
@@ -143,7 +147,9 @@ public class UsuarioDAO {
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
 	            UsuarioDO us=new UsuarioDO();
-	            resultSet = statement.executeQuery("select * from usuarios where username='"+username+"'");
+	            System.out.println("select * from usuarios where username = '"+ username +"'");
+	            resultSet = statement.executeQuery("select * from usuarios where username = '"+ username +"'");
+	            
 	            while (resultSet.next()) {
 	                // It is possible to get the columns via name
 	                // also possible to get the columns via the column number
@@ -154,7 +160,7 @@ public class UsuarioDAO {
 					us.setNombre(resultSet.getString("nombre"));
 					us.setMail(resultSet.getString("email"));
 					us.setContr(resultSet.getString("passwd"));
-					us.setEdad(Integer.parseInt(resultSet.getString("username")));
+					us.setEdad(Integer.parseInt(resultSet.getString("edad")));
 					us.setEstudios(Integer.parseInt(resultSet.getString("ocupacion")));
 					us.setPuntos(Integer.parseInt(resultSet.getString("puntos")));
 					us.setTipo(resultSet.getString("tipo"));
