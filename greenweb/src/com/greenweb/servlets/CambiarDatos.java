@@ -25,7 +25,7 @@ public class CambiarDatos extends HttpServlet{
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
 			//String id = (String)session.getAttribute("id");
-			String id = "pepito";
+			String id = "DestructorPepe";
 			int age = 0;
 			int est = 0;
 			String mail = request.getParameter("email");

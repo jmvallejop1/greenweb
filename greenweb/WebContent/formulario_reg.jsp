@@ -19,6 +19,10 @@
     					window.alert("No se ha podido crear la cuenta correctamente.");
     				if(er == "npw")
     					window.alert("No se ha introducido una contraseña.");
+    				if(er == "uex")
+    					window.alert("El nombre de usuario esta cogido.");
+    				if(er == "une")
+    					window.alert("Escribe un nombre de usuario valido.");
 				}
 		</script>
 		

@@ -61,7 +61,11 @@ public class Registro extends HttpServlet{
 					}else {
 						response.sendRedirect(request.getContextPath()+"/formulario_reg.jsp?error=npw");
 					}
+			}else {
+				response.sendRedirect(request.getContextPath()+"/formulario_reg.jsp?error=une");
 			}
+		}else {
+			response.sendRedirect(request.getContextPath()+"/formulario_reg.jsp?error=uex");
 		}
 	}
 
