@@ -169,6 +169,7 @@ public class UsuarioDAO {
 	        }
 	    }
 	    
+	    // FUNCION QUE FILTRA LOS USUARIOS POR TIPO DE USUARIO
 	    public List<UsuarioDO> filtrarUsuariosTipo(String tipo) throws Exception{
 	    	 List<UsuarioDO> resultado = new LinkedList();
 		        try {
@@ -194,18 +195,7 @@ public class UsuarioDAO {
 						us.setTipo(resultSet.getString("tipo"));
 						
 						resultado.add(us);								
-		            }
-		            
-		            for (int i = 0; i < resultado.size(); i++) {
-						System.out.println(resultado.get(i).getUsername()
-	            				+ " " + resultado.get(i).getContr()
-	            				+ " " + resultado.get(i).getNombre()
-	            				+ " " + resultado.get(i).getMail()
-	            				+ " " + resultado.get(i).getEstudios()
-	            				+ " " + resultado.get(i).getEdad()
-	            				+ " " + resultado.get(i).getPuntos()
-	            				+ " " + resultado.get(i).getTipo());
-					}		            		            
+		            }          		            
 		            return resultado;
 		        } catch (Exception e) {
 		            throw e;

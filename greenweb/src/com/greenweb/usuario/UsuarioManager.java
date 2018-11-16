@@ -37,6 +37,7 @@ public class UsuarioManager {
 		}	
 	}
 	
+	// FUNCION QUE OBTIENE LOS TIPOS DE USUARIO
 	public List<UsuarioDO> obtenerUsuariosTipo(String t){
 		UsuarioDAO dao = new UsuarioDAO();
 		try {
