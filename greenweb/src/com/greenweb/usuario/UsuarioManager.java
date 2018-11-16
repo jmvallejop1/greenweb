@@ -10,8 +10,18 @@ public class UsuarioManager {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		UsuarioManager usu = new UsuarioManager();
-		usu.obtenerTodosUsuarios();
-		System.out.println("hola");
+		// usu.obtenerTodosUsuarios();
+		System.out.println("USUARIOS ALUMNOS");
+		
+		usu.obtenerUsuariosTipo("a");
+		
+		System.out.println("USUARIOS PROFESORES");
+
+		usu.obtenerUsuariosTipo("p");
+		
+		System.out.println("USUARIOS NORMALES");
+
+		usu.obtenerUsuariosTipo("u");
 	}
 	
 	public List<UsuarioDO> obtenerTodosUsuarios()
@@ -25,6 +35,17 @@ public class UsuarioManager {
 			
 			return null;
 		}	
+	}
+	
+	public List<UsuarioDO> obtenerUsuariosTipo(String t){
+		UsuarioDAO dao = new UsuarioDAO();
+		try {
+			return dao.filtrarUsuariosTipo(t);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public int anadirUsuario(UsuarioDO u)
