@@ -126,4 +126,17 @@ public class UsuarioManager {
 		return u;
 	}
 
+	
+	// CAMBIAR PERMISO DE USUARIO
+		public boolean cambiarTipoUsuario(UsuarioDO u, String p) {
+			UsuarioDAO dao=new UsuarioDAO();
+			try {
+				return dao.cambiarPermisosUsuario(u, p);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}	
+		}
+
 }

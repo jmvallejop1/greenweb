@@ -204,6 +204,36 @@ public class UsuarioDAO {
 		        }
 		}
 	    
+	    public boolean cambiarPermisosUsuario(UsuarioDO user, String permiso) throws Exception{
+	    	connect=ConnectionManager.getConnection();
+
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            
+	    	String permisoActual = user.getTipo();
+	    	String username = user.getUsername();
+	    	try {
+	    		if ((permisoActual.equals("u") && permiso.equals("a")) || 
+	    				(permisoActual.equals("u") && permiso.equals("p")) ||
+	    				(permisoActual.equals("a") && permiso.equals("u")) ||
+	    				(permisoActual.equals("p") && permiso.equals("u"))) 
+	    		{
+	    			
+	    			String Update = "UPDATE usuarios SET tipo = '" + permiso + "' where username = '" + username + "'"; 
+	    			System.out.println(Update);
+	    			int how = statement.executeUpdate(Update);
+	    			return how == 1;
+	    		}
+	    	}
+	    	catch(Exception e){
+		    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
+		    }finally {
+		        close();
+		    }
+		    return false;
+	    }
+	    
+	    
 	    
 	    // You need to close the resultSet
 	    private void close() {
