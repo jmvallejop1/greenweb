@@ -12,6 +12,11 @@ import java.util.List;
 public class CartelesManager {
 	
 			public static void main(String[] args) {
+				/*
+				CartelDAO dao=new CartelDAO();
+				List<CartelDO> l=new LinkedList<CartelDO>();
+				l=dao.obtenerCartelesEntrega(10);
+				
 				CartelesManager manager = new CartelesManager();
 				CartelDO c=manager.obtenerCartelP(1);
 				PreguntaDAO pdao=new PreguntaDAO();
@@ -31,6 +36,7 @@ public class CartelesManager {
 				autores= c.getCreadores();
 				System.out.println("El cartel obtenido a partir de la pregunta 1 es:\n"
 						+ c.getId() + "--->" + "Noticia: "+c.getIdNot()+" Pregunta: "+c.getIdPreg()+"\n Autores: "+autores[0]);
+				*/
 				System.out.println("fin main");
 			}
 			
@@ -53,6 +59,17 @@ public class CartelesManager {
 					e.printStackTrace();			
 					return null;
 				}		
+			}
+			
+			public List<CartelDO> obtenerCartelesEntrega(int entrega){
+				CartelDAO dao=new CartelDAO();
+				try {
+					return dao.obtenerCartelesEntrega(entrega);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();			
+					return null;
+				}
 			}
 			
 			public boolean subirCartel(CartelDO c) {

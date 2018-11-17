@@ -17,6 +17,7 @@ public class CartelDAO {
 	private Connection connect = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
+    private static final int MAXCARTELESXENTREGA=20;
     
 	public CartelDO obtenerCartelPreg(int idPreg) {
 		CartelDO cartel=new CartelDO();
@@ -69,6 +70,9 @@ public class CartelDAO {
             e.printStackTrace();
     		System.out.println("No se pudo obtener la pregunta: "+preg.getId());
     	}
+		 finally {
+	            close();
+	     }
 		return cartel;
 	}
 	
@@ -123,7 +127,63 @@ public class CartelDAO {
             e.printStackTrace();
     		System.out.println("No se pudo obtener la noticia: "+idNot);
     	}
+		 finally {
+	            close();
+	     }
 		return cartel;
+	}
+	
+	public List<CartelDO> obtenerCartelesEntrega(int entrega){
+		try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select idcar from entregados where ident="+entrega);
+            int[] carteles=new int[MAXCARTELESXENTREGA];
+            if(!resultSet.next()) return null;
+            carteles[0]=Integer.parseInt(resultSet.getString("idcar"));
+            int i=1;
+            while(resultSet.next() && i<MAXCARTELESXENTREGA) {
+            	carteles[i]=Integer.parseInt(resultSet.getString("idcar"));
+            	i++;
+            }
+            //YA TENEMOS LOS IDS DE TODOS LOS CARTELES DE LA ENTREGA
+            String idpregs="select idpreg from carteles where id="+carteles[0];
+            for (int j=1; j<i; j++) {
+            	idpregs+=" or id="+carteles[j];
+            }
+            System.out.print("Consulta: "+idpregs);
+            close();
+            connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            //AHORA OBTENDREMOS LOS IDS DE LAS PREGUNTAS ASOCIADAS PARA EXTRAER EL CARTEL
+            resultSet = statement.executeQuery(idpregs);
+            //Existen carteles
+            List<CartelDO> list= new LinkedList<CartelDO>();
+            int pregs[]=new int[MAXCARTELESXENTREGA];
+            i=0;
+            while(resultSet.next()) {
+            	pregs[i]=Integer.parseInt(resultSet.getString("idpreg"));
+            	i++;
+            }
+            i--;
+            while(i>=0) {
+            	list.add(obtenerCartelPreg(pregs[i]));
+            	i--;
+            }
+        	return list;
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
+    	}
+		 finally {
+	            close();
+	     }
+		return null;
+		
 	}
 	
 	public boolean subirCartel(CartelDO c) {
@@ -189,6 +249,9 @@ public class CartelDAO {
     	catch (Exception e) {
             e.printStackTrace();
     	}
+		 finally {
+	            close();
+	     }
     	return c;
 	}
 	
@@ -206,6 +269,9 @@ public class CartelDAO {
             e.printStackTrace();
     		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
     	}
+    	 finally {
+	            close();
+	     }
 		return false;
     }
 	
