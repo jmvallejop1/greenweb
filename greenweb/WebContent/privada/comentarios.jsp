@@ -15,7 +15,7 @@ import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"
    
   <body>
     <!-- HEADER Y NAVBAR -->
-    <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+    <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<%
 		ComentarioManager man=new ComentarioManager();
 		List<ComentarioDO> todos=man.mostrarComentarios();
@@ -61,3 +61,4 @@ import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"
 	<iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
   </body>
 </html>
+
