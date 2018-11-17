@@ -8,7 +8,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 <html lang="en">
    <head>
 		<title>Gestionar alumnos</title>
-		<link rel="stylesheet" href="css/gestUsers.css">
+		<link rel="stylesheet" href="../css/gestUsers.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script language="JavaScript">	
 			function myFunction() {
@@ -27,10 +27,10 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		</script>
 		<script>
 			$(document).ready(function() {
-		 		$("#anadirProf").click(function(){
+		 		$("#anadirUsuario").click(function(){
 		 			var nombreUsuario = $("#nombreAlu").val();
 		        	$.post("../Anadir", {
-						tipo: 1,
+						tipo: 2,
 						usuario: nombreUsuario
 						}, function() {
 					});
@@ -70,11 +70,9 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				
 		</div>
 		<div class="gestionUsers">
-			<form action="../AnadirAlumno" method="post">
 			<h4>AÃ±adir alumnos</h4>
-				<input type="text" name="alumno" placeholder="Usuario a añadir">
-				<input type="submit" name="busquedaUser" value="AÃ±adir usuario">
-			</form>
+				<input type="text" id="nombreAlu"name="alumno" placeholder="Usuario a añadir">
+				<input type="submit" id="anadirUsuario"name="busquedaUser" value="AÃ±adir usuario">
 			<hr>
 			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
 			<table id="myTable">
@@ -87,9 +85,9 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			 		for (int i = 0; i < todos.size();i++){
 			 	%>
 			 	<tr>
-			    	<td>A<%out.println(todos.get(i).getNombre());%></td>
-			    	<td>A<%out.println(todos.get(i).getUsername());%></td>
-			    	<td><img src="images/borrar.png" onclick="window.location.href='gesAluBorrado.html'"></td>
+			    	<td><%out.println(todos.get(i).getNombre());%></td>
+			    	<td><%out.println(todos.get(i).getUsername());%></td>
+			    	<td class="borrarAlu"><img src="../images/borrar.png"></td>
 			 	</tr> 
 			 	
 			 	 <%		

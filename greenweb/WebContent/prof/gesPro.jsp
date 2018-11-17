@@ -8,7 +8,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 <html lang="en">
    <head>
 		<title>Gestionar alumnos</title>
-		<link rel="stylesheet" href="css/gestUsers.css">
+		<link rel="stylesheet" href="../css/gestUsers.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script language="JavaScript">	
 			function myFunction() {
