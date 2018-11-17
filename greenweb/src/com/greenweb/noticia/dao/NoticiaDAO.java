@@ -37,7 +37,7 @@ public class NoticiaDAO {
 	            	// generar un dato de tipo ForoDO
 	            	NoticiaDO noticia = new NoticiaDO();
 	            	
-	            	// Creación del dato comentario
+	            	// Creaciï¿½n del dato comentario
 	            	noticia.setId(resultSet.getInt("id"));
 	            	noticia.setTitulo(resultSet.getString("titulo"));
 	            	noticia.setTexto(resultSet.getString("texto"));
@@ -65,7 +65,7 @@ public class NoticiaDAO {
 	    }
 	    
 		// guardar Comentario; OK
-		public boolean añadirNoticia(NoticiaDO c) {
+		public boolean anadirNoticia(NoticiaDO c) {
 			boolean resul=false;
 	    	try {
 	        	connect=ConnectionManager.getConnection();
@@ -74,6 +74,7 @@ public class NoticiaDAO {
 	            // Result set get the result of the SQL query
 	            String insert="insert into noticias VALUES (" + c.getId() + ",'" + c.getTitulo() + "','" + c.getTexto() + "','" + c.getVideo() + "')";
 	      	    int res=statement.executeUpdate(insert);
+	      	    resul=res==1;
 	    	}
 	    	catch (Exception e) {
 	            //throw e;
@@ -104,6 +105,7 @@ public class NoticiaDAO {
 	    	}
 	    	return resul;
 	    }
+		
 		
 		
 	    // You need to close the resultSet
