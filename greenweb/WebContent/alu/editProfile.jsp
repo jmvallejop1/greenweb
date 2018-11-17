@@ -32,7 +32,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
                      <tr class="data"><td>Correo electrÃ³nico: </td><td><input name="email"type="email" placeholder="<%out.println(usu.getMail());%>"></td></tr>
                      <tr class="data"><td>Edad: </td><td><input type="age" name="age" placeholder="<%out.println(usu.getEdad());%>"></td></tr>
                      <tr class="data"><td>Ocupacion actual: </td>
-                        <td><select name="ocupacion"><option value ="1">Ingeniero</option><option value ="2">Medico</option><option value ="3">Empresario</option><option value ="4">Estudiante TIC</option><option value ="5">Estudiante Ciencias Sociales</option><option value ="6">Estudiante Ciencias Salud</option><option value ="7">Estudiante Letras</option></select></td></tr>
+                        <td><select name="ocupacion"><option value ="0"> Selecciona ocupacion</option><option value ="1">Ingeniero</option><option value ="2">Medico</option><option value ="3">Empresario</option><option value ="4">Estudiante TIC</option><option value ="5">Estudiante Ciencias Sociales</option><option value ="6">Estudiante Ciencias Salud</option><option value ="7">Estudiante Letras</option></select></td></tr>
                      <tr class="buttons">
                 
                </table>
