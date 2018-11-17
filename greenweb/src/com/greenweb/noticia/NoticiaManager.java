@@ -32,7 +32,7 @@ public class NoticiaManager {
 		
 		
 		// Añdimos noticia c1 creado antes
-		añadirUnaNoticia(c1);
+		//añadirUnaNoticia(c1);
 		
 		// BorrarNoticias
 		eliminarUnaNoticia(c1);
@@ -84,10 +84,10 @@ public class NoticiaManager {
 	}
 	
 	// añadimos un comentario a la lista OK
-	public static void añadirUnaNoticia(NoticiaDO c) {
+	public static void anadirUnaNoticia(NoticiaDO c) {
 		NoticiaDAO dao = new NoticiaDAO();
 		try {
-			dao.añadirNoticia(c);
+			dao.anadirNoticia(c);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
