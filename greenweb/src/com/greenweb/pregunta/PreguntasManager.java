@@ -8,7 +8,7 @@ public class PreguntasManager {
 	
 	public static void main(String[] args) throws Exception {
 		PreguntasManager pregM = new PreguntasManager();
-		//pregM.listarTodas();
+		/*//pregM.listarTodas();
 		List<PreguntaDO> lista = pregM.obtenerTodasPreguntas();
 		System.out.println("Uee mecauenla");
 		//pregM.listar(lista);
@@ -33,7 +33,8 @@ public class PreguntasManager {
 		System.out.println("-----------------------------------------fin respuesta----------------------------------------");
 
 		System.out.println("El main ha terminado");
-
+	*/
+		System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
 	
 	public void listar(List<PreguntaDO> list) throws Exception {
