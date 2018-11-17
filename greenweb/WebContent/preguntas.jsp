@@ -11,6 +11,17 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <link rel="stylesheet" href="css/preguntas.css"> 
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+	$(document).ready(function() {
+		$('#submit').click(function(event) {
+			$.post('mas5preg.jsp', {
+				num: 1
+			}, function(responseText) {
+				$('.container').html(responseText);
+			});
+		});
+	});
+	</script>
   <script>
 	$(document).ready(function(){
     	$(".bot").click(function(){
@@ -69,6 +80,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	  </div>
 	  <%} %>
 	</div>
+	<input type="button" id="submit" value="Mostrar Preguntas" /> 
   <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>
 

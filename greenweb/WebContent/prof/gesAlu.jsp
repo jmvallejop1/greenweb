@@ -1,3 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page
+import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
+%>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -24,7 +30,7 @@
    <body onload="myFunction()">
 		<iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 		<%
-			UsuarioManager  man = new UsuarioManafer();
+			UsuarioManager  man = new UsuarioManager();
 			List<UsuarioDO> todos = man.obtenerUsuariosTipo("a");
 		%>
 		<div class="info">
@@ -51,7 +57,7 @@
 			    	<th style="width:20%">Borrar</th>
 			 	</tr>
 			 	<%
-			 		for (int i = 0; i < todos.size(){
+			 		for (int i = 0; i < todos.size();i++){
 			 	%>
 			 	<tr>
 			    	<td>A<%out.println(todos.get(i).getNombre());%></td>
