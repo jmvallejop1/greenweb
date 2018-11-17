@@ -9,6 +9,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
    <head>
 		<title>Gestionar alumnos</title>
 		<link rel="stylesheet" href="css/gestUsers.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script language="JavaScript">	
 			function myFunction() {
 				
@@ -21,8 +22,35 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
     				if(er == "nou")
     					window.alert("El usuario que ha introducido no existe en el sistema");
 					if(er == "alu")
-						window.alert("El usuario introducido es ahora un alumno");
+						window.alert("El usuario introducido es ahora un profesor.");
 				}
+		</script>
+		
+		<script>
+			$(document).ready(function() {
+		 		$("#anadirProf").click(function(){
+		 			var nombreUsuario = $("#nombreAlu").val();
+		        	$.post("../Anadir", {
+						tipo: 1,
+						usuario: nombreUsuario
+						}, function() {
+					});
+		    	});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function() {
+		 		$(".borrarAlu").click(function(){
+		 			var nombreUsuario = $(this).prev().text();
+		 			alert(nombreUsuario);
+		        	$.post("../Anadir", {
+						tipo: 3,
+						usuario: nombreUsuario
+						}, function() {
+					});
+		    	});
+			});
 		</script>
 		
    </head>
@@ -43,26 +71,26 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				
 		</div>
 		<div class="gestionUsers">
-			<form action="../AnadirAlumno" method="post">
 			<h4>AÃ±adir alumnos</h4>
-				<input type="text" name="alumno" placeholder="Usuario a añadir">
-				<input type="submit" name="busquedaUser" value="AÃ±adir usuario">
-			</form>
+				<input type="text" id="nombreAlu" name="alumno" placeholder="Profesor a añadir">
+				<input type="submit" id="anadirProf" value="AÃ±adir profesor">
 			<hr>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
+			<input type="text" id="myInput" placeholder="Buscar alumno...">
 			<table id="myTable">
-			  	<tr class="header">
-			    	<th style="width:55%;">Nombre</th>
-			    	<th style="width:25%;"> Nombre Usuario </th>
-			    	<th style="width:20%">Borrar</th>
-			 	</tr>
+			  	<thead class="header">
+			  		<tr>
+				    	<th style="width:55%;">Nombre</th>
+				    	<th style="width:25%;"> Nombre Usuario </th>
+				    	<th style="width:20%">Borrar</th>
+			    	</tr>
+			 	</thead>
 			 	<%
 			 		for (int i = 0; i < todos.size();i++){
 			 	%>
 			 	<tr>
-			    	<td>A<%out.println(todos.get(i).getNombre());%></td>
-			    	<td>A<%out.println(todos.get(i).getUsername());%></td>
-			    	<td><img src="images/borrar.png" onclick="window.location.href='gesAluBorrado.html'"></td>
+			    	<td><%out.println(todos.get(i).getNombre());%></td>
+			    	<td><%out.println(todos.get(i).getUsername());%></td>
+			    	<td class="borrarAlu"><img src="../images/borrar.png" ></td>
 			 	</tr> 
 			 	
 			 	 <%		

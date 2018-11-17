@@ -6,7 +6,7 @@ import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"
   <head>
 	<meta charset="utf-8">
 	<title> Pagina de comentarios </title>
-	<link rel="stylesheet" href="css/comentarios.css">
+	<link rel="stylesheet" href="../css/comentarios.css">
 	<meta name="viewport" content="width=device-width, initial.scale=1">	
 	<link rel="stylesheet" href="css/font-awesome.-mi">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
@@ -53,7 +53,7 @@ import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"
 		    </div>	
 		
 			<div class="pedir_comentario">
-				<h3> Añade tu comentario y ayudanos a mejorar </h3>
+				<h3> Aï¿½ade tu comentario y ayudanos a mejorar </h3>
 				<textarea name="mejorar" id="mejorar"></textarea><br/>
 				<input type="button" name="Confirmar" value="Envia tu comentario" onClick="window.location.href='comentarios.html'"> 
 			</div>

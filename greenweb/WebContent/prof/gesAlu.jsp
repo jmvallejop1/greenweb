@@ -9,6 +9,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
    <head>
 		<title>Gestionar alumnos</title>
 		<link rel="stylesheet" href="css/gestUsers.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script language="JavaScript">	
 			function myFunction() {
 				
@@ -23,6 +24,32 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 					if(er == "alu")
 						window.alert("El usuario introducido es ahora un alumno");
 				}
+		</script>
+		<script>
+			$(document).ready(function() {
+		 		$("#anadirProf").click(function(){
+		 			var nombreUsuario = $("#nombreAlu").val();
+		        	$.post("../Anadir", {
+						tipo: 1,
+						usuario: nombreUsuario
+						}, function() {
+					});
+		    	});
+			});
+		</script>
+		
+		<script>
+			$(document).ready(function() {
+		 		$(".borrarAlu").click(function(){
+		 			var nombreUsuario = $(this).prev().text();
+		 			alert(nombreUsuario);
+		        	$.post("../Anadir", {
+						tipo: 3,
+						usuario: nombreUsuario
+						}, function() {
+					});
+		    	});
+			});
 		</script>
 		
    </head>
