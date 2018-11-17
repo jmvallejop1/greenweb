@@ -23,11 +23,13 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
         	$.post('Contestar', {
 				idc: id,
 				resp: array
-			}, function(responseText) {
+			}, function(data) {
+				alert(data);
 			});
    	 });
 	});
 </script>
+
   </head>  
 
   <body>

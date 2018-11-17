@@ -177,7 +177,7 @@ public class PreguntaDAO {
     }
     
   //FUNCIONA
-    public int responderPreg(String idU, int res, int idPreg) { //Devolverá un booleano indicando si debe mostrar la respuesta o no
+    public int responderPreg(String idU, int res, int idPreg) throws Exception{ //Devolverá un booleano indicando si debe mostrar la respuesta o no
     	int respuesta=-1;
     	try {
     		if(mostrarRes(idU, idPreg)) {
@@ -194,14 +194,15 @@ public class PreguntaDAO {
     			}
     		}
     		else respuesta=-1;
+    		return respuesta;
         }
     	catch (Exception e) {
-            e.printStackTrace();
+            throw(e);
     	}
     	finally {
             close();
     	}
-    	return respuesta;
+    	
     }
 
 //----------------------------------------BORRAR Y AÑADIR PREGUNTAS-------------------
