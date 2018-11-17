@@ -10,6 +10,24 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <title>Preguntas Recicladas</title>
     <link rel="stylesheet" href="css/preguntas.css"> 
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+	$(document).ready(function(){
+    	$(".bot").click(function(){
+    		var array = []
+    		$("input[type=checkbox]:checked").each(function(){
+    			array.push($(this).val())
+    		});
+    		alert(array);
+        	var id = $(this).parent().parent().parent().parent().attr("id");	
+        	$.post('Contestar', {
+				idc: id,
+				resp: array
+			}, function(responseText) {
+			});
+   	 });
+	});
+</script>
   </head>  
 
   <body>
@@ -25,10 +43,10 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	%>
 	<div class="container">
 	<%for(int i = 0;i<5;i++){ %>
-	
-	  <div id="<%out.println(result.get(i).getId());%>">  
+		
+	  <div id="<%out.println(result.get(i).getId());%>"> 
 		<div class="PreguntaAdicional">
-		    <form action="Contestar" method="post">
+		    <form>
 		      <h3><%out.println(result.get(i).getPreg());%></h3>
 		      <i class="fas fa-info-circle"></i>
 		      <div class="respuestas">
@@ -42,7 +60,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 		          <li><input type="checkbox" name="resp" value="4" />
 		          <label><%out.println(result.get(i).getR4());%></label></li>
 		        </ul>
-		        <input type="submit" class="bot" name="contestar" value="Contestar!" onclick="window.location.href='preguntas_resp_cor.html'">
+		        <input type="submit" class="bot" name="contestar" value="Contestar!">
 		        </div>
 	   	 </form>
 	  	</div>

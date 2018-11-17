@@ -134,13 +134,13 @@ public class PreguntasManager {
 		}
 	}
 	
-	public boolean responderPreg(String idU, int res, int idPreg) {
+	public int responderPreg(String idU, int res, int idPreg) {
 		PreguntaDAO dao=new PreguntaDAO();
 		try {
 			return dao.responderPreg(idU, res, idPreg);
 		} catch (Exception e){
 			e.printStackTrace();
-			return false;
+			return -1;
 		}
 	}
 }
