@@ -364,6 +364,7 @@ public class PreguntaDAO {
             if(resultSet.next()){
             	res=Integer.parseInt(resultSet.getString("id"));
             }
+            return res;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -384,6 +385,7 @@ public class PreguntaDAO {
         	nueva.setR3(r3);
         	nueva.setR4(r4);
         	nueva.setrOk(resOK);
+        	return nueva;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -394,8 +396,8 @@ public class PreguntaDAO {
     public boolean esRespOk(int respCorrecta, int res) { //DEPENDE DE RESPONDER PREGUNTA Y DE COMO SE GUARDA LA RESPUESTA
     	boolean resul=false;
     	try {
-    		if(respCorrecta==res) resul=true;
-    		else resul=false;
+    		if(respCorrecta==res) return true;
+    		else return false;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -413,7 +415,8 @@ public class PreguntaDAO {
             // Result set get the result of the SQL query
         	String consulta="select id from preguntas where id=(select idpreg from carteles where id=(select idcartel from retos where id=(select max(id) from retos)))";
         	resultSet=statement.executeQuery(consulta);
-            if(resultSet.next())res=Integer.parseInt(resultSet.getString("id"));
+            if(resultSet.next()) res=Integer.parseInt(resultSet.getString("id"));
+            return res;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -468,6 +471,7 @@ public class PreguntaDAO {
                 enteros[3]=Integer.parseInt(resultSet.getString("id"));
                 return enteros;
             }
+            return null;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -494,6 +498,7 @@ public class PreguntaDAO {
                 x[3]=Integer.parseInt(resultSet.getString("idp4"));
                 return x;
             }
+            return null;
     	}
     	catch (Exception e) {
             e.printStackTrace();
@@ -506,11 +511,10 @@ public class PreguntaDAO {
 
 
     public boolean mostrarRes(String idU, int idP) {
-    	boolean resul=true;
     	try {
         	if(idP==idPreguntaRetoActual()) {
         		System.out.println("La pregunta corresponde a la del reto actual");
-        		resul= false;
+        		return false;
         	}
         	else {
         		connect=ConnectionManager.getConnection();
@@ -519,28 +523,24 @@ public class PreguntaDAO {
                 // Result set get the result of the SQL query
             	String consulta="select idp1, idp2, idp3, idp4 from respuestasu where iduser='"+idU+"' and idreto=(select max(id) from retos)";
             	//System.out.println("La consulta a ejecutar es: "+consulta);
-            	resultSet=statement.executeQuery(consulta); //NO DEVUELVE NADA PERO FUNCIONA EN DB
+            	resultSet=statement.executeQuery(consulta); 
                 if(resultSet.next()) {
 		            int p1=Integer.parseInt(resultSet.getString("idp1"));
 		            int p2=Integer.parseInt(resultSet.getString("idp2"));
 		            int p3=Integer.parseInt(resultSet.getString("idp3"));
 		            int p4=Integer.parseInt(resultSet.getString("idp4"));
-		    		if(idP==p1 || idP==p2 || idP==p3 || idP==p4) {
-		    			resul= false;
+		    		if(idP==p1 || idP==p2 || idP==p3 || idP==p4) return false;
 		    			//System.out.println("La respuesta corresponde a alguna asociada al reto actual");
-		    		}
+		    		return true;
 		    		//else System.out.printf("La pregunta respondida puede mostrar la respuesta y es distinta de %d, %d, %d, %d, %d\n",p1,p2,p3,p4,idP);
-                }
-                else {
-                	//System.out.println("La consulta no ha devuelto nada");
-                }
+                } else return false;//System.out.println("La consulta no ha devuelto nada");
         	}
     	} catch (Exception e) {
             e.printStackTrace();
     	}finally {
             close();
     	}
-    	return resul;
+		return false;
     }
     private void close() {
         try {
