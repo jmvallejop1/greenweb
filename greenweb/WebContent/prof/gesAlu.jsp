@@ -23,6 +23,10 @@
 
    <body onload="myFunction()">
 		<iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+		<%
+			UsuarioManager  man = new UsuarioManafer();
+			List<UsuarioDO> todos = man.obtenerUsuariosTipo("a");
+		%>
 		<div class="info">
 			<h3 align="center">Lista de alumnos</h3>
 			<p>Aquí podrás añadir y eliminar cuentas de la lista de alumnos. Aquel que esté en esta lista podrá acceder a los trabajos y votar su favorito. También podrá subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los alumnos que estén en el curso actual.</p>
@@ -42,30 +46,22 @@
 			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
 			<table id="myTable">
 			  	<tr class="header">
-			    	<th style="width:55%;">Nombre Usuario</th>
-			    	<th style="width:25%;">Id Cuenta</th>
+			    	<th style="width:55%;">Nombre</th>
+			    	<th style="width:25%;"> Nombre Usuario </th>
 			    	<th style="width:20%">Borrar</th>
 			 	</tr>
+			 	<%
+			 		for (int i = 0; i < todos.size(){
+			 	%>
 			 	<tr>
-			    	<td>Alfreds Futterkiste</td>
-			    	<td>AlFutt</td>
+			    	<td>A<%out.println(todos.get(i).getNombre());%></td>
+			    	<td>A<%out.println(todos.get(i).getUsername());%></td>
 			    	<td><img src="images/borrar.png" onclick="window.location.href='gesAluBorrado.html'"></td>
-			 	</tr>
-			  	<tr>
-			    	<td>Berglunds snabbkop</td>
-			    	<td>Swediepie</td>
-			    	<td><img src="images/borrar.png"></td>
-			 	</tr>
-			  	<tr>
-				    <td>Island Trading</td>
-				    <td>Tradisl</td>
-			    	<td><img src="images/borrar.png"></td>
-			  	</tr>
-			 	<tr>
-				    <td>Koniglich Essen</td>
-				    <td>Koningen</td>
-			    	<td><img src="images/borrar.png"></td>
-			  	</tr>
+			 	</tr> 
+			 	
+			 	 <%		
+					} 
+	 			 %>		 
 			</table>
 		</div>
 		<iframe src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>

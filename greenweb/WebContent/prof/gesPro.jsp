@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-		<title>Gestionar profesores</title>
+		<title>Gestionar alumnos</title>
 		<link rel="stylesheet" href="css/gestUsers.css">
 		<script language="JavaScript">	
 			function myFunction() {
@@ -18,13 +18,18 @@
 						window.alert("El usuario introducido es ahora un alumno");
 				}
 		</script>
+		
    </head>
 
    <body onload="myFunction()">
 		<iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+		<%
+			UsuarioManager  man = new UsuarioManafer();
+			List<UsuarioDO> todos = man.obtenerUsuariosTipo("p");
+		%>
 		<div class="info">
-			<h3 align="center">Lista de profesores</h3>
-			<p>Aquí podrás añadir y eliminar cuentas de la lista de profesores. Aquel que esté en esta lista podrá acceder a los trabajos y votar su favorito. Un profesor podrá añadir cuentas a las listas de alumnos y profesores por lo que deben estar muy controlados. También podrá subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los profesores que estén impartiendo el curso actual o encargados de la gestión de la página.</p>
+			<h3 align="center">Lista de alumnos</h3>
+			<p>Aquí podrás añadir y eliminar cuentas de la lista de alumnos. Aquel que esté en esta lista podrá acceder a los trabajos y votar su favorito. También podrá subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los alumnos que estén en el curso actual.</p>
 			<ul>
 				<li>Para añadir un alumno nuevo busque su nombre y pulse el botón de añadir.</li>
 				<li>Para eliminar un alumno pulse la cruz roja al lado de su nombre en la lista.</li>
@@ -32,41 +37,33 @@
 				
 		</div>
 		<div class="gestionUsers">
-			<form action="../AnadirProf" method="post">
-			<h4>Añadir profesores</h4>
-				<input type="text" name="prof" placeholder="Profesor a a�adir">
-				<input type="submit" name="busquedaUser" value="Añadir profesor">
+			<form action="../AnadirAlumno" method="post">
+			<h4>Añadir alumnos</h4>
+				<input type="text" name="alumno" placeholder="Usuario a a�adir">
+				<input type="submit" name="busquedaUser" value="Añadir usuario">
 			</form>
 			<hr>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar profesor...">
+			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
 			<table id="myTable">
 			  	<tr class="header">
-			    	<th style="width:55%;">Nombre Usuario</th>
-			    	<th style="width:25%;">Id Cuenta</th>
+			    	<th style="width:55%;">Nombre</th>
+			    	<th style="width:25%;"> Nombre Usuario </th>
 			    	<th style="width:20%">Borrar</th>
 			 	</tr>
+			 	<%
+			 		for (int i = 0; i < todos.size(){
+			 	%>
 			 	<tr>
-			    	<td>Alfreds Futterkiste</td>
-			    	<td>AlFutt</td>
-			    	<td><img src="images/borrar.png"></td>
-			 	</tr>
-			  	<tr>
-			    	<td>Berglunds snabbkop</td>
-			    	<td>Swediepie</td>
-			    	<td><img src="images/borrar.png"></td>
-			 	</tr>
-			  	<tr>
-				    <td>Island Trading</td>
-				    <td>Tradisl</td>
-			    	<td><img src="images/borrar.png"></td>
-			  	</tr>
-			 	<tr>
-				    <td>Koniglich Essen</td>
-				    <td>Koningen</td>
-			    	<td><img src="images/borrar.png"></td>
-			  	</tr>
+			    	<td>A<%out.println(todos.get(i).getNombre());%></td>
+			    	<td>A<%out.println(todos.get(i).getUsername());%></td>
+			    	<td><img src="images/borrar.png" onclick="window.location.href='gesAluBorrado.html'"></td>
+			 	</tr> 
+			 	
+			 	 <%		
+					} 
+	 			 %>		 
 			</table>
 		</div>
-		 <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+		<iframe src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>
 	</body>
 </html>
