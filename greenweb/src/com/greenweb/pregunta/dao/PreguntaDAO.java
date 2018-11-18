@@ -193,7 +193,7 @@ public class PreguntaDAO {
     	        	if(respuesta==res) respuesta=0;
     			}
     		}
-    		else respuesta=-1;
+    		else return -1;
     		return respuesta;
         }
     	catch (Exception e) {
@@ -427,6 +427,48 @@ public class PreguntaDAO {
         return res;
     }
     
+    public int resPreguntaRetoActual() {
+    	int res=-1;
+    	try {
+        	connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+        	String consulta="select respcorrecta from preguntas where id=(select idpreg from carteles where id=(select idcartel from retos where id=(select max(id) from retos)))";
+        	resultSet=statement.executeQuery(consulta);
+            if(resultSet.next()) res=Integer.parseInt(resultSet.getString("respcorrecta"));
+            return res;
+    	}
+    	catch (Exception e) {
+            e.printStackTrace();
+    	}
+    	finally {
+            close();
+    	}
+        return res;
+    }
+    
+    public int resPregunta(int idp) {
+    	int res=-1;
+    	try {
+        	connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+        	String consulta="select respcorrecta from preguntas where id="+idp;
+        	resultSet=statement.executeQuery(consulta);
+            if(resultSet.next()) res=Integer.parseInt(resultSet.getString("respcorrecta"));
+            return res;
+    	}
+    	catch (Exception e) {
+            e.printStackTrace();
+    	}
+    	finally {
+            close();
+    	}
+        return res;
+    }
+    
     //FUNCIONA
     public int idRetoActual() {
     	int res=-1;
@@ -522,7 +564,7 @@ public class PreguntaDAO {
                 statement = connect.createStatement();
                 // Result set get the result of the SQL query
             	String consulta="select idp1, idp2, idp3, idp4 from respuestasu where iduser='"+idU+"' and idreto=(select max(id) from retos)";
-            	//System.out.println("La consulta a ejecutar es: "+consulta);
+            	System.out.println("La consulta a ejecutar es: "+consulta);
             	resultSet=statement.executeQuery(consulta); 
                 if(resultSet.next()) {
 		            int p1=Integer.parseInt(resultSet.getString("idp1"));
@@ -531,7 +573,7 @@ public class PreguntaDAO {
 		            int p4=Integer.parseInt(resultSet.getString("idp4"));
 		    		if(idP==p1 || idP==p2 || idP==p3 || idP==p4) return false;
 		    			//System.out.println("La respuesta corresponde a alguna asociada al reto actual");
-		    		return true;
+		    		else return true;
 		    		//else System.out.printf("La pregunta respondida puede mostrar la respuesta y es distinta de %d, %d, %d, %d, %d\n",p1,p2,p3,p4,idP);
                 } else return true;//System.out.println("La consulta no ha devuelto nada");
         	}

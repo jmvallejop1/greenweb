@@ -20,7 +20,7 @@ public class UsuarioDAO {
 	    private ResultSet resultSet = null;
 
 	    public List<UsuarioDO> obtenerTodos() throws Exception {
-	    	 List resultado=new LinkedList();
+	    	 List<UsuarioDO> resultado=new LinkedList<UsuarioDO>();
 	        try {
 	        	
 	        	connect=ConnectionManager.getConnection();
@@ -41,17 +41,15 @@ public class UsuarioDAO {
 	            	user.setPuntos(Integer.parseInt(resultSet.getString("puntos")));
 	            	resultado.add(user);         
 	            }
+	            return resultado;
 	        } catch (Exception e) {
 	            throw e;
 	        } finally {
 	            close();
 	        }
-	        return resultado;
-
 	    }
 	    
 	    public int anadirUsuario(UsuarioDO u) throws Exception {
-	    	 List resultado=new LinkedList();
 	        try {
 	        	
 	        	connect=ConnectionManager.getConnection();
@@ -134,6 +132,24 @@ public class UsuarioDAO {
 	        }
 	    	return false;
 			
+	    }
+	    
+	    public int puntosUsuario(String username) {
+	    	try {
+	    		connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            resultSet = statement.executeQuery("select puntos from usuarios where username='"+username+"'");
+	            if(resultSet.next()) return Integer.parseInt(resultSet.getString("puntos"));
+	            else return 0;
+	    	}
+	    	catch(Exception e){
+	    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
+	    	}finally {
+	            close();
+	        }
+			return 0;
 	    }
 	    
 	    public UsuarioDO obtenerUsuario(String username) throws Exception {

@@ -10,6 +10,11 @@ public class PreguntasManager {
 	
 	public static void main(String[] args) throws Exception {
 		PreguntasManager pregM = new PreguntasManager();
+		PreguntaDAO pdao=new PreguntaDAO();
+		PreguntaDO p = new PreguntaDO();
+		//if(pdao.obtenerPregunta(3, p)) System.out.println("La pregunta con id 3 es: "+ p.getPreg());
+		int x = pdao.responderPreg("pepe", 3, 5);
+		System.out.println("ResponderPreg devuelve: "+x);
 		/*//pregM.listarTodas();
 		List<PreguntaDO> lista = pregM.obtenerTodasPreguntas();
 		System.out.println("Uee mecauenla");
@@ -18,7 +23,7 @@ public class PreguntasManager {
 		PreguntaDAO daoP=new PreguntaDAO();
 		List<PreguntaDO> lista2=daoP.obtener5(lista, 3);
 		pregM.listar(lista2);*/
-		if(pregM.anyadirPregunta("Cuantas piernas tiene una perra?", "1", "2", "0", "Nose", 3)) {
+		/*if(pregM.anyadirPregunta("Cuantas piernas tiene una perra?", "1", "2", "0", "Nose", 3)) {
 			System.out.println("Se ha introducido la pregunta, mostrando la lista a continuación:");
 			//pregM.listarTodas();
 		}
@@ -33,9 +38,9 @@ public class PreguntasManager {
 			System.out.println("sk8 no ha podido responder la pregunta del reto actual");
 		}
 		System.out.println("-----------------------------------------fin respuesta----------------------------------------");
-
+*/
 		System.out.println("El main ha terminado");
-	*/
+
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
 	
