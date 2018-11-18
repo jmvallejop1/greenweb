@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ page
 import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
+import="com.greenweb.cartel.*,java.util.List,com.greenweb.cartel.data.*"
+import="com.greenweb.noticia.*,java.util.List,com.greenweb.noticia.data.*"
+import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 %>
 
 <!DOCTYPE html>
@@ -26,7 +29,13 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 	out.println(session.getAttribute("logged"));*/
   %>
   
-  <% 
+  <%
+    PreguntasManager pman = new PreguntasManager();
+    CartelesManager cman = new CartelesManager();
+    CartelDO cartelActual = new CartelDO();
+    PreguntaDO pregAct = new PreguntaDO();
+    NoticiaDO notAct = new NoticiaDO();
+    
    	int idCartelActual = pman.idPregActual();
     CartelDO cartelActual = cman.obtenerCartelP(idCartelActual);
     PreguntaDO pregAct = cartelActual.getPreg();

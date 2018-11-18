@@ -10,7 +10,7 @@ public class UsuarioManager {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		UsuarioManager usu = new UsuarioManager();
-		// usu.obtenerTodosUsuarios();
+		/* usu.obtenerTodosUsuarios();
 		System.out.println("USUARIOS ALUMNOS");
 		
 		usu.obtenerUsuariosTipo("a");
@@ -22,6 +22,21 @@ public class UsuarioManager {
 		System.out.println("USUARIOS NORMALES");
 
 		usu.obtenerUsuariosTipo("u");
+		
+		*/
+		
+		UsuarioDO u = new UsuarioDO();
+		
+		u.setUsername("pedritoPiedra");
+		u.setContr("pedrin");
+		u.setEdad(87);
+		u.setTipo("u");
+		u.setPuntos(50);
+		u.setEstudios(2);
+		u.setMail("picapiedra@unizar.es");
+		u.setNombre("pedro picapiedra");
+		
+		usu.anadirUsuario(u);
 	}
 	
 	public List<UsuarioDO> obtenerTodosUsuarios()
