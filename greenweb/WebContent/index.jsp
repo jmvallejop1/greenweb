@@ -22,57 +22,52 @@
 		</script> 
   <body>
 
-
-
   <!-- BARRA DE NAVEGACION Y HEADER-->
   <iframe src="menu_global.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 
+  <%
+  PreguntasManager pman = new PreguntasManager();
+  CartelesManager cman = new CartelesManager();
+  %>
    
   <section>
     <div class="container">
       <div id="RetoActual">
+      
+        <% 
+        	int idCartelActual = pman.idPregActual();
+        	CartelDO cartelActual = cman.obtenerCartelP(idCartelActual);
+        	PreguntaDO pregAct = cartelActual.getPreg();
+        	NoticiaDO notAct = cartelActual.getNot();
+        %>
+        
         <h2>Reto Actual</h2>
       </div>
       
       <div class="reto">
-        <h3>Nombre del reto</h3>
+        <h3><%out.println(notAct.getTitulo());%></h3>
             <p><video  controls="controls">
               <source src="video/vid1.mp4" type="video/mp4">
-            </video>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </video>
+            	<%out.println(notAct.getTexto());%>
             </p>
-            
-
+           
         </div>
       </div>
     </div> 
      <div class="PreguntaPrincipal">
-          <h3>Hola que tal como estas?</h3>
+          <h3><%out.println(pregAct.getPreg());%></h3>
           <div class="respuestas">
           <form>
           <ul>
               <li><input type="radio" name="resp" value="1" />
-              <label>Cambio climatico</label></li>
+              <label><%out.println(pregAct.getR1());%></label></li>
               <li><input type="radio" name="resp" value="2" />
-              <label>Polucion</label></li>
+              <label><%out.println(pregAct.getR2());%></label></li>
               <li><input type="radio" name="resp" value="3" />
-              <label>Marea negra</label></li>
+              <label><%out.println(pregAct.getR3());%></label></li>
               <li><input type="radio" name="resp" value="4" />
-              <label>No sabe/No contesta</label></li>
+              <label><%out.println(pregAct.getR4());%></label></li>
           </ul>
           <input type="submit" class="bot" name="Aceptar" value="Contestar!">
           </form>

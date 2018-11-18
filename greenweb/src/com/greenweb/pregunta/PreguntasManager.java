@@ -2,6 +2,8 @@ package com.greenweb.pregunta;
 //import java.util.Iterator;
 import java.util.List;
 import com.greenweb.pregunta.data.*;
+import com.greenweb.cartel.dao.CartelDAO;
+import com.greenweb.cartel.data.CartelDO;
 import com.greenweb.pregunta.dao.*;
 
 public class PreguntasManager {
@@ -36,6 +38,19 @@ public class PreguntasManager {
 	*/
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
+	
+	
+	public int idPregActual() throws Exception {
+		PreguntaDAO dao = new PreguntaDAO();
+		try {
+			return dao.idPreguntaRetoActual();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+	}
+	
 	
 	public void listar(List<PreguntaDO> list) throws Exception {
 		PreguntaDAO dao = new PreguntaDAO();

@@ -20,6 +20,14 @@ pageEncoding="UTF-8"%>
 	
 </script>
 <body>
+<%
+	session = request.getSession(false);
+	String id ="";
+	if(session != null){
+		session.setAttribute("id","vaBien");
+		 id = (String)session.getAttribute("id");
+	}
+%>
 	<header>
 		<div id="main-header">
       		<h1>GREENWEB</h1>
@@ -34,7 +42,7 @@ pageEncoding="UTF-8"%>
 					<li><a href="preguntas_alu.jsp" target="body">Preguntas Recicladas</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
 					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
-					<li class="ALaDerecha"><a href="profile.jsp" target="body">PepeJuan</a></li>
+					<li class="ALaDerecha"><a href="profile.jsp" target="body"><%out.println(id); %></a></li>
 				</ul>			
 			</div>
 		</nav>
