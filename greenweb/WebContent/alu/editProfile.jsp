@@ -16,7 +16,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
    		//UsuarioDO usu= un.obtenerUsuario((String)session.getAttribute("id"));
    		UsuarioDO usu= un.obtenerPepe();
    %>
-      <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+      <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
          <!--AquÃ­ irÃ­a el frame de la cabecera y el menu-->
       <div class="box2">
          <img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">

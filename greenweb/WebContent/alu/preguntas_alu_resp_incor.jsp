@@ -7,7 +7,7 @@
   </head>  
 
   <body>
-    <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+    <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
   	<!-- BARRA DE NAVEGACION Y HEADER-->
 	<div class="info">
     <p align="center"><strong>¡Bienvenidos a nuestra sección de preguntas recicladas!</strong></p>

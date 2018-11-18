@@ -7,7 +7,7 @@
       <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
    </head>
    <body>
-      <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+      <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
    		<!--Aquí iría el frame de la cabecera y el menu-->
       <div class="box2">
    		<img src="images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">

@@ -31,7 +31,7 @@ pageEncoding="UTF-8"%>
 					<li><a href="../noticias.jsp" target="body">Noticias</a></li>
 					<li><a href="enlaces_alu.jsp" target="body">Enlaces</a><li>
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
-					<li><a href="preguntas_alu.jsp" target="body">Preguntas Recicladas</a></li>
+					<li><a href="../preguntas.jsp" target="body">Preguntas Recicladas</a></li>
 					<li><a href="trabajos.jsp" target="body">Trabajos</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
 					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
