@@ -186,6 +186,7 @@ public class CartelDAO {
 		
 	}
 	
+	//Sube un cartel nuevo
 	public boolean subirCartel(CartelDO c) {
 		boolean todoOk=false;
 		try {
@@ -218,10 +219,12 @@ public class CartelDAO {
                 int insertados = statement.executeUpdate(insertCartel);
                 if(insertados==1) {
                 	System.out.println("Se han modificado lineas: "+insertados);
-                	todoOk=true;            	   
+                	return true;            	   
                 }
+                else return false;
             }
             System.out.println("Fin funcion subir");
+            return todoOk;
 		}
 		catch (Exception e) {
             e.printStackTrace();
