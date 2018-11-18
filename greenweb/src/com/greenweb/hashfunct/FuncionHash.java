@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 public class FuncionHash {
   
     private final static String salt="DGE$5SGr@3VsHYUMas2323E4d57vfBfFSTRU@!DSH(*%FDSdfg13sgfsg";
-     
+    /* 
     public static void main(String[] args) {
             String password = "thisismypassword";
             String empty =  null;
@@ -14,7 +14,7 @@ public class FuncionHash {
             System.out.println(empty+" MD5 hashed to>>>>>>> " + md5Hash(null));
             System.out.println(msg+" MD5 hashed to>>>>>>> " + md5Hash(msg));
     }
- 
+ */
     //Takes a string, and converts it to md5 hashed string.
     public static String md5Hash(String message) {
         String md5 = "";

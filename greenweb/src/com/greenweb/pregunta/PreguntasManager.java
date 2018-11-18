@@ -15,14 +15,14 @@ public class PreguntasManager {
 		System.out.println("Vamos a coger las 5 preguntas primeras");
 		PreguntaDAO daoP=new PreguntaDAO();
 		List<PreguntaDO> lista2=daoP.obtener5(lista, 3);
-		pregM.listar(lista2);
-		if(pregM.anyadirPregunta("Cuantas piernas tiene un perro?", "1", "2", "0", "Nose", 3)) {
+		pregM.listar(lista2);*/
+		if(pregM.anyadirPregunta("Cuantas piernas tiene una perra?", "1", "2", "0", "Nose", 3)) {
 			System.out.println("Se ha introducido la pregunta, mostrando la lista a continuación:");
 			//pregM.listarTodas();
 		}
 		else {
 			System.out.println("No se ha introducido la pregunta.");
-		}
+		}/*
 		System.out.println("-----------------------------------------Ahora respondemos----------------------------------------");
 		if(pregM.responderPregAdicionalRA("sk8", 4, 3)) {
 			System.out.println("sk8 ha respondido a la pregunta");
@@ -34,7 +34,7 @@ public class PreguntasManager {
 
 		System.out.println("El main ha terminado");
 	*/
-		System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
+		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
 	
 	public void listar(List<PreguntaDO> list) throws Exception {

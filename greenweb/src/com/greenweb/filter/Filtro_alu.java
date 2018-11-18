@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import com.greenweb.hashfunct.FuncionHash;
 import com.greenweb.usuario.UsuarioManager;
 import com.greenweb.usuario.data.UsuarioDO;
 
@@ -37,11 +38,11 @@ public void init(FilterConfig f) throws ServletException {
 					 ((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=loginerror");
 					 
 				}else {
-					//TODO comprobar usuario y contraseña. si ok añadir logged a session, sino sendRedirect 
-					// comprobar tambien que tipo se usuario es y añadirle el logged dependiendo
+					//TODO comprobar usuario y contraseï¿½a. si ok aï¿½adir logged a session, sino sendRedirect 
+					// comprobar tambien que tipo se usuario es y aï¿½adirle el logged dependiendo
 					UsuarioManager m = new UsuarioManager();
 					UsuarioDO u = m.obtenerUsuario(usr);
-					if(u.getContr().equals(pass)) {
+					if(u.getContr().equals(FuncionHash.md5Hash(pass))) {
 						if(u.getTipo().equals("u")) {
 							session.setAttribute("logged","normal");
 							session.setAttribute("id",usr);

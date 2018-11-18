@@ -8,6 +8,7 @@ public class PreguntaDO {
 	private String r3;
 	private String r4;
 	private Integer rOk;
+	
 	public String getPreg() {
 		return preg;
 	}
