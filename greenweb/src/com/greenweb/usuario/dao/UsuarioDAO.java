@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.greenweb.hashfunct.*;
 import com.greenweb.ConnectionManager;
 import com.greenweb.usuario.data.UsuarioDO;
 
@@ -59,8 +60,8 @@ public class UsuarioDAO {
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
 	            //resultSet = statement.executeQuery("select titulo, texto, video from noticias");
-	            //TODO consulta añadir usuario a base de datos y saber si ha ido bien
-	            String query = "INSERT into enlaces VALUES ('"+u.getUsername()+ "','" + u.getContr() + "','" + u.getNombre() + "'"
+	            //TODO consulta aï¿½adir usuario a base de datos y saber si ha ido bien
+	            String query = "INSERT into enlaces VALUES ('"+u.getUsername()+ "','" + FuncionHash.md5Hash(u.getContr()) + "','" + u.getNombre() + "'"
 	            		+ "'" + u.getMail() + "'," + u.getEstudios() + "," + u.getEdad() + "," +u.getPuntos() +",'"+u.getTipo()+"')";
 	            System.out.println(query);
 	            int how = statement.executeUpdate(query);
@@ -91,8 +92,8 @@ public class UsuarioDAO {
 	            close();
 	        }
 	    	return false;
-			
 	    }
+
 	    
 	    public boolean actualizarUsuario(String id, String mail, int age, int estudios) {
 	    	try {
@@ -179,7 +180,7 @@ public class UsuarioDAO {
 		            statement = connect.createStatement();
 		            // Result set get the result of the SQL query
 		            //resultSet = statement.executeQuery("select titulo, texto, video from noticias");
-		            //TODO consulta añadir usuario a base de datos y saber si ha ido bien
+		            //TODO consulta aï¿½adir usuario a base de datos y saber si ha ido bien
 		            String query = "select * from usuarios where tipo ='" + tipo + "'";
 		            System.out.println(query);
 		            resultSet = statement.executeQuery(query);
