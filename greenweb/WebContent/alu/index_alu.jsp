@@ -17,7 +17,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 
 
   <!-- BARRA DE NAVEGACION Y HEADER-->
-  <iframe src="menu_alumno.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+  <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 
   <%/*out.println(request.getParameter("user"));
 	out.println(request.getParameter("pass"));

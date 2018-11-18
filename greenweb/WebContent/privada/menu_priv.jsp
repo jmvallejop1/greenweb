@@ -1,10 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/menus.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+<script>
+	$(document).ready(function() {
+		 $("#cerrarSesion").click(function(){
+		        $.post("../CerrarSesion", {
+				}, function(data) {
+				});
+		    });
+	});
+	
+</script>
 <body>
 	<header>
 		<div id="main-header">
@@ -18,9 +32,8 @@
 					<li><a href="enlaces_alu.jsp" target="body">Enlaces</a><li>
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
 					<li><a href="preguntas_alu.jsp" target="body">Preguntas Recicladas</a></li>
-					<li><a href="trabajos.jsp" target="body">Trabajos</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
-					<li class="ALaDerecha"><a href="../index.jsp" target="body">Cerrar Sesion</a></li>
+					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
 					<li class="ALaDerecha"><a href="profile.jsp" target="body">PepeJuan</a></li>
 				</ul>			
 			</div>

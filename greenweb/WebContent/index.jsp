@@ -6,7 +6,20 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
     
-  </head>  
+  </head>
+  <script language="JavaScript">	
+			function myFunction() {
+				
+				var url_string = window.location.href; // www.test.com?filename=test
+				
+				var pos = url_string.search("param")
+				pos = pos + 6
+				var er  = url_string.substr(pos,3)    		
+    			if(er != null && er != "")
+    				if(er == "loo")
+    					window.alert("Se ha cerrado sesion correctamente. ");
+				}
+		</script> 
   <body>
 
 

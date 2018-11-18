@@ -7,6 +7,7 @@ pageEncoding="UTF-8"%>
 	<title></title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/menus.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <script>
 	$(document).ready(function() {
@@ -26,14 +27,14 @@ pageEncoding="UTF-8"%>
 		<nav class="navegacion">
 			<div class="container">
 				<ul class="menu">
-					<li><a href="index_prof.jsp" target="body">Home</a></li>
+					<li><a href="index_alu.jsp" target="body">Home</a></li>
 					<li><a href="../noticias.jsp" target="body">Noticias</a></li>
-					<li><a href="enlaces_prof.jsp" target="body">Enlaces</a><li>
+					<li><a href="enlaces_alu.jsp" target="body">Enlaces</a><li>
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
-					<li><a href="../preguntas.jsp" target="body">Preguntas Recicladas</a></li>
-					<li><a href="trabajos_prof.jsp" target="body">Trabajos</a></li>
+					<li><a href="preguntas_alu.jsp" target="body">Preguntas Recicladas</a></li>
+					<li><a href="trabajos.jsp" target="body">Trabajos</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
-					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</a></li>
+					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
 					<li class="ALaDerecha"><a href="profile.jsp" target="body">PepeJuan</a></li>
 				</ul>			
 			</div>

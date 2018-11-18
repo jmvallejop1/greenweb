@@ -57,6 +57,18 @@ li a{
 }
 
 
+#cerrarSesion a{
+	float: right;
+	display:block;
+	color: white;
+	font-size: 18px;
+	padding: 20px;
+	font-family: Arial;
+	text-decoration: none;
+}
+
+
+
 
 
 
