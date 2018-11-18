@@ -513,7 +513,7 @@ public class PreguntaDAO {
     public boolean mostrarRes(String idU, int idP) {
     	try {
         	if(idP==idPreguntaRetoActual()) {
-        		System.out.println("La pregunta corresponde a la del reto actual");
+        		//System.out.println("La pregunta corresponde a la del reto actual");
         		return false;
         	}
         	else {
@@ -533,7 +533,7 @@ public class PreguntaDAO {
 		    			//System.out.println("La respuesta corresponde a alguna asociada al reto actual");
 		    		return true;
 		    		//else System.out.printf("La pregunta respondida puede mostrar la respuesta y es distinta de %d, %d, %d, %d, %d\n",p1,p2,p3,p4,idP);
-                } else return false;//System.out.println("La consulta no ha devuelto nada");
+                } else return true;//System.out.println("La consulta no ha devuelto nada");
         	}
     	} catch (Exception e) {
             e.printStackTrace();
