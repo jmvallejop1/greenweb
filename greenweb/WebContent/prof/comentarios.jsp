@@ -31,9 +31,6 @@ import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"
 	
 					<li>
 						<div class="comentario_principal">
-							<div class="comentario_avatar">
-								<img src="images/perfil.jpg" alt=""> 
-							</div>
 							<div class="comentario_caja">
 								<div class="comentario_cabeza">
 									<h6 class="nombre_comentario by-author"><a href="perfil.html"> <%out.println(todos.get(i).getIdUser());%></a></h6> 
