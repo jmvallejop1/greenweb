@@ -330,6 +330,23 @@ public class PreguntaDAO {
 		return false;
     }
     
+    public boolean existePregunta(int idPreg) {
+    	try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select * from preguntas where id="+idPreg);
+            if(resultSet.next()) return true;
+            else return false;
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
+    	}
+		return false;
+    }
+    
     public int numPreguntas() {
     	int res=-1;
     	try {
