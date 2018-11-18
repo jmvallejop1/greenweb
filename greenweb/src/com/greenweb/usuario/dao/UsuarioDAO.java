@@ -61,8 +61,7 @@ public class UsuarioDAO {
 	            // Result set get the result of the SQL query
 	            //resultSet = statement.executeQuery("select titulo, texto, video from noticias");
 	            //TODO consulta a�adir usuario a base de datos y saber si ha ido bien
-	            String query = "INSERT into enlaces VALUES ('"+u.getUsername()+ "','" + FuncionHash.md5Hash(u.getContr()) + "','" + u.getNombre() + "'"
-	            		+ "'" + u.getMail() + "'," + u.getEstudios() + "," + u.getEdad() + "," +u.getPuntos() +",'"+u.getTipo()+"')";
+	            String query = "INSERT into usuarios VALUES ('"+u.getUsername()+ "','" + FuncionHash.md5Hash(u.getContr()) + "','" + u.getNombre() + "' , '" + u.getMail() + "'," + u.getEstudios() + "," + u.getEdad() + "," +u.getPuntos() +",'"+u.getTipo()+"')";
 	            System.out.println(query);
 	            int how = statement.executeUpdate(query);
 	           
