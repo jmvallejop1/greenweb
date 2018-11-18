@@ -140,6 +140,22 @@ public class UsuarioManager {
 		u.setUsername("DestructorPepe");
 		return u;
 	}
+	
+	//////////////////////////
+	
+	private String id;
+	
+	public void setId(String s)
+	{
+		 id = s;
+	}
+	
+	public String getId()
+	{
+		return id;
+	}
+	
+	///////////////////
 
 	
 	// CAMBIAR PERMISO DE USUARIO
@@ -155,3 +171,4 @@ public class UsuarioManager {
 		}
 
 }
+

@@ -2,6 +2,7 @@
 pageEncoding="UTF-8"%> <%@ page
 import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <link rel="stylesheet" href="css/preguntas.css"> 
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	
     <script>
 	$(document).ready(function() {
 		$('#submit').click(function(event) {
@@ -22,7 +24,8 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 		});
 	});
 	</script>
-  <script>
+<script>
+var cambio;
 	$(document).ready(function(){
     	$(".bot").click(function(){
     		var array = []
@@ -30,16 +33,37 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     			array.push($(this).val())
     		});
     		alert(array);
-        	var id = $(this).parent().parent().parent().parent().attr("id");	
-        	$.post('Contestar', {
-				idc: id,
-				resp: array
-			}, function(data) {
-				alert(data);
-			});
+        	var id = $(this).parent().parent().parent().parent().attr("id");
+        	cambio = $(this).parent().parent().parent().parent().parent();
+        	$.ajax({
+                type: "POST",
+                url: 'Contestar',
+                data: ({ idc: id , resp: array }),
+                success: function(data) {
+                    comprobar(data);    
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+        	
    	 });
 	});
 </script>
+
+<script>
+	function comprobar(valor){
+		if(valor == -1){
+			$(cambio).addClass("incorrecta");
+			window.alert("-1");
+		}else if(valor == 0){
+			window.alert("0");
+		}else if(valor>0){
+			window.alert(">0");
+		}
+	}
+</script>
+
 
   </head>  
 
@@ -50,36 +74,36 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     	<p align="center"><strong>Â¡Bienvenidos a nuestra secciÃ³n de preguntas recicladas!</strong></p>
   		<p align="left">En esta secciÃ³n encontrareis una colecciÃ³n de preguntas provinientes de retos de otros aÃ±os. Â¡AsÃ­ nunca se pierden! PodrÃ¡s contestar a las preguntas y aparecerÃ¡ al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarÃ¡n la respuesta correcta hasta que no termine el reto. Â¡No queremos trampas!</p>
   	</div>
-  	<%
-		PreguntasManager man=new PreguntasManager();
-		List<PreguntaDO> result=man.obtenerTodasPreguntas();
-	%>
+  	<jsp:useBean id="man" class="com.greenweb.pregunta.PreguntasManager"/>
+  	
 	<div class="container">
-	<%for(int i = 0;i<5;i++){ %>
-		
-	  <div id="<%out.println(result.get(i).getId());%>"> 
+	<c:forEach var="pregunta" items="${man.preguntas}">
+	<div>
+	  <div id="<c:out value="${pregunta.id}"></c:out>"> 
 		<div class="PreguntaAdicional">
 		    <form>
-		      <h3><%out.println(result.get(i).getPreg());%></h3>
+		      <h3><c:out value="${pregunta.preg}"></c:out></h3>
 		      <i class="fas fa-info-circle"></i>
 		      <div class="respuestas">
 		        <ul>
 		          <li><input type="checkbox" name="resp" value="1" />
-		          <label><%out.println(result.get(i).getR1());%></label></li>
+		          <label><c:out value="${pregunta.r1}"></c:out></label></li>
 		          <li><input type="checkbox" name="resp" value="2" />
-		          <label><%out.println(result.get(i).getR2());%></label></li>
+		          <label><c:out value="${pregunta.r2}"></c:out></label></li>
 		          <li><input type="checkbox" name="resp" value="3" />
-		          <label><%out.println(result.get(i).getR3());%></label></li>
+		          <label><c:out value="${pregunta.r3}"></c:out></label></li>
 		          <li><input type="checkbox" name="resp" value="4" />
-		          <label><%out.println(result.get(i).getR4());%></label></li>
+		          <label><c:out value="${pregunta.r4}"></c:out></label></li>
 		        </ul>
-		        <input type="submit" class="bot" name="contestar" value="Contestar!">
+		        <input type="button" class="bot" name="contestar" value="Contestar!">
 		        </div>
 	   	 </form>
 	  	</div>
 	  </div>
-	  <%} %>
+	  </div>
+	  </c:forEach>
 	</div>
+	
 	<input type="button" id="submit" value="Mostrar Preguntas" /> 
   <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>

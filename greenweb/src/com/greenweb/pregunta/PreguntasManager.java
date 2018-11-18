@@ -8,6 +8,8 @@ import com.greenweb.pregunta.dao.*;
 
 public class PreguntasManager {
 	
+	
+	
 	public static void main(String[] args) throws Exception {
 		PreguntasManager pregM = new PreguntasManager();
 		PreguntaDAO pdao=new PreguntaDAO();
@@ -83,6 +85,10 @@ public class PreguntasManager {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public List<PreguntaDO> getPreguntas(){
+		return this.obtenerTodasPreguntas();
 	}
 	
 	//NO SE NECESITA

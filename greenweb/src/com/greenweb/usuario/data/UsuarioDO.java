@@ -1,5 +1,7 @@
 package com.greenweb.usuario.data;
 
+import com.greenweb.usuario.UsuarioManager;
+
 public class UsuarioDO 
 {
 	private String nombre;
@@ -10,6 +12,7 @@ public class UsuarioDO
 	private int puntos;
 	private int estudios;
 	private String tipo;
+
 	
 	public String getMail() {
 		return mail;
@@ -44,8 +47,20 @@ public class UsuarioDO
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
+		
+		
+	}
+	
+	public void setLoadUsername(String username) {
+		UsuarioManager u = new UsuarioManager();
+		UsuarioDO udo= u.obtenerUsuario(username);	
+		this.nombre = udo.getNombre();
+		this.username = username;
+		
+		
 	}
 	public int getPuntos() {
 		return puntos;
