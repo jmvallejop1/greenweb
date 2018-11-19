@@ -71,6 +71,19 @@ public class CartelesManager {
 				}		
 			}
 			
+			public CartelDO obtenerRetoActual() {
+				try {
+					CartelDAO dao = new CartelDAO();
+					return dao.obtenerRetoActual();
+				}
+				catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();			
+				}
+				return null;
+			}
+			
+			
 			public List<CartelDO> obtenerCartelesEntrega(int entrega){
 				CartelDAO dao=new CartelDAO();
 				try {

@@ -47,10 +47,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     		PreguntaDO pregAct = new PreguntaDO();
     		NoticiaDO notAct = new NoticiaDO();
         
-        	int idCartelActual = pman.idPregActual();
-        	CartelDO cartelActual2 = cman.obtenerCartelP(idCartelActual);
-        	PreguntaDO pregAct2 = cartelActual.getPreg();
-        	NoticiaDO notAct2 = cartelActual.getNot();
+        	CartelDO c = cman.obtenerRetoActual();
+        	pregAct = c.getPreg();
+        	notAct = c.getNot();
         %>
         
         <h2>Reto Actual</h2>
