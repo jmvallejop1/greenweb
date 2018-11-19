@@ -39,6 +39,21 @@
 		}
 	}
 	</script>
+	
+	<script>
+	function baja(){
+		if(confirm("Quiere darse de baja?")){
+			$.post('../Baja', {
+			}, function(responseText) {
+			});
+		}else{
+			alert("No se ha dado de baja");
+		}
+		
+	}
+	</script>
+	
+	
 </head>
 <body>
 	<c:set var="id" value="pepe" scope="session" />
@@ -57,7 +72,7 @@
 					<tr class="data"><td>Edad: </td><td><c:out value="${man.edad}"></c:out></td></tr>
 					<tr class="data"><td>Ocupacion actual: </td><td><c:out value="${man.estudios}"></c:out></td></tr>
 					<tr><td><a href="editProfile.jsp">Editar datos</a></td></tr>
-					<tr><td><a href="borrarUser.jsp">Dar usuario de baja</a></td></tr>
+					<tr><td onclick="baja()">Dar usuario de baja</a></td></tr>
 				</table>
 			</center>
 		</div>     
