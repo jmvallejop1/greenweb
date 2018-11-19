@@ -2,16 +2,20 @@ package com.greenweb.filter;
 
 import java.io.IOException;
 
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 import javax.servlet.*;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.*;
 
-import com.greenweb.hashfunct.FuncionHash;
 import com.greenweb.usuario.UsuarioManager;
 import com.greenweb.usuario.data.UsuarioDO;
 
-public class Filtro_alu implements Filter{
+public class FiltroPriv implements Filter{
 	
-public void init(FilterConfig f) throws ServletException {
+	public void init(FilterConfig f) throws ServletException {
 		
 	}
 
@@ -23,9 +27,9 @@ public void init(FilterConfig f) throws ServletException {
 		HttpServletRequest request= (HttpServletRequest)arg0;
 		HttpSession session = request.getSession(false);
 		if(session!=null)
-		{		
+		{
 			if(session.getAttribute("logged")!= null) {
-				if(session.getAttribute("logged")=="alu")
+				if(session.getAttribute("logged")=="normal")
 					arg2.doFilter(arg0, arg1);
 				else
 					((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=acceserror");
@@ -38,11 +42,10 @@ public void init(FilterConfig f) throws ServletException {
 					 ((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=loginerror");
 					 
 				}else {
-					//TODO comprobar usuario y contraseï¿½a. si ok aï¿½adir logged a session, sino sendRedirect 
-					// comprobar tambien que tipo se usuario es y aï¿½adirle el logged dependiendo
+					//TODO comprobar usuario y contraseña. si ok añadir logged a session, sino sendRedirect 
 					UsuarioManager m = new UsuarioManager();
 					UsuarioDO u = m.obtenerUsuario(usr);
-					if(u.getContr().equals(FuncionHash.md5Hash(pass))) {
+					if(u.getContr().equals(pass)) {
 						if(u.getTipo().equals("u")) {
 							session.setAttribute("logged","normal");
 							session.setAttribute("id",usr);
@@ -68,6 +71,5 @@ public void init(FilterConfig f) throws ServletException {
 		}
 		
 	}
-
 
 }

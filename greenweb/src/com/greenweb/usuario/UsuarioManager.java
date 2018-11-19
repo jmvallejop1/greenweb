@@ -3,6 +3,7 @@ package com.greenweb.usuario;
 import java.util.List;
 
 import com.greenweb.usuario.data.*;
+import com.greenweb.pregunta.data.PreguntaDO;
 import com.greenweb.usuario.dao.*;
 
 public class UsuarioManager {
@@ -50,6 +51,10 @@ public class UsuarioManager {
 			
 			return null;
 		}	
+	}
+	
+	public List<UsuarioDO> getRanking(){
+		return this.obtenerTodosUsuarios();
 	}
 	
 	// FUNCION QUE OBTIENE LOS TIPOS DE USUARIO

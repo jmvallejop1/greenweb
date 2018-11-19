@@ -9,63 +9,105 @@
 	<display-name>Prueba</display-name>
 	
 	<filter>
-	<filter-name>autfilter</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_aute</filter-class>
+	<filter-name>privfilter</filter-name>
+	<filter-class>com.greenweb.filter.FiltroPriv</filter-class>
 	</filter>
 	
 	<filter-mapping>
-	<filter-name>autfilter</filter-name>
-	<url-pattern>/privada/*</url-pattern>
+	<filter-name>privfilter</filter-name>
+	<url-pattern>/gato/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
 	<filter-name>alufilter</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_alu</filter-class>
+	<filter-class>com.greenweb.filter.FiltroAlu</filter-class>
 	</filter>
 	
 	<filter-mapping>
 	<filter-name>alufilter</filter-name>
-	<url-pattern>/privada/*</url-pattern>
+	<url-pattern>/gato/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
 	<filter-name>proffilter</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_prof</filter-class>
+	<filter-class>com.greenweb.filter.FiltroProf</filter-class>
 	</filter>
 	
 	<filter-mapping>
 	<filter-name>proffilter</filter-name>
-	<url-pattern>/privada/*</url-pattern>
+	<url-pattern>/gato/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
 	<filter-name>has</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_hasta</filter-class>
+	<filter-class>com.greenweb.filter.FiltroHasta</filter-class>
 	</filter>
 	
 	<filter-mapping>
 	<filter-name>has</filter-name>
-	<url-pattern>/*</url-pattern>
+	<url-pattern>/preguntas.jsp</url-pattern>
 	</filter-mapping>
 	
 	<filter>
 	<filter-name>has2</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_hasta2</filter-class>
+	<filter-class>com.greenweb.filter.FiltroHasta2</filter-class>
 	</filter>
 	
 	<filter-mapping>
 	<filter-name>has2</filter-name>
+	<url-pattern>/mas5/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>has3</filter-name>
+	<filter-class>com.greenweb.filter.FiltroHasta3</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has3</filter-name>
+	<url-pattern>/noticias.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>has4</filter-name>
+	<filter-class>com.greenweb.filter.FiltroHasta4</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has4</filter-name>
+	<url-pattern>/enlaces.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>has5</filter-name>
+	<filter-class>com.greenweb.filter.FiltroHasta5</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has5</filter-name>
+	<url-pattern>/privada/enlaces_priv.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+	<filter-name>has6</filter-name>
+	<filter-class>com.greenweb.filter.FiltroHasta6</filter-class>
+	</filter>
+	
+	<filter-mapping>
+	<filter-name>has6</filter-name>
 	<url-pattern>/alu/enlaces_alu.jsp</url-pattern>
 	</filter-mapping>
 	
 	<filter>
-	<filter-name>has3</filter-name>
-	<filter-class>com.greenweb.filter.Filtro_hasta2</filter-class>
+	<filter-name>has7</filter-name>
+	<filter-class>com.greenweb.filter.FiltroHasta7</filter-class>
 	</filter>
 	
 	<filter-mapping>
-	<filter-name>has3</filter-name>
+	<filter-name>has7</filter-name>
 	<url-pattern>/prof/enlaces_prof.jsp</url-pattern>
 	</filter-mapping>
+	
+	
 		
 </web-app>

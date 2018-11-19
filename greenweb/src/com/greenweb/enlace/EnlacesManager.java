@@ -3,6 +3,7 @@ package com.greenweb.enlace;
 import com.greenweb.enlace.data.*;
 import com.greenweb.enlace.dao.EnlaceDAO;
 import com.greenweb.enlace.data.EnlaceDO;
+import com.greenweb.pregunta.data.PreguntaDO;
 import com.greenweb.usuario.UsuarioManager;
 
 import java.util.LinkedList;
@@ -27,6 +28,10 @@ public class EnlacesManager {
 			e.printStackTrace();			
 			return null;
 		}		
+	}
+	
+	public List<EnlaceDO> getEnlaces(){
+		return this.obtenerTodosEnlaces();
 	}
 	
 	public List<EnlaceDO> obtener5(List<EnlaceDO> todos,int ini){

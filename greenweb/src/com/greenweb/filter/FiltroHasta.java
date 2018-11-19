@@ -10,13 +10,13 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class Filtro_hasta implements Filter{
+public class FiltroHasta implements Filter{
 
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("doFilterH1");
+		System.out.println("Pongo hasta a 5");
 		HttpServletRequest request= (HttpServletRequest)arg0;
 		HttpSession session = request.getSession(false);
 		if(session!=null) {

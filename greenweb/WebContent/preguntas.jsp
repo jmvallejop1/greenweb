@@ -3,6 +3,7 @@ pageEncoding="UTF-8"%> <%@ page
 import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +17,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <script>
 	$(document).ready(function() {
 		$('#submit').click(function(event) {
-			$.post('mas5preg.jsp', {
-				num: 1
+			$.post('mas5/mas5preg.jsp', {
 			}, function(responseText) {
 				$('.container').html(responseText);
 			});
@@ -25,7 +25,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	});
 	</script>
 <script>
-var cambio;
+	var cambio;
 	$(document).ready(function(){
     	$(".bot").click(function(){
     		var array = []
@@ -54,11 +54,12 @@ var cambio;
 <script>
 	function comprobar(valor){
 		if(valor == -1){
-			$(cambio).addClass("incorrecta");
 			window.alert("-1");
 		}else if(valor == 0){
+			$(cambio).addClass("correcta");
 			window.alert("0");
-		}else if(valor>0){
+		}else if(valor>0){	
+			$(cambio).addClass("incorrecta");
 			window.alert(">0");
 		}
 	}
@@ -69,15 +70,16 @@ var cambio;
 
   <body>
     <iframe src="menu_global.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
-  	<!-- BARRA DE NAVEGACION Y HEADER-->
 	<div class="info">
     	<p align="center"><strong>Â¡Bienvenidos a nuestra secciÃ³n de preguntas recicladas!</strong></p>
   		<p align="left">En esta secciÃ³n encontrareis una colecciÃ³n de preguntas provinientes de retos de otros aÃ±os. Â¡AsÃ­ nunca se pierden! PodrÃ¡s contestar a las preguntas y aparecerÃ¡ al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarÃ¡n la respuesta correcta hasta que no termine el reto. Â¡No queremos trampas!</p>
   	</div>
   	<jsp:useBean id="man" class="com.greenweb.pregunta.PreguntasManager"/>
-  	
+  	<c:if test = "${sessionScope.hasta > fn:length(man.preguntas)}">
+         	<c:set var = "hasta" scope = "session" value = "${fn:length(man.preguntas)}"/>
+    </c:if> 	
 	<div class="container">
-	<c:forEach var="pregunta" items="${man.preguntas}">
+	<c:forEach var="pregunta" end="5" items="${man.preguntas}">
 	<div>
 	  <div id="<c:out value="${pregunta.id}"></c:out>"> 
 		<div class="PreguntaAdicional">
@@ -102,8 +104,7 @@ var cambio;
 	  </div>
 	  </div>
 	  </c:forEach>
-	</div>
-	
+	</div>	
 	<input type="button" id="submit" value="Mostrar Preguntas" /> 
   <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>

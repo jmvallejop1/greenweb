@@ -68,8 +68,7 @@ public class NoticiaManager {
 	
 	// publicamos los comentarios de los usuarios OK
 	public List<NoticiaDO> mostrarNoticias()
-	{
-		
+	{	
 		NoticiaDAO dao=new NoticiaDAO();
 		try {
 			// Devolvemos una lista con los comentarios
@@ -81,6 +80,10 @@ public class NoticiaManager {
 			return null;
 		}
 	
+	}
+	
+	public List<NoticiaDO> getNoticias(){
+		return this.mostrarNoticias();
 	}
 	
 	// añadimos un comentario a la lista OK

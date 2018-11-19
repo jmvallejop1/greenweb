@@ -8,7 +8,7 @@ import javax.servlet.http.*;
 import com.greenweb.usuario.UsuarioManager;
 import com.greenweb.usuario.data.UsuarioDO;
 
-public class Filtro_prof implements Filter{
+public class FiltroProf implements Filter{
 	
 public void init(FilterConfig f) throws ServletException {
 		
