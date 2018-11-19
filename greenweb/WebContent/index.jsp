@@ -65,7 +65,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
            
         </div>
       </div>
-    </div> 
      <div class="PreguntaPrincipal">
           <h3><%out.println(pregAct.getPreg());%></h3>
           <div class="respuestas">

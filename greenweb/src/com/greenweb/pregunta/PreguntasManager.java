@@ -1,4 +1,5 @@
 package com.greenweb.pregunta;
+import java.util.LinkedList;
 //import java.util.Iterator;
 import java.util.List;
 import com.greenweb.pregunta.data.*;
@@ -99,6 +100,33 @@ public class PreguntasManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
+		}
+	}
+	
+	public boolean haRespondidoRA(String user) {
+		try {
+			PreguntaDAO dao= new PreguntaDAO();
+			return dao.haRespondidoRA(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public List<PreguntaDO> obtenerPregsAdi(String idUser) {
+		try {
+			PreguntaDAO pdao=new PreguntaDAO();
+			int[] idps=pdao.getPregsAdi(idUser);
+			List<PreguntaDO> lista= new LinkedList<PreguntaDO>();
+			for (int i=0; i<idps.length; i++) {
+				PreguntaDO p=new PreguntaDO();
+				if(obtenerPregunta(idps[i], p))lista.add(p);
+			}
+			return lista;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 	

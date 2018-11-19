@@ -568,7 +568,25 @@ public class PreguntaDAO {
 		return null;
     }
 
-
+    public boolean haRespondidoRA(String idu) {
+    	try {
+        	connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+        	resultSet=statement.executeQuery("select * from respuestasu where iduser='"+idu);
+        	if(resultSet.next()) return true;
+        	else return false;
+    	}
+    	catch (Exception e) {
+            e.printStackTrace();
+    	}
+    	finally {
+            close();
+    	}
+        return false;
+    }
+    
     public boolean mostrarRes(String idU, int idP) {
     	try {
         	if(idP==idPreguntaRetoActual()) {

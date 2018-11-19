@@ -30,37 +30,38 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   %>
   
   <% 
-    PreguntasManager pman = new PreguntasManager();
-    CartelesManager cman = new CartelesManager();
-    CartelDO cartelActual = new CartelDO();
-    PreguntaDO pregAct = new PreguntaDO();
-    NoticiaDO notAct = new NoticiaDO();
-    
-   	int idCartelActual = pman.idPregActual();
-    CartelDO cartelActual = cman.obtenerCartelP(idCartelActual);
-    PreguntaDO pregAct = cartelActual.getPreg();
-    NoticiaDO notAct = cartelActual.getNot();
+  	CartelDO cartelActual = new CartelDO();
+	PreguntaDO pregAct = new PreguntaDO();
+	NoticiaDO notAct = new NoticiaDO();
+	CartelesManager cman = new CartelesManager();
+	PreguntasManager pman= new PreguntasManager();
+	CartelDO c = cman.obtenerRetoActual();
+	pregAct = c.getPreg();
+	notAct = c.getNot();
   %>
   
   <section>
     <div class="container">
       <div id="RetoActual">
+      
+        
+        
         <h2>Reto Actual</h2>
       </div>
       
       <div class="reto">
         <h3><%out.println(notAct.getTitulo());%></h3>
             <p><video  controls="controls">
-              <source src="../video/vid1.mp4" type="video/mp4">
+              <source src="video/vid1.mp4" type="video/mp4">
             </video>
             	<%out.println(notAct.getTexto());%>
             </p>
-            
+           
         </div>
       </div>
-    </div> 
-     <div class="pregunta">
+     <div class="PreguntaPrincipal">
           <h3><%out.println(pregAct.getPreg());%></h3>
+          <div class="respuestas">
           <form>
           <ul>
               <li><input type="radio" name="resp" value="1" />
@@ -72,27 +73,20 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
               <li><input type="radio" name="resp" value="4" />
               <label><%out.println(pregAct.getR4());%></label></li>
           </ul>
-          <input type="button" name="contestar" value="Contestar!" onclick="window.location.href='index_respondeRA.html'">
-          <!--input type="submit" class="bot" name="Aceptar" value="Contestar!"-->
+          <input type="submit" class="bot" name="Aceptar" value="Contestar!">
           </form>
+        </div>
       </div>
-      <center>
-      <h3>Seccion preguntas adicionales</h3>
-      </center>
+      <h3 class=cabeza>Seccion preguntas adicionales</h3>
       
       <% 
         // Obtencion de las preguntas con el usuario
-      	int [] pregAdicionales = getPregsAdi(request.getParameter("user"));
-      	
-      %>
-      
-      <%
-        //Obtencion de las preguntas
-         for (int i = 0; i < pregAdicionales.size(); i++){
-        	PreguntaDAO dao = new PreguntaDAO();
-        	PreguntaDO p = new PreguntaDO();
-        	if (dao.obtenerPregunta(pregAdicionales[i], p)){
-        	
+        String user=request.getParameter("user");
+      	if(pman.haRespondidoRA(user))	{
+	      List<PreguntaDO> pregs = pman.obtenerPregsAdi(user);
+	        //Obtencion de las preguntas
+	         for (int i = 0; i < pregs.size(); i++){
+	        	PreguntaDO p=pregs.get(i);
        %>
       			<form class="pregunta" action="#" method="post">
      		   	 <h3><%out.println(p.getPreg());%></h3>
@@ -106,11 +100,16 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
          			    <li><input type="radio" name="resp" value="4" />
           				<label>><%out.println(p.getR4());%></label></li>
      			 	</ul>
-      			   <input type="submit"/></button>
+      			   <input type="submit"/>
     			</form>
    	   <%
    	        }
-   	      }  
+   	   }
+      else{
+    	  %>
+    	  <h4 class=cabeza>TIENES QUE CONTESTAR A LA PREGUNTA DEL RETO ACTUAL PARA PODER PARTICIPAR EN LAS ADICIONALES</h4>
+    	  <%
+      }
    	   %>
 
   </section>
