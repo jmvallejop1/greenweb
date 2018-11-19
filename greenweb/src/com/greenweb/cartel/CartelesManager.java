@@ -12,14 +12,15 @@ import java.util.List;
 public class CartelesManager {
 	
 			public static void main(String[] args) {
-				/*
-				CartelDAO dao=new CartelDAO();
-				List<CartelDO> l=new LinkedList<CartelDO>();
-				l=dao.obtenerCartelesEntrega(10);
 				
-				CartelesManager manager = new CartelesManager();
-				CartelDO c=manager.obtenerCartelP(1);
-				PreguntaDAO pdao=new PreguntaDAO();
+				CartelDAO dao=new CartelDAO();
+				//List<CartelDO> l=new LinkedList<CartelDO>();
+				//l=dao.obtenerEntregasActuales();
+				//l=dao.obtenerCartelesEntrega(11);
+				
+				//CartelesManager manager = new CartelesManager();
+				CartelDO c=dao.obtenerRetoActual();
+				/*PreguntaDAO pdao=new PreguntaDAO();
 				String[] autores= c.getCreadores();
 				System.out.println("El cartel obtenido a partir de la pregunta 1 es:\n"
 						+ c.getId() + "--->" + "Noticia: "+c.getIdNot()+" Pregunta: "+c.getIdPreg()+"\n Autores: "+autores[0]+", "+autores[1]+", "+autores[2]+", "+autores[3]+", "+autores[4]+
@@ -36,7 +37,16 @@ public class CartelesManager {
 				autores= c.getCreadores();
 				System.out.println("El cartel obtenido a partir de la pregunta 1 es:\n"
 						+ c.getId() + "--->" + "Noticia: "+c.getIdNot()+" Pregunta: "+c.getIdPreg()+"\n Autores: "+autores[0]);
+				
+				CartelDO c=new CartelDO();
+				int x=l.size();
+				System.out.println("Carteles pertenecientes a la entrega actual: ");
+				for (int i=0; i<x; i++) {
+					c=l.get(i);
+					System.out.println(c.getId());
+				}
 				*/
+				System.out.println("El reto actual es: "+c.getNot().getTitulo());
 				System.out.println("fin main");
 			}
 			

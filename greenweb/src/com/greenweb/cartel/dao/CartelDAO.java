@@ -133,6 +133,39 @@ public class CartelDAO {
 		return cartel;
 	}
 	
+	public CartelDO obtenerRetoActual() {
+		CartelDO c=new CartelDO();
+		PreguntaDAO pdao=new PreguntaDAO(); 
+		try {
+			int idPRA=pdao.idPreguntaRetoActual();
+			return obtenerCartelPreg(idPRA);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
+	public List<CartelDO> obtenerEntregasActuales(){
+		try {
+			connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select max(num) from entregas");
+            if(!resultSet.next()) return null;
+            else return obtenerCartelesEntrega(Integer.parseInt(resultSet.getString("max(num)")));
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
+    	}
+		 finally {
+	            close();
+	     }
+		return null;
+	}
+	
 	public List<CartelDO> obtenerCartelesEntrega(int entrega){
 		try {
     		connect=ConnectionManager.getConnection();
