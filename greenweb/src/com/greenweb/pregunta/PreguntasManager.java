@@ -8,6 +8,9 @@ import com.greenweb.cartel.data.CartelDO;
 import com.greenweb.pregunta.dao.*;
 
 public class PreguntasManager {
+	private String user;
+	public List<PreguntaDO> adicionales;
+	
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -45,6 +48,11 @@ public class PreguntasManager {
 
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
+	
+	public void setUser(String user) {
+		this.adicionales = this.obtenerPregsAdi(this.user);
+	}
+
 	
 	
 	public int idPregActual() throws Exception {
@@ -129,6 +137,7 @@ public class PreguntasManager {
 		}
 	}
 	
+	
 	//FUNCIONA
 	public boolean anyadirPregunta(String preg, String r1, String r2, String r3, String r4, int resOK) {
 		PreguntaDAO dao=new PreguntaDAO();
@@ -196,5 +205,13 @@ public class PreguntasManager {
 			e.printStackTrace();
 			return -1;
 		}
+	}
+
+	public List<PreguntaDO> getAdicionales() {
+		return adicionales;
+	}
+
+	public void setAdicionales(List<PreguntaDO> adicionales) {
+		this.adicionales = adicionales;
 	}
 }

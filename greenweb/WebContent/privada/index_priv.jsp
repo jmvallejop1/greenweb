@@ -10,6 +10,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 <html lang="en">
   <head>
     <title>Hello!</title>
+    <meta charset="utf-8">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
@@ -37,7 +38,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	PreguntasManager pman= new PreguntasManager();
 	CartelDO c = cman.obtenerRetoActual();
 	pregAct = c.getPreg();
-	notAct = c.getNot();
+	notAct = c.getNoti();
   %>
   
   <section>

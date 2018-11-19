@@ -5,6 +5,7 @@
 <html lang="en">
 <head>
 	<title>Mi cuenta</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/styleProfile.css">
 	<script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

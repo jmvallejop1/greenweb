@@ -458,11 +458,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
+            return res;
     	}
     	finally {
             close();
     	}
-        return res;
     }
     
     public int resPregunta(int idp) {
@@ -479,11 +479,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
+            return res;
     	}
     	finally {
             close();
     	}
-        return res;
     }
     
     //FUNCIONA
@@ -503,11 +503,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
+            return res;
     	}
     	finally {
             close();
     	}
-        return res;
     }
     
     //FUNCIONA
@@ -534,11 +534,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
+    		return null;
     	}
     	finally {
             close();
     	}
-		return null;
     }
 
     public int[] getPregsAdi(String idU) {
@@ -561,11 +561,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
+    		return null;
     	}
     	finally {
             close();
     	}
-		return null;
     }
 
     public boolean haRespondidoRA(String idu) {
@@ -574,17 +574,17 @@ public class PreguntaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	resultSet=statement.executeQuery("select * from respuestasu where iduser='"+idu);
+        	resultSet=statement.executeQuery("select * from respuestasu where iduser='"+idu+"'");
         	if(resultSet.next()) return true;
         	else return false;
     	}
     	catch (Exception e) {
             e.printStackTrace();
+            return false;
     	}
     	finally {
             close();
     	}
-        return false;
     }
     
     public boolean mostrarRes(String idU, int idP) {
@@ -614,10 +614,11 @@ public class PreguntaDAO {
         	}
     	} catch (Exception e) {
             e.printStackTrace();
+            return false;
     	}finally {
             close();
     	}
-		return false;
+		
     }
     private void close() {
         try {

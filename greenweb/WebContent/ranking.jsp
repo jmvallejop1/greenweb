@@ -9,6 +9,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"%>
 <title>Ranking</title>
 <link rel="stylesheet" href="css/ranking.css">
 <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+<meta charset="utf-8">
 </head>
 
 <body>
