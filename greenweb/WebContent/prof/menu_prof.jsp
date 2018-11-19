@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,14 +19,6 @@ pageEncoding="UTF-8"%>
 	
 </script>
 <body>
-<%
-	session = request.getSession(false);
-	String id ="";
-	if(session != null){
-		session.setAttribute("id","vaBien");
-		 id = (String)session.getAttribute("id");
-	}
-%>
 	<header>
 		<div id="main-header">
       		<h1>GREENWEB</h1>
@@ -42,7 +34,7 @@ pageEncoding="UTF-8"%>
 					<li><a href="trabajos_prof.jsp" target="body">Trabajos</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
 					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</a></li>
-					<li class="ALaDerecha"><a href="profile.jsp" target="body"><%out.println(id); %></a></li>
+					<li class="ALaDerecha"><a href="profile.jsp" target="body"><c:out value="${sessionScope.id}"></c:out></a></li>
 				</ul>			
 			</div>
 		</nav>
