@@ -12,6 +12,7 @@ public class UsuarioDO
 	private int puntos;
 	private int estudios;
 	private String tipo;
+	private String loadUsername;
 
 	
 	public String getMail() {
@@ -49,9 +50,7 @@ public class UsuarioDO
 	}
 	
 	public void setUsername(String username) {
-		this.username = username;
-		
-		
+		this.username = username;		
 	}
 	
 	public void setLoadUsername(String username) {
@@ -59,12 +58,18 @@ public class UsuarioDO
 		UsuarioDO udo= u.obtenerUsuario(username);	
 		this.nombre = udo.getNombre();
 		this.username = username;
-		
-		
+		this.mail = udo.getMail();
+		this.contr = udo.getContr();
+		this.edad = udo.getEdad();
+		this.puntos = udo.getPuntos();
+		this.tipo = udo.getTipo();
+		this.estudios = udo.getEstudios();			
 	}
+	
 	public int getPuntos() {
 		return puntos;
 	}
+	
 	public void setPuntos(int puntos) {
 		this.puntos = puntos;
 	}
