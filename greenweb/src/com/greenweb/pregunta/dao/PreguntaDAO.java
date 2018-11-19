@@ -75,6 +75,45 @@ public class PreguntaDAO {
 		return false;
     }
     
+    public List<PreguntaDO> obtenerAdicionales(String iduser){
+    	try {
+    		List<PreguntaDO> l= new LinkedList<PreguntaDO>();
+            int[] ids=getPregsAdi(iduser);
+            String select="select * from preguntas where (id="+ids[0];
+            for(int i=1; i<ids.length; i++) {
+            	select+=" or id="+ids[i];
+            	System.out.println("Añadida pregunta "+ids[i]);
+            }
+            select+=')';
+            System.out.println("Ejecutando: "+select);
+            connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery(select);
+            while(resultSet.next()) {
+                PreguntaDO p=new PreguntaDO();
+            	p.setId(Integer.parseInt(resultSet.getString("id")));
+            	p.setPreg(resultSet.getString("preguntas"));
+            	p.setR1(resultSet.getString("resp1"));
+            	p.setR2(resultSet.getString("resp2"));
+            	p.setR3(resultSet.getString("resp3"));
+            	p.setR4(resultSet.getString("resp4"));
+            	p.setrOk(Integer.parseInt(resultSet.getString("respcorrecta")));
+            	if(l.add(p)) System.out.println("Pregunta con id: "+p.getId()+" añadida");
+            	System.out.println("Añadida pregunta: "+p.getPreg());
+            }
+            return l;
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    	}
+    	finally {
+    		close();
+    	}
+		return null;
+    }
+    
     public List<PreguntaDO> obtener5(List<PreguntaDO> todos,int ini){
     	List<PreguntaDO> resultado=new LinkedList<PreguntaDO>();
     	for(int i = ini;i<ini + 5;i++) {
@@ -458,11 +497,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
-            return res;
     	}
     	finally {
             close();
     	}
+        return res;
     }
     
     public int resPregunta(int idp) {
@@ -479,11 +518,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
-            return res;
     	}
     	finally {
             close();
     	}
+        return res;
     }
     
     //FUNCIONA
@@ -503,11 +542,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
-            return res;
     	}
     	finally {
             close();
     	}
+        return res;
     }
     
     //FUNCIONA
@@ -534,11 +573,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
-    		return null;
     	}
     	finally {
             close();
     	}
+		return null;
     }
 
     public int[] getPregsAdi(String idU) {
@@ -561,11 +600,11 @@ public class PreguntaDAO {
     	}
     	catch (Exception e) {
             e.printStackTrace();
-    		return null;
     	}
     	finally {
             close();
     	}
+		return null;
     }
 
     public boolean haRespondidoRA(String idu) {
@@ -574,17 +613,17 @@ public class PreguntaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	resultSet=statement.executeQuery("select * from respuestasu where iduser='"+idu+"'");
+        	resultSet=statement.executeQuery("select * from respuestasu where iduser='"+idu+'\'');
         	if(resultSet.next()) return true;
         	else return false;
     	}
     	catch (Exception e) {
             e.printStackTrace();
-            return false;
     	}
     	finally {
             close();
     	}
+        return false;
     }
     
     public boolean mostrarRes(String idU, int idP) {
@@ -614,11 +653,10 @@ public class PreguntaDAO {
         	}
     	} catch (Exception e) {
             e.printStackTrace();
-            return false;
     	}finally {
             close();
     	}
-		
+		return false;
     }
     private void close() {
         try {

@@ -8,8 +8,6 @@ import com.greenweb.cartel.data.CartelDO;
 import com.greenweb.pregunta.dao.*;
 
 public class PreguntasManager {
-	private String user;
-	public List<PreguntaDO> adicionales;
 	
 	
 	
@@ -18,8 +16,8 @@ public class PreguntasManager {
 		PreguntaDAO pdao=new PreguntaDAO();
 		PreguntaDO p = new PreguntaDO();
 		//if(pdao.obtenerPregunta(3, p)) System.out.println("La pregunta con id 3 es: "+ p.getPreg());
-		int x = pdao.responderPreg("pepe", 3, 5);
-		System.out.println("ResponderPreg devuelve: "+x);
+		//int x = pdao.responderPreg("pepe", 3, 5);
+		//System.out.println("ResponderPreg devuelve: "+x);
 		/*//pregM.listarTodas();
 		List<PreguntaDO> lista = pregM.obtenerTodasPreguntas();
 		System.out.println("Uee mecauenla");
@@ -44,15 +42,15 @@ public class PreguntasManager {
 		}
 		System.out.println("-----------------------------------------fin respuesta----------------------------------------");
 */
+		List<PreguntaDO> lista=pregM.obtenerPregsAdi("al6a");
+		for(int i=0; i<lista.size(); i++) {
+			System.out.println(lista.get(i).getPreg());
+			
+		}
 		System.out.println("El main ha terminado");
 
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
-	
-	public void setUser(String user) {
-		this.adicionales = this.obtenerPregsAdi(this.user);
-	}
-
 	
 	
 	public int idPregActual() throws Exception {
@@ -123,20 +121,13 @@ public class PreguntasManager {
 	public List<PreguntaDO> obtenerPregsAdi(String idUser) {
 		try {
 			PreguntaDAO pdao=new PreguntaDAO();
-			int[] idps=pdao.getPregsAdi(idUser);
-			List<PreguntaDO> lista= new LinkedList<PreguntaDO>();
-			for (int i=0; i<idps.length; i++) {
-				PreguntaDO p=new PreguntaDO();
-				if(obtenerPregunta(idps[i], p))lista.add(p);
-			}
-			return lista;
+			return pdao.obtenerAdicionales(idUser);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	
 	
 	//FUNCIONA
 	public boolean anyadirPregunta(String preg, String r1, String r2, String r3, String r4, int resOK) {
@@ -205,13 +196,5 @@ public class PreguntasManager {
 			e.printStackTrace();
 			return -1;
 		}
-	}
-
-	public List<PreguntaDO> getAdicionales() {
-		return adicionales;
-	}
-
-	public void setAdicionales(List<PreguntaDO> adicionales) {
-		this.adicionales = adicionales;
 	}
 }
