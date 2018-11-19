@@ -10,7 +10,6 @@ import com.greenweb.pregunta.dao.*;
 public class PreguntasManager {
 	
 	
-	
 	public static void main(String[] args) throws Exception {
 		PreguntasManager pregM = new PreguntasManager();
 		PreguntaDAO pdao=new PreguntaDAO();

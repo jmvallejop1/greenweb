@@ -25,7 +25,7 @@ public class EntregaDAO {
     	try {
     		if(haEntregado(idUser)) {
     			PreguntaDO p=c.getPreg();
-    			NoticiaDO n=c.getNot();
+    			NoticiaDO n=c.getNoti();
     			String updatep="update preguntas set preguntas='"+p.getPreg()+
     					"', resp1='"+p.getR1()+"', resp2='"+p.getR2()+
     					"', resp3='"+p.getR3()+"', resp4='"+p.getR4()+"', respcorrecta="+p.getrOk()+

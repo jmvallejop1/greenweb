@@ -5,6 +5,8 @@ import="com.greenweb.cartel.*,java.util.List,com.greenweb.cartel.data.*"
 import="com.greenweb.noticia.*,java.util.List,com.greenweb.noticia.data.*"
 import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,52 +34,39 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 
   <!-- BARRA DE NAVEGACION Y HEADER-->
   <iframe src="menu_global.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
-
-  <%
-  PreguntasManager pman = new PreguntasManager();
-  CartelesManager cman = new CartelesManager();
-  %>
+  <jsp:useBean id="man" class="com.greenweb.cartel.CartelesManager"/>
+  <c:set var="reto" value="${man.cartel}"/>
    
   <section>
     <div class="container">
       <div id="RetoActual">
-      
-        <% 
-        	CartelDO cartelActual = new CartelDO();
-    		PreguntaDO pregAct = new PreguntaDO();
-    		NoticiaDO notAct = new NoticiaDO();
-        
-        	CartelDO c = cman.obtenerRetoActual();
-        	pregAct = c.getPreg();
-        	notAct = c.getNot();
-        %>
         
         <h2>Reto Actual</h2>
       </div>
       
       <div class="reto">
-        <h3><%out.println(notAct.getTitulo());%></h3>
+        <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
               <source src="video/vid1.mp4" type="video/mp4">
             </video>
-            	<%out.println(notAct.getTexto());%>
+            	<c:out value="${reto.noti.texto}"></c:out>
             </p>
            
         </div>
       </div>
      <div class="PreguntaPrincipal">
-          <h3><%out.println(pregAct.getPreg());%></h3>
+          <h3><c:out value="${reto.preg.preg}"></c:out></h3>
           <div class="respuestas">
           <form>
           <ul>
               <li><input type="radio" name="resp" value="1" />
-              <label><%out.println(pregAct.getR1());%></label></li>
+              <label><c:out value="${reto.preg.r1}"></c:out></label></li>
               <li><input type="radio" name="resp" value="2" />
-              <label><%out.println(pregAct.getR2());%></label></li>
+              <label><c:out value="${reto.preg.r2}"></c:out></label></li>
               <li><input type="radio" name="resp" value="3" />
-              <label><%out.println(pregAct.getR3());%></label></li>
+              <label><c:out value="${reto.preg.r3}"></c:out></label></li>
               <li><input type="radio" name="resp" value="4" />
-              <label><%out.println(pregAct.getR4());%></label></li>
+              <label><c:out value="${reto.preg.r4}"></c:out></label></li>
           </ul>
           <input type="submit" class="bot" name="Aceptar" value="Contestar!">
           </form>

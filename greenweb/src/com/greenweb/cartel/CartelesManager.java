@@ -46,7 +46,7 @@ public class CartelesManager {
 					System.out.println(c.getId());
 				}
 				*/
-				System.out.println("El reto actual es: "+c.getNot().getTitulo());
+				System.out.println("El reto actual es: "+c.getNoti().getTitulo());
 				System.out.println("fin main");
 			}
 			
@@ -81,6 +81,10 @@ public class CartelesManager {
 					e.printStackTrace();			
 				}
 				return null;
+			}
+			
+			public CartelDO getCartel(){
+				return this.obtenerRetoActual();
 			}
 			
 			

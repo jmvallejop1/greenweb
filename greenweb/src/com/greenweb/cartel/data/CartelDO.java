@@ -12,7 +12,7 @@ public class CartelDO {
 	private String foto;
 	//Ahora va la pregunta y la noticia
 	private PreguntaDO preg;
-	private NoticiaDO not;
+	private NoticiaDO noti;
 	
 	public int getId() {
 		return id;
@@ -56,10 +56,10 @@ public class CartelDO {
 	public void setPreg(PreguntaDO preg) {
 		this.preg = preg;
 	}
-	public NoticiaDO getNot() {
-		return not;
+	public NoticiaDO getNoti() {
+		return noti;
 	}
-	public void setNot(NoticiaDO not) {
-		this.not = not;
+	public void setNoti(NoticiaDO not) {
+		this.noti = not;
 	}
 }

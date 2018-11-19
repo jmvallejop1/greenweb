@@ -50,7 +50,7 @@ public class CartelDAO {
             }
             else not=null;
             cartel.setIdNot(not.getId());
-            cartel.setNot(not);
+            cartel.setNoti(not);
             resultSet = statement.executeQuery("select * from carteles where idpreg="+idPreg);
             if(resultSet.next()) {
             	cartel.setId(Integer.parseInt(resultSet.getString("id")));
@@ -107,7 +107,7 @@ public class CartelDAO {
             }
             else not=null;
             cartel.setIdNot(not.getId());
-            cartel.setNot(not);
+            cartel.setNoti(not);
             resultSet = statement.executeQuery("select * from carteles where idnoticia="+idNot);
             if(resultSet.next()) {
             	cartel.setId(Integer.parseInt(resultSet.getString("id")));
@@ -243,7 +243,7 @@ public class CartelDAO {
             System.out.println("Se ejecutara la siguiente instruccion: "+insertCartel);
             PreguntaDAO pdao=new PreguntaDAO();
         	NoticiaDAO ndao=new NoticiaDAO();
-            if(pdao.anadirPregunta(c.getPreg()) && ndao.anadirNoticia(c.getNot())) { //Añade la pregunta
+            if(pdao.anadirPregunta(c.getPreg()) && ndao.anadirNoticia(c.getNoti())) { //Añade la pregunta
             	connect=ConnectionManager.getConnection();
                 // Statements allow to issue SQL queries to the database
                 statement = connect.createStatement();
@@ -278,7 +278,7 @@ public class CartelDAO {
     		c.setFoto(foto);
     		c.setIdNot(idn);
     		c.setIdPreg(idp);
-    		c.setNot(n);
+    		c.setNoti(n);
     		c.setPreg(p);
     		return c;
     	}
