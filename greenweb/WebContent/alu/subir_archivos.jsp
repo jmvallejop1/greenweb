@@ -8,7 +8,7 @@
 	
 	<body>
 			<div class="loginBox">   
-				<form action="/" method="post">
+				<form action="../AnadirCartel" method="post" enctype="multipart/form-data">
 					<center>
 						<img src="images/upload.jpg"/>
 						<h1> Entrega tu cartel </h1>
@@ -20,10 +20,10 @@
 									<td> <p> Texto </p></td> <td><input type="text" name="texto" maxlength="500"/></td>
 								</tr>		  
 								<tr>
-									<td> <p> Video </p> </td> <td><input type="file" name="Video"/></td>
+									<td> <p> Video </p> </td> <td><input type="file" name="video"/></td>
 								</tr>					
 								<tr> 
-									<td> <p>Imagenes </p></td> <td><input type="file" name="Video"/></td>
+									<td> <p>Imagenes </p></td> <td><input type="file" name="imagen" mutiple="multiple"/></td>
 								</tr>					
 								<tr>
 									<td> <p>Pregunta </p> </td> <td><input type="text" name="pregunta"/></td>
@@ -45,7 +45,7 @@
 								</tr>
 							</table>	
 						
-						<input type="button" name="Cancelar" value="Enviar" onClick="window.location.href='index_alu.html'" >
+						<input type="submit" name="Cancelar" value="Enviar" onClick="window.location.href='index_alu.html'" >
 					</center>
 				</form>
 			</div>

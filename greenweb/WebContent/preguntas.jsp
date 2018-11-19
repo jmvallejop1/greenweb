@@ -31,6 +31,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     		var array = []
     		$("input[type=checkbox]:checked").each(function(){
     			array.push($(this).val())
+    			$(this).prop('checked', false);
     		});
     		alert(array);
         	var id = $(this).parent().parent().parent().parent().attr("id");

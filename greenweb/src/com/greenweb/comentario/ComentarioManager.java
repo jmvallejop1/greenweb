@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.greenweb.comentario.dao.ComentarioDAO;
 import com.greenweb.comentario.data.ComentarioDO;
+import com.greenweb.pregunta.data.PreguntaDO;
 import com.greenweb.usuario.dao.UsuarioDAO;
 import com.greenweb.usuario.data.UsuarioDO;
 
@@ -74,6 +75,10 @@ public class ComentarioManager {
 			return null;
 		}
 	
+	}
+	
+	public List<ComentarioDO> getComentarios(){
+		return this.mostrarComentarios();
 	}
 	
 	// añadimos un comentario a la lista OK
