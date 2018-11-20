@@ -188,21 +188,28 @@ public class PreguntaDAO {
         		update+="respp2="+res;
             	stat="select respp2 from respuestasu where iduser='"+idU+"' and idreto=(select max(id) from retos) and respp2 is not null";
         	}
-        	else if(idPreg==pregs[1]) {
+        	else if(idPreg==pregs[2]) {
         		update+="respp3="+res;
             	stat="select respp3 from respuestasu where iduser='"+idU+"' and idreto=(select max(id) from retos) and respp3 is not null";
         	}
-        	else if(idPreg==pregs[1]) {
+        	else if(idPreg==pregs[3]) {
         		update+="respp4="+res;
             	stat="select respp4 from respuestasu where iduser='"+idU+"' and idreto=(select max(id) from retos) and respp4 is not null";
         	}
-        	resultSet=statement.executeQuery(stat);
-        	if(resultSet.next()) todoOK=false;
+        	System.out.println("Ejecutando select: "+stat);
+        	if(stat!=null) {
+        		resultSet=statement.executeQuery(stat);
+        	}
+        	else return false;
+        	if(resultSet.next()) {
+        		System.out.println("No puedes responder dos veces a la misma pregunta");
+        		return false;
+        	}
         	else {
         		update+=" where iduser='"+idU+"' and idreto=(select max(id) from retos)";
                 System.out.println("Ejecutando la sentencia: "+update);
-            	int resu=statement.executeUpdate(update);//NO SE EJECUTA CORRECTAMENTE
-                System.out.println("Lineas modificadas: "+resu); //ESTO YA NO LO MUESTRA
+            	int resu=statement.executeUpdate(update);
+                System.out.println("Lineas modificadas: "+resu);
                 todoOK=resu==1;
         	}
             return todoOK;
