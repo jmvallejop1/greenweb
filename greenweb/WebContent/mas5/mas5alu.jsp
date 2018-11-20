@@ -8,17 +8,19 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <script>
-	$(document).ready(function() {
-		 $(".vota").click(function(){
-			 	var miVar =  $(this).prev().prev().text();
-		        alert("Text: " + $(this).prev().prev().text());
-		        $.post("../SumaVoto", {
+	var vot;
+		$(document).ready(function() {
+			$(".vota").click(function(){
+				var miVar =  $(this).prev().prev().text();
+				vot = $(this).prev();
+				alert("Text: " + $(this).prev().prev().text());
+				$.post("../SumaVoto", {
 					id: miVar
-				}, function() {
+				}, function(data) {
+					$(vot).text(data);
 				});
 		    });
-	});
-	
+		});	
 	</script>
 </head>
 <body>

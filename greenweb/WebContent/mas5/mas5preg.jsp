@@ -54,7 +54,7 @@
 	<c:if test = "${sessionScope.hasta > fn:length(man.preguntas)}">
 		<c:set var = "hasta" scope = "session" value = "${fn:length(man.preguntas)}"/>
 	</c:if>
-	<c:forEach var="pregunta" end="${sessionScope.hasta}" items="${man.preguntas}">
+	<c:forEach var="pregunta" begin="${sessionScope.inicio}"  end="${sessionScope.hasta}" items="${man.preguntas}">
 	<div>
 		<div id="<c:out value="${pregunta.id}"></c:out>"> 
 			<div class="PreguntaAdicional">
@@ -78,6 +78,6 @@
 			</div>
 		</div>
 	</div>
-	</c:forEach>	
+	</c:forEach>
 </body>
 </html>

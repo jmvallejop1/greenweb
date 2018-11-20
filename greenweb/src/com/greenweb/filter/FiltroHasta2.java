@@ -21,6 +21,7 @@ public class FiltroHasta2 implements Filter{
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
 			int hasta =  (int)session.getAttribute("hasta");
+			session.setAttribute("inicio",hasta+1);
 			hasta += 2;
 			session.setAttribute("hasta",hasta);
 		}

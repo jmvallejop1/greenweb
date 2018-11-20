@@ -1,6 +1,7 @@
 package com.greenweb.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -29,6 +30,7 @@ public class SubirComentario extends HttpServlet{
 		String mes = Integer.toString(c2.get(Calendar.MONTH + 1));
 		String annio = Integer.toString(c2.get(Calendar.YEAR));
 		String fecha = dia+"/"+mes+"/"+annio;
+		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession(false);
 		ComentarioManager m = new ComentarioManager();
 		if(session!=null) {
@@ -44,11 +46,10 @@ public class SubirComentario extends HttpServlet{
 			}
 			m.añadirUnComentario(c1);
 		
-		System.out.println("He entrado en el servlet de los comentarios");
-		response.sendRedirect(request.getContextPath()+"/alu/comentarios.jsp?param=ccm");
+			out.print("1");
 		}else {
 			//Devuelves al perfil con el parametro nse no session
-			response.sendRedirect(request.getContextPath()+"/alu/profile.jsp?param=nse");
+			out.print("0");
 		}
 		
 		
