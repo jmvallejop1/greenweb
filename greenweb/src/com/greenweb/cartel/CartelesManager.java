@@ -16,14 +16,16 @@ public class CartelesManager {
 			CartelDO preg;
 	
 			public static void main(String[] args) {
-				
-				CartelDAO dao=new CartelDAO();
+				CartelesManager cman=new CartelesManager();
+				//CartelDAO dao=new CartelDAO();
 				//List<CartelDO> l=new LinkedList<CartelDO>();
 				//l=dao.obtenerEntregasActuales();
 				//l=dao.obtenerCartelesEntrega(11);
 				
 				//CartelesManager manager = new CartelesManager();
-				CartelDO c=dao.obtenerRetoActual();
+				CartelDO c=new CartelDO();
+				if(cman.obtenerCartel("pepe2", c))System.out.println("Obtenido cartel con id="+c.getId());
+				else System.out.println("No obtenido cartel");
 				/*PreguntaDAO pdao=new PreguntaDAO();
 				String[] autores= c.getCreadores();
 				System.out.println("El cartel obtenido a partir de la pregunta 1 es:\n"
@@ -50,7 +52,6 @@ public class CartelesManager {
 					System.out.println(c.getId());
 				}
 				*/
-				System.out.println("El reto actual es: "+c.getNoti().getTitulo());
 				System.out.println("fin main");
 			}
 			
@@ -147,6 +148,17 @@ public class CartelesManager {
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.subirCartel(c);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();			
+				}
+				return false;
+			}
+			
+			public boolean obtenerCartel(String user,CartelDO c) {
+				CartelDAO dao=new CartelDAO();
+				try {
+					return dao.obtenerCartelUsuario(user, c);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();			

@@ -186,14 +186,12 @@ public class CartelDAO {
             for (int j=1; j<i; j++) {
             	idpregs+=" or id="+carteles[j];
             }
-            System.out.print("Consulta: "+idpregs);
-            close();
+            System.out.println("Consulta: "+idpregs);
             connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             //AHORA OBTENDREMOS LOS IDS DE LAS PREGUNTAS ASOCIADAS PARA EXTRAER EL CARTEL
             resultSet = statement.executeQuery(idpregs);
-            //Existen carteles
             List<CartelDO> list= new LinkedList<CartelDO>();
             int pregs[]=new int[MAXCARTELESXENTREGA];
             i=0;
@@ -217,6 +215,61 @@ public class CartelDAO {
 	     }
 		return null;
 		
+	}
+	
+	public boolean obtenerCartelUsuario(String idUser, CartelDO c){
+		try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            //Primero comprobaremos que el usuario haya entregado en esa entrega
+            String SelultimaEntrega="select max(nument) from turnoent where iduser='"+idUser+'\'';
+            resultSet = statement.executeQuery(SelultimaEntrega);
+            int lastent=-1;
+            if(resultSet.next()) lastent=Integer.parseInt(resultSet.getString("max(nument)"));
+            else return false;
+            System.out.println("ID RETO USUARIO:"+lastent);
+            //Ahora veremos si se corresponde con la entrega vigente
+            SelultimaEntrega="select max(num) from entregas";
+            resultSet = statement.executeQuery(SelultimaEntrega);
+            int entactual=-1;
+            if(resultSet.next()) {
+            	entactual=Integer.parseInt(resultSet.getString("max(num)"));
+                System.out.println("ID ULTIMO RETO:"+lastent);
+            	if(entactual==lastent && entactual!=-1) {
+            		List<CartelDO> l= obtenerCartelesEntrega(entactual);
+            		for(CartelDO car: l) {
+            			String[] creadores=car.getCreadores();
+            			for(int i=0; i< creadores.length; i++) {
+            				System.out.println("Creador numero "+i+" es "+creadores[i]+" que se compara con "+idUser);
+            				if(idUser.equals(creadores[i])) {
+            					c.setCreadores(car.getCreadores());
+            					c.setFecha(car.getFecha());
+            					c.setFoto(car.getFoto());
+            					c.setId(car.getId());
+            					c.setIdNot(car.getIdNot());
+            					c.setIdPreg(c.getIdPreg());
+            					c.setNoti(car.getNoti());
+            					c.setPreg(car.getPreg());
+            					return true;
+            				}
+            			}
+            		}
+            		return false;
+            	}
+            	else return false;
+            }
+            else return false;            
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
+    	}
+		 finally {
+	            close();
+	     }
+		return false;
 	}
 	
 	//Sube un cartel nuevo
