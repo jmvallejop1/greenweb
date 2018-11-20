@@ -9,7 +9,7 @@
 </head>
 <body>
 	<!-- BARRA DE NAVEGACION Y HEADER-->
-   <iframe src="menu_prof.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+   <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	
 	<h1> ¡Tablón con todos tus carteles!</h1>
 	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.html'"/>

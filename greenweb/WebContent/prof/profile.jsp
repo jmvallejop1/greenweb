@@ -58,7 +58,7 @@
 	<c:set var="id" value="pepe" scope="session" />
 	<jsp:useBean id="man" class="com.greenweb.usuario.data.UsuarioDO"/>
 	<jsp:setProperty name="man" property="loadUsername" value="${sessionScope.id}" />   	               
-	<iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+	<iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<div class="box2">
 		<img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
 		<div class="infoUser">
@@ -77,8 +77,8 @@
 		</div>     
 	</div>
 	<div class="botones">
-		<input type="button" name="gestAlu" value="Gestionar alumnos" onClick="window.location.href='gesAlu.html'"> 
-		<input type="button" name="gestPro" value="Gestionar profesores" onClick="window.location.href='gesPro.html'">
+		<input type="button" name="gestAlu" value="Gestionar alumnos" onClick="window.location.href='gesAlu.jsp'"> 
+		<input type="button" name="gestPro" value="Gestionar profesores" onClick="window.location.href='gesPro.jsp'">
 	</div>
 	<div class="container">
 		<table>

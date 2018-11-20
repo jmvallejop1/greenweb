@@ -64,17 +64,17 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		%>
 		<div class="info">
 			<h3 align="center">Lista de alumnos</h3>
-			<p>Aqu√≠ podr√°s a√±adir y eliminar cuentas de la lista de alumnos. Aquel que est√© en esta lista podr√° acceder a los trabajos y votar su favorito. Tambi√©n podr√° subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los alumnos que est√©n en el curso actual.</p>
+			<p>AquÌ podras aÒadir y eliminar cuentas de la lista de profesores. </p>
 			<ul>
-				<li>Para a√±adir un alumno nuevo busque su nombre y pulse el bot√≥n de a√±adir.</li>
-				<li>Para eliminar un alumno pulse la cruz roja al lado de su nombre en la lista.</li>
+				<li>Para aÒadir un profesor nuevo busque su nombre y pulse el botÛn de aÒadir.</li>
+				<li>Para eliminar un profesor pulse la cruz roja al lado de su nombre en la lista.</li>
 			</ul>
 				
 		</div>
 		<div class="gestionUsers">
-			<h4>A√±adir alumnos</h4>
+			<h4>AÒadir alumnos</h4>
 				<input type="text" id="nombreAlu" name="alumno" placeholder="Profesor a aÒadir">
-				<input type="submit" id="anadirProf" value="A√±adir profesor">
+				<input type="submit" id="anadirProf" value="AÒadir profesor">
 			<hr>
 			<input type="text" id="myInput" placeholder="Buscar alumno...">
 			<table id="myTable">
