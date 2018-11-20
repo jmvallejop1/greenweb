@@ -17,7 +17,39 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	<title>Trabajos</title>
 	 <link rel="stylesheet" href="../css/trabajos.css">
 	 <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
-	 <link href="https://fonts.googleapis.com/css?family=Niramit:400,700" rel="stylesheet"> 
+	 <link href="https://fonts.googleapis.com/css?family=Niramit:400,700" rel="stylesheet">
+	 <script>
+	 $(document).ready(function() {
+			$('.LikeAlu').click(function(event) {
+				var id=$(this).parent().parent().attr("id");
+				alert(id);
+				$.post('../SumaVotoTrabajo', {
+					idcartel: id
+				}, function(responseText) {
+				});
+			});
+		});
+	 </script>
+	 <script>
+	$(document).ready(function() {
+		$('.Trabajo').click(function(event) {
+			var id = $(this).parent().parent().attr("id");
+			alert(id);
+			$.ajax({
+                type: "POST",
+                url: '../RetoPreg',
+                data: ({ idn: id}),
+                success: function(data) {
+                	alert("TodoOK");
+                	window.open(data+"/retoP.jsp");   
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+		});
+	});
+	</script> 
 </head>
 <body>
 	<!-- BARRA DE NAVEGACION Y HEADER-->
@@ -32,12 +64,16 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   <%
 	   	for(CartelDO c: lista){
 	   		%>
+	   		<div id=<%out.print(c.getIdPreg()); %>>
+	   		<div id=<%out.print(c.getId());%>>
 	   		<div class="Trabajo">
-	   			<img src="../images/<%out.print(c.getFoto());%>" alt="Paris" onclick="window.open('reto.html')">
+	   			<img src="../images/<%out.print(c.getFoto());%>" alt="Paris">
 	   			<p>		
 	   				<%out.println(c.getNoti().getTitulo());%>
 	   			</p>
-	   			<button type="submit" class="LikeAlu"/>Fav</button>  
+	   			<button class="LikeAlu">Fav</button>  
+	   		</div>	
+	   		</div>
 	   		</div>	
 	   		<%
 	   	}

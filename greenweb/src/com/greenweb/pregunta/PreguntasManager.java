@@ -2,6 +2,7 @@ package com.greenweb.pregunta;
 import java.util.LinkedList;
 //import java.util.Iterator;
 import java.util.List;
+
 import com.greenweb.pregunta.data.*;
 import com.greenweb.cartel.dao.CartelDAO;
 import com.greenweb.cartel.data.CartelDO;
@@ -17,7 +18,7 @@ public class PreguntasManager {
 	
 	public static void main(String[] args) throws Exception {
 		PreguntasManager pregM = new PreguntasManager();
-		PreguntaDAO pdao=new PreguntaDAO();
+		//PreguntaDAO pdao=new PreguntaDAO();
 		PreguntaDO p = new PreguntaDO();
 		//if(pdao.obtenerPregunta(3, p)) System.out.println("La pregunta con id 3 es: "+ p.getPreg());
 		//int x = pdao.responderPreg("pepe", 3, 5);
@@ -80,8 +81,8 @@ public class PreguntasManager {
 	}
 
 
-	public void setAdicionales(List<PreguntaDO> alternarivas) {
-		this.adicionales = alternarivas;
+	public void setAdicionales(List<PreguntaDO> alternativas) {
+		this.adicionales = alternativas;
 	}
 	
 	
@@ -96,6 +97,15 @@ public class PreguntasManager {
 		}
 	}
 	
+	public boolean responderInvitadoRA(int res) {
+		PreguntaDAO dao = new PreguntaDAO();
+		try {
+			return dao.responderRAInvitado(res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public void listar(List<PreguntaDO> list) throws Exception {
 		PreguntaDAO dao = new PreguntaDAO();

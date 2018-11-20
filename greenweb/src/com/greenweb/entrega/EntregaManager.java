@@ -48,6 +48,16 @@ public class EntregaManager {
 
 	}
 	
+	public void NuevoReto(int idcart) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			dao.iniciarReto(idcart); 
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public boolean anadirEntrega(String fechalimite) {
 		try {
 			EntregaDAO edao=new EntregaDAO();
