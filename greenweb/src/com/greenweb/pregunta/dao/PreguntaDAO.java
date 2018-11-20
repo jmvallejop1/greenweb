@@ -253,6 +253,44 @@ public class PreguntaDAO {
     	
     }
 
+    public boolean responderRAInvitado(int res) {
+    	try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+			String correcta="select id, numinvitados, numr1, numr2, numr3, numr4 from retos where id=(select max(id) from retos)";
+			System.out.println("Se va a ejecutar: "+correcta);
+			resultSet=statement.executeQuery(correcta);
+			if(resultSet.next()) {
+				int numr1=Integer.parseInt(resultSet.getString("numr1"));
+				int numr2=Integer.parseInt(resultSet.getString("numr2"));
+				int numr3=Integer.parseInt(resultSet.getString("numr3"));
+				int numr4=Integer.parseInt(resultSet.getString("numr4"));
+				int numinv=Integer.parseInt(resultSet.getString("numinvitados"))+1;
+				int idReto=Integer.parseInt(resultSet.getString("id"));
+				while(res>0) {
+					int x=res%10;
+					switch(x) {
+					case 1:numr1++;
+					case 2:numr2++;
+					case 3:numr3++;
+					case 4:numr4++;
+					}
+					res=res/10;
+				}
+				int resp = statement.executeUpdate("update retos set numinvitados="+numinv+", numr1="+numr1+", numr2="+numr2+", numr3="+numr3+", numr4="+numr4+" where id="+idReto);
+				return resp==1;
+			}
+    		return false;
+        }
+    	catch (Exception e) {
+            e.printStackTrace();;
+    	}
+    	finally {
+            close();
+    	}
+		return false;
+    }
 //----------------------------------------BORRAR Y AÑADIR PREGUNTAS-------------------
     public boolean anadirPregunta(PreguntaDO p) {
     	try {
