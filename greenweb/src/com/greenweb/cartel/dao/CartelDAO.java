@@ -178,7 +178,8 @@ public class CartelDAO {
             else return false;
             if (votos!=-1) {
             	votos++;
-                int x = statement.executeUpdate("update entregados set votos="+votos+" where idar="+cartel);
+                int x = statement.executeUpdate("update entregados set votos="+votos+" where idcar="+cartel);
+                //System.out.println("Se ha sumado un voto al cartel: "+cartel);
                 return x==1;
             }
             return false;
