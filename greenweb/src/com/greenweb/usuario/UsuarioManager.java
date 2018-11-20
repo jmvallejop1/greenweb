@@ -26,8 +26,9 @@ public class UsuarioManager {
 		
 		*/
 		
-		UsuarioDO u = new UsuarioDO();
 		
+		UsuarioDO u = new UsuarioDO();
+		/*
 		u.setUsername("pedritoPiedra");
 		u.setContr("pedrin");
 		u.setEdad(87);
@@ -36,8 +37,12 @@ public class UsuarioManager {
 		u.setEstudios(2);
 		u.setMail("picapiedra@unizar.es");
 		u.setNombre("pedro picapiedra");
-		
+	    
 		usu.anadirUsuario(u);
+		*/
+		
+		u.setUsername("root");
+		usu.cambiarTipoUsuario(u, "p");
 	}
 	
 	public List<UsuarioDO> obtenerTodosUsuarios()

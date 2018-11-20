@@ -3,15 +3,29 @@ tendran el margen automatico*/
 
 body{
 	margin:0;
+	background:url('../images/valle.jpg') no-repeat;
+	background-size:100% 100%;
 }
+
+
+h2, h3 {
+	font-family: 'Black Han Sans', sans-serif;
+	color: #eae119;
+}
+
+p {
+	font-family: 'Archivo', sans-serif;
+	color: #ee2a2a;
+	font-weight: bold;
+}
+
 .container{
 	width:80%;
 	margin:auto;
 	overflow:hidden;
 }
-.frames2{
-	margin-top: 20px;
-}
+
+
 .NoticeContainer{
 	width:40%;
 	margin:auto;

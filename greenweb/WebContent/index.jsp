@@ -14,7 +14,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <title>Hello!</title>
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>    
+	<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">   
     <meta charset="utf-8">
     
   </head>
@@ -38,8 +40,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   <jsp:useBean id="man" class="com.greenweb.cartel.CartelesManager"/>
   <c:set var="reto" value="${man.cartel}"/>
    
-  <section>
-    <div class="container">
+   <div class="container">
       <div id="RetoActual">
         
         <h2>Reto Actual</h2>
@@ -73,8 +74,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
           </form>
         </div>
       </div>
-  </section>
-
    <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 
 

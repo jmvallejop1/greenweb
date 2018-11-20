@@ -1,5 +1,7 @@
 body {
-	
+	margin:0;
+	background:url('../images/campo.jpg') no-repeat;
+	background-size:100% 100%;
 }
 
 .frames{
@@ -21,9 +23,6 @@ body {
 	position: absolute;
 	top: 5px;
 	right: 5px;
-
-
-
 }
 
 .PreguntaAdicional{
@@ -33,6 +32,13 @@ body {
 	margin: 20px auto 0 auto;
 	position: relative;
 
+}
+
+p {
+    font-family: 'Arimo', sans-serif;
+    font-family: 'Bitter', serif;
+    color: #ff0000;
+    font-weight: bold;
 }
 
 .PreguntaAdicional ul{

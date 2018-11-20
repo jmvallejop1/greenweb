@@ -4,12 +4,13 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
 	<meta charset="utf-8">
     <title>Preguntas Recicladas</title>
     <link rel="stylesheet" href="css/preguntas.css"> 
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Bitter" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"crossorigin="anonymous">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	
     <script>
@@ -67,11 +68,11 @@
 
   </head>  
 
-  <body>
+ <body>
     <iframe src="menu_global.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<div class="info">
-    	<p align="center"><strong>Â¡Bienvenidos a nuestra secciÃ³n de preguntas recicladas!</strong></p>
-  		<p align="left">En esta secciÃ³n encontrareis una colecciÃ³n de preguntas provinientes de retos de otros aÃ±os. Â¡AsÃ­ nunca se pierden! PodrÃ¡s contestar a las preguntas y aparecerÃ¡ al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarÃ¡n la respuesta correcta hasta que no termine el reto. Â¡No queremos trampas!</p>
+    	<p align="center"><strong>¡Bienvenidos a nuestra sección de preguntas recicladas!</strong></p>
+  		<p align="center">En esta sección encontrareis una colección de preguntas provinientes de retos de otros años. !Así nunca se pierden! Podrás contestar a las preguntas y aparecerá al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarán la respuesta correcta hasta que no termine el reto. ¡No queremos trampas!</p>
   	</div>
   	<jsp:useBean id="man" class="com.greenweb.pregunta.PreguntasManager"/>
   	<c:if test = "${sessionScope.hasta > fn:length(man.preguntas)}">
@@ -108,5 +109,6 @@
 	<input type="button" id="submit" value="Mostrar Preguntas" /> 
   <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
 </body>
+</html>
 
 

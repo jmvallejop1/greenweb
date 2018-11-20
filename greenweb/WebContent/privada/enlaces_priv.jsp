@@ -8,6 +8,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../css/enlaceStyle.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet"> 
 	<script>
 		$(document).ready(function() {
 			$('#submit').click(function(event) {
@@ -23,8 +24,8 @@
 <body>
 	<iframe src="menu_priv.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>   
 	<div class="info">
-		<p align="center"><strong>Â¡Bienvenidos a nuestra secciÃ³n de enlaces hacia fuentes de informaciÃ³n fiables!</strong></p>
-		<p align="left">En esta seciÃ³n encontrareis una colecciÃ³n de enlaces a medios de informaciÃ³n que proporcionan informaciÃ³n fiable y verÃ­dica. AdemÃ¡s cuanto mÃ¡s arriba estÃ© el enlace, querrÃ¡ decir que mÃ¡s alumnos y profesores del departamento de ingenierÃ­a quÃ­mica y del medio ambiente de la universidad de Zaragoza lo han seleccionado como fiable. Â¡InfÃ³rmate de una manera responsable aquÃ­!</p>
+		<p align="center"><strong>¡Bienvenidos a nuestra sección de enlaces hacia fuentes de información fiables!</strong></p>
+	<p align="center">En esta seción encontrareis una colección de enlaces a medios de información que proporcionan información fiable y verídica. Además cuanto más arriba esté el enlace, querrá decir que más alumnos y profesores del departamento de ingeniería quÃ­mica y del medio ambiente de la universidad de Zaragoza lo han seleccionado como fiable. ¡Infórmate de una manera responsable aquí!</p>
 	</div>
 	<jsp:useBean id="man" class="com.greenweb.enlace.EnlacesManager"/>
 	<c:if test = "${sessionScope.hasta > fn:length(man.enlaces)}">

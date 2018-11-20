@@ -17,7 +17,8 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
-    
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">   
   </head>  
   <body>
 
