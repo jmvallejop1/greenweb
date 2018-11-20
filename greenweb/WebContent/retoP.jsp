@@ -21,7 +21,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   </head>
   <body>
   	<section>
-  	<c:set var = "idpre" scope = "session" value = "2"/>
   	<jsp:useBean id="pre" class="com.greenweb.cartel.CartelesManager"/>
   	 <jsp:setProperty name="pre" property="idp" value="${sessionScope.idpre}" /> 
     <div class="container">

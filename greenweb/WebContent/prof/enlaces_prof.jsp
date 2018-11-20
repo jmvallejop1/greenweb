@@ -86,7 +86,8 @@
 			<input type="button" id="submitalu" value="Mostrar Enlaces" /> 
 		</center>
 	</div>
-<iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+<iframe src="../footer.html" class="frames" scrolling="no" border="no"
+	width="100%" height="130" frameborder="no"></iframe>
 </body>
 </html>
 

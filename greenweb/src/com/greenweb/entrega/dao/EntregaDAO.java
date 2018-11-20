@@ -23,6 +23,7 @@ public class EntregaDAO {
     
     public boolean subirEntrega(String idUser, CartelDO c) {
     	try {
+    		if(!puedeEntregar(idUser)) return false;
     		if(haEntregado(idUser)) {
     			PreguntaDO p=c.getPreg();
     			NoticiaDO n=c.getNoti();
@@ -212,6 +213,30 @@ public class EntregaDAO {
 		return null;
     }
     
+    public boolean puedeEntregar(String iduser) {
+    	try {
+    		if(haEntregado(iduser))return false;
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select max(a.num), max(b.nument) from entregas a, turnoent b where b.iduser='"+iduser+"'");
+            if(resultSet.next()) {
+            	int nument=Integer.parseInt(resultSet.getString("max(a.num)"));
+            	int entuser=Integer.parseInt(resultSet.getString("max(b.nument)"));
+            	return nument==entuser;
+            }
+            else return false;
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	finally {
+    		close();
+    	}
+		return false;
+    }
+    
     public boolean nuevaEntrega(String fecha) {
     	try {
     		connect=ConnectionManager.getConnection();
@@ -258,7 +283,7 @@ public class EntregaDAO {
 		return false;
     }
     
-    public String fechaModificacion(String iduser) { //FALTA-------------------------------
+    public String fechaModificacion(String iduser) { 
     	try {
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database

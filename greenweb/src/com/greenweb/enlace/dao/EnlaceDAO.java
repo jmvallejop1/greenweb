@@ -64,8 +64,7 @@ public class EnlaceDAO{
 	    
 	    public int aumentaVotos(String id) throws Exception{
 	    	try {
-	    		//Borra /n
-	        	id = id.substring(0, id.length()-1);
+
 	        	connect=ConnectionManager.getConnection();
 
 	            // Statements allow to issue SQL queries to the database
@@ -108,7 +107,6 @@ public class EnlaceDAO{
 	    
 	    public int eliminaEnlace(String id) throws Exception{
 	    	try {
-	    		id = id.substring(0, id.length()-1);
 	        	connect=ConnectionManager.getConnection();
 
 	            // Statements allow to issue SQL queries to the database

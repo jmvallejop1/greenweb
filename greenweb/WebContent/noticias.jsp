@@ -21,6 +21,28 @@
 		});
 	});
 	</script>
+	
+	<script>
+	$(document).ready(function() {
+		$('.hola').click(function(event) {
+			var id = $(this).parent().parent().attr("id");
+			alert(id);
+			$.ajax({
+                type: "POST",
+                url: 'RetoNot',
+                data: ({ idn: id}),
+                success: function(data) {
+                	alert("TodoOK");
+                	window.open(data+"/retoN.jsp");   
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+		});
+	});
+	</script>
+	
   </head>  
 <body>  
 <%@include file="menu.jsp"%>
@@ -33,8 +55,7 @@
 		<div class="NoticeContainer"> 
 			<div id="<c:out value="${noticia.id}"></c:out>">     
 				<div class="NoticeHeader">           
-					<h3><a href="reto.html"><c:out value="${noticia.titulo}"></c:out></a></h3>
-					<h4 class="IrPreg"> <a href="reto.html">Ir a reto</a></h4>
+					<h3  class="hola"><a><c:out value="${noticia.titulo}"></c:out></a></h3>
 				</div>
 				<div class="InfoNoticia">
 					<p><video  controls="controls">
@@ -47,8 +68,8 @@
 		</c:forEach>
 	</div>
 	<input type="button" id="mostrar" value="Mostrar Noticias" /> 
-<iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
-
+<iframe src="footer.html" class="frames" scrolling="no" border="no"
+	width="100%" height="130" frameborder="no"></iframe>
 
   </body>
 </html>

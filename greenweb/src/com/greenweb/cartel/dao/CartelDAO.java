@@ -166,6 +166,33 @@ public class CartelDAO {
 		return null;
 	}
 	
+	public boolean sumarVoto(int cartel) {
+		try {
+			connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select votos from entregados where idcar="+cartel);
+            int votos=-1;
+            if(resultSet.next()) votos=Integer.parseInt(resultSet.getString("votos"));
+            else return false;
+            if (votos!=-1) {
+            	votos++;
+                int x = statement.executeUpdate("update entregados set votos="+votos+" where idar="+cartel);
+                return x==1;
+            }
+            return false;
+    	}
+    	catch(Exception e){
+            e.printStackTrace();
+    		//System.out.println("No se pudo ejecutar existePregunta("+s+','+resOk+')');
+    	}
+		 finally {
+	            close();
+	     }
+		return false;
+	}
+	
 	public List<CartelDO> obtenerCartelesEntrega(int entrega){
 		try {
     		connect=ConnectionManager.getConnection();

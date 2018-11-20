@@ -65,6 +65,27 @@
 	}
 </script>
 
+<script>
+	$(document).ready(function() {
+		$('.fas').click(function(event) {
+			var id = $(this).parent().parent().parent().attr("id");
+			alert(id);
+			$.ajax({
+                type: "POST",
+                url: 'RetoPreg',
+                data: ({ idn: id}),
+                success: function(data) {
+                	alert("TodoOK");
+                	window.open(data+"/retoP.jsp");   
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+		});
+	});
+	</script>
+
 
   </head>  
 

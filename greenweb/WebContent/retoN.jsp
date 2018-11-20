@@ -21,9 +21,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   </head>
   <body>
   	<section>
-  	<c:set var = "idnot" scope = "session" value = "1"/>
+
   	<jsp:useBean id="pre" class="com.greenweb.cartel.CartelesManager"/>
-  	 <jsp:setProperty name="pre" property="idn" value="${sessionScope.idnot}" /> 
+  	<jsp:setProperty name="pre" property="idn" value="${sessionScope.idnot}" /> 
     <div class="container">
         <h1><c:out value="${pre.noticia.noti.titulo}"></c:out></h1>
             <p><video  controls="controls">
@@ -43,7 +43,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
               <li><input type="checkbox" name="resp" value="4" />
               <label><c:out value="${pre.noticia.preg.r4}"></c:out></label></li>
           </ul>
-          <input type="button" name="Cancelar" value="Confirmar" onClick="window.location.href='reto_contestado.html'" >
+          <input type="button" name="Cancelar" value="Confirmar" >
           </form>
       </div>
     </div> 

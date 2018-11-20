@@ -38,6 +38,8 @@ public class EntregaManager {
 			//if(edao.subirEntrega("pepe2", c)) System.out.println("Se ha subido con exito");
 			edao.iniciarReto(10);*/
 			//if(edao.nuevaEntrega("2019-01-01"))System.out.println("Se ha añadido entrega nueva");
+			if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
+			else System.out.println("No puede entregar, no le corresponde el turno");
 			System.out.println("Fin del main");
 		}
 		catch(Exception e){

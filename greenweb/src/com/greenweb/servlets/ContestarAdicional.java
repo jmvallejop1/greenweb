@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.greenweb.pregunta.PreguntasManager;
 
-@WebServlet("/ContestarActual")
-public class ContestarActual extends HttpServlet{
+@WebServlet("/ContestarAdicional")
+public class ContestarAdicional extends HttpServlet{
 
 
 	private static final long serialVersionUID = 1L;
@@ -25,18 +25,27 @@ public class ContestarActual extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		if(session!=null) {
 			 String idUser =  (String)session.getAttribute("id");
+			 String idP = (String)request.getParameter("idc");
+			 int idPreg = Integer.parseInt(idP);
 			 String[] respuestas = request.getParameterValues("resp[]");
 			 int re = 0;
 			 for(int i =0;i<respuestas.length;i++) {
 				 re = (re*10) + Integer.parseInt(respuestas[i]);
 			 }
 			 PreguntasManager m = new PreguntasManager();
-			 boolean b = m.responderPreguntaRA(idUser, re);
-			 if(b){
-				 out.println("1");
+			 if(m.responderPregAdicionalRA(idUser, re, idPreg)) {
+				 System.out.println("Responde acierto : ok");
+				 out.println("Ok");
 			 }else {
-				 out.println("0");
+				 System.out.println("Responde acierto : noOk");
+				 out.println("noOk");
 			 }
+			 
+			 
+			
 		}
+		
+		
+		
 	}
 }

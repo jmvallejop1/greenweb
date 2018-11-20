@@ -21,8 +21,6 @@ public class SumaVoto extends HttpServlet{
 		EnlacesManager m = new EnlacesManager();
 		String id= request.getParameter("id");
 		System.out.println(id);
-		m.aumentaVotos(id);
-		
-		
+		m.aumentaVotos(id);		
 	}
 }

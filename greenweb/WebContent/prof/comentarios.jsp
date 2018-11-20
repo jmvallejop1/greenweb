@@ -41,6 +41,7 @@
 			<input type="button" name="Confirmar" value="Envia tu comentario" onClick="window.location.href='comentarios.html'"> 
 		</div>
 	</form>
-	<iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+	<iframe src="../footer.html" class="frames" scrolling="no" border="no"
+	width="100%" height="130" frameborder="no"></iframe>
  </body>
 </html>

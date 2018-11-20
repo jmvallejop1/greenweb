@@ -46,6 +46,42 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
    	 });
 	});
 </script>
+
+ <script>
+	var cambio;
+	$(document).ready(function(){
+    	$(".ContestarAdicional").click(function(){
+    		var array = []
+    		$("input[type=checkbox]:checked").each(function(){
+    			array.push($(this).val())
+    			$(this).prop('checked', false);
+    		});
+    		alert(array);
+        	var id = $(this).parent().parent().parent().parent().attr("id");
+        	$.ajax({
+                type: "POST",
+                url: '../ContestarAdicional',
+                data: ({ idc: id , resp: array }),
+                success: function(data) {
+                    comprobar(data);    
+                },
+                error: function() {
+                    alert('Error occured');
+                }
+            });
+        	
+   	 });
+	});
+</script>
+<script>
+function comprobar(valor){
+		if(valor == "noOK"){
+			window.alert("Esta pregunta ya ha sido contestada");
+		}else if(valor == "ok"){
+			window.alert("Pregunta repondida");
+		}
+}
+</script>
   </head>  
   <body>
 
@@ -55,7 +91,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>    
   <section>
   
-  <c:set var = "id" scope = "session" value = "sk8"/>
   
     <div class="container">
       <div id="RetoActual">
@@ -65,7 +100,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
         
         <h2>Reto Actual</h2>
       </div>
-      
+
      <div class="reto">
         <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
@@ -102,23 +137,32 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 			No se ha respondido al reto actual...
 		</c:when>              
 		<c:otherwise>
+		<div class="container">
 			<c:forEach var="pregunta" items="${pre.adicionales}">
-				<form class="pregunta" action="#" method="post">
-					<h3><c:out value="${pregunta.preg}"></c:out></h3>
-						<ul>
-							<li><input type="radio" name="resp" value="1" />
-							<label><c:out value="${pregunta.r1}"></c:out></label></li>
-							<li><input type="radio" name="resp" value="2" />
-							<label><c:out value="${pregunta.r2}"></c:out></label></li>
-							<li><input type="radio" name="resp" value="3" />
-							<label><c:out value="${pregunta.r3}"></c:out></label></li>
-							<li><input type="radio" name="resp" value="4" />
-							<label><c:out value="${pregunta.r4}"></c:out></label></li>
-						</ul>
-						<input type="submit"/>
-				</form>
-			</c:forEach>
-		</c:otherwise>
+	  			<div id="<c:out value="${pregunta.id}"></c:out>"> 
+					<div class="PreguntaAdicional">
+		  			  <form>
+		      			<h3><c:out value="${pregunta.preg}"></c:out></h3>
+		     				<div class="respuestas">
+		       					 <ul>
+							          <li><input type="checkbox" name="resp" value="1" />
+							          <label><c:out value="${pregunta.r1}"></c:out></label></li>
+							          <li><input type="checkbox" name="resp" value="2" />
+							          <label><c:out value="${pregunta.r2}"></c:out></label></li>
+							          <li><input type="checkbox" name="resp" value="3" />
+							          <label><c:out value="${pregunta.r3}"></c:out></label></li>
+							          <li><input type="checkbox" name="resp" value="4" />
+							          <label><c:out value="${pregunta.r4}"></c:out></label></li>
+		       					 </ul>
+		      					  <p></p>
+		       					 <input type="button" class="ContestarAdicional" name="contestar" value="Contestar!">
+		       					 </div>
+	   	 				</form>
+	  				</div>
+	 			</div>	 
+	  		</c:forEach>
+	   </div>
+	</c:otherwise>
 	</c:choose>
 
   </section>

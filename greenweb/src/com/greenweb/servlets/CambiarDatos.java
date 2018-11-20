@@ -23,8 +23,7 @@ public class CambiarDatos extends HttpServlet{
 		UsuarioManager m = new UsuarioManager();
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
-			//String id = (String)session.getAttribute("id");
-			String id = "DestructorPepe";
+			String id = (String)session.getAttribute("id");
 			int age = 0;
 			int est = 0;
 			String mail = request.getParameter("email");

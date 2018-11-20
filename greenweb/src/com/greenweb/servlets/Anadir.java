@@ -30,8 +30,7 @@ public class Anadir extends HttpServlet{
 			tipo = "a";
 		}else if(cambio==3) {
 			tipo = "u";
-			usuario = usuario.substring(0, usuario.length()-1);
-			
+			usuario = usuario.substring(0, usuario.length()-1);			
 		}
 		if(m.existeUsuario(usuario)) {
 			System.out.println("El usuario exisite");

@@ -27,11 +27,11 @@
 		<nav class="navegacion">
 			<div class="container">
 				<ul class="menu">
-					<li><a href="index_alu.jsp" target="body">Home</a></li>
+					<li><a href="index_priv.jsp" target="body">Home</a></li>
 					<li><a href="../noticias.jsp" target="body">Noticias</a></li>
-					<li><a href="enlaces_alu.jsp" target="body">Enlaces</a><li>
+					<li><a href="enlaces_priv.jsp" target="body">Enlaces</a><li>
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
-					<li><a href="preguntas_alu.jsp" target="body">Preguntas Recicladas</a></li>
+					<li><a href="../preguntas.jsp" target="body">Preguntas Recicladas</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
 					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
 					<li class="ALaDerecha"><a href="profile.jsp" target="body"><c:out value="${sessionScope.id}"></c:out></a></li>

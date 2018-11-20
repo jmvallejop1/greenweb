@@ -33,6 +33,31 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     					window.alert("Se ha cerrado sesion correctamente. ");
 				}
 		</script> 
+		
+	<script>
+	$(document).ready(function(){
+    	$("#ContestarPrincipal").click(function(){
+    		var array = []
+    		$("input[type=checkbox]:checked").each(function(){
+    			array.push($(this).val())
+    			$(this).prop('checked', false);
+    		});
+    		alert(array);
+        	$.ajax({
+                type: "POST",
+                url: 'ContestarInvitado',
+                data: ({ resp: array }),
+                success: function(data) {
+                    alert(data);    
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+        	
+   	 });
+	});
+</script>
   <body>
 
   <!-- BARRA DE NAVEGACION Y HEADER-->
@@ -61,20 +86,21 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
           <div class="respuestas">
           <form>
           <ul>
-              <li><input type="radio" name="resp" value="1" />
+              <li><input type="checkbox" name="resp" value="1" />
               <label><c:out value="${reto.preg.r1}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="2" />
+              <li><input type="checkbox" name="resp" value="2" />
               <label><c:out value="${reto.preg.r2}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="3" />
+              <li><input type="checkbox" name="resp" value="3" />
               <label><c:out value="${reto.preg.r3}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="4" />
+              <li><input type="checkbox" name="resp" value="4" />
               <label><c:out value="${reto.preg.r4}"></c:out></label></li>
           </ul>
-          <input type="submit" class="bot" name="Aceptar" value="Contestar!">
+          <input type="submit" id="ContestarPrincipal" name="Aceptar" value="Contestar!">
           </form>
         </div>
       </div>
-   <iframe src="footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+   <iframe src="footer.html" class="frames" scrolling="no" border="no"
+	width="100%" height="130" frameborder="no"></iframe>
 
 
   </body>

@@ -37,22 +37,24 @@ public class PreguntasManager {
 		else {
 			System.out.println("No se ha introducido la pregunta.");
 		}/*
+		*/
 		System.out.println("-----------------------------------------Ahora respondemos----------------------------------------");
-		if(pregM.responderPregAdicionalRA("sk8", 4, 3)) {
-			System.out.println("sk8 ha respondido a la pregunta");
+		if(pregM.responderPreguntaRA("root", 4)) {
+			System.out.println("root ha respondido a la pregunta");
 		}
 		else {
-			System.out.println("sk8 no ha podido responder la pregunta del reto actual");
+			System.out.println("root no ha podido responder la pregunta del reto actual");
 		}
 		System.out.println("-----------------------------------------fin respuesta----------------------------------------");
-*/
+		/*
 		List<PreguntaDO> lista=pregM.obtenerPregsAdi("al6a");
 		for(int i=0; i<lista.size(); i++) {
 			System.out.println(lista.get(i).getPreg());
 			
 		}
+		if(pregM.responderPregAdicionalRA("sk8", 2, 4)) System.out.println("Respondido correctamente");
 		System.out.println("El main ha terminado");
-
+		 */
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
 	}
 	

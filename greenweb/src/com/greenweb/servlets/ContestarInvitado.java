@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 
 import com.greenweb.pregunta.PreguntasManager;
 
-@WebServlet("/ContestarActual")
-public class ContestarActual extends HttpServlet{
+@WebServlet("/ContestarInvitado")
+public class ContestarInvitado extends HttpServlet{
 
 
 	private static final long serialVersionUID = 1L;
@@ -24,14 +24,13 @@ public class ContestarActual extends HttpServlet{
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		if(session!=null) {
-			 String idUser =  (String)session.getAttribute("id");
 			 String[] respuestas = request.getParameterValues("resp[]");
 			 int re = 0;
 			 for(int i =0;i<respuestas.length;i++) {
 				 re = (re*10) + Integer.parseInt(respuestas[i]);
 			 }
 			 PreguntasManager m = new PreguntasManager();
-			 boolean b = m.responderPreguntaRA(idUser, re);
+			 boolean b = m.responderRAinvitado(re);
 			 if(b){
 				 out.println("1");
 			 }else {

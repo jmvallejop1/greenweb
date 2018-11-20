@@ -92,6 +92,16 @@ public class CartelesManager {
 				this.preg = preg;
 			}
 			
+			public boolean sumarVoto(int idcartel) {
+				CartelDAO dao=new CartelDAO();
+				try {
+					return dao.sumarVoto(idcartel);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();			
+					return false;
+				}	
+			}
 			
 			public CartelDO obtenerCartelP(int idPreg){
 				CartelDAO dao=new CartelDAO();
@@ -142,6 +152,17 @@ public class CartelesManager {
 					e.printStackTrace();			
 					return null;
 				}
+			}
+			
+			public List<CartelDO> obtenerCartelesActuales(){
+				CartelDAO dao=new CartelDAO();
+				try {
+					return dao.obtenerEntregasActuales();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();			
+				}
+				return null;
 			}
 			
 			public boolean subirCartel(CartelDO c) {

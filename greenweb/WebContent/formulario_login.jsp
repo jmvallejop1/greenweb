@@ -13,10 +13,9 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 	
 	<body>
         <div class="loginBox">   
-			<form action="alu/index_alu.jsp" method="post">
+			<form action="Autentificacion" method="post">
 			
-			  <h1>Iniciar Sesion</h1>
-          
+			  <h1>Iniciar Sesion</h1>         
 				<div class="field-wrap">
 					<input id = "user" required autocomplete="off" placeholder="Nombre de ususario" name="user"/>
 				</div>
@@ -27,8 +26,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
           
 				<p class="forgot"><a href="#">Â¿Olvidaste tu contraseÃ±a?</a></p>
           
-				<button id="inicio"/>Iniciar Sesion</button>
-          
+				<button type="submit" id="inicio">Iniciar Sesion</button>          
           </form>
 
         </div>

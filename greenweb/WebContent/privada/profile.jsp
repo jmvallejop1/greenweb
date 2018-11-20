@@ -75,6 +75,7 @@
 			</center>
 		</div>     
 	</div>
+
 	<div class="container">
 		<table>
 			<caption align="top">Estado de la entrega</caption>

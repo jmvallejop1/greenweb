@@ -27,8 +27,7 @@ public class Contestar extends HttpServlet{
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		if(session!=null) {
-			 //String idUser =  (String)session.getAttribute("id");
-			 String idUser = "6k";
+			 String idUser =  (String)session.getAttribute("id");
 			 String idP = (String)request.getParameter("idc");
 			 int idPreg = Integer.parseInt(idP);
 			 String[] respuestas = request.getParameterValues("resp[]");
@@ -37,8 +36,7 @@ public class Contestar extends HttpServlet{
 				 re = (re*10) + Integer.parseInt(respuestas[i]);
 			 }
 			 PreguntasManager m = new PreguntasManager();
-			 int acierto = m.responderPreg(idUser, re, idPreg);
-			 
+			 int acierto = m.responderPreg(idUser, re, idPreg);			 
 			 System.out.println("Responde acierto :"+ acierto);
 			 out.println(acierto);
 		}
