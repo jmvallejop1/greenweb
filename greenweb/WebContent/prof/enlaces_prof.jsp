@@ -20,13 +20,16 @@
 	</script>
 	
 	<script>
+	var vot;
 		$(document).ready(function() {
 			$(".vota").click(function(){
 				var miVar =  $(this).prev().prev().text();
+				vot = $(this).prev();
 				alert("Text: " + $(this).prev().prev().text());
 				$.post("../SumaVoto", {
 					id: miVar
-				}, function() {
+				}, function(data) {
+					$(vot).text(data);
 				});
 		    });
 		});	

@@ -10,6 +10,22 @@
 	<link rel="stylesheet" href="css/font-awesome.-mi">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#conf").click(function(){
+				var miVar =  $("#mejorar").val();
+				$.post("../SubirComentario", {
+					mejorar: miVar
+				}, function(data) {
+					if(data == "1"){
+						alert("Comentado correctamente");
+					}else{
+						alert("Fallo en el comentario");
+					}
+				});
+		    });
+		});	
+	</script>
   </head>
    
 <body>
@@ -38,7 +54,7 @@
 		<div class="pedir_comentario">
 			<h3> Añade tu comentario y ayudanos a mejorar </h3>
 			<textarea name="mejorar" id="mejorar"></textarea><br/>
-			<input type="button" name="Confirmar" value="Envia tu comentario" onClick="window.location.href='comentarios.html'"> 
+			<input type="button" id="conf" value="Envia tu comentario" > 
 		</div>
 	</form>
 	<iframe src="../footer.html" class="frames" scrolling="no" border="no"

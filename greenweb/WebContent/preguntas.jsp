@@ -18,7 +18,7 @@
 		$('#submit').click(function(event) {
 			$.post('mas5/mas5preg.jsp', {
 			}, function(responseText) {
-				$('.container').html(responseText);
+				$('.container').append(responseText);
 			});
 		});
 	});
@@ -95,6 +95,7 @@
     	<p align="center"><strong>¡Bienvenidos a nuestra sección de preguntas recicladas!</strong></p>
   		<p align="center">En esta sección encontrareis una colección de preguntas provinientes de retos de otros años. !Así nunca se pierden! Podrás contestar a las preguntas y aparecerá al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarán la respuesta correcta hasta que no termine el reto. ¡No queremos trampas!</p>
   	</div>
+  	<c:set var = "inicio" scope = "session" value = "5"/>
   	<jsp:useBean id="man" class="com.greenweb.pregunta.PreguntasManager"/>
   	<c:if test = "${sessionScope.hasta > fn:length(man.preguntas)}">
          	<c:set var = "hasta" scope = "session" value = "${fn:length(man.preguntas)}"/>
