@@ -5,6 +5,7 @@ import="com.greenweb.cartel.*,java.util.List,com.greenweb.cartel.data.*"
 import="com.greenweb.noticia.*,java.util.List,com.greenweb.noticia.data.*"
 import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 %>
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
@@ -17,7 +18,32 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+	var cambio;
+	$(document).ready(function(){
+    	$("#ContestarPrincipal").click(function(){
+    		var array = []
+    		$("input[type=checkbox]:checked").each(function(){
+    			array.push($(this).val())
+    			$(this).prop('checked', false);
+    		});
+    		alert(array);
+        	$.ajax({
+                type: "POST",
+                url: '../ContestarActual',
+                data: ({ resp: array }),
+                success: function(data) {
+                    alert(data);    
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+        	
+   	 });
+	});
+</script>
   </head>  
   <body>
 
@@ -53,16 +79,16 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
           <div class="respuestas">
           <form>
           <ul>
-              <li><input type="radio" name="resp" value="1" />
+              <li><input type="checkbox" name="resp" value="1" />
               <label><c:out value="${reto.preg.r1}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="2" />
+              <li><input type="checkbox" name="resp" value="2" />
               <label><c:out value="${reto.preg.r2}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="3" />
+              <li><input type="checkbox" name="resp" value="3" />
               <label><c:out value="${reto.preg.r3}"></c:out></label></li>
-              <li><input type="radio" name="resp" value="4" />
+              <li><input type="checkbox" name="resp" value="4" />
               <label><c:out value="${reto.preg.r4}"></c:out></label></li>
           </ul>
-          <input type="submit" class="bot" name="Aceptar" value="Contestar!">
+          <input type="button" id="ContestarPrincipal" name="Aceptar" value="Contestar!">
           </form>
         </div>
       </div>

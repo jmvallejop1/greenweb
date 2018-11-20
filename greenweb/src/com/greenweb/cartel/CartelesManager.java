@@ -10,6 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CartelesManager {
+			int idn;
+			int idp;
+			CartelDO noticia;
+			CartelDO preg;
 	
 			public static void main(String[] args) {
 				
@@ -50,6 +54,44 @@ public class CartelesManager {
 				System.out.println("fin main");
 			}
 			
+			public int getIdn() {
+				return idn;
+			}
+
+			public void setIdn(int idn) {
+				this.idn = idn;
+				this.noticia = this.obtenerCartelN(idn);
+			}
+
+			public int getIdp() {
+				return idp;
+			}
+
+			public void setIdp(int idp) {
+				this.idp = idp;
+				this.preg = this.obtenerCartelP(idp);
+			}
+			
+			public CartelDO getNoticia() {
+				return noticia;
+			}
+
+
+			public void setNoticia(CartelDO noticia) {
+				this.noticia = noticia;
+			}
+
+
+			public CartelDO getPreg() {
+				return preg;
+			}
+
+
+			public void setPreg(CartelDO preg) {
+				this.preg = preg;
+			}
+			
+			
 			public CartelDO obtenerCartelP(int idPreg){
 				CartelDAO dao=new CartelDAO();
 				try {
@@ -60,6 +102,8 @@ public class CartelesManager {
 					return null;
 				}		
 			}
+			
+			
 			public CartelDO obtenerCartelN(int idNot){
 				CartelDAO dao=new CartelDAO();
 				try {
@@ -156,4 +200,9 @@ public class CartelesManager {
 		}
 
 	}*/
+
+			
+
+
+			
 }

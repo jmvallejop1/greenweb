@@ -45,12 +45,14 @@ public void init(FilterConfig f) throws ServletException {
 						if(u.getTipo().equals("u")) {
 							session.setAttribute("logged","normal");
 							session.setAttribute("id",usr);
+							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/privada/index_priv.jsp");
 						}else if(u.getTipo().equals("a")) {
 							session.setAttribute("logged","alu");
 							session.setAttribute("id",usr);
 						}else if(u.getTipo().equals("p")) {	
 							session.setAttribute("logged","prof");
 							session.setAttribute("id",usr);
+							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/prof/index_prof.jsp");
 						}
 					
 					arg2.doFilter(arg0, arg1);
