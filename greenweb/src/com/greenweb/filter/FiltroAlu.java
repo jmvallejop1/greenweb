@@ -43,14 +43,15 @@ public void init(FilterConfig f) throws ServletException {
 					UsuarioManager m = new UsuarioManager();
 					UsuarioDO u = m.obtenerUsuario(usr);
 					if(u.getContr().equals(FuncionHash.md5Hash(pass))) {
-						if(u.getTipo().equals("u")) {
+						String tipo = u.getTipo();
+						if(tipo.equals("u")) {
 							session.setAttribute("logged","normal");
 							session.setAttribute("id",usr);
 							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/privada/index_priv.jsp");
-						}else if(u.getTipo().equals("a")) {
+						}else if(tipo.equals("a")) {
 							session.setAttribute("logged","alu");
 							session.setAttribute("id",usr);
-						}else if(u.getTipo().equals("p")) {
+						}else if(tipo.equals("p")) {
 							session.setAttribute("logged","prof");
 							session.setAttribute("id",usr);
 							((HttpServletResponse)arg1).sendRedirect(request.getContextPath()+"/prof/index_prof.jsp");

@@ -26,48 +26,16 @@ public class AnadirCartel extends HttpServlet{
 	/**
 	 * 
 	 */
+	private String rutaBase = "C:\\Users\\Jmval\\Desktop\\apache-tomcat-9.0.12\\webapps\\";
 	private static final long serialVersionUID = 1L;
-	private static final String UPLOAD_DIR = "images";
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Definitavente hay que eliminar los strings y sustituirlos directamente en lso setters
-		/*System.out.println("Subiendo archivos");
-		String texto = request.getParameter("texto");
-		String vid = request.getParameter("video");
-		Part p1 = request.getPart("video");
-        InputStream is = (InputStream) p1.getInputStream();
-		String img = request.getParameter("imagenes");
-		String preg = request.getParameter("pregunta");
-		String r1 = request.getParameter("respuesta_uno");
-		String r2 = request.getParameter("respuesta_dos");
-		String r3 = request.getParameter("respuesta_tres");
-		String r4 = request.getParameter("respuesta_cuatro");
-		String correcta = request.getParameter("respuesta_correcta");*/
-		
-		/*Part filePart = request.getPart("imagen"); // Retrieves <input type="file" name="file">
-	    String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-	    InputStream fileContent = filePart.getInputStream();*/
-		String applicationPath = getServletContext().getRealPath("");
-		String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
-
-		File fileSaveDir = new File(uploadPath);		
-        if (!fileSaveDir.exists()) {
-            fileSaveDir.mkdirs();
-        }
-        String fileName = "";
-        for (Part part : request.getParts()) {
-        	fileName = "/espi.jpg";
-        	try {
-        		part.write(uploadPath + File.separator + fileName);
-        	 } catch (IOException ioObj) {
-        		 System.out.println("excepcion");
-        	 }
-        	
-        }
-		/*OutputStream img = null;
+		Part foto = request.getPart("foto");
+		OutputStream img = null;
 		InputStream filecontent = null;
-		Part foto = request.getPart("imagen");
-		File fi = new File(uploadPath + "/ESPI.jpg");
+		
+		File fi = new File(rutaBase + "pepe.jpg");
 		fi.createNewFile();
 		img = new FileOutputStream(fi);
 		filecontent = foto.getInputStream();
@@ -75,11 +43,9 @@ public class AnadirCartel extends HttpServlet{
         final byte[] bytes = new byte[1024];
         while ((read = filecontent.read(bytes)) != -1) {
             img.write(bytes, 0, read);
-        }*/
-        
-		//Comprbar que el nimbre de usario no existe en la base de datos
-		//TODO hacer la funcion de añadir
-        System.out.println("hola");
+        }
+        img.close();
+        filecontent.close();
 	}
 	
 

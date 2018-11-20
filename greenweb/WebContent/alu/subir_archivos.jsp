@@ -23,7 +23,7 @@
 									<td> <p> Video </p> </td> <td><input type="file" name="video"/></td>
 								</tr>					
 								<tr> 
-									<td> <p>Imagenes </p></td> <td><input type="file" name="imagen" mutiple="multiple"/></td>
+									<td> <p>Imagenes </p></td> <td><input type="file" name="foto" mutiple="multiple"/></td>
 								</tr>					
 								<tr>
 									<td> <p>Pregunta </p> </td> <td><input type="text" name="pregunta"/></td>

@@ -26,8 +26,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   <!-- BARRA DE NAVEGACION Y HEADER-->
   <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>    
   <section>
-  
-  <c:set var = "id" scope = "session" value = "sk8"/>
+ 
   
     <div class="container">
       <div id="RetoActual">
