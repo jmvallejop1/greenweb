@@ -110,6 +110,18 @@ public class UsuarioManager {
 		}	
 	}
 	
+	public boolean eliminarUsuario(String s)
+	{
+		UsuarioDAO dao=new UsuarioDAO();
+		try {
+			return dao.eliminarUsuario(s);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}	
+	}
+	
 	public boolean actualizarUsuario(String username, String mail, int age, int estudios)
 	{
 		UsuarioDAO dao=new UsuarioDAO();

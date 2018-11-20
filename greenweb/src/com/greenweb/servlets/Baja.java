@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.greenweb.usuario.UsuarioManager;
+
 @WebServlet("/Baja")
 public class Baja extends HttpServlet{
 
@@ -18,8 +20,9 @@ public class Baja extends HttpServlet{
 		
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
-			session.getAttribute("id");
-			
+			UsuarioManager um = new UsuarioManager();
+			String id = (String)session.getAttribute("id");
+			um.eliminarUsuario(id);
 		}		
 	}
 }

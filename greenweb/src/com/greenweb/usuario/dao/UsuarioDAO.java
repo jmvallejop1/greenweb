@@ -90,6 +90,24 @@ public class UsuarioDAO {
 	        }
 	    	return false;
 	    }
+	    
+	    public boolean eliminarUsuario(String username) {
+	    	try {
+	    		connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            int ok = statement.executeUpdate("delete * from usuarios where username='"+username+"'");
+	            if(ok>0) return true;
+	            else return false;
+	    	}
+	    	catch(Exception e){
+	    		//System.out.println("No se pudo ejecutar existeUsuario("+username+')');
+	    	}finally {
+	            close();
+	        }
+	    	return false;
+	    }
 
 	    
 	    public boolean actualizarUsuario(String id, String mail, int age, int estudios) {
