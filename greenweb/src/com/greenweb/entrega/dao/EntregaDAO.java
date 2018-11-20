@@ -107,8 +107,14 @@ public class EntregaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Primero añadimos el cartel ganador a la tabla de retos actuales
+            resultSet = statement.executeQuery("select max(idcartel) from retos");
+            int idUltimoCart=0;
+            if(resultSet.next()) idUltimoCart=Integer.parseInt(resultSet.getString("max(idcartel)"));
+            if (idUltimoCart==cartelGanador) 
             resultSet = statement.executeQuery("select max(id) from retos");
             int idReto=0;
+            if(resultSet.next()) idReto=Integer.parseInt(resultSet.getString("max(id)"))+1;
+
             if(resultSet.next()) idReto=Integer.parseInt(resultSet.getString("max(id)"))+1;
             String insert="insert into retos values("+idReto+", "+cartelGanador+", 0, 0, 0, 0, 0)";
             int res = statement.executeUpdate(insert);
