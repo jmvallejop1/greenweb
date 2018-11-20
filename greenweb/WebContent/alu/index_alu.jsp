@@ -26,6 +26,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
   <!-- BARRA DE NAVEGACION Y HEADER-->
   <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>    
   <section>
+  
+  <c:set var = "id" scope = "session" value = "sk8"/>
+  
     <div class="container">
       <div id="RetoActual">
   		<jsp:useBean id="man" class="com.greenweb.cartel.CartelesManager"/>
@@ -66,22 +69,29 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
       <h3 class=cabeza>Seccion preguntas adicionales</h3>     
       <jsp:useBean id="pre" class="com.greenweb.pregunta.PreguntasManager"/>
 	  <jsp:setProperty name="pre" property="user" value="${sessionScope.id}" /> 
-      <c:forEach var="pregunta" items="${pre.adicionales}">
-      			<form class="pregunta" action="#" method="post">
-     		   	 <h3><c:out value="${pregunta.preg}"></c:out></h3>
-      				<ul>
-         			 	<li><input type="radio" name="resp" value="1" />
-          			 	<label><c:out value="${pregunta.r1}"></c:out></label></li>
-         			 	<li><input type="radio" name="resp" value="2" />
-         			 	<label><c:out value="${pregunta.r2}"></c:out></label></li>
-         			 	<li><input type="radio" name="resp" value="3" />
-         				<label><c:out value="${pregunta.r3}"></c:out></label></li>
-         			    <li><input type="radio" name="resp" value="4" />
-          				<label><c:out value="${pregunta.r4}"></c:out></label></li>
-     			 	</ul>
-      			   <input type="submit"/>
-    			</form>
-   	   </c:forEach>
+	  <c:choose>        
+		<c:when test = "${pre.respondido == false}">
+			No se ha respondido al reto actual...
+		</c:when>              
+		<c:otherwise>
+			<c:forEach var="pregunta" items="${pre.adicionales}">
+				<form class="pregunta" action="#" method="post">
+					<h3><c:out value="${pregunta.preg}"></c:out></h3>
+						<ul>
+							<li><input type="radio" name="resp" value="1" />
+							<label><c:out value="${pregunta.r1}"></c:out></label></li>
+							<li><input type="radio" name="resp" value="2" />
+							<label><c:out value="${pregunta.r2}"></c:out></label></li>
+							<li><input type="radio" name="resp" value="3" />
+							<label><c:out value="${pregunta.r3}"></c:out></label></li>
+							<li><input type="radio" name="resp" value="4" />
+							<label><c:out value="${pregunta.r4}"></c:out></label></li>
+						</ul>
+						<input type="submit"/>
+				</form>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
 
   </section>
 

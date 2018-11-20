@@ -59,7 +59,7 @@
 			window.alert("0");
 		}else if(valor>0){	
 			$(cambio).addClass("incorrecta");
-			window.alert(">0");
+			window.alert(valor);
 		}
 	}
 </script>
@@ -96,6 +96,7 @@
 		          <li><input type="checkbox" name="resp" value="4" />
 		          <label><c:out value="${pregunta.r4}"></c:out></label></li>
 		        </ul>
+		        <p></p>
 		        <input type="button" class="bot" name="contestar" value="Contestar!">
 		        </div>
 	   	 </form>

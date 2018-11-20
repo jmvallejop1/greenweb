@@ -9,6 +9,10 @@ import com.greenweb.pregunta.dao.*;
 
 public class PreguntasManager {
 	
+	private String user;
+	private List<PreguntaDO> adicionales;
+	private boolean respondido;
+	
 	
 	
 	public static void main(String[] args) throws Exception {
@@ -50,6 +54,32 @@ public class PreguntasManager {
 		System.out.println("El main ha terminado");
 
 		//System.out.println("El usuario ha contestado a la pregunta y la respuesta ha sido: "+pregM.responderPreg("pepe", 1, 9));
+	}
+	
+	public String getUser() {
+		return user;
+	}
+
+
+	public void setUser(String user) {
+		this.user = user;
+		if(this.haRespondidoRA(user)) {
+			this.respondido = true;
+			this.adicionales = this.obtenerPregsAdi(user);
+		}else {
+			this.respondido = false;
+		}
+		
+	}
+
+
+	public List<PreguntaDO> getAdicionales() {
+		return adicionales;
+	}
+
+
+	public void setAdicionales(List<PreguntaDO> alternarivas) {
+		this.adicionales = alternarivas;
 	}
 	
 	
@@ -117,6 +147,8 @@ public class PreguntasManager {
 			return false;
 		}
 	}
+	
+	
 	
 	public List<PreguntaDO> obtenerPregsAdi(String idUser) {
 		try {
@@ -197,4 +229,15 @@ public class PreguntasManager {
 			return -1;
 		}
 	}
+
+	public boolean isRespondido() {
+		return respondido;
+	}
+
+	public void setRespondido(boolean respondido) {
+		this.respondido = respondido;
+	}
+
+
+	
 }

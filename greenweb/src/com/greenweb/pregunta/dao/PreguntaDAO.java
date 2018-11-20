@@ -79,31 +79,33 @@ public class PreguntaDAO {
     	try {
     		List<PreguntaDO> l= new LinkedList<PreguntaDO>();
             int[] ids=getPregsAdi(iduser);
-            String select="select * from preguntas where (id="+ids[0];
-            for(int i=1; i<ids.length; i++) {
-            	select+=" or id="+ids[i];
-            	System.out.println("Añadida pregunta "+ids[i]);
+            if(ids != null) {
+	            String select="select * from preguntas where (id="+ids[0];
+	            for(int i=1; i<ids.length; i++) {
+	            	select+=" or id="+ids[i];
+	            	System.out.println("Añadida pregunta "+ids[i]);
+	            }
+	            select+=')';
+	            System.out.println("Ejecutando: "+select);
+	            connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	            resultSet = statement.executeQuery(select);
+	            while(resultSet.next()) {
+	                PreguntaDO p=new PreguntaDO();
+	            	p.setId(Integer.parseInt(resultSet.getString("id")));
+	            	p.setPreg(resultSet.getString("preguntas"));
+	            	p.setR1(resultSet.getString("resp1"));
+	            	p.setR2(resultSet.getString("resp2"));
+	            	p.setR3(resultSet.getString("resp3"));
+	            	p.setR4(resultSet.getString("resp4"));
+	            	p.setrOk(Integer.parseInt(resultSet.getString("respcorrecta")));
+	            	if(l.add(p)) System.out.println("Pregunta con id: "+p.getId()+" añadida");
+	            	System.out.println("Añadida pregunta: "+p.getPreg());
+	            }
+	            return l;
             }
-            select+=')';
-            System.out.println("Ejecutando: "+select);
-            connect=ConnectionManager.getConnection();
-            // Statements allow to issue SQL queries to the database
-            statement = connect.createStatement();
-            // Result set get the result of the SQL query
-            resultSet = statement.executeQuery(select);
-            while(resultSet.next()) {
-                PreguntaDO p=new PreguntaDO();
-            	p.setId(Integer.parseInt(resultSet.getString("id")));
-            	p.setPreg(resultSet.getString("preguntas"));
-            	p.setR1(resultSet.getString("resp1"));
-            	p.setR2(resultSet.getString("resp2"));
-            	p.setR3(resultSet.getString("resp3"));
-            	p.setR4(resultSet.getString("resp4"));
-            	p.setrOk(Integer.parseInt(resultSet.getString("respcorrecta")));
-            	if(l.add(p)) System.out.println("Pregunta con id: "+p.getId()+" añadida");
-            	System.out.println("Añadida pregunta: "+p.getPreg());
-            }
-            return l;
     	}
     	catch(Exception e){
             e.printStackTrace();
