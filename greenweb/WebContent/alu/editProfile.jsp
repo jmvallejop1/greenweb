@@ -64,6 +64,7 @@
 
 	  <%
 	  	CartelDO c = new CartelDO();
+	  	CartelManager cman=new CartelManager();
 	  	<c:set var="u" value="${man.username}"/>
 	  %>
 	  
@@ -71,12 +72,12 @@
         <table>
             <caption align="top">Estado de la entrega</caption>
             <%
-            	if (haEntregado(u) && obtenerCartelUsuario(u, c)){
+            	if (cman.haEntregado(u) && cman.obtenerCartelUsuario(u, c)){
             		NoticiaDO n = c.getNoti();
             %>
             		<tr>
                			<td>Trabajo</td>
-               			<td><%out.println(n.getTitulo());</td>
+               			<td><%out.println(n.getTitulo());%></td>
             		</tr>
             		<tr class="alt">
                			<td> Estado de entrega</td>
@@ -84,7 +85,7 @@
             		</tr>
             		<tr>
                			<td> Fecha de entrega </td>               	                	
-               			<td> <%out.println(c.getFecha());</td>
+               			<td> <%out.println(c.getFecha());%></td>
             		</tr>
             		<tr class="alt">
                			<td> Ultima modificacion </td>
