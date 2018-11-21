@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-  <html lang="en">
+  <html lang="es">
   <head>
 	<meta charset="utf-8">
 	<title> Pagina de comentarios </title>
@@ -32,6 +32,8 @@
 <body>
 	<iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<jsp:useBean id="man" class="com.greenweb.comentario.ComentarioManager"/>
+	<div class="forito">
+	<br/><br/><br/><br/>
 	<form method="post">
 		<div class="contenedor_comentarios">
 			<h1> Foro de comentarios <a href="tal"></a></h1>
@@ -58,6 +60,7 @@
 			<input type="button" id="conf" value="Envia tu comentario"> 
 		</div>
 	</form>
+	</div>
 	<iframe src="../footer.html" class="frames" scrolling="no" border="no"
 	width="100%" height="130" frameborder="no"></iframe>
  </body>

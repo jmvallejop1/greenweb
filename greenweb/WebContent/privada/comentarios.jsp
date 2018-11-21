@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="com.greenweb.comentario.*,java.util.List,com.greenweb.comentario.data.*"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-  <html lang="en">
+  <html lang="es">
   <head>
 	<meta charset="utf-8">
 	<title> Pagina de comentarios </title>

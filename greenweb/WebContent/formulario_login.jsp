@@ -9,6 +9,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		<link rel="stylesheet" href="css/login.css">
 		<link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet"> 
 		<title> Login </title>
+		<html lang="es">
 	</head>
 	
 	<body>
@@ -21,10 +22,10 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				</div>
           
 				<div class="field-wrap">
-					<input id = "passwd "type="password"required autocomplete="off" placeholder="ContraeÃ±a" name="pass"/>
+					<input id = "passwd "type="password"required autocomplete="off" placeholder="Contraseña" name="pass"/>
 				</div>
           
-				<p class="forgot"><a href="#">Â¿Olvidaste tu contraseÃ±a?</a></p>
+				<p class="forgot"><a href="#">¿Olvidaste tu contraseña?</a></p>
           
 				<button type="submit" id="inicio">Iniciar Sesion</button>          
           </form>
