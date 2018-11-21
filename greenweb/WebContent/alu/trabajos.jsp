@@ -16,6 +16,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	<meta charset="utf-8">
 	<title>Trabajos</title>
 	 <link rel="stylesheet" href="../css/trabajos.css">
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	 <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
 	 <link href="https://fonts.googleapis.com/css?family=Niramit:400,700" rel="stylesheet">
 	 <script>
@@ -61,10 +62,11 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 		List<CartelDO> lista=cman.obtenerCartelesActuales();
 	%>
 	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.jsp'"/>
+	   <div class="Trabajos">
 	   <%
 	   	for(CartelDO c: lista){
 	   		%>
-	   		<div id=<%out.print(c.getIdPreg()); %>>
+	   		<div id=<%out.print(c.getIdPreg());%>>
 	   		<div id=<%out.print(c.getId());%>>
 	   		<div class="Trabajo">
 	   			<img src="../images/<%out.print(c.getFoto());%>" alt="Paris">
@@ -78,6 +80,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   		<%
 	   	}
 	   %>
+	   </div>
    
  <iframe src="../footer.html" class="frames" scrolling="no" border="no"
 	width="100%" height="130" frameborder="no"></iframe>

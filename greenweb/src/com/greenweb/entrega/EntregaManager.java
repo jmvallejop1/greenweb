@@ -47,6 +47,17 @@ public class EntregaManager {
 		}
 
 	}
+		
+	public boolean haEntregado(String iduser) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.puedeEntregar(iduser);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	public void NuevoReto(int idcart) {
 		try {
@@ -56,6 +67,50 @@ public class EntregaManager {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean asignarEntrega(String alumno, int entrega) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.setNumEntrega(alumno, entrega); 
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public String fechaModificacion(String iduser) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.fechaModificacion(iduser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String fechaEntrega(String iduser) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.fechaEntrega(iduser);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public boolean SubirEntrega(String iduser, CartelDO c) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.subirEntrega(iduser, c); 
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	public boolean anadirEntrega(String fechalimite) {

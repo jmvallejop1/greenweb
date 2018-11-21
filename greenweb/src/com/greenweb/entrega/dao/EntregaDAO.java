@@ -101,7 +101,7 @@ public class EntregaDAO {
 		return false;
     }
     
-    public void iniciarReto(int cartelGanador) { //FUNCIONA
+    public boolean iniciarReto(int cartelGanador) { //EJECUTAR SIEMPRE ASEGURANDO QUE HAY UNA NUEVA ENTREGA DISTINTA DE LA ACTUAL
     	try {
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
@@ -110,11 +110,9 @@ public class EntregaDAO {
             resultSet = statement.executeQuery("select max(idcartel) from retos");
             int idUltimoCart=0;
             if(resultSet.next()) idUltimoCart=Integer.parseInt(resultSet.getString("max(idcartel)"));
-            if (idUltimoCart==cartelGanador) 
+            if (idUltimoCart==cartelGanador)nuevaEntrega("no definida");
             resultSet = statement.executeQuery("select max(id) from retos");
             int idReto=0;
-            if(resultSet.next()) idReto=Integer.parseInt(resultSet.getString("max(id)"))+1;
-
             if(resultSet.next()) idReto=Integer.parseInt(resultSet.getString("max(id)"))+1;
             String insert="insert into retos values("+idReto+", "+cartelGanador+", 0, 0, 0, 0, 0)";
             int res = statement.executeUpdate(insert);
@@ -186,8 +184,11 @@ public class EntregaDAO {
             		String update="update usuarios set puntos="+puntosUser+" where username='"+u.getUsername()+'\'';
             		res=statement.executeUpdate(update);
             		if(res!=1) System.out.println("ERROR - NO SE HA PODIDO ACTUALIZAR LOS PUNTOS DE "+u.getUsername());
+            		return false;
             	}
+            	return true;
             }
+            else return false;
     	}
     	catch(Exception e){
             e.printStackTrace();
@@ -196,9 +197,11 @@ public class EntregaDAO {
     	finally {
     		close();
     	}
+		return false;
     }
     
-    //Devuelve la fecha limite en la que se debe realizar la entrega
+
+	//Devuelve la fecha limite en la que se debe realizar la entrega
     public String fechaEntrega(String iduser) {
     	try {
     		connect=ConnectionManager.getConnection();
