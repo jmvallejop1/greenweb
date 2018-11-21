@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"%>
+<%@ page import="com.greenweb.noticia.*,java.util.List,com.greenweb.noticia.data.*"%>
+<%@ page import="com.greenweb.cartel.*,java.util.List,com.greenweb.cartel.data.*"%>
+<%@ page import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"%>
+<%@ page import="com.greenweb.entrega.*,java.util.List,com.greenweb.entrega.dao.*"%>
+
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,26 +62,57 @@
          </div>
       </div>
 
-
+	  <%
+	  	CartelDO c = new CartelDO();
+	  	<c:set var="u" value="${man.username}"/>
+	  %>
+	  
       <div class="container">
         <table>
             <caption align="top">Estado de la entrega</caption>
-            <tr>
-               <td>Trabajo</td>
-               <td> Ningun trabajo </td>
-            </tr>
-            <tr class="alt">
-               <td> Estado de entrega</td>
-               <td> Sin entregar </td>
-            </tr>
-            <tr>
-               <td> Fecha de entrega </td>
-               <td> No figura </td>
-            </tr>
-            <tr class="alt">
-               <td> Ultima modificacion </td>
-               <td> Sin modificar </td>
-            </tr>
+            <%
+            	if (haEntregado(u) && obtenerCartelUsuario(u, c)){
+            		NoticiaDO n = c.getNoti();
+            %>
+            		<tr>
+               			<td>Trabajo</td>
+               			<td><%out.println(n.getTitulo());</td>
+            		</tr>
+            		<tr class="alt">
+               			<td> Estado de entrega</td>
+               			<td> Entregado </td>
+            		</tr>
+            		<tr>
+               			<td> Fecha de entrega </td>               	                	
+               			<td> <%out.println(c.getFecha());</td>
+            		</tr>
+            		<tr class="alt">
+               			<td> Ultima modificacion </td>
+               			<td> <%out.println(fechaModificacion(u));%> </td>
+            		</tr>
+            <%
+               }
+               else {
+            %>            
+         		   <tr>
+              			 <td>Trabajo</td>
+               			 <td> Ningun trabajo </td>
+           		   </tr>
+            	   <tr class="alt">
+               			<td> Estado de entrega</td>
+               			<td> Sin entregar </td>
+            	   </tr>
+            	   <tr>
+               			<td> Fecha de entrega </td>
+               			<td> No figura </td>
+            	   </tr>
+            	   <tr class="alt">
+               			<td> Ultima modificacion </td>
+               			<td> Sin modificar </td>
+            	   </tr>
+            <%
+               }
+            %>
          </table>
       </div>
 

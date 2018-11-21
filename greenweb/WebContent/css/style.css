@@ -3,19 +3,18 @@ tendran el margen automatico*/
 
 body{
 	margin:0;
-	background:url('../images/valle.jpg') no-repeat;
-	background-size:100% 100%;
+	background: #bdf083;
 }
 
 
 h2, h3 {
 	font-family: 'Black Han Sans', sans-serif;
-	color: #eae119;
+	color: black;
 }
 
 p {
 	font-family: 'Archivo', sans-serif;
-	color: #ee2a2a;
+	color: black;
 	font-weight: bold;
 }
 
@@ -54,6 +53,7 @@ p {
 	color:white;
 	width: 80%;
 	margin: auto;
+	color: white;
 }
 
 .PreguntaPrincipal ul{

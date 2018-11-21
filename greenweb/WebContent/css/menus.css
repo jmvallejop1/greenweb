@@ -7,11 +7,12 @@ body{
 	text-align: center;
 	color: white;
 	padding:40px 0;
-	background-color: #051e47;
+	background:url('../images/giphy.gif') no-repeat;
+	background-size:100% 100%;
 	margin:0;
 }
 .navegacion{
-	 background: #6d8da7;
+	 background: #022c03;
 }
 
 .container{
@@ -26,7 +27,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: #6d8da7;
+    background: #022c03;
 
 }
 
