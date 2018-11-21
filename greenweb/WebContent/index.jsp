@@ -9,7 +9,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <title>Hello!</title>
     <!-- import the webpage's stylesheet -->

@@ -9,10 +9,18 @@ body{
 	padding:40px 0;
 	background:url('../images/giphy.gif') no-repeat;
 	background-size:100% 100%;
+	display:block;
 	margin:0;
 }
 .navegacion{
 	 background: #022c03;
+}
+
+#main-header img {
+	margin-left: 80px;
+	width: 100px;
+	height: 100px;
+	float: left;
 }
 
 .container{
