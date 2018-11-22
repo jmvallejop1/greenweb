@@ -1,6 +1,5 @@
 package com.greenweb.entrega.dao;
 import com.greenweb.entrega.data.*;
-import com.greenweb.noticia.dao.*;
 import com.greenweb.noticia.data.*;
 
 import java.sql.Connection;
@@ -262,6 +261,24 @@ public class EntregaDAO {
     		close();
     	}
 		return false;
+    }
+    
+    public int numEntrega(String fecha) {
+    	try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            resultSet = statement.executeQuery("select num from entregas where fecha='"+fecha+'\'');
+            if(resultSet.next()) {
+            	return Integer.parseInt(resultSet.getString("num"));
+            }
+            else return -1;
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
+		return -1;
     }
     
     public boolean nuevaEntrega(String fecha) {

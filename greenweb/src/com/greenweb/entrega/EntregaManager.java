@@ -1,17 +1,12 @@
 package com.greenweb.entrega;
 
 import com.greenweb.entrega.dao.*;
-import com.greenweb.entrega.data.*;
-import com.greenweb.pregunta.dao.*;
-import com.greenweb.pregunta.data.*;
-import com.greenweb.cartel.dao.*;
 import com.greenweb.cartel.data.*;
-import com.greenweb.noticia.dao.*;
-import com.greenweb.noticia.data.*;
+
 
 public class EntregaManager {
 	public static void main(String[] args) {
-		try {
+		try {/*
 			EntregaManager eman=new EntregaManager();
 			EntregaDAO edao=new EntregaDAO();
 			CartelDAO cdao=new CartelDAO();
@@ -37,12 +32,12 @@ public class EntregaManager {
 			c.setIdNot(12);
 			c.setId(10);
 			//if(edao.subirEntrega("pepe2", c)) System.out.println("Se ha subido con exito");
-			edao.iniciarReto(10);*/
+			edao.iniciarReto(10);
 			//if(edao.nuevaEntrega("2019-01-01"))System.out.println("Se ha añadido entrega nueva");
 			if(eman.anadirEntrega("12-12-2018"))System.out.println("Entrega nueva añadida");
 			//if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
 			//else System.out.println("No puede entregar, no le corresponde el turno");
-			//System.out.println("Fin del main");
+			//System.out.println("Fin del main");*/
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -70,6 +65,17 @@ public class EntregaManager {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public int numEntrega(String fecha) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.numEntrega(fecha); 
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 	public boolean asignarEntrega(String alumno, int entrega) {
