@@ -44,7 +44,7 @@ public class SubirComentario extends HttpServlet{
 				
 				System.out.println("He escrito:"+ comentario);
 			}
-			m.añadirUnComentario(c1);
+			m.anyadirUnComentario(c1);
 		
 			out.print("1");
 		}else {

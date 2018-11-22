@@ -31,14 +31,14 @@ public class ComentarioManager {
 		c2.setIdUser("alu5");
 		
 		
-		// Añdimos comentario c1 creado antes
-		//añadirUnComentario(c1);
+		// Aï¿½dimos comentario c1 creado antes
+		//aï¿½adirUnComentario(c1);
 		
 		// borramos comentario
 		
-		//añadirUnComentario(c1);
+		//aï¿½adirUnComentario(c1);
 		
-		System.out.println(" ------------ AÑADIR COMENTARIO ---------\n\n");
+		System.out.println(" ------------ Aï¿½ADIR COMENTARIO ---------\n\n");
 		
 		//mostrarComentarios();
 		
@@ -81,11 +81,11 @@ public class ComentarioManager {
 		return this.mostrarComentarios();
 	}
 	
-	// añadimos un comentario a la lista OK
-	public void añadirUnComentario(ComentarioDO c) {
+	// aï¿½adimos un comentario a la lista OK
+	public void anyadirUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
-			dao.añadirComentario(c);
+			dao.anyadirComentario(c);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -93,7 +93,7 @@ public class ComentarioManager {
 	}
 	
 	
-	// añadimos un comentario a la lista OK
+	// aï¿½adimos un comentario a la lista OK
 	public void borrarUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {

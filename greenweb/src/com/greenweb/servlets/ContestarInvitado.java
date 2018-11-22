@@ -30,7 +30,7 @@ public class ContestarInvitado extends HttpServlet{
 				 re = (re*10) + Integer.parseInt(respuestas[i]);
 			 }
 			 PreguntasManager m = new PreguntasManager();
-			 boolean b = m.responderRAinvitado(re);
+			 boolean b = m.responderInvitadoRA(re);
 			 if(b){
 				 out.println("1");
 			 }else {

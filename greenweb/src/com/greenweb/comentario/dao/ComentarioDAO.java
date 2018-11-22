@@ -36,7 +36,7 @@ public class ComentarioDAO {
 	            	// generar un dato de tipo ForoDO
 	            	ComentarioDO coment = new ComentarioDO();
 	            	
-	            	// Creación del dato comentario
+	            	// Creaciï¿½n del dato comentario
 	            	coment.setIdUser(resultSet.getString("idUser"));
 	            	coment.setComentario(resultSet.getString("comentario"));
 	            	coment.setFecha(resultSet.getString("fecha"));
@@ -62,7 +62,7 @@ public class ComentarioDAO {
 	    }
 	    
 		// guardar Comentario; OK
-		public boolean añadirComentario(ComentarioDO c) {
+		public boolean anyadirComentario(ComentarioDO c) {
 			boolean resul=false;
 	    	try {
 	        	connect=ConnectionManager.getConnection();
