@@ -1,23 +1,21 @@
 package com.greenweb.enlace;
 
-import com.greenweb.enlace.data.*;
 import com.greenweb.enlace.dao.EnlaceDAO;
 import com.greenweb.enlace.data.EnlaceDO;
-import com.greenweb.pregunta.data.PreguntaDO;
-import com.greenweb.usuario.UsuarioManager;
 
-import java.util.LinkedList;
 import java.util.List;
 
-import com.greenweb.enlace.dao.*;
 public class EnlacesManager {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		EnlacesManager usu = new EnlacesManager();
+/*		EnlacesManager usu = new EnlacesManager();
 		usu.obtenerTodosEnlaces();
-		usu.aumentaVotos("hola");
+		usu.aumentaVotos("hola");*/
 	}
+	
+	/*
+	 * Devuleve una lista con todos los enlaces alojados en la BD
+	 */
 	public List<EnlaceDO> obtenerTodosEnlaces()
 	{
 		EnlaceDAO dao=new EnlaceDAO();
@@ -34,6 +32,9 @@ public class EnlacesManager {
 		return this.obtenerTodosEnlaces();
 	}
 	
+	/*
+	 * Obtiene los 5 primeros enlaces alojados en la BD comenzando desde el comentario numero 'ini'
+	 */
 	public List<EnlaceDO> obtener5(List<EnlaceDO> todos,int ini){
 		EnlaceDAO dao=new EnlaceDAO();
 		try {
@@ -45,6 +46,9 @@ public class EnlacesManager {
 		}		
     }
 	
+	/*
+	 * Devuelve el numero de votos que tiene el enlace indicado tras sumarle uno
+	 */
 	public int aumentaVotos(String s){
 		EnlaceDAO dao=new EnlaceDAO();
 		try {
@@ -56,6 +60,10 @@ public class EnlacesManager {
 		}
     }
 	
+	/*
+	 * Elimina los enlaces identificados mediante s y
+	 * devuelve el numero de enlaces que han sido eliminados de la base de datos
+	 */
 	public int eliminaEnlace(String s){
 		EnlaceDAO dao=new EnlaceDAO();
 		try {
@@ -67,6 +75,10 @@ public class EnlacesManager {
 		}
     }
 	
+	/*
+	 * Añade un enlace a la base de datos y
+	 * devuelve el numero de enlaces que han sido añadidos a la base de datos 
+	 */
 	public int subirEnlace(String s,String user){
 		EnlaceDAO dao=new EnlaceDAO();
 		try {

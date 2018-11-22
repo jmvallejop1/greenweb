@@ -1,7 +1,6 @@
 package com.greenweb.cartel.dao;
 
 import com.greenweb.cartel.data.*;
-import com.greenweb.entrega.dao.*;
 import com.greenweb.pregunta.dao.*;
 import com.greenweb.pregunta.data.*;
 import com.greenweb.noticia.dao.*;
@@ -10,7 +9,6 @@ import com.greenweb.ConnectionManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
