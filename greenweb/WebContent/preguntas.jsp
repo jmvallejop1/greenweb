@@ -50,6 +50,18 @@
    	 });
 	});
 </script>
+<script>
+	function comprobar(valor){
+		if(valor == -1){
+			window.alert("No se puede mostrar respuesta porque pertenece al reto.");
+		}else if(valor == 0){
+			$(cambio).addClass("correcta");
+		}else if(valor>0){	
+			$(cambio).addClass("incorrecta");
+			window.alert("Las respuestas correctas eran" + valor);
+		}
+	}
+</script>
 
 <script>
 	$(document).ready(function() {

@@ -38,13 +38,12 @@
 <script>
 	function comprobar(valor){
 		if(valor == -1){
-			window.alert("-1");
+			window.alert("No se puede mostrar respuesta porque pertenece al reto.");
 		}else if(valor == 0){
 			$(cambio).addClass("correcta");
-			window.alert("0");
 		}else if(valor>0){	
 			$(cambio).addClass("incorrecta");
-			window.alert(">0");
+			window.alert("Las respuestas correctas eran" + valor);
 		}
 	}
 </script>

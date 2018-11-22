@@ -3,7 +3,8 @@ body{
 }
 .container{
 	width:80%;
-	margin: 100px auto; 
+	margin: 100px auto;
+	padding:20px; 
 	overflow:hidden;
 	background:rgba(0,0,0,0.5);
 	color:white;
@@ -18,69 +19,44 @@ body{
 	font-family: 'PT Serif', serif;
 }
 
-.container{
-	padding:20px;
+.noticia{
+	display:inline-block;
+	heigth: 400px;
 }
 
-.pregunta{
-	text-align: center;
-	border: 1px solid;
-	border-color: #FF000;	
-}
-
-.pregunta h3{
+.pregunta2 h3{
 	color: white;
 }
 
-.pregunta input {
+.pregunta2 input {
 	margin-bottom: 10px;
 }
 
-.pregunta select{
+.pregunta2 select{
 		display:block;
 		margin-top: 20;	
 		padding-left: 200;	
 }
-.reto{
-	margin-top: 100px;
-}
-	
-.reto .option{
-	display:block;
-	margin-top: 5px;
-	margin-bottom: 5px;
 
-}
-.reto h3{
-	text-align: center;
-	color:white;
-}
-
-.reto p{
-	color: white;
-}
-
-.opcion{
+.opcion2{
 	display: block;
 	padding: 5px 0 5px 0;
 	margin: 5px 0 5px 0;
 
 }
 
-.pregunta h2 {
+.pregunta2 h2 {
     font-family: 'PT Serif', serif;
     font-family: 'Cabin', sans-serif;
 	font-size: 18px;
 	color: #85f2b3;
 }
 
-.pregunta li{
+.pregunta2 li{
 	list-style: none;
 	color: white;
 }
-section{
- 	margin-top:10px;
-}
+
 video{
 	max-width: 80%;
 	height: auto;

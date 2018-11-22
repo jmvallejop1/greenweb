@@ -20,16 +20,18 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <title>Reto</title>
   </head>
   <body>
-  	<section>
+ 
   	<jsp:useBean id="pre" class="com.greenweb.cartel.CartelesManager"/>
-  	 <jsp:setProperty name="pre" property="idp" value="${sessionScope.idpre}" /> 
+  	<jsp:setProperty name="pre" property="idp" value="${sessionScope.idpre}" /> 
     <div class="container">
+    <div class="noticia">
         <h1><c:out value="${pre.preg.noti.titulo}"></c:out></h1>
             <p><video  controls="controls">
               <source src="video/vid1.mp4" type="video/mp4">
             </video><c:out value="${pre.preg.noti.texto}"></c:out>
             </p>
-     <div class="pregunta">
+    </div>
+    <div class="pregunta2">
           <h3><c:out value="${pre.preg.preg.preg}"></c:out></h3>
           <form>
           <ul>
@@ -45,8 +47,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
           <input type="button" name="Cancelar" value="Confirmar" onClick="window.location.href='reto_contestado.html'" >
           </form>
       </div>
-    </div> 
-
-  </section>	
+    </div> 	
   </body>
 </html>
