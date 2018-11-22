@@ -2,11 +2,8 @@ package com.greenweb.cartel;
 import com.greenweb.cartel.dao.*;
 import com.greenweb.cartel.data.*;
 import com.greenweb.noticia.data.*;
-import com.greenweb.noticia.dao.*;
-import com.greenweb.pregunta.dao.*;
 import com.greenweb.pregunta.data.*;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class CartelesManager {
@@ -14,9 +11,9 @@ public class CartelesManager {
 			int idp;
 			CartelDO noticia;
 			CartelDO preg;
-	
+			
 			public static void main(String[] args) {
-				CartelesManager cman=new CartelesManager();
+				/*CartelesManager cman=new CartelesManager();
 				//CartelDAO dao=new CartelDAO();
 				//List<CartelDO> l=new LinkedList<CartelDO>();
 				//l=dao.obtenerEntregasActuales();
@@ -51,8 +48,8 @@ public class CartelesManager {
 					c=l.get(i);
 					System.out.println(c.getId());
 				}
-				*/
 				System.out.println("fin main");
+				*/
 			}
 			
 			public int getIdn() {
@@ -86,156 +83,148 @@ public class CartelesManager {
 			public CartelDO getPreg() {
 				return preg;
 			}
+			
+			public CartelDO getCartel(){
+				return this.obtenerRetoActual();
+			}
 
 
 			public void setPreg(CartelDO preg) {
 				this.preg = preg;
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: Devuelve true si se ha logrado sumar un voto
+			 * al cartel identificado mediante 'idcartel' en la base de datos.
+			 * En caso contrario devuelve false
+			 */
 			public boolean sumarVoto(int idcartel) {
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.sumarVoto(idcartel);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 					return false;
 				}	
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: devuelve true si existe un cartel identificado
+			 * mediante 'idpreg' en la base de datos y se ha logrado obtener sus datos
+			 * En caso contrario devuelve false
+			 */
 			public CartelDO obtenerCartelP(int idPreg){
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.obtenerCartelPreg(idPreg);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 					return null;
 				}		
 			}
 			
-			
+			/*
+			 * Pre: idNot se corresponde con el id de una noticia y esta asociado a un cartel c
+			 * Post: Devuelve el cartel c
+			 */
 			public CartelDO obtenerCartelN(int idNot){
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.obtenerCartelNot(idNot);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 					return null;
 				}		
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: Devuelve el cartel asociado al reto en marcha actualmente
+			 */
 			public CartelDO obtenerRetoActual() {
 				try {
 					CartelDAO dao = new CartelDAO();
 					return dao.obtenerRetoActual();
 				}
 				catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 				}
 				return null;
 			}
 			
-			public CartelDO getCartel(){
-				return this.obtenerRetoActual();
-			}
-			
-			
+			/*
+			 * Pre: entrega debe ser un entero cuyo valor se asocia a una entrega en la base de datos
+			 * Post: Devuelve una lista con todos los carteles que se hayan
+			 * entregado durante la entrega indicada
+			 */
 			public List<CartelDO> obtenerCartelesEntrega(int entrega){
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.obtenerCartelesEntrega(entrega);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 					return null;
 				}
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: Devuelve una lista que contiene todos los carteles entregados
+			 * en la entrega que está en curso actualmente
+			 */
 			public List<CartelDO> obtenerCartelesActuales(){
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.obtenerEntregasActuales();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 				}
 				return null;
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: devuelve true si se logra introducir el cartel c en la base de datos
+			 * devuelve false en caso contrario
+			 */
 			public boolean subirCartel(CartelDO c) {
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.subirCartel(c);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 				}
 				return false;
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: devuelve true si se ha conseguido obtener el cartel entregado en el turno actual
+			 * asociado al usuario de la base de datos
+			 */
 			public boolean obtenerCartel(String user,CartelDO c) {
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.obtenerCartelUsuario(user, c);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 				}
 				return false;
 			}
 			
+			/*
+			 * Pre: -
+			 * Post: devuelve un cartel relleno con los campos indicados
+			 */
 			public CartelDO crearCartel(PreguntaDO p, NoticiaDO n, String[] autores, int idp, int idn, String foto, String fecha) {
 				CartelDAO dao=new CartelDAO();
 				try {
 					return dao.generaCartel(p,n,autores,idp,idn,foto,fecha);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();			
 				}
 				return null;
 			}
-			/*
-			public List<EnlaceDO> obtener5(List<EnlaceDO> todos,int ini){
-				EnlaceDAO dao=new EnlaceDAO();
-				try {
-					return dao.obtener5(todos,ini);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();			
-					return null;
-				}		
-		    }
-
-			public int eliminaEnlace(String s){
-				EnlaceDAO dao=new EnlaceDAO();
-				try {
-					return dao.eliminaEnlace(s);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					return 0;
-				}
-		    }
-			
-			public int subirEnlace(String s,String user){
-				EnlaceDAO dao=new EnlaceDAO();
-				try {
-					return dao.subirEnlace(s,user);
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					return 0;
-				}
-		    }
-		}
-
-	}*/
-
-			
-
-
-			
 }
