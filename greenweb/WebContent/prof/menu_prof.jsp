@@ -22,6 +22,7 @@
 <body>
 	<header>
 		<div id="main-header">
+			<img src="../images/aguila.png" alt="logotipo del grupo"/>
       		<h1>GREENWEB</h1>
     	</div>
 		<nav class="navegacion">

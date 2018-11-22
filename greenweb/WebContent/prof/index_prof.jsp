@@ -80,10 +80,9 @@ function comprobar(valor){
 		}
 }
 </script>
-=======
-    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">   
->>>>>>> branch 'master' of https://github.com/jmvallejop1/greenweb
+   <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">   
+
   </head>  
   <body>
 
@@ -106,7 +105,7 @@ function comprobar(valor){
      <div class="reto">
         <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
-              <source src="video/vid1.mp4" type="video/mp4">
+              <source src="../video/vid1.mp4" type="video/mp4">
             </video>
             	<c:out value="${reto.noti.texto}"></c:out>
             </p>

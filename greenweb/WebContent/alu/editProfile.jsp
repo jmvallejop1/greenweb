@@ -7,7 +7,7 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<title>Mi cuenta</title>
 	<meta charset="utf-8">
@@ -38,17 +38,17 @@
       <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
          <!--AquÃ­ irÃ­a el frame de la cabecera y el menu-->
       <div class="box2">
-         <img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
+         <img src="../images/negro.jpg" alt="Su foto de perfil" id="ProfPic">
          <div class="infoUser">
             <center>
-               <h2> InformaciÃ³n personal de Nombre Apellido</h2>
+               <h2> Información personal de Nombre Apellido</h2>
                <!--Recoger la info del usuario y rellenar los campos con la respuesta-->
                <table>
                   <tr class="data"><td>Tipo de cuenta: </td><td id="tipo"><c:out value="${man.tipo}"></c:out></td></tr></tr>
                   <form action="../CambiarDatos" method="post">
                      <tr class="data"><td>Id de usuario: </td><td><input name="idUser" placeholder="<c:out value="${man.username}"></c:out>"/></td></tr>
                      <!-- AquÃ­ se debe comprobar que el nombre de usuario esta libre -->
-                     <tr class="data"><td>Correo electrÃ³nico: </td><td><input name="email"type="email" placeholder="<c:out value="${man.mail}"></c:out>"></td></tr>
+                     <tr class="data"><td>Correo electrónico: </td><td><input name="email"type="email" placeholder="<c:out value="${man.mail}"></c:out>"></td></tr>
                      <tr class="data"><td>Edad: </td><td><input type="age" name="age" placeholder="<c:out value="${man.edad}"></c:out>"></td></tr>
                      <tr class="data"><td>Ocupacion actual: </td>
                         <td><select name="ocupacion"><option value ="0"> Selecciona ocupacion</option><option value ="1">Ingeniero</option><option value ="2">Medico</option><option value ="3">Empresario</option><option value ="4">Estudiante TIC</option><option value ="5">Estudiante Ciencias Sociales</option><option value ="6">Estudiante Ciencias Salud</option><option value ="7">Estudiante Letras</option></select></td></tr>

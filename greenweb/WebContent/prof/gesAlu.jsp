@@ -63,9 +63,9 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		%>
 		<div class="info">
 			<h3 align="center">Lista de alumnos</h3>
-			<p>Aquí podrás aÃ±adir y eliminar cuentas de la lista de alumnos. Aquel que esté en esta lista podrá acceder a los trabajos y votar su favorito. También podrá subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los alumnos que estén en el curso actual.</p>
+			<p>Aquí podrás añadir y eliminar cuentas de la lista de alumnos. Aquel que esté en esta lista podrá acceder a los trabajos y votar su favorito. También podrá subir enlaces y votar si son fiables. Solo deben aparecer en esta lista los alumnos que estén en el curso actual.</p>
 			<ul>
-				<li>Para añadir un alumno nuevo busque su nombre y pulse el botón de aÃ±adir.</li>
+				<li>Para añadir un alumno nuevo busque su nombre y pulse el botón de añadir.</li>
 				<li>Para eliminar un alumno pulse la cruz roja al lado de su nombre en la lista.</li>
 			</ul>
 				
