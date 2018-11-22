@@ -22,7 +22,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 <script>
 	 $(document).ready(function() {
 			$('.LikeAlu').click(function(event) {
-				var id=$(this).parent().parent().attr("id");
+				var id=$(this).parent().attr("id");
 				alert(id);
 				$.post('../SumaVotoTrabajo', {
 					idcartel: id
@@ -59,26 +59,36 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	<h1> ¡Tablón con todos los carteles!</h1>
 	<%
 		CartelesManager cman=new CartelesManager();
+		//List<CartelDO> lista=cman.obtenerCartelesEntrega(11);
 		List<CartelDO> lista=cman.obtenerCartelesActuales();
 	%>
 	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.jsp'"/>
 	   <div class="Trabajos">
 	   <%
+	   if(lista!=null && lista.size()>0){
 	   	for(CartelDO c: lista){
 	   		%>
+	   		<div class="TrabajoVoto">
 	   		<div id=<%out.print(c.getIdPreg());%>>
-	   		<div id=<%out.print(c.getId());%>>
-	   		<div class="Trabajo">
-	   			<img src="../images/<%out.print(c.getFoto());%>" alt="Paris">
-	   			<p>		
-	   				<%out.println(c.getNoti().getTitulo());%>
-	   			</p>
-	   			<button class="LikeAlu">Fav</button>  
+	   			<div id=<%out.print(c.getId());%>>
+			   		<div class="Trabajo">
+			   			<img src="../images/<%out.print(c.getFoto());%>" alt="Imagen trabajo">
+			   			<p>		
+			   				<%out.println(c.getNoti().getTitulo());%>
+			   			</p>
+			   		</div>
+			   		<button class="LikeAlu">Votar como el mejor</button>  	
+		   		</div>
 	   		</div>	
 	   		</div>
-	   		</div>	
 	   		<%
 	   	}
+	   }
+	   else{
+		   %>
+		   <center><p>No hay trabajos entregados</p></center>
+		   <%
+	   }
 	   %>
 	   </div>
    

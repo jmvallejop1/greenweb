@@ -12,6 +12,7 @@ import com.greenweb.noticia.data.*;
 public class EntregaManager {
 	public static void main(String[] args) {
 		try {
+			EntregaManager eman=new EntregaManager();
 			EntregaDAO edao=new EntregaDAO();
 			CartelDAO cdao=new CartelDAO();
 			PreguntaDO pdao=new PreguntaDO();/*
@@ -38,9 +39,10 @@ public class EntregaManager {
 			//if(edao.subirEntrega("pepe2", c)) System.out.println("Se ha subido con exito");
 			edao.iniciarReto(10);*/
 			//if(edao.nuevaEntrega("2019-01-01"))System.out.println("Se ha añadido entrega nueva");
-			if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
-			else System.out.println("No puede entregar, no le corresponde el turno");
-			System.out.println("Fin del main");
+			if(eman.anadirEntrega("12-12-2018"))System.out.println("Entrega nueva añadida");
+			//if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
+			//else System.out.println("No puede entregar, no le corresponde el turno");
+			//System.out.println("Fin del main");
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -59,14 +61,15 @@ public class EntregaManager {
 		return false;
 	}
 	
-	public void NuevoReto(int idcart) {
+	public boolean NuevoReto(int idcart) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
-			dao.iniciarReto(idcart); 
+			return dao.iniciarReto(idcart); 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		return false;
 	}
 	
 	public boolean asignarEntrega(String alumno, int entrega) {

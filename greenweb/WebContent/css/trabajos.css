@@ -19,6 +19,14 @@ h1 {
 }
 
 .Trabajo{
+	width: 100%;
+	height: 200px;
+	display: inline-block;
+	padding: 20px;
+	position: relative;
+}
+
+.TrabajoVoto{
 	width: 30%;
 	height: 200px;
 	display: inline-block;
@@ -65,14 +73,24 @@ h1 {
   font-size: 18px;
 }
 
+.SelectDef{
+	color:white;
+	background-color: black;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	position: relative;
+	top: 5px;
+	left: 120px;
+}
+
 .LikeAlu{
 	color:white;
 	background-color: black;
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-	position: absolute;
-	top: 30px;
-	left: 40px;
+	position: relative;
+	top: 5px;
+	left: 100px;
 }
 
 .BotTrab{

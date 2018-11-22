@@ -106,16 +106,30 @@ public class EntregaDAO {
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
-            // Primero añadimos el cartel ganador a la tabla de retos actuales
-            resultSet = statement.executeQuery("select max(idcartel) from retos");
-            int idUltimoCart=0;
-            if(resultSet.next()) idUltimoCart=Integer.parseInt(resultSet.getString("max(idcartel)"));
-            if (idUltimoCart==cartelGanador)nuevaEntrega("no definida");
+            //Primero actualizo la entregavigente
+        	String entVig="select max(num) from entregavigente";
+            resultSet = statement.executeQuery(entVig);
+            int nextEntrega=0;
+            if(resultSet.next()) nextEntrega=Integer.parseInt(resultSet.getString("max(num)"))+1;
+            else return false;
+            resultSet=statement.executeQuery("select num from entregas where num="+nextEntrega);
+            if(resultSet.next()) {
+            	int res=statement.executeUpdate("update entregavigente set num="+nextEntrega);
+            	if(res!=1) return false;
+            }
+            else {
+            	System.out.println("Se debe añadir una entrega antes");
+            	return false;
+            }
+            // Ahora añadimos el cartel ganador a la tabla de retos actuales
             resultSet = statement.executeQuery("select max(id) from retos");
             int idReto=0;
             if(resultSet.next()) idReto=Integer.parseInt(resultSet.getString("max(id)"))+1;
+            else return false;
             String insert="insert into retos values("+idReto+", "+cartelGanador+", 0, 0, 0, 0, 0)";
+            System.out.println(insert);
             int res = statement.executeUpdate(insert);
+        	boolean okay=true;
             if(res==1) {
             	//Una vez se ha definido el cartel ganador como reto actual debemos actualizar los puntos de los usuarios que hayan contestado
             	int idRetoViejo=idReto-1; //Con esto buscaremos en la tabla de respuestasu
@@ -123,7 +137,7 @@ public class EntregaDAO {
             	PreguntaDAO pdao=new PreguntaDAO();
             	String consulta="select iduser, respra, idp1, respp1, idp2, respp2, idp3, respp3, idp4, respp4 from respuestasu where idreto="+idRetoViejo;
             	resultSet=statement.executeQuery(consulta);
-            	while(resultSet.next()) {
+            	while(resultSet.next() && okay) {
             		UsuarioDO u=udao.obtenerUsuario(resultSet.getString("iduser"));
             		int puntosUser=u.getPuntos();
             		int respra=pdao.resPreguntaRetoActual();
@@ -182,11 +196,15 @@ public class EntregaDAO {
             		if(puntosUser<0)puntosUser=0;
             		//Ya hemos calculado el nuevo valor de los puntos del usuario
             		String update="update usuarios set puntos="+puntosUser+" where username='"+u.getUsername()+'\'';
+                	System.out.println("Ejecutando: "+update);
             		res=statement.executeUpdate(update);
-            		if(res!=1) System.out.println("ERROR - NO SE HA PODIDO ACTUALIZAR LOS PUNTOS DE "+u.getUsername());
-            		return false;
+            		if(res!=1) {
+            			okay=false;
+            			System.out.println("ERROR - NO SE HA PODIDO ACTUALIZAR LOS PUNTOS DE "+u.getUsername());
+            		}
             	}
-            	return true;
+            	System.out.println("Todos los usuarios actualizados "+okay);
+            	return okay;
             }
             else return false;
     	}
@@ -229,7 +247,7 @@ public class EntregaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-            resultSet = statement.executeQuery("select max(a.num), max(b.nument) from entregas a, turnoent b where b.iduser='"+iduser+"'");
+            resultSet = statement.executeQuery("select max(a.num), max(b.nument) from entregavigente a, turnoent b where b.iduser='"+iduser+"'");
             if(resultSet.next()) {
             	int nument=Integer.parseInt(resultSet.getString("max(a.num)"));
             	int entuser=Integer.parseInt(resultSet.getString("max(b.nument)"));
@@ -343,7 +361,7 @@ public class EntregaDAO {
             	carteles[i]=Integer.parseInt(resultSet.getString("id"));
             	i++;
             }
-            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+username+"'");
+            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+username+"' and");
             if(!resultSet.next())return false;
             int turnoActual=Integer.parseInt(resultSet.getString("max(nument)"));
             //Cogemos el turno de entrega actual del usuario

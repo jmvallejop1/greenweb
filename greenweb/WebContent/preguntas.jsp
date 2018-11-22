@@ -52,20 +52,6 @@
 </script>
 
 <script>
-	function comprobar(valor){
-		if(valor == -1){
-			window.alert("-1");
-		}else if(valor == 0){
-			$(cambio).addClass("correcta");
-			window.alert("0");
-		}else if(valor>0){	
-			$(cambio).addClass("incorrecta");
-			window.alert(valor);
-		}
-	}
-</script>
-
-<script>
 	$(document).ready(function() {
 		$('.fas').click(function(event) {
 			var id = $(this).parent().parent().parent().attr("id");

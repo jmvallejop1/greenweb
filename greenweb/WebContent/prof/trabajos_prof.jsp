@@ -21,12 +21,13 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 <link href="https://fonts.googleapis.com/css?family=Niramit:400,700" rel="stylesheet"> 
 	 <script>
 	 $(document).ready(function() {
-			$('.selCart').click(function(event) {
-				var id=$(this).parent().parent().attr("id");
+			$('.SelectDef').click(function(event) {
+				var id=$(this).parent().attr("id");
 				alert(id);
 				$.post('../SeleccionGanador', {
 					idcartel: id
 				}, function(responseText) {
+					comprobar(responseText);
 				});
 			});
 		});
@@ -50,7 +51,14 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
             });
 		});
 	});
-	</script>		 
+	</script>	
+	<script>
+		function comprobar(valor){
+			if(valor == 0){
+				window.alert("Asegurate de que hay una entrega");
+			}
+		}
+	</script>	 
 </head>
 <body>
 	<!-- BARRA DE NAVEGACION Y HEADER-->
@@ -59,25 +67,35 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	<h1> ¡Tablón con todos los carteles!</h1>
 	<%
 		CartelesManager cman=new CartelesManager();
+		//List<CartelDO> lista=cman.obtenerCartelesEntrega(11);
 		List<CartelDO> lista=cman.obtenerCartelesActuales();
 	%>
 	<input type="button" class="BotTrab" name="Cancelar" value="Añadir cartel" onclick="window.location.href='subir_archivos.jsp'"/>
 	   <%
+	   if(lista!=null && lista.size()>0){
 	   	for(CartelDO c: lista){
 	   		%>
-	   		<div id=<%out.print(c.getIdPreg()); %>>
-	   		<div id=<%out.print(c.getId());%>>
-	   		<div class="Trabajo">
-	   			<img src="../images/<%out.print(c.getFoto());%>" alt="Paris">
-	   			<p>		
-	   				<%out.println(c.getNoti().getTitulo());%>
-	   			</p>
-	   			<button class="selCart">Sel</button>  
+	   		<div class="TrabajoVoto">
+	   		<div id=<%out.print(c.getIdPreg());%>>
+	   			<div id=<%out.print(c.getId());%>>
+			   		<div class="Trabajo">
+			   			<img src="../images/<%out.print(c.getFoto());%>" alt="Imagen trabajo">
+			   			<p>		
+			   				<%out.println(c.getNoti().getTitulo());%>
+			   			</p>
+			   		</div>
+			   		<button class="SelectDef">Seleccionar como definitivo</button>  	
+		   		</div>
 	   		</div>	
-	   		</div>
 	   		</div>
 	   		<%
 	   	}
+	   }
+	   else{
+		   %>
+		   <center><p>No hay trabajos entregados</p></center>
+		   <%
+	   }
 	   %>
    
  <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>

@@ -1,6 +1,7 @@
 package com.greenweb.cartel.dao;
 
 import com.greenweb.cartel.data.*;
+import com.greenweb.entrega.dao.*;
 import com.greenweb.pregunta.dao.*;
 import com.greenweb.pregunta.data.*;
 import com.greenweb.noticia.dao.*;
@@ -152,7 +153,7 @@ public class CartelDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-            resultSet = statement.executeQuery("select max(num) from entregas");
+            resultSet = statement.executeQuery("select max(num) from entregavigente");
             if(!resultSet.next()) return null;
             else return obtenerCartelesEntrega(Integer.parseInt(resultSet.getString("max(num)")));
     	}
