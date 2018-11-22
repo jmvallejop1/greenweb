@@ -23,7 +23,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 $(document).ready(function() {
 			$('.SelectDef').click(function(event) {
 				var id=$(this).parent().attr("id");
-				alert(id);
+				//alert(id);
 				$.post('../SeleccionGanador', {
 					idcartel: id
 				}, function(responseText) {
@@ -36,13 +36,13 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	$(document).ready(function() {
 		$('.Trabajo').click(function(event) {
 			var id = $(this).parent().parent().attr("id");
-			alert(id);
+			//alert(id);
 			$.ajax({
                 type: "POST",
                 url: '../RetoPreg',
                 data: ({ idn: id}),
                 success: function(data) {
-                	alert("TodoOK");
+                	//alert("TodoOK");
                 	window.open(data+"/retoP.jsp");   
                 },
                 error: function() {
@@ -55,7 +55,10 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	<script>
 		function comprobar(valor){
 			if(valor == 0){
-				window.alert("Asegurate de que hay una entrega");
+				window.alert("Asegurese de que hay una nueva entrega");
+			}
+			else{
+				window.alert("Se ha establecido el reto seleccionado como definitivo");
 			}
 		}
 	</script>	 
