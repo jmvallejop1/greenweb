@@ -52,7 +52,33 @@
 		
 	}
 	</script>
-	
+	<script>
+	function anadirEnt(){
+		var txt;
+	    var fecha = prompt("Introduzca la fecha límite de la entrega:", "aaaa-mm-dd");
+	    if (fecha == null || fecha == "") {
+	        txt = "Se ha cancelado la operacion";
+	    } else {
+	    	$.post('../AnadirEntrega', {
+	    		fecha: fecha
+	    	}, function(responseText) {
+				comprobar(responseText);
+			});
+	        txt = "Hello " + person + "! How are you today?";
+	    }
+	    document.getElementById("demo").innerHTML = txt;
+	}
+	</script>
+	<script>
+		function comprobar(valor){
+			if(valor == 0){
+				window.alert("Se ha añadido la entrega correctamente");
+			}
+			else{
+				window.alert("No se ha podido añadir la entrega");
+			}
+		}
+	</script>
 </head>
 <body>
 	<c:set var="id" value="pepe" scope="session" />
@@ -79,29 +105,9 @@
 	<div class="botones">
 		<input type="button" name="gestAlu" value="Gestionar alumnos" onClick="window.location.href='gesAlu.jsp'"> 
 		<input type="button" name="gestPro" value="Gestionar profesores" onClick="window.location.href='gesPro.jsp'">
-		<input type="button" name="gestPro" value="Crear una entrega" onClick="window.location.href='index.jsp'">
+		<input type="button" class="gestPro" value="Crear una entrega" onClick="anadirEnt()">
 	</div>
-	<div class="container">
-		<table>
-			<caption align="top">Estado de la entrega</caption>
-				<tr>
-					<td>Trabajo</td>
-					<td> Ningun trabajo </td>
-				</tr>
-				<tr class="alt">
-					<td> Estado de entrega</td>
-					<td> Sin entregar </td>
-				</tr>
-				<tr>
-					<td> Fecha de entrega </td>
-					<td> No figura </td>
-					</tr>
-				<tr class="alt">
-					<td> Ultima modificacion </td>
-					<td> Sin modificar </td>
-				</tr>
-		</table>
-	</div>
+	
 	<iframe src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>
 </body>
 </html>

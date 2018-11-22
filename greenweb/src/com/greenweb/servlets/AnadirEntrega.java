@@ -25,8 +25,9 @@ public class AnadirEntrega extends HttpServlet{
 		if(session!=null) {
 			EntregaManager m = new EntregaManager();
 			String fecha = request.getParameter("fecha");
-			if(m.anadirEntrega(fecha)) out.println(0);
-			else out.println(-1);
+			out.println(-1);
+			//if(m.anadirEntrega(fecha)) out.println(0);
+			//else out.println(-1);
 		}
 	}
 }
