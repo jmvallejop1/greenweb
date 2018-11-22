@@ -3,8 +3,6 @@ package com.greenweb.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import com.greenweb.comentario.ComentarioManager;
 import com.greenweb.comentario.data.ComentarioDO;
-import com.greenweb.usuario.UsuarioManager;
 
 @WebServlet("/SubirComentario")
 public class SubirComentario extends HttpServlet{

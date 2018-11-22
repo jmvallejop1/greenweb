@@ -23,10 +23,12 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 $(document).ready(function() {
 			$('.LikeAlu').click(function(event) {
 				var id=$(this).parent().attr("id");
-				alert(id);
+				//alert(id);
 				$.post('../SumaVotoTrabajo', {
 					idcartel: id
 				}, function(responseText) {
+					if (responseText==0) window.alert('¡Ha votado el trabajo!')
+					else window.alert('Su voto no ha podido ser procesado')
 				});
 			});
 		});
@@ -35,13 +37,13 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	$(document).ready(function() {
 		$('.Trabajo').click(function(event) {
 			var id = $(this).parent().parent().attr("id");
-			alert(id);
+			//alert(id);
 			$.ajax({
                 type: "POST",
                 url: '../RetoPreg',
                 data: ({ idn: id}),
                 success: function(data) {
-                	alert("TodoOK");
+                	//alert("TodoOK");
                 	window.open(data+"/retoP.jsp");   
                 },
                 error: function() {
