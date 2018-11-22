@@ -4,16 +4,12 @@ import java.util.List;
 
 import com.greenweb.comentario.dao.ComentarioDAO;
 import com.greenweb.comentario.data.ComentarioDO;
-import com.greenweb.pregunta.data.PreguntaDO;
-import com.greenweb.usuario.dao.UsuarioDAO;
-import com.greenweb.usuario.data.UsuarioDO;
 
 
 public class ComentarioManager {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		ComentarioManager usu = new ComentarioManager();
+		/*ComentarioManager usu = new ComentarioManager();
 		
 		ComentarioDAO c1Dao = new ComentarioDAO();
 		
@@ -56,11 +52,11 @@ public class ComentarioManager {
 		
 		
 		//int total = contarComentarios();
-		//System.out.println("El total de comentarios es --> " + total);
+		//System.out.println("El total de comentarios es --> " + total);*/
 	}
 	
 	
-	// publicamos los comentarios de los usuarios OK
+	// devuelve una lista con los comentarios de todos los usuarios
 	public List<ComentarioDO> mostrarComentarios()
 	{
 		
@@ -81,7 +77,7 @@ public class ComentarioManager {
 		return this.mostrarComentarios();
 	}
 	
-	// a�adimos un comentario a la lista OK
+	// añadimos un comentario en la base de datos
 	public void anyadirUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
@@ -93,7 +89,7 @@ public class ComentarioManager {
 	}
 	
 	
-	// a�adimos un comentario a la lista OK
+	// se borra un comentario de la base de datos
 	public void borrarUnComentario(ComentarioDO c) {
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
@@ -105,7 +101,7 @@ public class ComentarioManager {
 	}
 	
 	
-	// contar comentarios OK
+	// devuelve el numero de comentarios alojados en la base de datos
 	public int contarComentarios(){
 		ComentarioDAO dao = new ComentarioDAO();
 		try {
