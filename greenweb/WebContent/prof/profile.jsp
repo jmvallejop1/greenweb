@@ -79,6 +79,7 @@
 	<div class="botones">
 		<input type="button" name="gestAlu" value="Gestionar alumnos" onClick="window.location.href='gesAlu.jsp'"> 
 		<input type="button" name="gestPro" value="Gestionar profesores" onClick="window.location.href='gesPro.jsp'">
+		<input type="button" name="gestPro" value="Crear una entrega" onClick="window.location.href='index.jsp'">
 	</div>
 	<div class="container">
 		<table>
