@@ -25,7 +25,7 @@
 	
 	<filter-mapping>
 	<filter-name>alufilter</filter-name>
-	<url-pattern>/alu/*</url-pattern>
+	<url-pattern>/gato/*</url-pattern>
 	</filter-mapping>
 	
 	<filter>
