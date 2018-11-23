@@ -218,10 +218,10 @@ public class CartelesManager {
 			 * Pre: -
 			 * Post: devuelve un cartel relleno con los campos indicados
 			 */
-			public CartelDO crearCartel(PreguntaDO p, NoticiaDO n, String[] autores, int idp, int idn, String foto, String fecha) {
+			public CartelDO crearCartel(PreguntaDO p, NoticiaDO n, String[] autores, String foto, String fecha) {
 				CartelDAO dao=new CartelDAO();
 				try {
-					return dao.generaCartel(p,n,autores,idp,idn,foto,fecha);
+					return dao.generaCartel(p,n,autores,foto,fecha);
 				} catch (Exception e) {
 					e.printStackTrace();			
 				}

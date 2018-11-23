@@ -13,12 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import java.util.Calendar;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import com.greenweb.cartel.CartelesManager;
 import com.greenweb.cartel.data.CartelDO;
+import com.greenweb.entrega.EntregaManager;
+import com.greenweb.noticia.NoticiaManager;
 import com.greenweb.noticia.data.NoticiaDO;
+import com.greenweb.pregunta.PreguntasManager;
 import com.greenweb.pregunta.data.PreguntaDO;
 import com.greenweb.usuario.UsuarioManager;
 import com.greenweb.usuario.data.UsuarioDO;
@@ -32,10 +37,9 @@ public class AnadirCartel extends HttpServlet{
 	 */
 	private String rutaBase = "C:\\Users\\Jose Maria Vallejo\\Desktop\\apache-tomcat-9.0.12-windows-x64\\apache-tomcat-9.0.12\\webapps\\greenweb\\";
 	private static final long serialVersionUID = 1L;
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Part foto = request.getPart("video");
+		Part foto = request.getPart("foto");
 		OutputStream img = null;
 		InputStream filecontent = null;
 		String content = foto.getSubmittedFileName();
@@ -68,7 +72,10 @@ public class AnadirCartel extends HttpServlet{
         }
         img2.close();
         filecontent2.close();*/
-        
+        String[] alumno=new String[5];
+        for(int i=0; i<5; i++) {
+        	alumno[i]=request.getParameter("autor"+i);
+        }
 		String titulo = request.getParameter("titulo");
 		String texto = request.getParameter("texto");
 		String pregunta = request.getParameter("pregunta");
@@ -77,22 +84,27 @@ public class AnadirCartel extends HttpServlet{
 		String r3 = request.getParameter("respuesta_tres");
 		String r4 = request.getParameter("respuesta_cuatro");
 		String rc = request.getParameter("respuesta_correcta");
+		Calendar cal=Calendar.getInstance();
+		String dia = Integer.toString(cal.get(Calendar.DATE));
+		String mes = Integer.toString(cal.get(Calendar.MONTH + 1));
+		String annio = Integer.toString(cal.get(Calendar.YEAR));
+		String fecha = dia+"/"+mes+"/"+annio;
 		if(titulo!=null && !titulo.equals("") && texto!=null && !texto.equals("")&&pregunta!=null && !pregunta.equals("")
 		&& r1!=null && !r1.equals("") && r2!=null && !r2.equals("") && r3!=null && !r3.equals("") &&
-		r4!=null && !r4.equals("") && rc!=null && !rc.equals("")) {
+		r4!=null && !r4.equals("") && rc!=null && !rc.equals("") && alumno[0]!=null && !alumno.equals("")) {
+			PreguntasManager pman=new PreguntasManager();
+			NoticiaManager nman=new NoticiaManager();
+			CartelesManager cman=new CartelesManager();
+			EntregaManager eman=new EntregaManager();
 			CartelDO d = new CartelDO();
-			PreguntaDO p = new PreguntaDO();
-			NoticiaDO n = new NoticiaDO();
-			int rcor= Integer.parseInt(rc);
-			p.setPreg(pregunta);
-			p.setR1(r1);
-			p.setR2(r2);
-			p.setR3(r3);
-			p.setR4(r4);
-			p.setrOk(rcor);
-			n.setTexto(texto);
-			n.setTitulo(titulo);
-			//Mirar como crear el caretel y llamar a subir cartel
+			PreguntaDO p = pman.crearP(pregunta, r1, r2, r3, r4, Integer.parseInt(rc));
+			NoticiaDO n = nman.crearN(titulo, texto, null); //PONER VARIABLE VIDEO CON NOMBRE DEL VIDEO
+			CartelDO c=cman.crearCartel(p, n, alumno, null, fecha); //PONER VARIABLE FOTO CON NOMBRE DE FOTO
+			if(eman.subirEntrega(alumno[0], c)) {
+				//out.println(0);
+			}
+			else {//out.println(-1);
+			}
 		}
 			
 	

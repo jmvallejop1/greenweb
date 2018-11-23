@@ -3,18 +3,13 @@ package com.greenweb.noticia;
 import java.util.List;
 
 import com.greenweb.comentario.dao.ComentarioDAO;
-import com.greenweb.comentario.data.ComentarioDO;
 import com.greenweb.noticia.dao.NoticiaDAO;
 import com.greenweb.noticia.data.NoticiaDO;
-import com.greenweb.usuario.dao.UsuarioDAO;
-import com.greenweb.usuario.data.UsuarioDO;
-
 
 public class NoticiaManager {
 
 	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
-		NoticiaManager usu = new NoticiaManager();
+/*		NoticiaManager usu = new NoticiaManager();
 		
 		NoticiaDAO c1Dao = new NoticiaDAO();
 		
@@ -31,8 +26,8 @@ public class NoticiaManager {
 	
 		
 		
-		// Añdimos noticia c1 creado antes
-		//añadirUnaNoticia(c1);
+		// Aï¿½dimos noticia c1 creado antes
+		//aï¿½adirUnaNoticia(c1);
 		
 		// BorrarNoticias
 		eliminarUnaNoticia(c1);
@@ -41,9 +36,9 @@ public class NoticiaManager {
 		
 		
 		/*
-		añadirUnComentario(c1);
+		aï¿½adirUnComentario(c1);
 		
-		System.out.println(" ------------ AÑADIR COMENTARIO ---------\n\n");
+		System.out.println(" ------------ Aï¿½ADIR COMENTARIO ---------\n\n");
 		
 		mostrarComentarios();
 		
@@ -86,7 +81,7 @@ public class NoticiaManager {
 		return this.mostrarNoticias();
 	}
 	
-	// añadimos un comentario a la lista OK
+	// aï¿½adimos un comentario a la lista OK
 	public static void anadirUnaNoticia(NoticiaDO c) {
 		NoticiaDAO dao = new NoticiaDAO();
 		try {
@@ -98,7 +93,7 @@ public class NoticiaManager {
 	}
 	
 	
-	// añadimos un comentario a la lista OK
+	// aï¿½adimos un comentario a la lista OK
 	public static void eliminarUnaNoticia(NoticiaDO c) {
 		NoticiaDAO dao = new NoticiaDAO();
 		try {
@@ -109,6 +104,16 @@ public class NoticiaManager {
 		}
 	}
 	
+	public NoticiaDO crearN(String titulo, String texto, String video) {
+		NoticiaDAO dao=new NoticiaDAO();
+		try {
+			return dao.crearNot(titulo, texto, video);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	// contar comentarios OK
 	public static int contarComentarios(){

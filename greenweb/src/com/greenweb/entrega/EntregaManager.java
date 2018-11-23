@@ -111,7 +111,7 @@ public class EntregaManager {
 		return null;
 	}
 	
-	public boolean SubirEntrega(String iduser, CartelDO c) {
+	public boolean subirEntrega(String iduser, CartelDO c) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
 			return dao.subirEntrega(iduser, c); 

@@ -16,14 +16,14 @@ public class PreguntasManager {
 	
 	
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {/*
 		PreguntasManager pregM = new PreguntasManager();
 		//PreguntaDAO pdao=new PreguntaDAO();
 		PreguntaDO p = new PreguntaDO();
 		//if(pdao.obtenerPregunta(3, p)) System.out.println("La pregunta con id 3 es: "+ p.getPreg());
 		//int x = pdao.responderPreg("pepe", 3, 5);
 		//System.out.println("ResponderPreg devuelve: "+x);
-		/*//pregM.listarTodas();
+		//pregM.listarTodas();
 		List<PreguntaDO> lista = pregM.obtenerTodasPreguntas();
 		System.out.println("Uee mecauenla");
 		//pregM.listar(lista);
@@ -38,7 +38,7 @@ public class PreguntasManager {
 		else {
 			System.out.println("No se ha introducido la pregunta.");
 		}/*
-		*/
+		
 		System.out.println("-----------------------------------------Ahora respondemos----------------------------------------");
 		if(pregM.responderPreguntaRA("root", 4)) {
 			System.out.println("root ha respondido a la pregunta");
@@ -123,6 +123,17 @@ public class PreguntasManager {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public PreguntaDO crearP(String preg, String r1, String r2, String r3, String r4, int rc) {
+		PreguntaDAO dao=new PreguntaDAO();
+		try {
+			return dao.crearP(preg, r1, r2, r3, r4, rc);
+		}
+		catch (Exception e){
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public List<PreguntaDO> obtenerTodasPreguntas(){
