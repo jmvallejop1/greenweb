@@ -44,19 +44,19 @@
 									<td> <p>Respuesta correcta </p> </td> <td><input type="text" name="respuesta_correcta"/></td>
 								</tr>
 								<tr>
-									<td> <p>Primer miembro </p> </td> <td><input type="text" name="Primer miembro"/></td>
+									<td> <p>Primer miembro </p> </td> <td><input type="text" name="autor1"/></td>
 								</tr>
 								<tr>
-									<td> <p>Segundo miembro </p> </td> <td><input type="text" name="Segundo miembro"/></td>
+									<td> <p>Segundo miembro </p> </td> <td><input type="text" name="autor2"/></td>
 								</tr>
 								<tr>
-									<td> <p>Tercer mimebro </p> </td> <td><input type="text" name="Tercer miembro"/></td>
+									<td> <p>Tercer mimebro </p> </td> <td><input type="text" name="autor3"/></td>
 								</tr>
 								<tr>
-									<td> <p>Cuarto mimebro </p> </td> <td><input type="text" name="Cuarto miembro"/></td>
+									<td> <p>Cuarto mimebro </p> </td> <td><input type="text" name="autor4"/></td>
 								</tr>
 								<tr>
-									<td> <p>Quinto mimebro </p> </td> <td><input type="text" name="Quinto miembro"/></td>
+									<td> <p>Quinto mimebro </p> </td> <td><input type="text" name="autor5"/></td>
 								</tr>
 							</table>	
 						
