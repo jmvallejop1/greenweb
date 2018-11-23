@@ -11,6 +11,7 @@ import java.util.List;
 import com.greenweb.ConnectionManager;
 import com.greenweb.comentario.data.ComentarioDO;
 import com.greenweb.noticia.data.NoticiaDO;
+import com.greenweb.pregunta.data.PreguntaDO;
 import com.greenweb.usuario.data.UsuarioDO;
 
 public class NoticiaDAO {
@@ -106,7 +107,42 @@ public class NoticiaDAO {
 	    	return resul;
 	    }
 		
+		public NoticiaDO crearNot(String titulo, String texto, String video) {
+	    	NoticiaDO nueva=new NoticiaDO();
+	    	try {
+	        	nueva.setId(lastNoticia() +1);
+	        	nueva.setTitulo(titulo);
+	        	nueva.setTexto(texto);
+	        	nueva.setVideo(video);
+	        	return nueva;
+	    	}
+	    	catch (Exception e) {
+	            e.printStackTrace();
+	    	}
+	    	return null;
+	    }
 		
+		public int lastNoticia() {
+	    	int res=-1;
+	    	try {
+	        	connect=ConnectionManager.getConnection();
+	            // Statements allow to issue SQL queries to the database
+	            statement = connect.createStatement();
+	            // Result set get the result of the SQL query
+	        	String cuenta="select max(id) from noticias";
+	        	resultSet=statement.executeQuery(cuenta);
+				if(resultSet.next()) {
+		        	res=Integer.parseInt(resultSet.getString("max(id)"));
+				}
+				return res;
+	    	}
+	    	catch (Exception e) {
+	            e.printStackTrace();
+	    	}finally {
+	            close();
+	    	}
+	    	return res;
+	    }
 		
 	    // You need to close the resultSet
 	    private void close() {

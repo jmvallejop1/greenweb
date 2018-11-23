@@ -433,7 +433,7 @@ public class PreguntaDAO {
 		return false;
     }
     
-    public int numPreguntas() {
+    public int lastPregunta() {
     	int res=-1;
     	try {
         	connect=ConnectionManager.getConnection();
@@ -480,7 +480,7 @@ public class PreguntaDAO {
     public PreguntaDO crearP(String preg, String r1, String r2, String r3, String r4, int resOK) {
     	PreguntaDO nueva=new PreguntaDO();
     	try {
-    		int id=numPreguntas() +1;
+    		int id=lastPregunta() +1;
         	nueva.setId(id);
         	nueva.setPreg(preg);
         	nueva.setR1(r1);
@@ -493,7 +493,7 @@ public class PreguntaDAO {
     	catch (Exception e) {
             e.printStackTrace();
     	}
-    	return nueva;
+    	return null;
     }
     
     public boolean esRespOk(int respCorrecta, int res) { //DEPENDE DE RESPONDER PREGUNTA Y DE COMO SE GUARDA LA RESPUESTA
