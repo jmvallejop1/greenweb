@@ -43,6 +43,21 @@
 								<tr>
 									<td> <p>Respuesta correcta </p> </td> <td><input type="text" name="respuesta_correcta"/></td>
 								</tr>
+								<tr>
+									<td> <p>Primer miembro </p> </td> <td><input type="text" name="Primer miembro"/></td>
+								</tr>
+								<tr>
+									<td> <p>Segundo miembro </p> </td> <td><input type="text" name="Segundo miembro"/></td>
+								</tr>
+								<tr>
+									<td> <p>Tercer mimebro </p> </td> <td><input type="text" name="Tercer miembro"/></td>
+								</tr>
+								<tr>
+									<td> <p>Cuarto mimebro </p> </td> <td><input type="text" name="Cuarto miembro"/></td>
+								</tr>
+								<tr>
+									<td> <p>Quinto mimebro </p> </td> <td><input type="text" name="Quinto miembro"/></td>
+								</tr>
 							</table>	
 						
 						<input type="submit" name="Cancelar" value="Enviar" onClick="window.location.href='index_alu.html'" >
