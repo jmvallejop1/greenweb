@@ -348,16 +348,16 @@ public class CartelDAO {
 		return todoOk;
 	}
 	
-	public CartelDO generaCartel(PreguntaDO p, NoticiaDO n, String[] autores, int idp, int idn, String foto, String fecha) {
+	public CartelDO generaCartel(PreguntaDO p, NoticiaDO n, String[] autores, String foto, String fecha) {
 		CartelDO c= new CartelDO();
 		try {
-    		int idc=numCarteles() +1;
+    		int idc=lastCartel() +1;
     		c.setId(idc);
     		c.setCreadores(autores);
     		c.setFecha(fecha);
     		c.setFoto(foto);
-    		c.setIdNot(idn);
-    		c.setIdPreg(idp);
+    		c.setIdNot(n.getId());
+    		c.setIdPreg(p.getId());
     		c.setNoti(n);
     		c.setPreg(p);
     		return c;
@@ -391,17 +391,17 @@ public class CartelDAO {
 		return false;
     }
 	
-	public int numCarteles() {
+	public int lastCartel() {
 		int res=-1;
 		try {
 	    	connect=ConnectionManager.getConnection();
 	        // Statements allow to issue SQL queries to the database
 	        statement = connect.createStatement();
 	        // Result set get the result of the SQL query
-	    	String cuenta="select count(id) from carteles";
+	    	String cuenta="select max(id) from carteles";
 	    	resultSet=statement.executeQuery(cuenta);
 			if(resultSet.next()) {
-	        	res=Integer.parseInt(resultSet.getString("count(id)"));
+	        	res=Integer.parseInt(resultSet.getString("max(id)"));
 			}
 			return res;
 		}

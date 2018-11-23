@@ -440,10 +440,10 @@ public class PreguntaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	String cuenta="select count(id) from preguntas";
+        	String cuenta="select max(id) from preguntas";
         	resultSet=statement.executeQuery(cuenta);
 			if(resultSet.next()) {
-	        	res=Integer.parseInt(resultSet.getString("count(id)"));
+	        	res=Integer.parseInt(resultSet.getString("max(id)"));
 			}
 			return res;
     	}
