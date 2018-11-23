@@ -57,7 +57,7 @@ public class AnadirCartel extends HttpServlet{
         img.close();
         filecontent.close();
         
-        /*Part foto2 = request.getPart("video");
+        Part foto2 = request.getPart("video");
 		OutputStream img2 = null;
 		InputStream filecontent2 = null;
 		
@@ -67,11 +67,11 @@ public class AnadirCartel extends HttpServlet{
 		filecontent2 = foto2.getInputStream();
 		int read2 = 0;
         final byte[] bytes2 = new byte[1024];
-        while ((read2 = filecontent.read(bytes2)) != -1) {
+        while ((read2 = filecontent2.read(bytes2)) != -1) {
             img2.write(bytes2, 0, read2);
         }
         img2.close();
-        filecontent2.close();*/
+        filecontent2.close();
         String[] alumno=new String[5];
         for(int i=0; i<5; i++) {
         	alumno[i]=request.getParameter("autor"+i);
