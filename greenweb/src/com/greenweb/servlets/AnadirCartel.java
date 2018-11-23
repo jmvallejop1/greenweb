@@ -38,7 +38,9 @@ public class AnadirCartel extends HttpServlet{
 		Part foto = request.getPart("video");
 		OutputStream img = null;
 		InputStream filecontent = null;
-		
+		String content = foto.getSubmittedFileName();
+			
+
 		File fi = new File(rutaBase +"pepe.mp4");
 		fi.createNewFile();
 		img = new FileOutputStream(fi);
@@ -90,6 +92,7 @@ public class AnadirCartel extends HttpServlet{
 			p.setrOk(rcor);
 			n.setTexto(texto);
 			n.setTitulo(titulo);
+			//Mirar como crear el caretel y llamar a subir cartel
 		}
 			
 	
