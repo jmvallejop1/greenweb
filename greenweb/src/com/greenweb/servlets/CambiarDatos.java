@@ -33,15 +33,25 @@ public class CambiarDatos extends HttpServlet{
 			String estaux = request.getParameter("ocupacion");
 			if(estaux != null && estaux != "")
 				 est = Integer.parseInt(request.getParameter("ocupacion"));
-			m.actualizarUsuario(id, mail, age, est);
-		System.out.println("Nombre: "+ id + " Correo: "+ mail+" Estudios: "+ est);
-		System.out.println("Edad: "+ age );
-		
-		System.out.println("He entrado en el servlet de cambiar datos");
-		response.sendRedirect(request.getContextPath()+"/alu/profile.jsp?param=ccm");
+			
+				m.actualizarUsuario(id, mail, age, est);			
+				String log = (String)session.getAttribute("logged");
+				if(log.equals("alu"))
+					response.sendRedirect(request.getContextPath()+"/alu/profile.jsp");
+				else if(log.equals("prof"))
+					response.sendRedirect(request.getContextPath()+"/prof/profile.jsp");
+				else
+					response.sendRedirect(request.getContextPath()+"/privada/profile.jsp");
+			
 		}else {
 			//Devuelves al perfil con el parametro nse no session
-			response.sendRedirect(request.getContextPath()+"/alu/profile.jsp?param=nse");
+			String log = (String)session.getAttribute("logged");
+			if(log.equals("alu"))
+				response.sendRedirect(request.getContextPath()+"/alu/profile.jsp");
+			else if(log.equals("prof"))
+				response.sendRedirect(request.getContextPath()+"/prof/profile.jsp");
+			else
+				response.sendRedirect(request.getContextPath()+"/privada/profile.jsp");
 		}
 		
 		

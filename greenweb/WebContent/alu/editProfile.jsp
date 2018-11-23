@@ -46,7 +46,7 @@
                <table>
                   <tr class="data"><td>Tipo de cuenta: </td><td id="tipo"><c:out value="${man.tipo}"></c:out></td></tr></tr>
                   <form action="../CambiarDatos" method="post">
-                     <tr class="data"><td>Id de usuario: </td><td><input name="idUser" placeholder="<c:out value="${man.username}"></c:out>"/></td></tr>
+                     <tr class="data"><td>Id de usuario: </td><td><c:out value="${man.username}"></c:out></td></tr>
                      <!-- AquÃ­ se debe comprobar que el nombre de usuario esta libre -->
                      <tr class="data"><td>Correo electrónico: </td><td><input name="email"type="email" placeholder="<c:out value="${man.mail}"></c:out>"></td></tr>
                      <tr class="data"><td>Edad: </td><td><input type="age" name="age" placeholder="<c:out value="${man.edad}"></c:out>"></td></tr>
@@ -62,60 +62,8 @@
          </div>
       </div>
 
-	  <%
-	  	CartelDO c = new CartelDO();
-	  	CartelManager cman=new CartelManager();
-	  	<c:set var="u" value="${man.username}"/>
-	  %>
 	  
-      <div class="container">
-        <table>
-            <caption align="top">Estado de la entrega</caption>
-            <%
-            	if (cman.haEntregado(u) && cman.obtenerCartelUsuario(u, c)){
-            		NoticiaDO n = c.getNoti();
-            %>
-            		<tr>
-               			<td>Trabajo</td>
-               			<td><%out.println(n.getTitulo());%></td>
-            		</tr>
-            		<tr class="alt">
-               			<td> Estado de entrega</td>
-               			<td> Entregado </td>
-            		</tr>
-            		<tr>
-               			<td> Fecha de entrega </td>               	                	
-               			<td> <%out.println(c.getFecha());%></td>
-            		</tr>
-            		<tr class="alt">
-               			<td> Ultima modificacion </td>
-               			<td> <%out.println(fechaModificacion(u));%> </td>
-            		</tr>
-            <%
-               }
-               else {
-            %>            
-         		   <tr>
-              			 <td>Trabajo</td>
-               			 <td> Ningun trabajo </td>
-           		   </tr>
-            	   <tr class="alt">
-               			<td> Estado de entrega</td>
-               			<td> Sin entregar </td>
-            	   </tr>
-            	   <tr>
-               			<td> Fecha de entrega </td>
-               			<td> No figura </td>
-            	   </tr>
-            	   <tr class="alt">
-               			<td> Ultima modificacion </td>
-               			<td> Sin modificar </td>
-            	   </tr>
-            <%
-               }
-            %>
-         </table>
-      </div>
+    
 
  <iframe src="../footer.html" class="frames" scrolling="no" border="no"
 	width="100%" height="130" frameborder="no"></iframe>

@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +21,7 @@
 <body>
 	<header>
 		<div id="main-header">
+			<img src="../images/aguila.png" alt="logotipo del grupo"/>
       		<h1>GREENWEB</h1>
     	</div>
 		<nav class="navegacion">
@@ -34,7 +33,7 @@
 					<li><a href="../ranking.jsp" target="body">Ranking</a></li>
 					<li><a href="../preguntas.jsp" target="body">Preguntas Recicladas</a></li>
 					<li><a href="comentarios.jsp" target="body">Foro</a></li>
-					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</li>
+					<li id="cerrarSesion"><a href="../index.jsp" target="body">Cerrar Sesion</a></li>
 					<li class="ALaDerecha"><a href="profile.jsp" target="body"><c:out value="${sessionScope.id}"></c:out></a></li>
 				</ul>			
 			</div>

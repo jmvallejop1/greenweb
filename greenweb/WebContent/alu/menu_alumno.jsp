@@ -20,7 +20,6 @@
 </script>
 <body>
 	<header>
-	<c:set var = "id" scope = "session" value = "pepe"/>
 		<div id="main-header">
 			<img src="../images/aguila.png" alt="logotipo del grupo"/>
       		<h1>GREENWEB</h1>

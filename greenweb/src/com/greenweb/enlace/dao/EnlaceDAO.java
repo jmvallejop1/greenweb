@@ -87,7 +87,6 @@ public class EnlaceDAO{
 	            numVotos = enlace.getVotos(); 
 	           
 	            System.out.println("Los votos de " + id + " son " + numVotos);
-	            
 	            numVotos++;
 	            
 	            statement.executeUpdate("UPDATE enlaces SET votos = '" + numVotos + "' WHERE url = '"+ id +"'");

@@ -29,13 +29,27 @@
 	}
 	</script>
 	<script>
+	$(document).ready(function() {
+		 var ti = $("#est").html();
+		 estudio(ti);
+	});
+	</script>
+	<script>
 	function estudio(t){
 		if(t == 1){
-			$("#tipo").html("USUARIO");
+			$("#est").html("Ingeniero");
 		}else if(t == 2){
-			$("#tipo").html("ALUMNO");
+			$("#est").html("EstudianteMedicina");
 		}else if(t == 3){
-			$("#tipo").html("PROFESOR");
+			$("#est").html("Empresario");
+		}else if(t == 4){
+			$("#est").html("EstudianteTic");
+		}else if(t == 5){
+			$("#est").html("Estudiante Ciencias Sociales");
+		}else if(t == 6){
+			$("#est").html("Estudiante Ciencias Salud");
+		}else if(t == 7){
+			$("#est").html("Estudiante letras");
 		}
 	}
 	</script>
@@ -57,7 +71,7 @@
 <body>
 	<jsp:useBean id="man" class="com.greenweb.usuario.data.UsuarioDO"/>
 	<jsp:setProperty name="man" property="loadUsername" value="${sessionScope.id}" />   	               
-	<iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+	<iframe src="menu_priv.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<div class="box2">
 		<img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
 		<div class="infoUser">
@@ -68,7 +82,7 @@
 					<tr class="data"><td>Id de usuario: </td><td><c:out value="${man.username}"></c:out></td></tr>
 					<tr class="data"><td>Correo electrÃ³nico: </td><td> <c:out value="${man.mail}"></c:out></td></tr>
 					<tr class="data"><td>Edad: </td><td><c:out value="${man.edad}"></c:out></td></tr>
-					<tr class="data"><td>Ocupacion actual: </td><td><c:out value="${man.estudios}"></c:out></td></tr>
+					<tr class="data"><td>Ocupacion actual: </td><td id="est"><c:out value="${man.estudios}"></c:out></td></tr>
 					<tr><td><a href="editProfile.jsp">Editar datos</a></td></tr>
 					<tr><td onclick="baja()">Dar usuario de baja</a></td></tr>
 				</table>
@@ -76,27 +90,6 @@
 		</div>     
 	</div>
 
-	<div class="container">
-		<table>
-			<caption align="top">Estado de la entrega</caption>
-				<tr>
-					<td>Trabajo</td>
-					<td> Ningun trabajo </td>
-				</tr>
-				<tr class="alt">
-					<td> Estado de entrega</td>
-					<td> Sin entregar </td>
-				</tr>
-				<tr>
-					<td> Fecha de entrega </td>
-					<td> No figura </td>
-					</tr>
-				<tr class="alt">
-					<td> Ultima modificacion </td>
-					<td> Sin modificar </td>
-				</tr>
-		</table>
-	</div>
 	<iframe src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>
 </body>
 </html>

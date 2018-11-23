@@ -30,7 +30,7 @@
    <body>
 	<jsp:useBean id="man" class="com.greenweb.usuario.data.UsuarioDO"/>
 	<jsp:setProperty name="man" property="loadUsername" value="${sessionScope.id}" />   
-      <iframe src="menu_priv.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+      <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
          <!--AquÃ­ irÃ­a el frame de la cabecera y el menu-->
       <div class="box2">
          <img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
@@ -56,6 +56,8 @@
             </center>
          </div>
       </div>
+
+
 
 
  <iframe src="../footer.html" class="frames" scrolling="no" border="no"

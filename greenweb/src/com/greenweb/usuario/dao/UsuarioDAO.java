@@ -112,28 +112,35 @@ public class UsuarioDAO {
 	    
 	    public boolean actualizarUsuario(String id, String mail, int age, int estudios) {
 	    	try {
-	    		String Update = "";
-	    		int how = 0;
-	    		if(mail!=null && mail!="") {	
-	    				Update += " SET email = '" + mail + "'";
-	    		}
-	    		
-	    		if(age!=0) {	
-    				Update += " SET edad = '" + age + "'";
-	    		}
-	    		
-	    		if(estudios!=0) {	
-    				Update += " SET ocupacion = '" + estudios + "'";
-	    		}
-	    		
-	    		if(Update != null && Update != "") {
-	    		Update = "UPDATE enlaces"+ Update + " WHERE url = '"+ id +"'";
 	    		connect=ConnectionManager.getConnection();
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();
 	            // Result set get the result of the SQL query
-	            // how = statement.executeUpdate(Update);
+	    		String Update = "";
+	    		int how = 0;
+	    		if(mail!=null && mail!="") {
+	    				Update += " SET email = '" + mail + "'";
+	    				Update = "UPDATE usuarios"+ Update + " WHERE username = '"+ id +"'";
+	    				how = statement.executeUpdate(Update);
+	    		}
+	    		Update = "";
+	    		if(age!=0) {	
+    				Update += " SET edad = '" + age+"'";
+    				Update = "UPDATE usuarios"+ Update + " WHERE username = '"+ id +"'";
+    				how = statement.executeUpdate(Update);
+	    		}
+	    		Update = "";
+	    		if(estudios!=0) {	
+    				Update += " SET ocupacion = '" + estudios + "'";
+    				Update = "UPDATE usuarios"+ Update + " WHERE username = '"+ id +"'";
+    				how = statement.executeUpdate(Update);
+	    		}
+	    		
+	    		if(Update != null && Update != "") {
+	    		
 	            System.out.println("La consulta a realizar es:"+ Update);
+	            
+	           
 	            how = 1;
 	            if(how == 1) return true;
 	            else return false;

@@ -202,7 +202,7 @@ public class CartelesManager {
 			/*
 			 * Pre: -
 			 * Post: devuelve true si se ha conseguido obtener el cartel entregado en el turno actual
-			 * asociado al usuario de la base de datos
+			 * asociado al usuario de la base de datos 
 			 */
 			public boolean obtenerCartel(String user,CartelDO c) {
 				CartelDAO dao=new CartelDAO();

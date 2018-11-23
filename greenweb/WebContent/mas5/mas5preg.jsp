@@ -18,7 +18,6 @@
     			array.push($(this).val())
     			$(this).prop('checked', false);
     		});
-    		alert(array);
         	var id = $(this).parent().parent().parent().parent().attr("id");
         	cambio = $(this).parent().parent().parent().parent().parent();
         	$.ajax({

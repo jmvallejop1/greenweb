@@ -29,13 +29,27 @@
 	}
 	</script>
 	<script>
+	$(document).ready(function() {
+		 var ti = $("#est").html();
+		 estudio(ti);
+	});
+	</script>
+	<script>
 	function estudio(t){
 		if(t == 1){
-			$("#tipo").html("USUARIO");
+			$("#est").html("Ingeniero");
 		}else if(t == 2){
-			$("#tipo").html("ALUMNO");
+			$("#est").html("EstudianteMedicina");
 		}else if(t == 3){
-			$("#tipo").html("PROFESOR");
+			$("#est").html("Empresario");
+		}else if(t == 4){
+			$("#est").html("EstudianteTic");
+		}else if(t == 5){
+			$("#est").html("Estudiante Ciencias Sociales");
+		}else if(t == 6){
+			$("#est").html("Estudiante Ciencias Salud");
+		}else if(t == 7){
+			$("#est").html("Estudiante letras");
 		}
 	}
 	</script>
@@ -81,7 +95,6 @@
 	</script>
 </head>
 <body>
-	<c:set var="id" value="pepe" scope="session" />
 	<jsp:useBean id="man" class="com.greenweb.usuario.data.UsuarioDO"/>
 	<jsp:setProperty name="man" property="loadUsername" value="${sessionScope.id}" />   	               
 	<iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
@@ -95,7 +108,7 @@
 					<tr class="data"><td>Id de usuario: </td><td><c:out value="${man.username}"></c:out></td></tr>
 					<tr class="data"><td>Correo electrónico: </td><td> <c:out value="${man.mail}"></c:out></td></tr>
 					<tr class="data"><td>Edad: </td><td><c:out value="${man.edad}"></c:out></td></tr>
-					<tr class="data"><td>Ocupacion actual: </td><td><c:out value="${man.estudios}"></c:out></td></tr>
+					<tr class="data"><td>Ocupacion actual: </td><td id="est"><c:out value="${man.estudios}"></c:out></td></tr>
 					<tr><td><a href="editProfile.jsp">Editar datos</a></td></tr>
 					<tr><td onclick="baja()">Dar usuario de baja</a></td></tr>
 				</table>
