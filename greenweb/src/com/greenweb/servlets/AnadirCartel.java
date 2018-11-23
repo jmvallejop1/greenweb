@@ -91,7 +91,7 @@ public class AnadirCartel extends HttpServlet{
 		String fecha = dia+"/"+mes+"/"+annio;
 		if(titulo!=null && !titulo.equals("") && texto!=null && !texto.equals("")&&pregunta!=null && !pregunta.equals("")
 		&& r1!=null && !r1.equals("") && r2!=null && !r2.equals("") && r3!=null && !r3.equals("") &&
-		r4!=null && !r4.equals("") && rc!=null && !rc.equals("") && alumno[0]!=null && !alumno.equals("")) {
+		r4!=null && !r4.equals("") && rc!=null && !rc.equals("") && alumno[0]!=null && !alumno[0].equals("")) {
 			PreguntasManager pman=new PreguntasManager();
 			NoticiaManager nman=new NoticiaManager();
 			CartelesManager cman=new CartelesManager();
