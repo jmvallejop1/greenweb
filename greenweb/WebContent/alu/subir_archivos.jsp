@@ -41,7 +41,7 @@
 									<td> <p> Cuarta respuesta </p> </td> <td><input type="text" name="respuesta_cuatro"/></td>
 								</tr>
 								<tr>
-									<td> <p>Respuesta correcta </p> </td> <td><input type="text" name="respuesta_correcta"/></td>
+									<td> <p>Respuesta correcta </p> </td> <td><input type="number" name="respuesta_correcta"/></td>
 								</tr>
 								<tr>
 									<td> <p>Primer miembro </p> </td> <td><input type="text" name="autor1"/></td>
