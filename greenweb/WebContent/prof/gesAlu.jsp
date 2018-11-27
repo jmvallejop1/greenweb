@@ -81,7 +81,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			<ul>
 				<li>Para añadir un alumno nuevo busque su nombre y pulse el botón de añadir.</li>
 				<li>Para eliminar un alumno pulse la cruz roja al lado de su nombre en la lista.</li>
-				<li>Para añadir un alumno a una entrega introduzca el username del usuario e indique la fecha de entrega.</li>
+				<li>Para añadir un alumno a la entrega actual introduzca el username del usuario.</li>
 			</ul>
 				
 		</div>
@@ -90,9 +90,11 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				<input type="text" id="nombreAlu"name="alumno" placeholder="Usuario a añadir">
 				<input type="submit" id="anadirUsuario"name="busquedaUser" value="Añadir usuario">
 			<hr>
-			<h4>Añadir a entrega</h4>
-				<input type="text" id="aluEnt" name="alumno2" placeholder="Usuario a añadir a la entrega actual">
-				<input type="button" id="anadirAEnt" value="Añadir a Entrega">
+			<h4>Añadir alumno a la entrega actual</h4>
+			<form action="../AsociarUserEntrega" method="post" enctype="multipart/form-data">
+				<input type="text" id="aluEnt" name="username" placeholder="Usuario a añadir a la entrega actual">
+				<input type="submit" id="anadirAEnt" value="Añadir">
+			</form>
 			<hr>
 			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
 			<table id="myTable">

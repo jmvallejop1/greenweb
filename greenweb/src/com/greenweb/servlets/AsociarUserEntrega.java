@@ -24,10 +24,8 @@ public class AsociarUserEntrega extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		if(session!=null) {
 			EntregaManager m = new EntregaManager();
-			String fecha = request.getParameter("fecha");
-			String username =  (String)session.getAttribute("id");
-			int turnoE=m.numEntrega(fecha);
-			if(m.asignarEntrega(username, turnoE)) out.println(0);
+			String username =  (String)session.getAttribute("username");
+			if(m.asignarEntrega(username, -1)) out.println(0);
 			else out.println(-1);
 		}
 	}

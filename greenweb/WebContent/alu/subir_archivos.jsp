@@ -60,7 +60,7 @@
 								</tr>
 							</table>	
 						
-						<input type="submit" name="Cancelar" value="Enviar" onClick="window.location.href='index_alu.html'" >
+						<input type="submit" name="Cancelar" value="Enviar" onClick="window.location.href='alu/trabajos.jsp'" >
 					</center>
 				</form>
 			</div>

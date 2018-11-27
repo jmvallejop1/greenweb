@@ -305,18 +305,45 @@ public class EntregaDAO {
     }
     
     //Se puede invocar con el numero de entrega deseado o con -1 para asignarle al usuario la ultima entrega
-    public boolean setNumEntrega(String username, int numEntrega) {
+    public boolean setNumEntrega(String username) {
     	try {
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-            if(numEntrega<0) {
-            	resultSet = statement.executeQuery("select max(num) from entregas");
-                if(resultSet.next()) numEntrega=Integer.parseInt(resultSet.getString("max(num)"));
+        	resultSet = statement.executeQuery("select max(num) from entregas");
+        	int numEntrega=-1;
+            if(resultSet.next()) numEntrega=Integer.parseInt(resultSet.getString("max(num)"));
+            else return false;
+            resultSet = statement.executeQuery("select * from turnoent where iduser='"+username+'\'');
+            if(!resultSet.next()) {
+            	int res = statement.executeUpdate("insert into turnoent values('"+username+"', "+numEntrega+')');
+                return res==1;
             }
-            int res = statement.executeUpdate("insert into turnoent values('"+username+"', "+numEntrega+')');
-            return res==1;
+            else {
+            	int res = statement.executeUpdate("update turnoent set nument="+numEntrega+" where iduser='"+username+"'");
+                return res==1;
+            }
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+    	}
+    	finally {
+    		close();
+    	}
+		return false;
+    }
+    
+    public boolean tieneEntrega(String iduser) {
+    	try {
+    		connect=ConnectionManager.getConnection();
+            // Statements allow to issue SQL queries to the database
+            statement = connect.createStatement();
+            // Result set get the result of the SQL query
+            if(resultSet.next()) {
+            	return true;
+            }
+            else return false;
     	}
     	catch (Exception e) {
     		e.printStackTrace();
