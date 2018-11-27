@@ -316,12 +316,12 @@ public class EntregaDAO {
             if(resultSet.next()) numEntrega=Integer.parseInt(resultSet.getString("max(num)"));
             else return false;
             resultSet = statement.executeQuery("select * from turnoent where iduser='"+username+'\'');
-            if(!resultSet.next()) {
-            	int res = statement.executeUpdate("insert into turnoent values('"+username+"', "+numEntrega+')');
+            if(resultSet.next()) {
+            	int res = statement.executeUpdate("update turnoent set nument="+numEntrega+" where iduser='"+username+"'");
                 return res==1;
             }
             else {
-            	int res = statement.executeUpdate("update turnoent set nument="+numEntrega+" where iduser='"+username+"'");
+            	int res = statement.executeUpdate("insert into turnoent values('"+username+"', "+numEntrega+')');
                 return res==1;
             }
     	}
