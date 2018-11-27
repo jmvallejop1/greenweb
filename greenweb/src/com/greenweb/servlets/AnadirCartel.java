@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.util.Calendar;
-
+import java.util.Collection;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -46,10 +46,17 @@ public class AnadirCartel extends HttpServlet{
 		Part foto = request.getPart("foto");
 		OutputStream img = null;
 		InputStream filecontent = null;
-		String content = foto.getSubmittedFileName();
-			
 
-		File fi = new File(path +"/imgret/" +"pepe.jpg");
+		String nom = foto.getHeader("content-disposition");
+		String fileName = nom.replaceFirst("(?i)^.*filename=\"?([^\"]+)\"?.*$", "$1");
+		String delims = "[\\\\]";
+		String[] tokens = fileName.split(delims);
+		int total = tokens.length;
+		fileName = tokens[total -1];
+		
+		
+
+		File fi = new File(path +"/imgret/" +fileName);
 		fi.createNewFile();
 		img = new FileOutputStream(fi);
 		filecontent = foto.getInputStream();
@@ -65,7 +72,13 @@ public class AnadirCartel extends HttpServlet{
 		OutputStream img2 = null;
 		InputStream filecontent2 = null;
 		
-		File fi2 = new File(path+"/vidret/" +"/juan.jpg");
+		nom = foto2.getHeader("content-disposition");
+		fileName = nom.replaceFirst("(?i)^.*filename=\"?([^\"]+)\"?.*$", "$1");
+		tokens = fileName.split(delims);
+		total = tokens.length;
+		fileName = tokens[total -1];
+		
+		File fi2 = new File(path+"/vidret/" +fileName);
 		fi2.createNewFile();
 		img2 = new FileOutputStream(fi2);
 		filecontent2 = foto2.getInputStream();
