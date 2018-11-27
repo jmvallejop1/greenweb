@@ -39,13 +39,17 @@ public class AnadirCartel extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		ServletContext context = request.getServletContext();
+		String path = context.getRealPath("/"); 
+		
 		Part foto = request.getPart("foto");
 		OutputStream img = null;
 		InputStream filecontent = null;
 		String content = foto.getSubmittedFileName();
 			
 
-		File fi = new File(rutaBase +"pepe.mp4");
+		File fi = new File(path +"/imgret/" +"pepe.jpg");
 		fi.createNewFile();
 		img = new FileOutputStream(fi);
 		filecontent = foto.getInputStream();
@@ -61,7 +65,7 @@ public class AnadirCartel extends HttpServlet{
 		OutputStream img2 = null;
 		InputStream filecontent2 = null;
 		
-		File fi2 = new File(rutaBase +"/juan.jpg");
+		File fi2 = new File(path+"/vidret/" +"/juan.jpg");
 		fi2.createNewFile();
 		img2 = new FileOutputStream(fi2);
 		filecontent2 = foto2.getInputStream();
@@ -111,8 +115,7 @@ public class AnadirCartel extends HttpServlet{
 		
 		
 		
-		//ServletContext context = request.getServletContext();
-		//String path = context.getRealPath("/");
+		
 		
 		
 		
