@@ -87,7 +87,7 @@ public class EntregaManager {
 	public boolean asignarEntrega(String alumno, int entrega) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
-			return dao.setNumEntrega(alumno, entrega); 
+			return dao.setNumEntrega(alumno); 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
