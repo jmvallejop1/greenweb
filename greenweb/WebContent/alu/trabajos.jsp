@@ -52,9 +52,22 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
             });
 		});
 	});
-	</script> 
+	</script>
+	<script language="JavaScript">	
+			function myFunction() {
+				
+				var url_string = window.location.href; // www.test.com?filename=test
+				
+				var pos = url_string.search("error")
+				pos = pos + 6
+				var er  = url_string.substr(pos,3)    		
+    			if(er != null)
+    				if(er == "not")
+    					window.alert("El trabajo no se ha subido correctamente.");
+				}
+		</script>
 </head>
-<body>
+<body onload="myFunction()">
 	<!-- BARRA DE NAVEGACION Y HEADER-->
    <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	

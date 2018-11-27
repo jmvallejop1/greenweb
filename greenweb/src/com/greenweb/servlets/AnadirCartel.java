@@ -17,6 +17,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 
 import com.greenweb.cartel.CartelesManager;
 import com.greenweb.cartel.data.CartelDO;
@@ -39,7 +40,7 @@ public class AnadirCartel extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		PrintWriter out = response.getWriter();
 		ServletContext context = request.getServletContext();
 		String path = context.getRealPath("/"); 
 		
@@ -73,12 +74,12 @@ public class AnadirCartel extends HttpServlet{
 		InputStream filecontent2 = null;
 		
 		nom = foto2.getHeader("content-disposition");
-		fileName = nom.replaceFirst("(?i)^.*filename=\"?([^\"]+)\"?.*$", "$1");
-		tokens = fileName.split(delims);
+		String fileName2 = nom.replaceFirst("(?i)^.*filename=\"?([^\"]+)\"?.*$", "$1");
+		tokens = fileName2.split(delims);
 		total = tokens.length;
-		fileName = tokens[total -1];
+		fileName2 = tokens[total -1];
 		
-		File fi2 = new File(path+"/vidret/" +fileName);
+		File fi2 = new File(path+"/vidret/" +fileName2);
 		fi2.createNewFile();
 		img2 = new FileOutputStream(fi2);
 		filecontent2 = foto2.getInputStream();
@@ -106,30 +107,29 @@ public class AnadirCartel extends HttpServlet{
 		String mes = Integer.toString(cal.get(Calendar.MONTH + 1));
 		String annio = Integer.toString(cal.get(Calendar.YEAR));
 		String fecha = dia+"/"+mes+"/"+annio;
-		if(titulo!=null && !titulo.equals("") && texto!=null && !texto.equals("")&&pregunta!=null && !pregunta.equals("")
-		&& r1!=null && !r1.equals("") && r2!=null && !r2.equals("") && r3!=null && !r3.equals("") &&
-		r4!=null && !r4.equals("") && rc!=null && !rc.equals("") && alumno[0]!=null && !alumno[0].equals("")) {
+		
+		if(titulo != null && !titulo.equals("") && texto != null && !texto.equals("") && pregunta != null && !pregunta.equals("")
+		&& r1 != null && !r1.equals("") && r2 != null && !r2.equals("") && r3 != null && !r3.equals("") &&
+		r4 != null && !r4.equals("") && rc != null && !rc.equals("") && alumno[0] != null && !alumno[0].equals("")) {
 			PreguntasManager pman=new PreguntasManager();
 			NoticiaManager nman=new NoticiaManager();
 			CartelesManager cman=new CartelesManager();
 			EntregaManager eman=new EntregaManager();
-			CartelDO d = new CartelDO();
 			PreguntaDO p = pman.crearP(pregunta, r1, r2, r3, r4, Integer.parseInt(rc));
-			NoticiaDO n = nman.crearN(titulo, texto, null); //PONER VARIABLE VIDEO CON NOMBRE DEL VIDEO
-			CartelDO c=cman.crearCartel(p, n, alumno, null, fecha); //PONER VARIABLE FOTO CON NOMBRE DE FOTO
+			NoticiaDO n = nman.crearN(titulo, texto, fileName2); //PONER VARIABLE VIDEO CON NOMBRE DEL VIDEO
+			CartelDO c=cman.crearCartel(p, n, alumno,fileName, fecha); //PONER VARIABLE FOTO CON NOMBRE DE FOTO
 			if(eman.subirEntrega(alumno[0], c)) {
-				//out.println(0);
+				out.println(0);
+				response.sendRedirect(request.getContextPath()+"/alu/trabajos.jsp");
 			}
-			else {//out.println(-1);
+			else {
+				out.println(-1);
+				response.sendRedirect(request.getContextPath()+"/alu/trabajos.jsp?error=not");
+				
 			}
+		}else {
+		response.sendRedirect(request.getContextPath()+"/alu/trabajos.jsp?error=not");
 		}
-			
-	
-		
-		
-		
-		
-		
 		
 		
 	}
