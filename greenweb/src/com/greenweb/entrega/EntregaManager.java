@@ -44,7 +44,12 @@ public class EntregaManager {
 		}
 
 	}
-		
+	
+	/*
+	 * Pre: -
+	 * Post: devuelve true si el usuario identificado en la BD como iduser 
+	 * he realizado alguna entrega en el reto actual. Devolvera false en el caso contrario
+	 */
 	public boolean haEntregado(String iduser) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
@@ -56,6 +61,14 @@ public class EntregaManager {
 		return false;
 	}
 	
+	/*
+	 * Pre: -
+	 * Post: Si devuelve true inicia un nuevo reto modificando la base de datos y
+	 * realizando las siguientes funciones:
+	 * 		- Modifica la entrega vigente a la proxima registrada
+	 * 		- Convierte el cartel idcart al del reto actual
+	 * 		- Actualiza los puntos de todos los usuarios segun las respuestas que hayan dado
+	 */
 	public boolean NuevoReto(int idcart) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
@@ -67,17 +80,10 @@ public class EntregaManager {
 		return false;
 	}
 	
-	public int numEntrega(String fecha) {
-		try {
-			EntregaDAO dao=new EntregaDAO();
-			return dao.numEntrega(fecha); 
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		return -1;
-	}
-	
+	/*
+	 * Pre: -
+	 * Post: Añade al usuario identificado como alumno la entrega indicada
+	 */
 	public boolean asignarEntrega(String alumno, int entrega) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
@@ -89,6 +95,20 @@ public class EntregaManager {
 		return false;
 	}
 	
+	public int numEntrega(String fecha) {
+		try {
+			EntregaDAO dao=new EntregaDAO();
+			return dao.numEntrega(fecha);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	/*
+	 * 
+	 */
 	public String fechaModificacion(String iduser) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
