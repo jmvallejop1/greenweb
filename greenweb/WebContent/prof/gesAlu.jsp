@@ -53,6 +53,20 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			});
 		</script>
 		
+		<script>
+		$(document).ready(function() {
+			$('.addAluEntrega').click(function(event) {
+				var id=$(this).parent().attr("fecha");
+				//alert(id);
+				$.post('../SeleccionGanador', {
+					idcartel: id
+				}, function(responseText) {
+					comprobar(responseText);
+				});
+			});
+		});
+		</script>
+		
    </head>
 
    <body onload="myFunction()">
@@ -67,6 +81,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			<ul>
 				<li>Para añadir un alumno nuevo busque su nombre y pulse el botón de añadir.</li>
 				<li>Para eliminar un alumno pulse la cruz roja al lado de su nombre en la lista.</li>
+				<li>Para añadir un alumno a una entrega introduzca el username del usuario e indique la fecha de entrega.</li>
 			</ul>
 				
 		</div>
