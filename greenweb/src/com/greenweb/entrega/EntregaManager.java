@@ -6,12 +6,10 @@ import com.greenweb.cartel.data.*;
 
 public class EntregaManager {
 	public static void main(String[] args) {
-		try {/*
-			EntregaManager eman=new EntregaManager();
+		try {
+			//EntregaManager eman=new EntregaManager();
 			EntregaDAO edao=new EntregaDAO();
-			CartelDAO cdao=new CartelDAO();
-			PreguntaDO pdao=new PreguntaDO();/*
-			String fecha=edao.fechaEntrega("al6a");
+			/*String fecha=edao.fechaEntrega("al6a");
 			System.out.println("La fecha de la ultima entrega es: "+fecha);
 			fecha=edao.fechaModificacion("al6a");
 			System.out.println("La fecha de la ultima modificacion es: "+fecha);
@@ -38,6 +36,8 @@ public class EntregaManager {
 			//if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
 			//else System.out.println("No puede entregar, no le corresponde el turno");
 			//System.out.println("Fin del main");*/
+			if(edao.setNumEntrega("pepe")) System.out.println("Usuario pepe asignado a la ultima entrega");
+			else System.out.println("No se ha podido asociar");
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -84,7 +84,7 @@ public class EntregaManager {
 	 * Pre: -
 	 * Post: Añade al usuario identificado como alumno la entrega indicada
 	 */
-	public boolean asignarEntrega(String alumno, int entrega) {
+	public boolean asignarEntrega(String alumno) {
 		try {
 			EntregaDAO dao=new EntregaDAO();
 			return dao.setNumEntrega(alumno); 
