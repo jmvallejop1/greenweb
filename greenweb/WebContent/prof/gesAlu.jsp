@@ -92,7 +92,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			<hr>
 			<h4>Añadir alumno a la entrega actual</h4>
 			<form action="../AsociarUserEntrega" method="post" enctype="multipart/form-data">
-				<input type="text" id="aluEnt" name="username" placeholder="Usuario a añadir a la entrega actual">
+				<input type="text" name="username" placeholder="Usuario a añadir">
 				<input type="submit" id="anadirAEnt" value="Añadir">
 			</form>
 			<hr>

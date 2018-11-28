@@ -20,7 +20,7 @@
 									<td> <p> Texto </p></td> <td><input type="text" name="texto" maxlength="500"/></td>
 								</tr>		  
 								<tr>
-									<td> <p> Video </p> </td> <td><input type="file" name="video" mutiple="multiple"/>/></td>
+									<td> <p> Video </p> </td> <td><input type="file" name="video" mutiple="multiple"/></td>
 								</tr>					
 								<tr> 
 									<td> <p>Imagenes </p></td> <td><input type="file" name="foto" mutiple="multiple"/></td>

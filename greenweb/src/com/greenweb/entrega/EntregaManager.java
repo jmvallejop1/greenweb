@@ -8,7 +8,7 @@ public class EntregaManager {
 	public static void main(String[] args) {
 		try {
 			//EntregaManager eman=new EntregaManager();
-			EntregaDAO edao=new EntregaDAO();
+			//EntregaDAO edao=new EntregaDAO();
 			/*String fecha=edao.fechaEntrega("al6a");
 			System.out.println("La fecha de la ultima entrega es: "+fecha);
 			fecha=edao.fechaModificacion("al6a");
@@ -36,8 +36,8 @@ public class EntregaManager {
 			//if(edao.puedeEntregar("apu")) System.out.println("pepe2 puede entregar");
 			//else System.out.println("No puede entregar, no le corresponde el turno");
 			//System.out.println("Fin del main");*/
-			if(edao.setNumEntrega("pepe")) System.out.println("Usuario pepe asignado a la ultima entrega");
-			else System.out.println("No se ha podido asociar");
+			//if(edao.setNumEntrega("pepe")) System.out.println("Usuario pepe asignado a la ultima entrega");
+			//else System.out.println("No se ha podido asociar");
 		}
 		catch(Exception e){
 			e.printStackTrace();

@@ -311,9 +311,9 @@ public class EntregaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	resultSet = statement.executeQuery("select max(num) from entregas");
+        	resultSet = statement.executeQuery("select num from entregavigente");
         	int numEntrega=-1;
-            if(resultSet.next()) numEntrega=Integer.parseInt(resultSet.getString("max(num)"));
+            if(resultSet.next()) numEntrega=Integer.parseInt(resultSet.getString("num"));
             else return false;
             resultSet = statement.executeQuery("select * from turnoent where iduser='"+username+'\'');
             if(resultSet.next()) {
