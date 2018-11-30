@@ -127,7 +127,7 @@ function comprobar(valor){
           </form>
         </div>
       </div>
-      <h3 class=cabeza>Seccion preguntas adicionales</h3>     
+      <h3 class="TituloAdicionales">Seccion preguntas adicionales</h3>     
       <jsp:useBean id="pre" class="com.greenweb.pregunta.PreguntasManager"/>
 	  <jsp:setProperty name="pre" property="user" value="${sessionScope.id}" /> 
 	  <c:choose>        
