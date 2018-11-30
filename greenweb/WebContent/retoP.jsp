@@ -44,7 +44,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
               <li><input type="checkbox" name="resp" value="4" />
               <label><c:out value="${pre.preg.preg.r4}"></c:out></label></li>
           </ul>
-          <input type="button" name="Cancelar" value="Confirmar" onClick="window.location.href='reto_contestado.html'" >
+          <div class="respuesta">
+          		<input type="button" name="Cancelar" value="Confirmar" onClick="window.location.href='reto_contestado.html'" >
+          </div>
           </form>
       </div>
     </div> 	
