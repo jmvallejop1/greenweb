@@ -42,7 +42,6 @@
                     comprobar(data);    
                 },
                 error: function() {
-                    alert('Error occured 23');
                 }
             });
         	
@@ -87,7 +86,7 @@
   </head>  
 
  <body>
-    <iframe src="menu_global.html" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
+<%@include file="menu.jsp"%>
 	<div class="info">
     	<p align="center"><strong>¡Bienvenidos a nuestra sección de preguntas recicladas!</strong></p>
   		<p align="center">En esta sección encontrareis una colección de preguntas provinientes de retos de otros años. !Así nunca se pierden! Podrás contestar a las preguntas y aparecerá al instante la respuesta correcta. Sin embargo las preguntas que tengas como adicionales en tu reto actual no mostrarán la respuesta correcta hasta que no termine el reto. ¡No queremos trampas!</p>

@@ -28,10 +28,10 @@
                     comprobar(data);    
                 },
                 error: function() {
-                    alert('Error occured 23');
                 }
-            });        	
-   	 	});
+            });
+        	
+   	 });
 	});
 </script>
 <script>
@@ -42,7 +42,7 @@
 			$(cambio).addClass("correcta");
 		}else if(valor>0){	
 			$(cambio).addClass("incorrecta");
-			window.alert("Las respuestas correctas eran" + valor);
+			window.alert("Las respuestas correctas eran: " + valor);
 		}
 	}
 </script>
