@@ -7,6 +7,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script>
+	$(document).ready(function() {
+		$('#mostrar').click(function(event) {
+			$.post('mas5/mas5noticias.jsp', {
+			}, function(responseText) {
+				$('#not').html(responseText);
+			});
+		});
+	});
+	</script>
+	
+	<script>
+	$(document).ready(function() {
+		$('.hola').click(function(event) {
+			var id = $(this).parent().parent().attr("id");
+			alert(id);
+			$.ajax({
+                type: "POST",
+                url: 'RetoNot',
+                data: ({ idn: id}),
+                success: function(data) {
+                	alert("TodoOK");
+                	window.open(data+"/retoN.jsp");   
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+		});
+	});
+	</script>
 </head>
 <body>
 	<jsp:useBean id="man" class="com.greenweb.noticia.NoticiaManager"/>
@@ -17,8 +48,7 @@
     	<div class="NoticeContainer"> 
         	<div id="<c:out value="${noticia.id}"></c:out>">     
 	      		<div class="NoticeHeader">           
-	          		<h3><a href="reto.html"><c:out value="${noticia.titulo}"></c:out></a></h3>
-	         		<h4 class="IrPreg"> <a href="reto.html">Ir a reto</a></h4>
+	          		<h3 class="hola"><a><c:out value="${noticia.titulo}"></c:out></a></h3>
 	      		</div>
 	      		<div class="InfoNoticia">
 	        		<p><video  controls="controls">

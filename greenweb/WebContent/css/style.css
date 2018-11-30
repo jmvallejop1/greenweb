@@ -170,9 +170,10 @@ video{
 }
 
 .TituloAdicionales{
-	margin-top: 20px;
+	text-align: center;
 	padding:20px 0;
-	background-color: green;
+	background-color: #022c03;
+	color: white;
 }
 
 .TituloAdicionales h3{
@@ -232,6 +233,7 @@ video{
 
 .PreguntaAdicional h3{
 	text-align: center;
+	color: white;
 }
 
 .PreguntaAdicional li{
@@ -253,6 +255,10 @@ video{
 	height: 150px;
 	visibility: visible;
 	transition: all ease-in-out 500ms;
+}
+
+.ContestarAdicional{
+	margin-left:45%;
 }
 
 
