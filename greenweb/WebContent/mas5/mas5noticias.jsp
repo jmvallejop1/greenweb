@@ -18,7 +18,6 @@
         	<div id="<c:out value="${noticia.id}"></c:out>">     
 	      		<div class="NoticeHeader">           
 	          		<h3><a href="reto.html"><c:out value="${noticia.titulo}"></c:out></a></h3>
-	         		<h4 class="IrPreg"> <a href="reto.html">Ir a reto</a></h4>
 	      		</div>
 	      		<div class="InfoNoticia">
 	        		<p><video  controls="controls">
