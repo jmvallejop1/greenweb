@@ -46,13 +46,34 @@
 		}
 	}
 </script>
+<script>
+	$(document).ready(function() {
+		$('.fas').click(function(event) {
+			var id = $(this).parent().parent().parent().attr("id");
+			alert(id);
+			$.ajax({
+                type: "POST",
+                url: 'RetoPreg',
+                data: ({ idn: id}),
+                success: function(data) {
+                	alert("TodoOK");
+                	window.open(data+"/retoP.jsp");   
+                },
+                error: function() {
+                    alert('Error occured 23');
+                }
+            });
+		});
+	});
+	</script>
+
 </head>
 <body>	
 	<jsp:useBean id="man" class="com.greenweb.pregunta.PreguntasManager"/>
 	<c:if test = "${sessionScope.hasta > fn:length(man.preguntas)}">
 		<c:set var = "hasta" scope = "session" value = "${fn:length(man.preguntas)}"/>
 	</c:if>
-	<c:forEach var="pregunta" begin="${sessionScope.inicio}"  end="${sessionScope.hasta}" items="${man.preguntas}">
+	<c:forEach var="pregunta" end="${sessionScope.hasta}" items="${man.preguntas}">
 	<div>
 		<div id="<c:out value="${pregunta.id}"></c:out>"> 
 			<div class="PreguntaAdicional">

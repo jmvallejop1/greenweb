@@ -18,7 +18,7 @@
 		$('#submit').click(function(event) {
 			$.post('mas5/mas5preg.jsp', {
 			}, function(responseText) {
-				$('.container').append(responseText);
+				$('.container').html(responseText);
 			});
 		});
 	});
