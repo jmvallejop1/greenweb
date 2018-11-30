@@ -55,7 +55,7 @@
 		<div class="NoticeContainer"> 
 			<div id="<c:out value="${noticia.id}"></c:out>">     
 				<div class="NoticeHeader">           
-					<h3  class="hola"><a><c:out value="${noticia.titulo}"></c:out></a></h3>
+					<h3 class="hola"><a><c:out value="${noticia.titulo}"></c:out></a></h3>
 				</div>
 				<div class="InfoNoticia">
 					<p><video  controls="controls">
