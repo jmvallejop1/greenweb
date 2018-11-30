@@ -14,7 +14,7 @@
 				var er  = url_string.substr(pos,3)    		
     			if(er != null)
     				if(er == "wpw")
-    					window.alert("Las contraseñas no cionciden.");
+    					window.alert("Las contraseñas no coinciden.");
     				if(er == "nlo")
     					window.alert("No se ha podido crear la cuenta correctamente.");
     				if(er == "npw")
@@ -34,7 +34,7 @@
 			
 				<form method="post" action="Registro">
 				
-				  <h1> Â¡Registrate gratis! </h1>
+				  <h1> ¡Registrate gratis! </h1>
           
 					<div class="field-wrap">
 						<input type="text" name="usuario"required autocomplete="off" placeholder="Nombre"/>

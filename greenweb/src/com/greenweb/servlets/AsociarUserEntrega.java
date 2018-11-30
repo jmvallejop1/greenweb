@@ -19,14 +19,14 @@ public class AsociarUserEntrega extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
 		HttpSession session = request.getSession(false);
 		response.setContentType( "text/html; charset=iso-8859-1" );
 		PrintWriter out = response.getWriter();
 		if(session!=null) {
 			EntregaManager m = new EntregaManager();
-			String username = request.getParameter("username");
 			System.out.println("El usuario introducido: "+username);
-			if(!username.equals("null") && m.asignarEntrega(username)) out.println(0);
+			if(!username.equals("null") && !username.equals("") && m.asignarEntrega(username)) out.println(0);
 			else out.println(-1);
 		}
 	}
