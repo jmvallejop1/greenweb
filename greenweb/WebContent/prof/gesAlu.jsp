@@ -17,6 +17,9 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				var url_string = window.location.href; // www.test.com?filename=test
 				
 				var pos = url_string.search("param")
+				var posErr = url_string.search("errorAUE")
+				posErr=posErr+9
+				var erAUE = url_string.substr(pos,4)
 				pos = pos + 6
 				var er  = url_string.substr(pos,3)    		
     			if(er != null)
@@ -24,6 +27,10 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
     					window.alert("El usuario que ha introducido no existe en el sistema");
 					if(er == "alu")
 						window.alert("El usuario introducido es ahora un alumno");
+				}
+				if(erAUE!=null){
+					if(erAUE=="true")window.alert("No se ha podido añadir al usuario a la entrega")
+					else if(erAUE=="fals")window.alert("Alumno añadido correctamente")
 				}
 		</script>
 		<script>
@@ -38,7 +45,20 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		    	});
 			});
 		</script>
-		
+		<script>
+			$(document).ready(function() {
+		 		$("#anadirAEnt").click(function(){
+		 			var nombreUsuario = $("#userid").val();
+		 			alert(nombreUsuario)
+		        	$.post("../AsociarUserEntrega", {
+						username: nombreUsuario
+						}, function(responseText) {
+							if(responseText<0) alert("No se ha podido añadir el alumno a la entrega");
+							else alert("Usuario añadido correctamente");
+					});
+		    	});
+			});
+		</script>
 		<script>
 			$(document).ready(function() {
 		 		$(".borrarAlu").click(function(){
@@ -46,25 +66,11 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		 			alert(nombreUsuario);
 		        	$.post("../Anadir", {
 						tipo: 3,
-						usuario: nombreUsuario
+						username: nombreUsuario
 						}, function() {
 					});
 		    	});
 			});
-		</script>
-		
-		<script>
-		$(document).ready(function() {
-			$('.addAluEntrega').click(function(event) {
-				var id=$(this).parent().attr("fecha");
-				//alert(id);
-				$.post('../SeleccionGanador', {
-					idcartel: id
-				}, function(responseText) {
-					comprobar(responseText);
-				});
-			});
-		});
 		</script>
 		
    </head>
@@ -91,10 +97,8 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				<input type="submit" id="anadirUsuario"name="busquedaUser" value="Añadir usuario">
 			<hr>
 			<h4>Añadir alumno a la entrega actual</h4>
-			<form action="../AsociarUserEntrega" method="post" enctype="multipart/form-data">
-				<input type="text" name="username" placeholder="Usuario a añadir">
-				<input type="submit" id="anadirAEnt" value="Añadir">
-			</form>
+				<input type="text" id="userid" placeholder="Usuario a añadir">
+				<input type="submit" id="anadirAEnt" value="Añadir a entrega">
 			<hr>
 			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
 			<table id="myTable">
