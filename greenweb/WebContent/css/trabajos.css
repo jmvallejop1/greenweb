@@ -1,9 +1,9 @@
 
 body{
 	margin: 0;
+	paddind: 0px;
 	font-family: Niramit;
-	background:url(../images/bote.jpg);
-	background-position: center;
+	background: #bdf083;
 }
 
 .Trabajo input {
@@ -95,6 +95,6 @@ h1 {
 
 .BotTrab{
 	display: block;
-	margin-left: 40%;
+	margin-left: 45%;
 	margin-top: 20px;
 }

@@ -4,7 +4,6 @@ body{
 }
 
 #main-header{
-	text-align: center;
 	color: white;
 	padding:40px 0;
 	background:url('../images/giphy.gif') no-repeat;
@@ -12,6 +11,13 @@ body{
 	display:block;
 	margin:0;
 }
+
+
+#main-header h1{
+	color: white;
+	margin-left: 43%;
+}
+
 .navegacion{
 	 background: #022c03;
 }

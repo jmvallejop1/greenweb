@@ -2,7 +2,7 @@ body{
 	margin: 0;
 	background:#77e610;
 	background-position: center;
-	background: url(../images/bosque.jpg);
+	background: url(../images/campo.jpg);
 }
 
 #ProfPic{
@@ -89,7 +89,7 @@ body{
 
 .botones{
 	display: block;
-	margin-left: 40%;
+	margin-left: 36%;
 }
 
 .error{

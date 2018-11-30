@@ -101,6 +101,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   }
 	   %>
    
- <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+ <iframe src="../footer.html" class="frames2" scrolling="no" border="no" width="100%" height="125" frameborder="no"></iframe>
 </body>
 </html>
