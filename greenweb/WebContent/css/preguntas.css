@@ -4,9 +4,12 @@ body {
 	background-size:100% 100%;
 }
 
-.frames{
+
+#submit {
 	margin-top: 20px;
+	margin-left: 45%;
 }
+
 
 .container{
 	width: 80%;
@@ -37,7 +40,7 @@ body {
 p {
     font-family: 'Arimo', sans-serif;
     font-family: 'Bitter', serif;
-    color: #ff0000;
+    color: white;
     font-weight: bold;
 }
 

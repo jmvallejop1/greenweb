@@ -2,6 +2,11 @@ body{
 	margin: 0;
 }
 
+#mostrar {
+	margin-left: 45%;
+	margin-top: 20px;
+}
+
 .frames2{
 	margin-top: 30px;
 }
