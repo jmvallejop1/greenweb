@@ -26,10 +26,17 @@ body{
 
 .pregunta2 h3{
 	color: white;
+	text-align: center;
 }
 
-.pregunta2 input {
+ input {
+ 	margin-left:10%;
+ }
+
+
+.pregunta2 .respuesta {
 	margin-bottom: 10px;
+	margin-left: 40%;
 }
 
 .pregunta2 select{
@@ -55,7 +62,9 @@ body{
 .pregunta2 li{
 	list-style: none;
 	color: white;
+	margin-left: 30%;
 }
+
 
 video{
 	max-width: 80%;
