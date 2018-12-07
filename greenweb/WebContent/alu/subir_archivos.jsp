@@ -10,7 +10,7 @@
 			<div class="loginBox">   
 				<form action="../AnadirCartel" method="post" enctype="multipart/form-data">
 					<center>
-						<img src="images/upload.jpg"/>
+						<img  src="../images/negro.jpg"/>
 						<h1> Entrega tu cartel </h1>
 							<table>
 								<tr>
@@ -50,13 +50,13 @@
 									<td> <p>Segundo miembro </p> </td> <td><input type="text" name="autor1"/></td>
 								</tr>
 								<tr>
-									<td> <p>Tercer mimebro </p> </td> <td><input type="text" name="autor2"/></td>
+									<td> <p>Tercer miembro </p> </td> <td><input type="text" name="autor2"/></td>
 								</tr>
 								<tr>
-									<td> <p>Cuarto mimebro </p> </td> <td><input type="text" name="autor3"/></td>
+									<td> <p>Cuarto miembro </p> </td> <td><input type="text" name="autor3"/></td>
 								</tr>
 								<tr>
-									<td> <p>Quinto mimebro </p> </td> <td><input type="text" name="autor4"/></td>
+									<td> <p>Quinto miembro </p> </td> <td><input type="text" name="autor4"/></td>
 								</tr>
 							</table>	
 						

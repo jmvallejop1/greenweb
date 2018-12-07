@@ -33,10 +33,10 @@
       <iframe src="menu_prof.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
          <!--AquÃ­ irÃ­a el frame de la cabecera y el menu-->
       <div class="box2">
-         <img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
+         <img src="../images/negro.jpg" alt="Su foto de perfil" id="ProfPic">
          <div class="infoUser">
             <center>
-               <h2> InformaciÃ³n personal de Nombre Apellido</h2>
+               <h2> Información personal de Nombre Apellido</h2>
                <!--Recoger la info del usuario y rellenar los campos con la respuesta-->
                <table>
                   <tr class="data"><td>Tipo de cuenta: </td><td id="tipo"><c:out value="${man.tipo}"></c:out></td></tr></tr>
