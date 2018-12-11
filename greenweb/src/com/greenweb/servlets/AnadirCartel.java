@@ -79,7 +79,7 @@ public class AnadirCartel extends HttpServlet{
 		total = tokens.length;
 		fileName2 = tokens[total -1];
 		
-		File fi2 = new File(path+"/vidret/" +fileName2);
+		File fi2 = new File(path+"/vidret/"+fileName2);
 		fi2.createNewFile();
 		img2 = new FileOutputStream(fi2);
 		filecontent2 = foto2.getInputStream();
@@ -104,7 +104,7 @@ public class AnadirCartel extends HttpServlet{
 		String rc = request.getParameter("respuesta_correcta");
 		Calendar cal=Calendar.getInstance();
 		String dia = Integer.toString(cal.get(Calendar.DATE));
-		String mes = Integer.toString(cal.get(Calendar.MONTH + 1));
+		String mes = Integer.toString(cal.get(Calendar.MONTH)+1);
 		String annio = Integer.toString(cal.get(Calendar.YEAR));
 		String fecha = dia+"/"+mes+"/"+annio;
 		
