@@ -24,7 +24,7 @@ public class SubirComentario extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Calendar c2 = Calendar.getInstance();
 		String dia = Integer.toString(c2.get(Calendar.DATE));
-		String mes = Integer.toString(c2.get(Calendar.MONTH + 1));
+		String mes = Integer.toString(c2.get(Calendar.MONTH)+1);
 		String annio = Integer.toString(c2.get(Calendar.YEAR));
 		String fecha = dia+"/"+mes+"/"+annio;
 		PrintWriter out = response.getWriter();
