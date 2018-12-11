@@ -116,8 +116,8 @@ public class AnadirCartel extends HttpServlet{
 			CartelesManager cman=new CartelesManager();
 			EntregaManager eman=new EntregaManager();
 			PreguntaDO p = pman.crearP(pregunta, r1, r2, r3, r4, Integer.parseInt(rc));
-			NoticiaDO n = nman.crearN(titulo, texto, fileName2); //PONER VARIABLE VIDEO CON NOMBRE DEL VIDEO
-			CartelDO c=cman.crearCartel(p, n, alumno,fileName, fecha); //PONER VARIABLE FOTO CON NOMBRE DE FOTO
+			NoticiaDO n = nman.crearN(titulo, texto, "/vidret/"+fileName2); //PONER VARIABLE VIDEO CON NOMBRE DEL VIDEO
+			CartelDO c=cman.crearCartel(p, n, alumno,"/imgret/"+fileName, fecha); //PONER VARIABLE FOTO CON NOMBRE DE FOTO
 			if(eman.subirEntrega(alumno[0], c)) {
 				out.println(0);
 				response.sendRedirect(request.getContextPath()+"/alu/trabajos.jsp");
