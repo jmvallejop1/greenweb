@@ -291,7 +291,6 @@ public class EntregaDAO {
             if(resultSet.next()) {
             	int nument=Integer.parseInt(resultSet.getString("max(num)"))+1;
             	int res=statement.executeUpdate("insert into entregas values("+nument+", '"+fecha+"')");
-            	statement.executeUpdate("update entregavigente set num="+nument);
             	return res==1;
             }
             else return false;
@@ -406,7 +405,7 @@ public class EntregaDAO {
             	carteles[i]=Integer.parseInt(resultSet.getString("id"));
             	i++;
             }
-            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+username+"' and");
+            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+username+"'");
             if(!resultSet.next())return false;
             int turnoActual=Integer.parseInt(resultSet.getString("max(nument)"));
             //Cogemos el turno de entrega actual del usuario
