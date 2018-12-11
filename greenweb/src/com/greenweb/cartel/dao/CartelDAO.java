@@ -317,7 +317,7 @@ public class CartelDAO {
                 	insertCartel+=",'"+s+'\'';
             	}
             }
-            insertCartel+=",'"+c.getFecha()+"',";
+            insertCartel+=",'"+c.getFecha()+"'";
             if(c.getFoto()==null) insertCartel+="NULL)";
             else insertCartel+=",'"+c.getFoto()+"')";
             System.out.println("Se ejecutara la siguiente instruccion: "+insertCartel);

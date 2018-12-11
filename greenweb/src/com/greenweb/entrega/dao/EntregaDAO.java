@@ -291,6 +291,7 @@ public class EntregaDAO {
             if(resultSet.next()) {
             	int nument=Integer.parseInt(resultSet.getString("max(num)"))+1;
             	int res=statement.executeUpdate("insert into entregas values("+nument+", '"+fecha+"')");
+            	statement.executeUpdate("update entregavigente set num="+nument);
             	return res==1;
             }
             else return false;
