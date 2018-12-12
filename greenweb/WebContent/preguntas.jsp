@@ -125,7 +125,7 @@
 	  </c:forEach>
 	</div>	
 	<input type="button" id="submit" value="Mostrar Preguntas" /> 
-  <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="90" frameborder="no"></iframe>
+  <iframe src="footer.html" class="frames" scrolling="no" border="no" width="100%" height="130" frameborder="no"></iframe>
 </body>
 </html>
 
