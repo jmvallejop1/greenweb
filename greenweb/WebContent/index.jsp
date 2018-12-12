@@ -74,7 +74,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
       <div class="reto">
         <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
-              <source src="video/vid1.mp4" type="video/mp4">
+              <source src="<c:out value="${reto.noti.video}"></c:out></h3>" type="video/mp4">
             </video>
             	<c:out value="${reto.noti.texto}"></c:out>
             </p>

@@ -28,7 +28,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	    <div class=noticia">
 	        <h1><c:out value="${pre.noticia.noti.titulo}"></c:out></h1>
 	            <p><video  controls="controls">
-	              <source src="video/vid1.mp4" type="video/mp4">
+	              <source src="<c:out value="${pre.noticia.noti.video}"></c:out>" type="video/mp4">
 	            </video><c:out value="${pre.noticia.noti.texto}"></c:out>
 	            </p>
 	     </div>       
