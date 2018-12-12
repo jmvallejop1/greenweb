@@ -105,7 +105,7 @@ function comprobar(valor){
      <div class="reto">
         <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
-              <source src="../<c:out value="${reto.noti.video}"></c:out>" type="video/mp4">
+              <source src="..<c:out value="${reto.noti.video}"></c:out>" type="video/mp4">
             </video>
             	<c:out value="${reto.noti.texto}"></c:out>
             </p>
