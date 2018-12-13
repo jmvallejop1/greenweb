@@ -77,7 +77,7 @@ public class EntregaDAO {
     	            statement = connect.createStatement();
     	            // Result set get the result of the SQL query
     	            //Primero obtenemos el numero de la entrega actual del usuario
-    	            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+idUser+"'");
+    	            resultSet = statement.executeQuery("select max(nument) from turnoent where iduser='"+idUser+"'");
     	            if(!resultSet.next())return false;
     	            if(resultSet.getString("max(nument)")==null) {
     	            	System.out.println("El usuario "+ idUser+" no tiene turno de entrega");
@@ -241,7 +241,7 @@ public class EntregaDAO {
     
     public boolean puedeEntregar(String iduser) {
     	try {
-    		if(haEntregado(iduser))return false;
+    		//if(haEntregado(iduser))return false;
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
@@ -373,7 +373,6 @@ public class EntregaDAO {
             	select+=" or id="+carteles[j];
             }
             select+=") and (creador1='"+iduser+"' or creador2='"+iduser+"' or creador3='"+iduser+"' or creador4='"+iduser+"' or creador5='"+iduser+"')";
-            //System.out.println("Consulta: "+select);
             resultSet = statement.executeQuery(select);
             if(resultSet.next()) return resultSet.getString("fechasubida");
             else return null;
@@ -405,7 +404,7 @@ public class EntregaDAO {
             	carteles[i]=Integer.parseInt(resultSet.getString("id"));
             	i++;
             }
-            resultSet = statement.executeQuery("select max(nument) from turnoEnt where iduser='"+username+"'");
+            resultSet = statement.executeQuery("select max(nument) from turnoent where iduser='"+username+"'");
             if(!resultSet.next())return false;
             int turnoActual=Integer.parseInt(resultSet.getString("max(nument)"));
             //Cogemos el turno de entrega actual del usuario
@@ -414,7 +413,6 @@ public class EntregaDAO {
             	consulta+=" or idcar="+carteles[j];
             }
             consulta+=")";
-            System.out.println("Ejecutando: "+consulta);
             resultSet = statement.executeQuery(consulta);
             if(resultSet.next()) return true;
             else return false;

@@ -310,7 +310,7 @@ public class CartelDAO {
             String[] autores=c.getCreadores();
             String insertCartel="insert into carteles values("+c.getId()+","+c.getIdPreg()+","+c.getIdNot();
             for(String s: autores) {
-            	if(s==null) {
+            	if(s == null || s.isEmpty()) {
             		insertCartel+=", NULL";
             	}
             	else {
