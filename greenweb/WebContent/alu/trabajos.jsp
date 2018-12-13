@@ -87,7 +87,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   		<div id=<%out.print(c.getIdPreg());%>>
 	   			<div id=<%out.print(c.getId());%>>
 			   		<div class="Trabajo">
-			   			<img height="840" width="840" src="../images/<%out.print(c.getFoto());%>" alt="Imagen trabajo">
+			   			<img height="840" width="840" src="../<%out.print(c.getFoto());%>" alt="Imagen trabajo">
 			   			<p>		
 			   				<%out.println(c.getNoti().getTitulo());%>
 			   			</p>
