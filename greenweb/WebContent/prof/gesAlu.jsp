@@ -62,11 +62,11 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 		<script>
 			$(document).ready(function() {
 		 		$(".borrarAlu").click(function(){
+		 			$(this).parent().remove();
 		 			var nombreUsuario = $(this).prev().text();
-		 			alert(nombreUsuario);
 		        	$.post("../Anadir", {
 						tipo: 3,
-						username: nombreUsuario
+						usuario: nombreUsuario
 						}, function() {
 					});
 		    	});

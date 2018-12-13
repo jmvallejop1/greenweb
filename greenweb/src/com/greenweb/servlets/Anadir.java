@@ -29,6 +29,7 @@ public class Anadir extends HttpServlet{
 		}else if(cambio==2) {
 			tipo = "a";
 		}else if(cambio==3) {
+			usuario = usuario.substring(0, usuario.length()-1);
 			tipo = "u";	
 		}
 		if(m.existeUsuario(usuario)) {

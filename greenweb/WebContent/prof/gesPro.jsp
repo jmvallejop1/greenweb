@@ -44,7 +44,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			$(document).ready(function() {
 		 		$(".borrarAlu").click(function(){
 		 			var nombreUsuario = $(this).prev().text();
-		 			alert(nombreUsuario);
+		 			$(this).parent().remove();
 		        	$.post("../Anadir", {
 						tipo: 3,
 						usuario: nombreUsuario
