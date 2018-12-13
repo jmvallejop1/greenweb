@@ -30,16 +30,14 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     			array.push($(this).val())
     			$(this).prop('checked', false);
     		});
-    		alert(array);
         	$.ajax({
                 type: "POST",
                 url: '../ContestarActual',
                 data: ({ resp: array }),
-                success: function(data) {
-                    alert(data);    
+                success: function(data) {   
                 },
                 error: function() {
-                    alert('Error occured 23');
+                    alert('Ha ocurrido un error.');
                 }
             });
         	
@@ -56,7 +54,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     			array.push($(this).val())
     			$(this).prop('checked', false);
     		});
-    		alert(array);
         	var id = $(this).parent().parent().parent().parent().attr("id");
         	$.ajax({
                 type: "POST",

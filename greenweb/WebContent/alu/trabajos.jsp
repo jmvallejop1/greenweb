@@ -23,7 +23,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 $(document).ready(function() {
 			$('.LikeAlu').click(function(event) {
 				var id=$(this).parent().attr("id");
-				//alert(id);
 				$.post('../SumaVotoTrabajo', {
 					idcartel: id
 				}, function(responseText) {
@@ -37,7 +36,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	$(document).ready(function() {
 		$('.Trabajo').click(function(event) {
 			var id = $(this).parent().parent().attr("id");
-			//alert(id);
 			$.ajax({
                 type: "POST",
                 url: '../RetoPreg',

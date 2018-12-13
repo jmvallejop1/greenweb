@@ -22,17 +22,16 @@
 	$(document).ready(function() {
 		$('.hola').click(function(event) {
 			var id = $(this).parent().parent().attr("id");
-			alert(id);
+	
 			$.ajax({
                 type: "POST",
                 url: 'RetoNot',
                 data: ({ idn: id}),
                 success: function(data) {
-                	alert("TodoOK");
                 	window.open(data+"/retoN.jsp");   
                 },
                 error: function() {
-                    alert('Error occured 23');
+                    alert('Ha ocurrido un error.');
                 }
             });
 		});

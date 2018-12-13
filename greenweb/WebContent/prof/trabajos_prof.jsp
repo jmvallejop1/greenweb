@@ -23,7 +23,6 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	 $(document).ready(function() {
 			$('.SelectDef').click(function(event) {
 				var id=$(this).parent().attr("id");
-				//alert(id);
 				$.post('../SeleccionGanador', {
 					idcartel: id
 				}, function(responseText) {
@@ -36,17 +35,15 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	$(document).ready(function() {
 		$('.Trabajo').click(function(event) {
 			var id = $(this).parent().parent().attr("id");
-			//alert(id);
 			$.ajax({
                 type: "POST",
                 url: '../RetoPreg',
                 data: ({ idn: id}),
                 success: function(data) {
-                	//alert("TodoOK");
                 	window.open(data+"/retoP.jsp");   
                 },
                 error: function() {
-                    alert('Error occured 23');
+                    alert('Ha ocurrido un error.');
                 }
             });
 		});

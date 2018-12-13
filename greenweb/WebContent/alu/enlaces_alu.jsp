@@ -36,7 +36,6 @@
 		$(document).ready(function() {
 			$("#subir").click(function(){
 				var miVar = $("#InputEnlace").val();
-		        alert("Text: " + $("#InputEnlace").val());
 		        $.post("../SubirEnlace", {
 					id: miVar
 				}, function() {

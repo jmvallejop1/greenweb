@@ -13,7 +13,7 @@
 			$(".vota").click(function(){
 				var miVar =  $(this).prev().prev().text();
 				vot = $(this).prev();
-				alert("Text: " + $(this).prev().prev().text());
+		
 				$.post("../SumaVoto", {
 					id: miVar
 				}, function(data) {

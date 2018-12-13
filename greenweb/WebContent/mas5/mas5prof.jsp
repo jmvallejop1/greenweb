@@ -13,7 +13,6 @@
 			$(".vota").click(function(){
 				var miVar =  $(this).prev().prev().text();
 				vot = $(this).prev();
-				alert("Text: " + $(this).prev().prev().text());
 				$.post("../SumaVoto", {
 					id: miVar
 				}, function(data) {
@@ -28,7 +27,6 @@
 		 $(".elimina").click(function(){
 			 	var miVar =  $(this).prev().prev().prev().text();
 			 	$(this).closest('tr').remove();
-		        alert("Text: " + $(this).prev().prev().prev().text());
 		        $.post("../EliminaEnlace", {
 					id: miVar
 				}, function() {	
