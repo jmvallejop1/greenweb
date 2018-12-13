@@ -45,7 +45,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
               <label><c:out value="${pre.preg.preg.r4}"></c:out></label></li>
           </ul>
           <div class="respuesta">
-          		<input type="button" name="Cancelar" value="Confirmar" onClick="window.location.href='reto_contestado.html'" >
+          		<input type="button" name="Cancelar" value="Confirmar">
           </div>
           </form>
       </div>

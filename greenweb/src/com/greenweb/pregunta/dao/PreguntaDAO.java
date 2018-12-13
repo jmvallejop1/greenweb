@@ -510,23 +510,23 @@ public class PreguntaDAO {
   
     //FUNCIONA
     public int idPreguntaRetoActual() {
-    	int res=-1;
-    	try {
-        	connect=ConnectionManager.getConnection();
+        int res=-1;
+        try {
+            connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	String consulta="select id from preguntas where id=(select idpreg from carteles where id=(select idcartel from retos where id=(select max(id) from retos)))";
-        	resultSet=statement.executeQuery(consulta);
+            String consulta="select id from preguntas where id=(select idpreg from carteles where id=(select idcartel from retos where id=(select max(id) from retos)))";
+            resultSet=statement.executeQuery(consulta);
             if(resultSet.next()) res=Integer.parseInt(resultSet.getString("id"));
             return res;
-    	}
-    	catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
-    	}
-    	finally {
+        }
+        finally {
             close();
-    	}
+        }
         return res;
     }
     
@@ -603,7 +603,8 @@ public class PreguntaDAO {
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-        	String consulta="select * from (select id from preguntas where id like '%' AND id!="+pRA+" order by dbms_random.value) where rownum <=4";
+            String consulta="select id from preguntas where id!="+pRA+" order by rand() limit 4";
+        	//String consulta="select * from (select id from preguntas where id like '%' AND id!="+pRA+" order by dbms_random.value) where rownum <=4";
         	resultSet=statement.executeQuery(consulta);
             if(resultSet.next()) {
             	int[] enteros = new int[4];
