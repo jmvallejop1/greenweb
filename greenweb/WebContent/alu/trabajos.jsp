@@ -70,7 +70,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 <body onload="myFunction()">
 	<!-- BARRA DE NAVEGACION Y HEADER-->
    <iframe src="menu_alumno.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
-	
+   <section>
 	<h1> ¡Tablón con todos los carteles!</h1>
 	<%
 		CartelesManager cman=new CartelesManager();
@@ -87,7 +87,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   		<div id=<%out.print(c.getIdPreg());%>>
 	   			<div id=<%out.print(c.getId());%>>
 			   		<div class="Trabajo">
-			   			<img src="../images/<%out.print(c.getFoto());%>" alt="Imagen trabajo">
+			   			<img height="840" width="840" src="../images/<%out.print(c.getFoto());%>" alt="Imagen trabajo">
 			   			<p>		
 			   				<%out.println(c.getNoti().getTitulo());%>
 			   			</p>
@@ -106,7 +106,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 	   }
 	   %>
 	   </div>
-   
- <iframe  src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="125" frameborder="no"></iframe>
+ </section>
+ <iframe  src="../footer.html" class="frames" scrolling="no" border="no" width="100%" height="5%" frameborder="no"></iframe>
 </body>
 </html>

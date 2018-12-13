@@ -76,7 +76,6 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				<input type="text" id="nombreAlu" name="alumno" placeholder="Profesor a añadir">
 				<input type="submit" id="anadirProf" value="Añadir profesor">
 			<hr>
-			<input type="text" id="myInput" placeholder="Buscar alumno...">
 			<table id="myTable">
 			  	<thead class="header">
 			  		<tr>

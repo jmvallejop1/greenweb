@@ -25,8 +25,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 					<input id = "passwd "type="password"required autocomplete="off" placeholder="Contraseña" name="pass"/>
 				</div>
           
-				<p class="forgot"><a href="#">¿Olvidaste tu contraseña?</a></p>
-          
+				
 				<button type="submit" id="inicio">Iniciar Sesion</button>          
           </form>
 

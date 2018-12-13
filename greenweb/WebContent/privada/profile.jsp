@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="utf-8">
 	<title> Mi cuenta </title>
@@ -73,14 +73,14 @@
 	<jsp:setProperty name="man" property="loadUsername" value="${sessionScope.id}" />   	               
 	<iframe src="menu_priv.jsp" class="frames" scrolling="no" border="no" width="100%" height="220" frameborder="no"></iframe>
 	<div class="box2">
-		<img src="../images/perfil.jpg" alt="Su foto de perfil" id="ProfPic">
+		<img src="../images/negro.jpg" alt="Su foto de perfil" id="ProfPic">
 		<div class="infoUser">
 			<center>
-				<h2> InformaciÃ³n personal de <c:out value="${man.nombre}"></c:out></h2>
+				<h2> Información personal de <c:out value="${man.nombre}"></c:out></h2>
 				<table>
 					<tr class="data"><td>Tipo de cuenta: </td><td id="tipo"><c:out value="${man.tipo}"></c:out></td></tr>
 					<tr class="data"><td>Id de usuario: </td><td><c:out value="${man.username}"></c:out></td></tr>
-					<tr class="data"><td>Correo electrÃ³nico: </td><td> <c:out value="${man.mail}"></c:out></td></tr>
+					<tr class="data"><td>Correo electrónico: </td><td> <c:out value="${man.mail}"></c:out></td></tr>
 					<tr class="data"><td>Edad: </td><td><c:out value="${man.edad}"></c:out></td></tr>
 					<tr class="data"><td>Ocupacion actual: </td><td id="est"><c:out value="${man.estudios}"></c:out></td></tr>
 					<tr><td><a href="editProfile.jsp">Editar datos</a></td></tr>

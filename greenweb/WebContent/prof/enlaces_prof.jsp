@@ -82,7 +82,7 @@
 						<tr><th>Enlaces mejor valorados</th><th>Votos verdes</th><th>Vota</th><th>EliminarEnlace</th></tr>
 					</thead>	
 					<c:forEach var="enlace" end="5" items="${man.enlaces}">
-						<tr><td><a href="#"><c:out value="${enlace.URL}"></c:out></a></td> <td><c:out value="${enlace.votos}"></c:out></td><td class="vota"><img src="../images/fiable.png"></td><td class="elimina"><img src="../images/fiable.png"></td></tr>	
+						<tr><td><a href="#"><c:out value="${enlace.URL}"></c:out></a></td> <td><c:out value="${enlace.votos}"></c:out></td><td class="vota"><img src="../images/fiable.png"></td><td class="elimina"><img src="../images/borrar.png"></td></tr>	
 					</c:forEach>
 				</table>
 			</div>

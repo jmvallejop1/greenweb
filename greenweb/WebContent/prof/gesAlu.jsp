@@ -100,7 +100,7 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 				<input type="text" id="userid" placeholder="Usuario a añadir">
 				<input type="submit" id="anadirAEnt" value="Añadir a entrega">
 			<hr>
-			<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar alumno...">
+			
 			<table id="myTable">
 			  	<tr class="header">
 			    	<th style="width:55%;">Nombre</th>
