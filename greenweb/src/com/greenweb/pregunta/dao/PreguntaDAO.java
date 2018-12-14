@@ -246,7 +246,6 @@ public class PreguntaDAO {
                     return respuesta;
                 }
                 return -1;
-
             }
     		if(mostrarRes(idU, idPreg)) {
     			connect=ConnectionManager.getConnection();

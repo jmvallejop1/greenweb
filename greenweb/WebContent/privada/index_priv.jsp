@@ -70,9 +70,9 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
 </script>
 <script>
 function comprobar(valor){
-		if(valor == "noOK"){
+		if(valor == 0){
 			window.alert("Esta pregunta ya ha sido contestada");
-		}else if(valor == "ok"){
+		}else if(valor == 1){
 			window.alert("Pregunta repondida");
 		}
 }

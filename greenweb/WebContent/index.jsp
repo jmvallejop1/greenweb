@@ -15,7 +15,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js%22%3E</script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
 	<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">   
     <meta charset="utf-8">

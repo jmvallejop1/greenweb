@@ -35,10 +35,10 @@ public class ContestarAdicional extends HttpServlet{
 			 PreguntasManager m = new PreguntasManager();
 			 if(m.responderPregAdicionalRA(idUser, re, idPreg)) {
 				 System.out.println("Responde acierto : ok");
-				 out.println("Ok");
+				 out.println(1);
 			 }else {
 				 System.out.println("Responde acierto : noOk");
-				 out.println("noOk");
+				 out.println(0);
 			 }
 			 
 			 
