@@ -47,7 +47,8 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
                 type: "POST",
                 url: 'ContestarInvitado',
                 data: ({ resp: array }),
-                success: function(data) {   
+                success: function(data) { 
+                	alert("Se ha guardado la respuesta.")
                 },
                 error: function() {
                     alert('Ha ocurrido un error.');
@@ -73,7 +74,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
       <div class="reto">
         <h3><c:out value="${reto.noti.titulo}"></c:out></h3>
             <p><video  controls="controls">
-              <source src="<c:out value="${reto.noti.video}"></c:out></h3>" type="video/mp4">
+              <source src="/<c:out value="${reto.noti.video}"></c:out></h3>" type="video/mp4">
             </video>
             	<c:out value="${reto.noti.texto}"></c:out>
             </p>
@@ -94,7 +95,7 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
               <li><input type="checkbox" name="resp" value="4" />
               <label><c:out value="${reto.preg.r4}"></c:out></label></li>
           </ul>
-          <input type="submit" id="ContestarPrincipal" name="Aceptar" value="Contestar!">
+          <input type="button" id="ContestarPrincipal" name="Aceptar" value="Contestar!">
           </form>
         </div>
       </div>

@@ -32,7 +32,8 @@ import="com.greenweb.pregunta.*,java.util.List,com.greenweb.pregunta.data.*"
                 type: "POST",
                 url: '../ContestarActual',
                 data: ({ resp: array }),
-                success: function(data) {    
+                success: function(data) {  
+                	alert("Se ha guardado la respuesta.")
                 },
                 error: function() {
                     alert('Ha ocurrido un error.');
