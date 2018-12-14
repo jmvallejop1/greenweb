@@ -49,7 +49,6 @@ import="com.greenweb.usuario.*,java.util.List,com.greenweb.usuario.data.*"
 			$(document).ready(function() {
 		 		$("#anadirAEnt").click(function(){
 		 			var nombreUsuario = $("#userid").val();
-		 			alert(nombreUsuario)
 		        	$.post("../AsociarUserEntrega", {
 						username: nombreUsuario
 						}, function(responseText) {

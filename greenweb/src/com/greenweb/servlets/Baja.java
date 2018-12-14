@@ -22,7 +22,9 @@ public class Baja extends HttpServlet{
 		if(session!=null) {
 			UsuarioManager um = new UsuarioManager();
 			String id = (String)session.getAttribute("id");
-			um.eliminarUsuario(id);
+			if(um.eliminarUsuario(id)) {
+				response.sendRedirect(request.getContextPath()+"/index.jsp");
+			}
 		}		
 	}
 }

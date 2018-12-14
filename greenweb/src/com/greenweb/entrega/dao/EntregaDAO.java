@@ -54,15 +54,17 @@ public class EntregaDAO {
                 
                 String update="update carteles set ";
                 String[] autores=c.getCreadores();
+                UsuarioDAO udao=new UsuarioDAO();
                 for(int i=0; i<5; i++) {
-                	update+="creador"+(i+1)+'=';
-                	if(autores[i]==null) {
-                		update+="NULL";
-                	}
-                	else {
-                    	update+='\''+autores[i]+'\'';
-                	}
-                	if(i<4)update+=", ";
+                    if(!udao.existeUsuario(autores[i])) return false;
+                    update+="creador"+(i+1)+'=';
+                    if(autores[i]==null) {
+                        update+="NULL";
+                    }
+                    else {
+                        update+="'"+autores[i]+"'";
+                    }
+                    if(i<4)update+=", ";
                 }
                 update+=" where id="+c.getId();
                 int modifc=statement.executeUpdate(update);
@@ -307,6 +309,8 @@ public class EntregaDAO {
     //Se puede invocar con el numero de entrega deseado o con -1 para asignarle al usuario la ultima entrega
     public boolean setNumEntrega(String username) {
     	try {
+    		UsuarioDAO udao=new UsuarioDAO();
+            if(!udao.existeUsuario(username)) return false;
     		connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();

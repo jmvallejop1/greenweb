@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.greenweb.ConnectionManager;
 import com.greenweb.comentario.data.ComentarioDO;
+import com.greenweb.usuario.dao.UsuarioDAO;
 import com.greenweb.usuario.data.UsuarioDO;
 
 public class ComentarioDAO {
@@ -65,6 +66,8 @@ public class ComentarioDAO {
 		public boolean anyadirComentario(ComentarioDO c) {
 			boolean resul=false;
 	    	try {
+	    		UsuarioDAO udao=new UsuarioDAO();
+                if(!udao.existeUsuario(c.getIdUser())) return false;
 	        	connect=ConnectionManager.getConnection();
 	            // Statements allow to issue SQL queries to the database
 	            statement = connect.createStatement();

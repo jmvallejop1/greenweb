@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.greenweb.hashfunct.FuncionHash;
 import com.greenweb.usuario.UsuarioManager;
+import com.greenweb.usuario.dao.UsuarioDAO;
 import com.greenweb.usuario.data.UsuarioDO;
 
 @WebServlet("/Autentificacion")
@@ -31,6 +32,7 @@ public class Autentificacion extends HttpServlet{
 				 response.sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=loginerror");				 
 			}
 			UsuarioManager m = new UsuarioManager();
+			if(m.existeUsuario(usr)) {
 			UsuarioDO u = m.obtenerUsuario(usr);
 			if(u.getContr().equals(FuncionHash.md5Hash(pass))) {
 				String tipo = u.getTipo();
@@ -46,9 +48,12 @@ public class Autentificacion extends HttpServlet{
 					session.setAttribute("logged","prof");
 					session.setAttribute("id",usr);
 					response.sendRedirect(request.getContextPath()+"/prof/index_prof.jsp");
-				}			
+				}
 			}else {
-				response.sendRedirect(request.getContextPath()+"/prof/index_prof.jsp");
+				 response.sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=loginerror");
+			}
+			}else {
+				response.sendRedirect(request.getContextPath()+"/formulario_login.jsp?error=loginerror");
 			}
 		
 		}

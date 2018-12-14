@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.greenweb.ConnectionManager;
 import com.greenweb.pregunta.data.PreguntaDO;
+import com.greenweb.usuario.dao.UsuarioDAO;
 
 public class PreguntaDAO {
 	private Connection connect = null;
@@ -173,6 +174,8 @@ public class PreguntaDAO {
     	boolean todoOK=false;
     	try {
             //Ahora obtenemos las preguntas 
+    		UsuarioDAO udao=new UsuarioDAO();
+            if(!udao.existeUsuario(idU)) return false;
         	int[] pregs=getPregsAdi(idU);
         	connect=ConnectionManager.getConnection();
             // Statements allow to issue SQL queries to the database
@@ -228,6 +231,8 @@ public class PreguntaDAO {
     public int responderPreg(String idU, int res, int idPreg) throws Exception{ //Devolverá un booleano indicando si debe mostrar la respuesta o no
     	int respuesta=-1;
     	try {
+    		UsuarioDAO udao=new UsuarioDAO();
+            if(!udao.existeUsuario(idU)) return respuesta;
     		if(mostrarRes(idU, idPreg)) {
     			connect=ConnectionManager.getConnection();
                 // Statements allow to issue SQL queries to the database
