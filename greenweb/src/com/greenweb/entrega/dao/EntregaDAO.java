@@ -137,34 +137,35 @@ public class EntregaDAO {
             	UsuarioDAO udao=new UsuarioDAO();
             	PreguntaDAO pdao=new PreguntaDAO();
             	String consulta="select iduser, respra, idp1, respp1, idp2, respp2, idp3, respp3, idp4, respp4 from respuestasu where idreto="+idRetoViejo;
-            	resultSet=statement.executeQuery(consulta);
-            	while(resultSet.next() && okay) {
-            		UsuarioDO u=udao.obtenerUsuario(resultSet.getString("iduser"));
+            	ResultSet mio=statement.executeQuery(consulta);
+            	int i=0; String update[] = new String[100];
+            	while(mio.next() && okay) {
+            		UsuarioDO u=udao.obtenerUsuario(mio.getString("iduser"));
             		int puntosUser=u.getPuntos();
             		int respra=pdao.resPreguntaRetoActual();
-            		if(respra==Integer.parseInt(resultSet.getString("respra")))puntosUser+=10;
+            		if(respra==Integer.parseInt(mio.getString("respra")))puntosUser+=10;
             		else puntosUser-=5;
             		int numfallos=0;
             		int numrespuestas=0;
-            		if(resultSet.getString("respp1")!=null) {
+            		if(mio.getString("respp1")!=null) {
             			numrespuestas++;
-            			int respad=Integer.parseInt(resultSet.getString("respp1"));
-            			if(respad!=pdao.resPregunta(Integer.parseInt(resultSet.getString("idp1")))) numfallos++;
+            			int respad=Integer.parseInt(mio.getString("respp1"));
+            			if(respad!=pdao.resPregunta(Integer.parseInt(mio.getString("idp1")))) numfallos++;
             		}
-            		if(resultSet.getString("respp2")!=null) {
+            		if(mio.getString("respp2")!=null) {
             			numrespuestas++;
-            			int respad=Integer.parseInt(resultSet.getString("respp2"));
-            			if(respad!=pdao.resPregunta(Integer.parseInt(resultSet.getString("idp2")))) numfallos++;
+            			int respad=Integer.parseInt(mio.getString("respp2"));
+            			if(respad!=pdao.resPregunta(Integer.parseInt(mio.getString("idp2")))) numfallos++;
             		}
-            		if(resultSet.getString("respp3")!=null) {
+            		if(mio.getString("respp3")!=null) {
             			numrespuestas++;
-            			int respad=Integer.parseInt(resultSet.getString("respp3"));
-            			if(respad!=pdao.resPregunta(Integer.parseInt(resultSet.getString("idp3")))) numfallos++;
+            			int respad=Integer.parseInt(mio.getString("respp3"));
+            			if(respad!=pdao.resPregunta(Integer.parseInt(mio.getString("idp3")))) numfallos++;
             		}
-            		if(resultSet.getString("respp4")!=null) {
+            		if(mio.getString("respp4")!=null) {
             			numrespuestas++;
-            			int respad=Integer.parseInt(resultSet.getString("respp4"));
-            			if(respad!=pdao.resPregunta(Integer.parseInt(resultSet.getString("idp4")))) numfallos++;
+            			int respad=Integer.parseInt(mio.getString("respp4"));
+            			if(respad!=pdao.resPregunta(Integer.parseInt(mio.getString("idp4")))) numfallos++;
             		}
             		if(numrespuestas>0) { //No ha respondido a ninguna pregunta adicional
             			if(numrespuestas==1) {
@@ -196,12 +197,14 @@ public class EntregaDAO {
             		}
             		if(puntosUser<0)puntosUser=0;
             		//Ya hemos calculado el nuevo valor de los puntos del usuario
-            		String update="update usuarios set puntos="+puntosUser+" where username='"+u.getUsername()+'\'';
-                	System.out.println("Ejecutando: "+update);
-            		res=statement.executeUpdate(update);
+            		update[i]="update usuarios set puntos="+puntosUser+" where username='"+u.getUsername()+'\'';
+                	i++;
+            		System.out.println("Se ejecutara: "+update);
+            	}
+            	for (int j=0; j<i; j++) {
+            		res=statement.executeUpdate(update[j]);
             		if(res!=1) {
             			okay=false;
-            			System.out.println("ERROR - NO SE HA PODIDO ACTUALIZAR LOS PUNTOS DE "+u.getUsername());
             		}
             	}
             	System.out.println("Todos los usuarios actualizados "+okay);
