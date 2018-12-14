@@ -51,7 +51,7 @@
 	      		</div>
 	      		<div class="InfoNoticia">
 	        		<p><video  controls="controls">
-	        		<source src="video/vid1.mp4" type="video/mp4">
+	        		<source src="../<c:out value="${noticia.video}"></c:out>" type="video/mp4">
 	        		</video><c:out value="${noticia.texto}"></c:out> 
 	        		</p>
 	       		</div>
