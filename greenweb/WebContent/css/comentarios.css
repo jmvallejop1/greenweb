@@ -178,16 +178,5 @@ form {
 	color: #03658c;	
 }
 
-.comentario_caja .nombre_comentario.by-author:after {
-	content: 'usuario';
-	background: #03658c;
-	color: #FFF;
-	font-size: 12px;
-	padding: 3px 5px;
-	font-weight: 700;
-	margin-left: 10px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-}
+
 

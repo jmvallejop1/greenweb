@@ -129,7 +129,9 @@ function comprobar(valor){
 	  <jsp:setProperty name="pre" property="user" value="${sessionScope.id}" /> 
 	  <c:choose>        
 		<c:when test = "${pre.respondido == false}">
+		    <center>
 			No se ha respondido al reto actual...
+			</center>
 		</c:when>              
 		<c:otherwise>
 		<div class="container">
