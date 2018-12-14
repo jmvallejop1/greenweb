@@ -232,7 +232,22 @@ public class PreguntaDAO {
     	int respuesta=-1;
     	try {
     		UsuarioDAO udao=new UsuarioDAO();
-            if(!udao.existeUsuario(idU)) return respuesta;
+    		if(!udao.existeUsuario(idU)) {
+                connect=ConnectionManager.getConnection();
+                // Statements allow to issue SQL queries to the database
+                statement = connect.createStatement();
+                String correcta="select respcorrecta from preguntas where id="+idPreg;
+                System.out.println("Se va a ejecutar: "+correcta);
+                resultSet=statement.executeQuery(correcta);
+                if(resultSet.next()) {
+                    //System.out.println("Se va a comprobar si la respuesta es correcta");
+                    respuesta=Integer.parseInt(resultSet.getString("respcorrecta"));
+                    if(respuesta==res) return 0;
+                    return respuesta;
+                }
+                return -1;
+
+            }
     		if(mostrarRes(idU, idPreg)) {
     			connect=ConnectionManager.getConnection();
                 // Statements allow to issue SQL queries to the database
